@@ -31,7 +31,7 @@ export default function Header () {
         </Link>
       </NavbarItem>
       <NavbarItem>
-        <Link href={'https://github.com/thorchain/asgardex-electron/releases'} target='_blank'>
+        <Link href={'https://github.com/asgardex/asgardex-desktop/releases'} target='_blank'>
           <Image src={'/github-black-logo.avif'} alt={'Asgardex Discord'} width={24} height={24} />
         </Link>
       </NavbarItem>
