@@ -61,9 +61,9 @@ export default async function InstallerPage () {
         <h3 className='text-2xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-dark-gray'>
           Visit our github for detailed release notes and signed binaries
         </h3>
-        <div className="flex flex-col items-center md:flex-row md:items-center gap-4 py-12">
+        <div className="flex flex-col items-center justify-center md:flex-row md:items-center gap-4 py-8">
           <Link href={'https://github.com/asgardex/asgardex-desktop/releases'} target='_blank'>
-            <Button className='bg-asgardex-primary-500 cursor-pointer p-2 hover:bg-asgardex-primary-300'>
+            <Button className='bg-asgardex-primary-500 cursor-pointer p-2 hover:bg-asgardex-primary-300 outline-none'>
               <p className="text-base md:text-lg">
                 Check out the latest releases on GitHub
               </p>
@@ -71,7 +71,7 @@ export default async function InstallerPage () {
             </Button>
           </Link>
           <Link href={'https://github.com/asgardex/asgardex-desktop/issues'} target='_blank'>
-            <Button className='bg-asgardex-primary-500 cursor-pointer p-2 hover:bg-asgardex-primary-300'>
+            <Button className='bg-asgardex-primary-500 cursor-pointer p-2 hover:bg-asgardex-primary-300 outline-none'>
               <p className="text-base md:text-lg">
                 Found an bug? report it here
               </p>

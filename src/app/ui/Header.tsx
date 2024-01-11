@@ -26,7 +26,7 @@ export default function Header () {
         </Link>
       </NavbarItem>
       <NavbarItem>
-        <Link href={'https://discord.com/invite/XjV3Hnud'} target='_blank'>
+        <Link href={'https://discord.gg/hkeJxHS7d7'} target='_blank'>
           <Image src={'/discord-black-logo.avif'} alt={'Asgardex Discord'} width={24} height={24} />
         </Link>
       </NavbarItem>
