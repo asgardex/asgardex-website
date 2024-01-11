@@ -10,29 +10,38 @@ export default function Home () {
           <h1 className='text-3xl md:text-5xl lg:text-[80px] font-extrabold mb-4'>
             Welcome to <span className='bg-gradient-primary bg-clip-text text-transparent'>Asgardex:</span>
           </h1>
-          <h2 className='text-xl md:text-3xl lg:text-5xl text-asgardex-dark-900 font-medium mb-14'>
-            Your Gateway to Decentralized Finance
-          </h2>
-
-          <h2 className='text-2xl md:text-5xl lg:text-6xl font-bold mb-8'>
-            Easy, Fast and Secure Download
-          </h2>
-          <p className='text-sm md:text-lg lg:text-xl font-normal mb-8'>
+        </div>
+        <section className='flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8'>
+          <div className='max-w-[1000px] text-center'>
+            <div className='max-w-[1000px] m-auto pb-4'>
+              <h2 className='text-2xl md:text-5xl lg:text-6xl font-bold mb-8'>
+                Seamless Multi-Chain L1 Exchange at Your Fingertips
+              </h2>
+              <p className='text-sm md:text-lg lg:text-xl font-normal mb-8'>
+                Dive into the world of decentralized finance with Asgardex, the open-source desktop application
+                designed exclusively for THORChain and MayaProtocol. Exchange a lot of of assets across various chains
+                including BTC, ETH, AVAX, BSC, and Cosmos, all in one intuitive interface.
+              </p>
+              <p className='text-sm md:text-lg lg:text-xl font-normal mb-8'>
             Get started in seconds with a simple and secure download process. We ensure
             a smooth and hassle-free experience, allowing you to focus on what matters most.
           </p>
-          <Button as={Link} href='/installer' className='bg-asgardex-primary-500 px-11 rounded-lg text-lg text-asgardex-dark-1000'>
+          <Button as={Link} href='/installer' className='bg-asgardex-primary-500 px-11 rounded-lg text-lg text-asgardex-dark-1000 border-outline-none '>
             Download Now
           </Button>
-        </div>
+            </div>
+
+            <Image src={'/chains-list-home.avif'} alt='' width={1085} height={554} />
+          </div>
+        </section>
 
       </section>
 
-      <section className='flex flex-col max-w-[1000px] w-full items-center justify-center bg-asgardex-gray-200 px-6 md:px-16 lg:px-8'>
+      <section className='flex flex-col max-w-[1000px] w-full items-center justify-center px-6 md:px-16 lg:px-8'>
 
-          <div className='aspect-video w-full'>
-            <iframe className='w-full h-full' src='https://www.youtube.com/embed/Tol_HUckKxM?si=Cl02IDaalozO489N' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowFullScreen></iframe>
-          </div>
+        <div className='aspect-video w-full'>
+          <iframe className='w-full h-full' src='https://www.youtube.com/embed/Tol_HUckKxM?si=Cl02IDaalozO489N' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowFullScreen></iframe>
+        </div>
 
       </section>
 
@@ -75,22 +84,6 @@ export default function Home () {
               <h5 className='text-asgardex-dark-1000 font-medium text-sm lg:text-lg'>Monitor validators behaviour.</h5>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section className='flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8'>
-        <div className='max-w-[1000px] text-center'>
-          <div className='max-w-[800px] m-auto'>
-            <h2 className='text-2xl md:text-5xl lg:text-6xl font-bold mb-8'>
-              Seamless Multi-Chain Exchange at Your Fingertips
-            </h2>
-            <p className='text-sm md:text-lg lg:text-xl font-normal mb-8'>
-              Dive into the world of decentralized finance with Asgardex, the open-source desktop application
-              designed exclusively for THORChain and MayaProtocol. Exchange a lot of of assets across various chains
-              including BTC, ETH, AVAX, BSC, and Cosmos, all in one intuitive interface.
-            </p>
-          </div>
-          <Image src={'/chains-list-home.avif'} alt='' width={1085} height={554} />
         </div>
       </section>
 
@@ -395,7 +388,7 @@ export default function Home () {
               </div>
               <h5 className='text-sm md:text-xl font-bold mt-8'>GitHub Community</h5>
               <p className='text-xs md:text-sm mt-2'>Manage and multiply GitHub links.</p>
-              <Link className='w-full' href={'https://github.com/thorchain/asgardex-electron/releases'} target='_blank'>
+              <Link className='w-full' href={'https://github.com/asgardex/asgardex-desktop/releases'} target='_blank'>
                 <Button className='bg-asgardex-secondary-500 font-bold rounded-lg w-full mt-8 text-white text-lg'>
                   Join
                 </Button>
