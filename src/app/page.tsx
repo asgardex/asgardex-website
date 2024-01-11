@@ -11,16 +11,9 @@ export default function Home () {
             Welcome to <span className='bg-gradient-primary bg-clip-text text-transparent'>Asgardex:</span>
           </h1>
           <h2 className='text-xl md:text-3xl lg:text-5xl text-asgardex-dark-900 font-medium mb-14'>
-            Your Gateway to Descentralized Finance
+            Your Gateway to Decentralized Finance
           </h2>
-          <div className='aspect-video w-full'>
-            <iframe className='w-full h-full' src='https://www.youtube.com/embed/Tol_HUckKxM?si=Cl02IDaalozO489N' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowFullScreen></iframe>
-          </div>
-        </div>
-      </section>
 
-      <section className='flex flex-col w-full items-center justify-center bg-asgardex-gray-200 px-6 md:px-16 lg:px-8'>
-        <div className='max-w-[800px] text-center py-16'>
           <h2 className='text-2xl md:text-5xl lg:text-6xl font-bold mb-8'>
             Easy, Fast and Secure Download
           </h2>
@@ -28,10 +21,19 @@ export default function Home () {
             Get started in seconds with a simple and secure download process. We ensure
             a smooth and hassle-free experience, allowing you to focus on what matters most.
           </p>
-          <Button as={Link} href='/installer' className='bg-asgardex-secondary-800 text-md font-semibold rounded-lg px-10 text-white'>
-            Learn More
+          <Button as={Link} href='/installer' className='bg-asgardex-primary-500 px-11 rounded-lg text-lg text-asgardex-dark-1000'>
+            Download Now
           </Button>
         </div>
+
+      </section>
+
+      <section className='flex flex-col max-w-[1000px] w-full items-center justify-center bg-asgardex-gray-200 px-6 md:px-16 lg:px-8'>
+
+          <div className='aspect-video w-full'>
+            <iframe className='w-full h-full' src='https://www.youtube.com/embed/Tol_HUckKxM?si=Cl02IDaalozO489N' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowFullScreen></iframe>
+          </div>
+
       </section>
 
       <section className='flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8'>
@@ -84,7 +86,7 @@ export default function Home () {
             </h2>
             <p className='text-sm md:text-lg lg:text-xl font-normal mb-8'>
               Dive into the world of decentralized finance with Asgardex, the open-source desktop application
-              designed exclusively for THORChain and MayaProtocol. Exchange a a lot of of assets across various chains
+              designed exclusively for THORChain and MayaProtocol. Exchange a lot of of assets across various chains
               including BTC, ETH, AVAX, BSC, and Cosmos, all in one intuitive interface.
             </p>
           </div>
@@ -230,7 +232,7 @@ export default function Home () {
                 <Image src={'/leverage-future-logo.avif'} alt='' width={32} height={32} />
               </div>
               <div className='text-left'>
-                <h4 className='text-asgardex-dark-1000 text-lg font-bold mb-2'>Leverage Future Trading</h4>
+                <h4 className='text-asgardex-dark-1000 text-lg font-bold mb-2'>Leveraged Future Trading</h4>
                 <h5 className='text-asgardex-dark-1000 text-sm font-medium'>Stay ahead with our features</h5>
               </div>
             </div>

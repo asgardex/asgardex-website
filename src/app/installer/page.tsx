@@ -53,6 +53,32 @@ export default async function InstallerPage () {
             {previous && <Selector label='Previous Versions' items={previous.linux} />}
           </div>
         </div>
+
+      </div>
+    </section>
+    <section className='flex flex-col max-w-[1085px] w-full items-center justify-center px-6 md:px-16 lg:px-8'>
+      <div className='text-center py-16'>
+        <h3 className='text-2xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-dark-gray'>
+          Visit our github for detailed release notes and signed binaries
+        </h3>
+        <div className="flex flex-col items-center md:flex-row md:items-center gap-4 py-12">
+          <Link href={'https://github.com/asgardex/asgardex-desktop/releases'} target='_blank'>
+            <Button className='bg-asgardex-primary-500 cursor-pointer p-2 hover:bg-asgardex-primary-300'>
+              <p className="text-base md:text-lg">
+                Check out the latest releases on GitHub
+              </p>
+              <Image src={'/github-black-logo.avif'} alt={'GitHub Release Page'} width={35} height={35} />
+            </Button>
+          </Link>
+          <Link href={'https://github.com/asgardex/asgardex-desktop/issues'} target='_blank'>
+            <Button className='bg-asgardex-primary-500 cursor-pointer p-2 hover:bg-asgardex-primary-300'>
+              <p className="text-base md:text-lg">
+                Found an bug? report it here
+              </p>
+              <Image src={'/github-black-logo.avif'} alt={'GitHub Release Page'} width={35} height={35} />
+            </Button>
+          </Link>
+        </div>
       </div>
     </section>
   </main>
