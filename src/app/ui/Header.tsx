@@ -67,7 +67,7 @@ export default function Header () {
         <Link href={'https://discord.com/invite/XjV3Hnud'} target='_blank'>
           <Image src={'/discord-black-logo.avif'} alt={'Asgardex Discord'} width={35} height={35} />
         </Link>
-        <Link href={'https://github.com/thorchain/asgardex-electron/releases'} target='_blank'>
+        <Link href={'https://github.com/asgardex/asgardex-desktop/releases'} target='_blank'>
           <Image src={'/github-black-logo.avif'} alt={'Asgardex Discord'} width={35} height={35} />
         </Link>
         <Link href={'https://thorchain.org/'} target='_blank'>

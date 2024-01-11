@@ -35,7 +35,7 @@ export default function Footer () {
             <Image src={'/maya-black-logo.avif'} alt={'Maya Protocol logotipe'} width={24} height={24} />
           </Link>
         </div>
-        <p className='text-xs font-normal text-asgardex-dark-600'>Asgardex © 2023. All right reserved.</p>
+        <p className='text-xs font-normal text-asgardex-dark-600'>Asgardex © 2023. All rights reserved.</p>
       </div>
     </nav>
   </footer>
