@@ -38,9 +38,9 @@ const buildReleaseItem = (releaseItem: Release) => {
 
 export async function getAsgardexReleases () {
   try {
-    const res = await fetch('https://api.github.com/repos/asgardex/asgardex-desktop/releases')
+    const cacheBuster = new Date().getTime()
+    const res = await fetch(`https://api.github.com/repos/asgardex/asgardex-desktop/releases?nocache=${cacheBuster}`)
     const releases = await res.json()
-
     const latest = buildReleaseItem(releases.shift() as Release)
     const previous = releases.map((item: Release) => buildReleaseItem(item))
     return {
