@@ -16,6 +16,7 @@ export default function Footer () {
         <p>Stay updated with the latest from Asgardex. Follow us on X, join the conversation on
           Discord, and explore our code on GitHub. For detailed insights and updates, don’t forget to
           check out also <Link href='https://twitter.com/THORChain' target='_blank' className='text-asgardex-hyperlink'>THORChain X</Link> and <Link href='https://www.mayaprotocol.com/' target='_blank' className='text-asgardex-hyperlink'>MayaProtocol</Link>.</p>
+      <p>The Asgardex Team oversees the operation of this website. Our repository is maintained on Github under <Link href='https://github.com/asgardex/asgardex-website' target='_blank' className='text-asgardex-hyperlink'>asgardex-website</Link> , where all code is openly available.</p>
       </div>
       <div className='w-56 flex flex-col items-center justify-between'>
         <div className='flex flex-row w-full items-center justify-between mb-4'>

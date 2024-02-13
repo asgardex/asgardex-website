@@ -1,15 +1,14 @@
-# Next.js template
+Welcome to the Asgardex.com landing page project repository. 
 
-This is a [Next.js](https://nextjs.org/) template for Kairos projects with the following features
+## Highlights of the Project Setup:
 
-
-- [Next.js 14](https://nextjs.org/) project using [App Router](https://nextjs.org/docs)
-- [Typescript 5.2.2](https://www.typescriptlang.org/) configured
-- [Tailwindcss](https://tailwindcss.com/) configured
-- [Eslint](https://eslint.org/) configured
-- [npmrc](https://docs.npmjs.com/cli/v9/configuring-npm/npmrc) file configured
-- [NextUI](https://nextui.org/) as the component library
-- [Tabler icons](https://tabler-icons.io/) as the icon library
+- **Framework**: Utilizes [Next.js 14](https://nextjs.org/), incorporating the latest [App Router](https://nextjs.org/docs) for seamless navigation and optimal user experiences.
+- **Language Support**: Fully supports [Typescript 5.2.2](https://www.typescriptlang.org/), allowing for strong typing and advanced JavaScript features.
+- **Styling**: Integrated with [Tailwindcss](https://tailwindcss.com/), enabling rapid UI development with utility-first CSS classes.
+- **Code Quality**: Includes [Eslint](https://eslint.org/) for consistent code style and bug prevention.
+- **Package Management**: Features a pre-configured [npmrc](https://docs.npmjs.com/cli/v9/configuring-npm/npmrc) file for smooth package management.
+- **UI Components**: Employs [NextUI](https://nextui.org/) for a sleek and modern component library.
+- **Icons**: Uses [Tabler icons](https://tabler-icons.io/) for high-quality, customizable icons.
 
 
 ## Getting Started
