@@ -22,6 +22,7 @@ export default function Home () {
                 designed exclusively for THORChain and MayaProtocol. Exchange a lot of of assets across various chains
                 including BTC, ETH, AVAX, BSC, and Cosmos, all in one intuitive interface.
               </p>
+              <p className='text-sm md:text-lg lg:text-xl font-normal mb-8'>Supported languages: French, Russian, Dutch, Hindi & Spanish</p>
               <p className='text-sm md:text-lg lg:text-xl font-normal mb-8'>
             Get started in seconds with a simple and secure download process. We ensure
             a smooth and hassle-free experience, allowing you to focus on what matters most.
@@ -336,7 +337,7 @@ export default function Home () {
               Transparent Fee Policy
             </h2>
             <p className='text-sm md:text-lg font-normal mb-2'>
-              Clear and fair - a standard 0.1% commission on all exchanges. No hidden fees, no surprises.
+              Clear and fair - a standard 0.1% commission on all swaps above 500 dollars, swaps below are affiliate free. No hidden fees, no surprises.
             </p>
             <p className='text-sm md:text-lg font-normal'>
               Learn and Grow with THORChain University (DYOR).
