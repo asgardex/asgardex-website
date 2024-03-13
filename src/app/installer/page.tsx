@@ -70,9 +70,27 @@ export default async function InstallerPage () {
     </section>
     <section className='flex flex-col max-w-[1085px] w-full items-center justify-center px-6 md:px-16 lg:px-8'>
       <div className='text-center py-16'>
-        <h3 className='text-2xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-dark-gray'>
+      <h3 className='text-2xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-dark-gray'>
           Visit our github for detailed release notes and signed binaries
         </h3>
+        <div className='text-m md:text-lg font-normal mb-8 text-dark-gray'>
+          <h2>V1.21.3 Release notes</h2>
+          <div className='flex text-sm justify-center'>
+            <ul className='list-disc list-inside text-left text-sm md:text-base'>
+              <li>AVAX & BSC are not fully functional with ledger.</li>
+              <li>First stage release of Lp Recovery tool</li>
+              <li>First stage release for MAYA Lp, more features to come</li>
+              <li>Sub 500 dollar swaps now affiliate free</li>
+              <li>
+                Mac users, the app is signed and notarized but Gatekeeper on Macs will still complain
+                <ul className='list-disc list-inside pl-4 text-left text-sm md:text-base'>
+                  <li>Use open anyway from settings.</li>
+                  <li>We are working to fix this issue.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
         <div className="flex flex-col items-center justify-center md:flex-row md:items-center gap-4 py-8">
           <Link href={'https://github.com/asgardex/asgardex-desktop/releases'} target='_blank'>
             <Button className='bg-asgardex-primary-500 cursor-pointer p-2 hover:bg-asgardex-primary-300 outline-none'>
