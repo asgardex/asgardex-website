@@ -3,7 +3,7 @@ import Selector from '../ui/Selector'
 import Link from 'next/link'
 import { getAsgardexReleases } from '../lib/api'
 
-export default async function InstallerPage () {
+export default async function InstallerPage() {
   const { latest, previous } = await getAsgardexReleases()
   return <main className="flex flex-col items-center pt-20">
     <section className='flex flex-col w-full items-center justify-center bg-asgardex-secondary-1000 px-20 lg:px-0'>
@@ -15,18 +15,6 @@ export default async function InstallerPage () {
           Stay up-to-date effortlessly. Whether you&apos;re using Windows, Mac, or Linux, downloading the
           latest version of Asgardex is just a click away. Keep track of updates.
         </p>
-        <div className='text-m pl-4 md:text-lg font-normal mb-8 text-white text-left'>
-        <p>V1.21.3 Release notes: More details on github release page.</p>
-        <div className='flex pl-4'>
-        <ul >
-          <li>AVAX & BSC are not fully functional with ledger.</li>
-          <li>First stage release of Lp Recovery tool</li>
-          <li>First stage release for MAYA Lp, more features to come</li>
-          <li>Sub 500 dollar swaps now affiliate free</li>
-          <li>Mac users, the app is signed and notarized but Gatekeeper on Macs will still complain.</li>
-        </ul>
-        </div>
-      </div>
         <div className="max-w-[800px] grid grid-cols-1 md:grid-cols-3 gap-y-8 gap-x-14 m-auto">
           <div className="flex flex-col items-center">
             <p className="text-sm text-white font-semibold">Installer for</p>
@@ -73,6 +61,24 @@ export default async function InstallerPage () {
         <h3 className='text-2xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-dark-gray'>
           Visit our github for detailed release notes and signed binaries
         </h3>
+        <div className='text-m md:text-lg font-normal mb-8 text-dark-gray'>
+          <h2>V1.21.3 Release notes</h2>
+          <div className='flex text-sm justify-center'>
+            <ul className='list-disc list-inside text-left text-sm md:text-base'>
+              <li>AVAX & BSC are not fully functional with ledger.</li>
+              <li>First stage release of Lp Recovery tool</li>
+              <li>First stage release for MAYA Lp, more features to come</li>
+              <li>Sub 500 dollar swaps now affiliate free</li>
+              <li>
+                Mac users, the app is signed and notarized but Gatekeeper on Macs will still complain
+                <ul className='list-disc list-inside pl-4 text-left text-sm md:text-base'>
+                  <li>Use open anyway from settings.</li>
+                  <li>We are working to fix this issue.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
         <div className="flex flex-col items-center justify-center md:flex-row md:items-center gap-4 py-8">
           <Link href={'https://github.com/asgardex/asgardex-desktop/releases'} target='_blank'>
             <Button className='bg-asgardex-primary-500 cursor-pointer p-2 hover:bg-asgardex-primary-300 outline-none'>
