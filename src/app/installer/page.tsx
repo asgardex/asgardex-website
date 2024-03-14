@@ -62,13 +62,13 @@ export default async function InstallerPage () {
           Visit our github for detailed release notes and signed binaries
         </h3>
         <div className='text-m md:text-lg font-normal mb-8 text-dark-gray'>
-          <h2>V1.21.3 Release notes</h2>
+          <h2>V1.21.4 Release notes</h2>
           <div className='flex text-sm justify-center'>
             <ul className='list-disc list-inside text-left text-sm md:text-base'>
               <li>AVAX & BSC are not fully functional with ledger.</li>
               <li>First stage release of Lp Recovery tool</li>
               <li>First stage release for MAYA Lp, more features to come</li>
-              <li>Sub 500 dollar swaps now affiliate free</li>
+              <li>Sub 500 dollar swaps now affiliate free!</li>
               <li>
                 Mac users, the app is signed and notarized but Gatekeeper on Macs will still complain
                 <ul className='list-disc list-inside pl-4 text-left text-sm md:text-base'>
