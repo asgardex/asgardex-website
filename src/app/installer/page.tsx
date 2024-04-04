@@ -62,20 +62,14 @@ export default async function InstallerPage () {
           Visit our github for detailed release notes and signed binaries
         </h3>
         <div className='text-m md:text-lg font-normal mb-8 text-dark-gray'>
-          <h2>V1.21.4 Release notes</h2>
+          <h2>V1.21.5 Release notes</h2>
           <div className='flex text-sm justify-center'>
             <ul className='list-disc list-inside text-left text-sm md:text-base'>
               <li>AVAX & BSC are not fully functional with ledger.</li>
-              <li>First stage release of Lp Recovery tool</li>
+              <li>Second stage release of Lp Recovery tool</li>
               <li>First stage release for MAYA Lp, more features to come</li>
-              <li>Sub 500 dollar swaps now affiliate free!</li>
-              <li>
-                Mac users, the app is signed and notarized but Gatekeeper on Macs will still complain
-                <ul className='list-disc list-inside pl-4 text-left text-sm md:text-base'>
-                  <li>Use open anyway from settings.</li>
-                  <li>We are working to fix this issue.</li>
-                </ul>
-              </li>
+              <li>Sub 1001 dollar swaps now affiliate free!</li>
+              <li>BNB Bep 20 has been ragnaroked on TC and support for this chain will be removed soon.</li>
             </ul>
           </div>
         </div>
