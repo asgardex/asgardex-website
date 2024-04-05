@@ -65,11 +65,10 @@ export default async function InstallerPage () {
           <h2>V1.21.5 Release notes</h2>
           <div className='flex text-sm justify-center'>
             <ul className='list-disc list-inside text-left text-sm md:text-base'>
-              <li>AVAX & BSC are not fully functional with ledger.</li>
               <li>Second stage release of Lp Recovery tool</li>
               <li>First stage release for MAYA Lp, more features to come</li>
               <li>Sub 1001 dollar swaps now affiliate free!</li>
-              <li>BNB Bep 20 has been ragnaroked on TC and support for this chain will be removed soon.</li>
+              <li>BNB Bep2 Beacon Chain has been ragnaroked on TC and support for this chain will be removed soon.</li>
             </ul>
           </div>
         </div>
