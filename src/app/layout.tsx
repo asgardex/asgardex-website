@@ -18,9 +18,9 @@ export default function RootLayout ({
     <html lang="en">
       <body className={`${jakarta.className} antialiased`}>
         <Providers>
-        <Header />
-        {children}
-        <Footer />
+          <Header />
+          {children}
+          <Footer />
         </Providers>
       </body>
     </html>
