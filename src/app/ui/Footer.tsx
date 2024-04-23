@@ -23,7 +23,7 @@ export default function Footer () {
           <Link href={'https://twitter.com/asgardex'} target='_blank'>
             <Image src={'/x-black-logo.avif'} alt={'Asgardex X'} width={24} height={24} />
           </Link>
-          <Link href={'https://discord.com/invite/XjV3Hnud'} target='_blank'>
+          <Link href={'https://discord.com/invite/hkeJxHS7d7'} target='_blank'>
             <Image src={'/discord-black-logo.avif'} alt={'Asgardex Discord'} width={24} height={24} />
           </Link>
           <Link href={'https://github.com/asgardex/asgardex-desktop/releases'} target='_blank'>
