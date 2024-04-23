@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { IconMenu2, IconX } from '@tabler/icons-react'
 import { useState } from 'react'
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Button, NavbarMenuToggle, NavbarMenu } from '@nextui-org/react'
+import ThemeSwitcher from '../themeSwitcher'
 
 export default function Header () {
   const [isMenuOpen, setMenuOpen] = useState(false)
@@ -61,6 +62,7 @@ export default function Header () {
 
     <NavbarMenu className='h-screen bg-white items-center'>
       <div className='p-4 flex w-full items-center justify-around'>
+      <ThemeSwitcher />
         <Link href={'https://twitter.com/asgardex'} target='_blank'>
           <Image src={'/x-black-logo.avif'} alt={'Asgardex X'} width={35} height={35} />
         </Link>
@@ -77,7 +79,9 @@ export default function Header () {
           <Image src={'/maya-black-logo.avif'} alt={'Maya Protocol logotipe'} width={35} height={35} />
         </Link>
       </div>
+
       <Link href={'/installer'}>
+
         <Button className='bg-asgardex-primary-500 px-11 rounded-lg text-lg text-asgardex-dark-1000'>
           Download
         </Button>
