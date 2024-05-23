@@ -337,7 +337,7 @@ export default function Home () {
               Transparent Fee Policy
             </h2>
             <p className='text-sm md:text-lg font-normal mb-2'>
-              Clear and fair - a standard 0.1% commission on all swaps above 500 dollars, swaps below are affiliate free. No hidden fees, no surprises.
+              Clear and fair - a standard 0.1% commission on all swaps above 1001 dollars, swaps below are affiliate free. No hidden fees, no surprises.
             </p>
             <p className='text-sm md:text-lg font-normal'>
               Learn and Grow with THORChain University (DYOR).
