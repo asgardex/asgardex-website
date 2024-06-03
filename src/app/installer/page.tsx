@@ -62,13 +62,13 @@ export default async function InstallerPage () {
           Visit our github for detailed release notes and signed binaries
         </h3>
         <div className='text-m md:text-lg font-normal mb-8 text-dark-gray'>
-          <h2>V1.21.7 Release notes</h2>
+          <h2>V1.21.8 Release notes</h2>
           <div className='flex text-sm justify-center'>
             <ul className='list-disc list-inside text-left text-sm md:text-base'>
-              <li>Performance improvements</li>
-              <li>Updated Asset page</li>
-              <li>BNB Bep2 Beacon Chain has been removed</li>
-              <li>Many small bug fixes and improvements</li>
+              <li>Fix ledger balance display bug</li>
+              <li>Fix no provider get balance</li>
+              <li>Updated thorchain ledger logic</li>
+              <li>Fixed BSC issues</li>
             </ul>
           </div>
         </div>
