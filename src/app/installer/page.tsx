@@ -62,13 +62,12 @@ export default async function InstallerPage () {
           Visit our github for detailed release notes and signed binaries
         </h3>
         <div className='text-m md:text-lg font-normal mb-8 text-dark-gray'>
-          <h2>V1.21.8 Release notes</h2>
+          <h2>V1.21.9 Release notes</h2>
           <div className='flex text-sm justify-center'>
             <ul className='list-disc list-inside text-left text-sm md:text-base'>
-              <li>Fix ledger balance display bug</li>
-              <li>Fix no provider get balance</li>
-              <li>Updated thorchain ledger logic</li>
-              <li>Fixed BSC issues</li>
+              <li>Added account control to ledger</li>
+              <li>Fixed Arb token swapping errors</li>
+              <li>Updated Asset details UI</li>
             </ul>
           </div>
         </div>
