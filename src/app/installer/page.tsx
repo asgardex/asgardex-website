@@ -22,7 +22,7 @@ export default async function InstallerPage () {
               ? <p className="text-sm text-white font-semibold">Windows - {latest.windows.title}</p>
               : <p className="text-sm text-white font-semibold">Windows</p>
             }
-            <Button as={Link} href={latest.tag_name ? latest.windows.url : latest.html_url} className="my-3 w-full">
+            <Button as={Link} href={latest.tag_name ? latest.windows.url : latest.html_url} className="my-3 w-full ">
               <Image className="rounded-none" src={'/windows-black-logo.avif'} alt='' width={12} height={12} />
               <p>Download</p>
             </Button>
@@ -75,7 +75,7 @@ export default async function InstallerPage () {
         </div>
         <div className="flex flex-col items-center justify-center md:flex-row md:items-center gap-4 py-8">
           <Link href={'https://github.com/asgardex/asgardex-desktop/releases'} target='_blank'>
-            <Button className='bg-asgardex-primary-500 cursor-pointer p-2 hover:bg-asgardex-primary-300 outline-none'>
+            <Button className='bg-asgardex-primary-500 cursor-pointer p-2 hover:bg-asgardex-primary-300 outline-none text-asgardex-dark-1000'>
               <p className="text-base md:text-lg">
                 Check out the latest releases on GitHub
               </p>
@@ -83,7 +83,7 @@ export default async function InstallerPage () {
             </Button>
           </Link>
           <Link href={'https://github.com/asgardex/asgardex-desktop/issues'} target='_blank'>
-            <Button className='bg-asgardex-primary-500 cursor-pointer p-2 hover:bg-asgardex-primary-300 outline-none'>
+            <Button className='bg-asgardex-primary-500 cursor-pointer p-2 hover:bg-asgardex-primary-300 outline-none text-asgardex-dark-1000'>
               <p className="text-base md:text-lg">
                 Found an bug? report it here
               </p>
