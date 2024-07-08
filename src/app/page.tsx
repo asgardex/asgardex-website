@@ -185,7 +185,7 @@ export default function Home () {
             Stay Informed and Ahead
           </h2>
           <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">
-            Explore the future with us. Our roadmap teases exciting developments like loan services, order book trading, and leveraged futures. Stay tuned for what is coming next in Asgardexs journey.
+            Explore the future with us. Our roadmap teases exciting developments like loan services, order book trading, and leveraged futures. Stay tuned for what is coming next in Asgardex&apos;s journey.
           </p>
           <div className="pt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             <div className="flex flex-row items-start">
