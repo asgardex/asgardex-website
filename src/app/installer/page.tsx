@@ -7,7 +7,7 @@ export default async function InstallerPage () {
   const { latest, previous } = await getAsgardexReleases()
   return <main className="flex flex-col items-center pt-20">
     <section className='flex flex-col w-full items-center justify-center bg-asgardex-secondary-1000 px-20 lg:px-0'>
-      <div className={`max-w-[1085px] text-center py-16`}>
+      <div className='max-w-[1085px] text-center py-16'>
         <h1 className='text-3xl md:text-5xl lg:text-6xl font-extrabold mb-4'>
           Download the Latest Version Easily
         </h1>
