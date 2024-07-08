@@ -8,30 +8,31 @@ export default function Home () {
   const { theme } = useTheme() // Get the theme from next-themes
 
   return (
-    <main className="flex min-h-screen flex-col items-center pt-20 lg:gap-y-20">
-      <section className="flex flex-col w-full items-center justify-center mb-20 px-6 md:px-16 lg:px-8">
-        <div className="max-w-[1000px] flex flex-col items-center text-center">
-          <h1 className="text-3xl md:text-5xl lg:text-[80px] font-extrabold mb-4">
-            Welcome to <span className="bg-gradient-primary bg-clip-text text-transparent">Asgardex:</span>
+    <main className='flex min-h-screen flex-col items-center pt-20 lg:gap-y-20'>
+      <section className='flex flex-col w-full items-center justify-center mb-20 px-6 md:px-16 lg:px-8'>
+        <div className='max-w-[1000px] flex flex-col items-center text-center'>
+          <h1 className='text-3xl md:text-5xl lg:text-[80px] font-extrabold mb-4'>
+            Welcome to <span className='bg-gradient-primary bg-clip-text text-transparent'>Asgardex</span>
           </h1>
         </div>
-        <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
-          <div className="max-w-[1000px] text-center">
-            <div className="max-w-[1000px] m-auto pb-4">
-              <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold mb-8">
-                Seamless Multi-Chain L1 Exchange at Your Fingertips
+        <section className='flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8'>
+          <div className='max-w-[1000px] text-center'>
+            <div className='max-w-[1000px] m-auto pb-4'>
+              <h2 className='text-2xl md:text-5xl lg:text-6xl font-bold mb-8'>
+                A Seamless Multi-Chain L1 Exchange at Your Fingertips
               </h2>
               <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">
                 Dive into the world of decentralized finance with Asgardex, the open-source desktop application
-                designed exclusively for THORChain and MayaProtocol. Exchange a lot of of assets across various chains
-                including BTC, ETH, AVAX, BSC, and Cosmos, all in one intuitive interface.
+                designed exclusively for THORChain and MayaProtocol. Exchange many assets across various chains
+                including AVAX, BCH, BSC, BTC, CACAO, COSMOS, DASH, DOGE, ETH, and RUNE, all in one intuitive interface.
+                Swapping BTC to ETH ? Asgardex has you covered.
               </p>
-              <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">Supported languages: French, Russian, Dutch, Hindi & Spanish</p>
-              <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">
+              <p className='text-sm md:text-lg lg:text-xl font-normal mb-8'>Supported languages: French, German, Hindi, Russian & Spanish</p>
+              <p className='text-sm md:text-lg lg:text-xl font-normal mb-8'>
                 Get started in seconds with a simple and secure download process. We ensure
                 a smooth and hassle-free experience, allowing you to focus on what matters most.
               </p>
-              <Button as={Link} href="/installer" className="bg-asgardex-primary-500 px-11 rounded-lg text-lg text-asgardex-dark-1000 border-outline-none ">
+              <Button as={Link} href='/installer' className='bg-asgardex-primary-500 px-11 rounded-lg text-lg text-asgardex-dark-1000 border-outline-none '>
                 Download Now
               </Button>
             </div>
@@ -39,10 +40,48 @@ export default function Home () {
           </div>
         </section>
       </section>
-
-      <section className="flex flex-col max-w-[1000px] w-full items-center justify-center px-6 md:px-16 lg:px-8">
-        <div className="aspect-video w-full">
-          <iframe className="w-full h-full" src="https://www.youtube.com/embed/Tol_HUckKxM?si=Cl02IDaalozO489N" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+      <section className='flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8'>
+        <div className='max-w-[1000px] text-center py-16'>
+          <h2 className='text-2xl md:text-5xl lg:text-6xl font-bold mb-8'>
+            Our Core Values:  Decentralization, Censorship Resistance, and Security
+          </h2>
+          <p className='text-sm md:text-lg lg:text-xl font-normal mb-8'>
+            Asgardex is more than an app – it&apos;s a commitment to financial freedom. Operated by the
+            community, for the community, it stands as a bastion against censorship and centralization,
+            ensuring your assets remain yours alone.
+          </p>
+        </div>
+        <div className='w-full bg-asgardex-primary-300'>
+          <div className='max-w-[1085px] text-center py-16 m-auto'>
+            <div className='pt-5 grid grid-cols-1 lg:grid-cols-3 gap-10'>
+              <div className='m-auto w-1/2 lg:w-full text-left'>
+                <div className='w-10 md:w-[70px] h-10 md:h-[70px]'>
+                  <Image src={'/decentralization-logo.avif'} alt='' layout='responsive' width={70} height={70} />
+                </div>
+                <h4 className='mt-4 text-md md:text-2xl font-bold text-asgardex-dark-1000'>Decentralization</h4>
+                <p className='mt-3 text-xs md:text-base font-normal text-asgardex-dark-1000'>Avoids web apps, uses public servers, and is open-source to prevent
+                  service interruption even by the app’s team.
+                </p>
+              </div>
+              <div className='m-auto w-1/2 lg:w-full text-left'>
+                <div className='w-10 md:w-[70px] h-10 md:h-[70px]'>
+                  <Image src={'/censorship-logo.avif'} alt='' width={70} height={70} />
+                </div>
+                <h4 className='mt-4 text-md md:text-2xl font-bold text-asgardex-dark-1000'>Censorship Resistance</h4>
+                <p className='mt-3 text-xs md:text-base font-normal text-asgardex-dark-1000'>The installer can be easily distributed and used without
+                  domains or a centralized responsible party.
+                </p>
+              </div>
+              <div className='m-auto w-1/2 lg:w-full text-left'>
+                <div className='w-10 md:w-[70px] h-10 md:h-[70px]'>
+                  <Image src={'/security-logo.avif'} alt='' width={70} height={70} />
+                </div>
+                <h4 className='mt-4 text-md md:text-2xl font-bold text-asgardex-dark-1000'>Security</h4>
+                <p className='mt-3 text-xs md:text-base font-normal text-asgardex-dark-1000'>Developed and maintained by the community, reducing the risk of errors and fund loss.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -140,54 +179,9 @@ export default function Home () {
         </div>
       </section>
 
-      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
-        <div className="max-w-[1000px] text-center py-16">
-          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold mb-8">
-            Our Core Values: Decentralization, Censorship Resistance, and Security
-          </h2>
-          <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">
-            Asgardex is more than an app – its a commitment to financial freedom. Operated by the
-            community, for the community, it stands as a bastion against censorship and centralization,
-            ensuring your assets remain yours alone.
-          </p>
-        </div>
-        <div className="w-full bg-asgardex-primary-300">
-          <div className="max-w-[1085px] text-center py-16 m-auto">
-            <div className="pt-5 grid grid-cols-1 lg:grid-cols-3 gap-10">
-              <div className="m-auto w-1/2 lg:w-full text-left">
-                <div className="w-10 md:w-[70px] h-10 md:h-[70px]">
-                  <Image src={'/decentralization-logo.avif'} alt="" layout="responsive" width={70} height={70} />
-                </div>
-                <h4 className="mt-4 text-md md:text-2xl font-bold text-asgardex-dark-1000">Decentralization</h4>
-                <p className="mt-3 text-xs md:text-base font-normal text-asgardex-dark-1000">Avoids web apps, uses public servers, and is open-source to prevent
-                  service interruption even by the app’s team.
-                </p>
-              </div>
-              <div className="m-auto w-1/2 lg:w-full text-left">
-                <div className="w-10 md:w-[70px] h-10 md:h-[70px]">
-                  <Image src={'/censorship-logo.avif'} alt="" width={70} height={70} />
-                </div>
-                <h4 className="mt-4 text-md md:text-2xl font-bold text-asgardex-dark-1000">Censorship Resistance</h4>
-                <p className="mt-3 text-xs md:text-base font-normal text-asgardex-dark-1000">The installer can be easily distributed and used without
-                  domains or a centralized responsible party.
-                </p>
-              </div>
-              <div className="m-auto w-1/2 lg:w-full text-left">
-                <div className="w-10 md:w-[70px] h-10 md:h-[70px]">
-                  <Image src={'/security-logo.avif'} alt="" width={70} height={70} />
-                </div>
-                <h4 className="mt-4 text-md md:text-2xl font-bold text-asgardex-dark-1000">Security</h4>
-                <p className="mt-3 text-xs md:text-base font-normal text-asgardex-dark-1000">Developed and maintained by the community, reducing the risk of errors and fund loss.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
-        <div className="max-w-[1085px] text-center flex flex-col items-center py-16">
-          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold mb-8">
+      <section className='flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8'>
+        <div className='max-w-[1085px] text-center flex flex-col items-center py-16'>
+          <h2 className='text-2xl md:text-5xl lg:text-6xl font-bold mb-8'>
             Stay Informed and Ahead
           </h2>
           <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">
@@ -336,8 +330,8 @@ export default function Home () {
             <h2 className="text-2xl md:text-5xl lg:text-5xl font-bold mb-8">
               Transparent Fee Policy
             </h2>
-            <p className="text-sm md:text-lg font-normal mb-2">
-              Clear and fair - a standard 0.1% commission on all swaps above 500 dollars, swaps below are affiliate free. No hidden fees, no surprises.
+            <p className='text-sm md:text-lg font-normal mb-2'>
+              Clear and fair - a standard 0.1% commission on all swaps above 1001 dollars, swaps below are affiliate free. No hidden fees, no surprises.
             </p>
             <p className="text-sm md:text-lg font-normal">
               Learn and Grow with THORChain University (DYOR).
