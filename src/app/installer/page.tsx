@@ -62,12 +62,13 @@ export default async function InstallerPage () {
           Visit our github for detailed release notes and signed binaries
         </h3>
         <div className='text-m md:text-lg font-normal mb-8 text-dark-gray'>
-          <h2>V1.21.9 Release notes</h2>
+          <h2>V1.22.2 Release notes</h2>
           <div className='flex text-sm justify-center'>
             <ul className='list-disc list-inside text-left text-sm md:text-base'>
-              <li>Added account control to ledger</li>
-              <li>Fixed Arb token swapping errors</li>
-              <li>Updated Asset details UI</li>
+              <li>Added streaming to Maya swaps</li>
+              <li>Fixed ledger indexing issue</li>
+              <li>Fixed Bsc and usdt swapping bugs</li>
+              <li>Fixed white screen on bond tab</li>
             </ul>
           </div>
         </div>
