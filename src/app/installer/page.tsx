@@ -62,12 +62,13 @@ export default async function InstallerPage () {
           Visit our github for detailed release notes and signed binaries
         </h3>
         <div className='text-m md:text-lg font-normal mb-8 text-dark-gray'>
-          <h2>v1.22.1 Release notes</h2>
+          <h2>v1.22.2 Release notes</h2>
           <div className='flex text-sm justify-center'>
             <ul className='list-disc list-inside text-left text-sm md:text-base'>
-              <li>Added Disable and enable chains</li>
-              <li>Added manaully adding and remove of evm tokens for evm chains</li>
-              <li>Updated warning for Maya streaming to synths </li>
+              <li>Added some lending features</li>
+              <li>Updated EVM whitelists</li>
+              <li>Removed warning for maya syths</li>
+              <li>Updated interval for maya streaming</li>
               <li>Updated bonding tools</li>
               <li>Mac still experiencing issues when opening even though we have a valid dev cert, enter settings - privacy & security - scroll down - open anyway</li>
               <li>If you know how to fix the above or want to see the mac build process see `develop/.github/workflows/build-macos.yml`</li>
