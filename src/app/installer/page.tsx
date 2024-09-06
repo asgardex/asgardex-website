@@ -62,12 +62,12 @@ export default async function InstallerPage () {
           Visit our github for detailed release notes and signed binaries
         </h3>
         <div className='text-m md:text-lg font-normal mb-8 text-dark-gray'>
-          <h2>v1.22.3 Release notes</h2>
+          <h2>v1.22.4 Release notes</h2>
           <div className='flex text-sm justify-center'>
             <ul className='list-disc list-inside text-left text-sm md:text-base'>
               <li>Added RunePool UI</li>
               <li>Added Storing of trusted address v1 Address book</li>
-              <li>Updated rpc end points</li>
+              <li>Updated rpc end points for TC Ledger</li>
               <li>Mac still experiencing issues when opening even though we have a valid dev cert, enter settings - privacy & security - scroll down - open anyway</li>
               <li>If you know how to fix the above or want to see the mac build process see `develop/.github/workflows/build-macos.yml`</li>
             </ul>
