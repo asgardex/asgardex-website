@@ -39,7 +39,7 @@ export default function Footer () {
                 className={theme === 'dark' ? 'invert' : ''}
               />
             </Link>
-            <Link href={'https://discord.com/invite/XjV3Hnud'} target="_blank">
+            <Link href={'https://discord.gg/hkeJxHS7d7'} target="_blank">
               <Image
                 src={'/discord-black-logo.avif'}
                 alt={'Asgardex Discord'}
