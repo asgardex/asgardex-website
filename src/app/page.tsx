@@ -340,7 +340,7 @@ export default function Home () {
               Start Learning
             </Button>
           </div>
-          <h4 className="w-full font-extrabold text-9xl md:text-[150px] text-asgardex-primary-800">0.1%</h4>
+          <h4 className="w-full font-extrabold text-9xl md:text-[150px] text-asgardex-primary-800">0.3%</h4>
         </div>
       </section>
 
