@@ -359,7 +359,7 @@ export default function Home () {
               </div>
               <h5 className="text-sm md:text-xl font-bold mt-8">Discord Community</h5>
               <p className="text-xs md:text-sm mt-2">Find and share Discord links easily.</p>
-              <Link className="w-full" href={'https://discord.gg/hkeJxHS7d7'} target="_blank">
+              <Link className="w-full" href={'https://discord.gg/hWCeTncT'} target="_blank">
                 <Button className="bg-asgardex-secondary-500 font-bold rounded-lg w-full mt-8 text-white text-lg">
                   Join
                 </Button>
