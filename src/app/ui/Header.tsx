@@ -38,7 +38,7 @@ export default function Header () {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href={'https://discord.gg/hkeJxHS7d7'} target="_blank">
+          <Link href={'https://discord.gg/hWCeTncT'} target="_blank">
             <Image
               src={'/discord-black-logo.avif'}
               alt={'Asgardex Discord'}
@@ -104,7 +104,7 @@ export default function Header () {
               className={theme === 'dark' ? 'invert' : ''}
             />
           </Link>
-          <Link href={'https://discord.gg/hkeJxHS7d7'} target="_blank">
+          <Link href={'https://discord.gg/hWCeTncT'} target="_blank">
             <Image
               src={'/discord-black-logo.avif'}
               alt={'Asgardex Discord'}
