@@ -62,11 +62,11 @@ export default async function InstallerPage () {
           Visit our github for detailed release notes and signed binaries
         </h3>
         <div className='text-m md:text-lg font-normal mb-8 text-dark-gray'>
-          <h2>v1.30.0 Release notes</h2>
+          <h2>v1.30.1 Release notes</h2>
           <div className='flex text-sm justify-center'>
             <ul className='list-disc list-inside text-left text-sm md:text-base'>
-              <li>Fixed Ledger UTXO chain errors</li>
-              <li>Major UI updates across the app</li>
+              <li>BASEChain swapping & Lping</li>
+              <li>Secured Asset Previewing, no swapping yet</li>
               <li>See GH for full release notes</li>
               <li>Mac still experiencing issues when opening, enter settings - privacy & security - scroll down - open anyway</li>
               <li>A work around for this issue is to download the asset directly from Github</li>
