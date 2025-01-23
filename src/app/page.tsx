@@ -3,12 +3,14 @@ import { Button, Divider } from '@nextui-org/react'
 import Image from 'next/image'
 import Link from 'next/link'
 
+import { Card } from './ui/Card'
+
 export default function Home() {
   const theme = 'dark'
 
   return (
     <main className="flex min-h-screen flex-col items-center lg:gap-y-20">
-      <section className="relative flex flex-col max-w-[1280px] w-full h-[calc(100vh-64px)] items-center justify-between pt-8 pb-24">
+      <section className="relative flex flex-col max-w-7xl w-full h-[calc(100vh-64px)] items-center justify-between pt-8 pb-24">
         <div />
         <div className="flex flex-col items-center text-center">
           <h1 className="text-3xl md:text-5xl lg:text-[80px] font-extrabold mb-4">
@@ -86,37 +88,45 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
-        <div className="max-w-[1000px] text-center">
-          <div className="max-w-[1000px] m-auto pb-4">
-            <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">
-              Dive into the world of decentralized finance with Asgardex, the
-              open-source desktop application designed exclusively for THORChain
-              and MayaProtocol. Exchange many assets across various chains
-              including AVAX, BCH, BSC, BTC, CACAO, COSMOS, DASH, DOGE, ETH, and
-              RUNE, all in one intuitive interface. Swapping BTC to ETH ?
-              Asgardex has you covered.
-            </p>
-            <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">
-              Supported languages: French, German, Hindi, Russian & Spanish
-            </p>
-            <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">
-              Get started in seconds with a simple and secure download process.
-              We ensure a smooth and hassle-free experience, allowing you to
-              focus on what matters most.
-            </p>
-          </div>
+      <section className="flex flex-col w-full max-w-7xl items-center justify-center text-center px-6 md:px-16 lg:px-8 gap-8">
+        <div className="max-w-5xl">
+          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold">
+            Dive into the world of decentralized finance with Asgardex
+          </h2>
+        </div>
+        <div className="max-w-4xl">
+          <p className="text-sm md:text-lg lg:text-xl font-normal mt-8">
+            The open-source desktop application designed exclusively for
+            THORChain and Maya Protocol.
+          </p>
+          <p className="text-sm md:text-lg lg:text-xl font-normal mt-2">
+            Get started in seconds with a simple and secure download process. We
+            ensure a smooth and hassle-free experience, allowing you to focus on
+            what matters most.
+          </p>
+        </div>
+
+        <div className="bg-white/10 p-2 rounded-xl border border-solid border-white/20">
           <Image
-            src={
-              theme === 'dark'
-                ? '/chain-lists-home-dark.avif'
-                : '/chains-list-home.avif'
-            }
+            className="rounded-xl border border-solid border-white/20"
+            src="/pools-home.png"
             alt=""
-            width={1085}
+            width={1024}
             height={554}
           />
         </div>
+
+        {/* <div className="max-w-3xl">
+          <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">
+            Exchange many assets across various chains including BTC, ETH, SOL,
+            BASE, AVAX, BCH, BSC, CACAO, COSMOS, DASH, DOGE, and RUNE, all in
+            one intuitive interface. Swapping BTC to ETH ? Asgardex has you
+            covered.
+          </p>
+          <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">
+            Supported languages: French, German, Hindi, Russian & Spanish
+          </p>
+        </div> */}
       </section>
       <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
         <div className="max-w-[1000px] text-center py-16">
@@ -131,13 +141,13 @@ export default function Home() {
             assets remain yours alone.
           </p>
         </div>
-        <div className="w-full bg-asgardex-primary-300">
-          <div className="max-w-[1085px] text-center py-16 m-auto">
+        <div className="w-full">
+          <div className="max-w-[1085px] text-center py-8 m-auto">
             <div className="pt-5 grid grid-cols-1 lg:grid-cols-3 gap-10">
-              <div className="m-auto w-1/2 lg:w-full text-left">
+              <Card>
                 <div className="w-10 md:w-[70px] h-10 md:h-[70px]">
                   <Image
-                    src={'/decentralization-logo.avif'}
+                    src="/decentralization-logo.avif"
                     alt=""
                     layout="responsive"
                     width={70}
@@ -151,8 +161,8 @@ export default function Home() {
                   Avoids web apps, uses public servers, and is open-source to
                   prevent service interruption even by the app’s team.
                 </p>
-              </div>
-              <div className="m-auto w-1/2 lg:w-full text-left">
+              </Card>
+              <Card>
                 <div className="w-10 md:w-[70px] h-10 md:h-[70px]">
                   <Image
                     src={'/censorship-logo.avif'}
@@ -168,8 +178,8 @@ export default function Home() {
                   The installer can be easily distributed and used without
                   domains or a centralized responsible party.
                 </p>
-              </div>
-              <div className="m-auto w-1/2 lg:w-full text-left">
+              </Card>
+              <Card>
                 <div className="w-10 md:w-[70px] h-10 md:h-[70px]">
                   <Image
                     src={'/security-logo.avif'}
@@ -185,7 +195,7 @@ export default function Home() {
                   Developed and maintained by the community, reducing the risk
                   of errors and fund loss.
                 </p>
-              </div>
+              </Card>
             </div>
           </div>
         </div>
@@ -204,17 +214,16 @@ export default function Home() {
               ultimate peace of mind.
             </p>
           </div>
-          <Image
-            className={'my-14'}
-            src={
-              theme === 'dark'
-                ? '/wallets-management-home-dark.avif'
-                : '/wallets-management-home.avif'
-            }
-            alt=""
-            width={1000}
-            height={200}
-          />
+
+          <div className="my-14 bg-white/10 p-2 rounded-xl border border-solid border-white/20">
+            <Image
+              className="rounded-xl border border-solid border-white/20"
+              src="/wallets-management-home.png"
+              alt=""
+              width={1000}
+              height={200}
+            />
+          </div>
           <div className="pt-5 grid grid-cols-2 lg:grid-cols-3 gap-10">
             <div className="text-left">
               <h4 className="font-bold text-sm lg:text-lg">Local Wallets</h4>
@@ -534,7 +543,7 @@ export default function Home() {
               }
               target="_blank"
               className={
-                'flex flex-col items-center border-solid border-2 border-asgardex-gray-300 hover:bg-asgardex-gray-100 rounded-2xl p-2'
+                'flex flex-col items-center border-solid border-2 border-asgardex-gray-300 hover:bg-asgardex-gray-100/10 rounded-2xl p-2'
               }>
               <Image
                 src={'/savers-logo.avif'}
@@ -552,7 +561,7 @@ export default function Home() {
               }
               target="_blank"
               className={
-                'flex flex-col items-center border-solid border-2 border-asgardex-gray-300 hover:bg-asgardex-gray-100 rounded-2xl p-2'
+                'flex flex-col items-center border-solid border-2 border-asgardex-gray-300 hover:bg-asgardex-gray-100/10 rounded-2xl p-2'
               }>
               <Image
                 src={'/liquidity-logo.avif'}
@@ -570,7 +579,7 @@ export default function Home() {
               }
               target="_blank"
               className={
-                'flex flex-col items-center border-solid border-2 border-asgardex-gray-300 hover:bg-asgardex-gray-100 rounded-2xl p-2'
+                'flex flex-col items-center border-solid border-2 border-asgardex-gray-300 hover:bg-asgardex-gray-100/10 rounded-2xl p-2'
               }>
               <Image
                 src={'/swaps-logo.avif'}
@@ -588,7 +597,7 @@ export default function Home() {
               }
               target="_blank"
               className={
-                'flex flex-col items-center border-solid border-2 border-asgardex-gray-300 hover:bg-asgardex-gray-100 rounded-2xl p-2'
+                'flex flex-col items-center border-solid border-2 border-asgardex-gray-300 hover:bg-asgardex-gray-100/10 rounded-2xl p-2'
               }>
               <Image
                 src={'/synthetic-assets-logo.avif'}
