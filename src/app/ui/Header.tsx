@@ -4,7 +4,6 @@ import { useState } from 'react'
 import clsx from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useTheme } from 'next-themes' // Use the correct import for next-themes
 import { IconMenu2, IconX } from '@tabler/icons-react'
 import {
   Navbar,
@@ -20,7 +19,6 @@ import { play } from './fonts'
 
 export default function Header() {
   const [isMenuOpen, setMenuOpen] = useState(false)
-  const { theme } = useTheme() // Get the theme from next-themes
 
   return (
     <Navbar maxWidth="xl" onMenuOpenChange={setMenuOpen}>
@@ -69,7 +67,7 @@ export default function Header() {
               alt={'Asgardex X'}
               width={35}
               height={35}
-              className={theme === 'dark' ? 'invert' : ''}
+              className="invert"
             />
           </Link>
           <Link href={'https://discord.gg/AZDtabWFJF'} target="_blank">
@@ -78,7 +76,7 @@ export default function Header() {
               alt={'Asgardex Discord'}
               width={35}
               height={35}
-              className={theme === 'dark' ? 'invert' : ''}
+              className="invert"
             />
           </Link>
           <Link
@@ -89,7 +87,7 @@ export default function Header() {
               alt={'Asgardex Discord'}
               width={35}
               height={35}
-              className={theme === 'dark' ? 'invert' : ''}
+              className="invert"
             />
           </Link>
           <Link href={'https://thorchain.org/'} target="_blank">
@@ -98,7 +96,7 @@ export default function Header() {
               alt={'Thorchain logotipe'}
               width={35}
               height={35}
-              className={theme === 'dark' ? 'invert' : ''}
+              className="invert"
             />
           </Link>
           <Link href={'https://www.mayaprotocol.com/'} target="_blank">
@@ -107,7 +105,7 @@ export default function Header() {
               alt={'Maya Protocol logotipe'}
               width={35}
               height={35}
-              className={theme === 'dark' ? 'invert' : ''}
+              className="invert"
             />
           </Link>
         </div>

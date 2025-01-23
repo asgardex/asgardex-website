@@ -6,8 +6,6 @@ import Link from 'next/link'
 import { Card } from './ui/Card'
 
 export default function Home() {
-  const theme = 'dark'
-
   return (
     <main className="flex min-h-screen flex-col items-center lg:gap-y-20">
       <section className="relative flex flex-col max-w-7xl w-full h-[calc(100vh-64px)] items-center justify-between pt-8 pb-24">
@@ -280,11 +278,7 @@ export default function Home() {
           </div>
           <div className="w-full flex items-center justify-center">
             <Image
-              src={
-                theme === 'dark'
-                  ? '/earn-interest-home-dark.avif'
-                  : '/earn-interest-home.avif'
-              }
+              src="/earn-interest-home-dark.avif"
               alt=""
               width={420}
               height={420}
@@ -308,9 +302,7 @@ export default function Home() {
           </div>
           <div className="w-full flex items-center justify-center">
             <Image
-              src={
-                theme === 'dark' ? '/pools-home-dark.avif' : '/pools-home.avif'
-              }
+              src="/pools-home-dark.avif"
               alt=""
               width={500}
               height={500}
@@ -359,7 +351,7 @@ export default function Home() {
                   alt=""
                   width={32}
                   height={32}
-                  className={theme === 'dark' ? 'invert' : ''}
+                  className="invert"
                 />
               </div>
               <div className="text-left">
@@ -376,7 +368,7 @@ export default function Home() {
                   alt=""
                   width={32}
                   height={32}
-                  className={theme === 'dark' ? 'invert' : ''}
+                  className="invert"
                 />
               </div>
               <div className="text-left">
@@ -393,7 +385,7 @@ export default function Home() {
                   alt=""
                   width={32}
                   height={32}
-                  className={theme === 'dark' ? 'invert' : ''}
+                  className="invert"
                 />
               </div>
               <div className="text-left">
@@ -410,7 +402,7 @@ export default function Home() {
                   alt=""
                   width={32}
                   height={32}
-                  className={theme === 'dark' ? 'invert' : ''}
+                  className="invert"
                 />
               </div>
               <div className="text-left">
@@ -429,7 +421,7 @@ export default function Home() {
                   alt=""
                   width={32}
                   height={32}
-                  className={theme === 'dark' ? 'invert' : ''}
+                  className="invert"
                 />
               </div>
               <div className="text-left">
@@ -446,7 +438,7 @@ export default function Home() {
                   alt=""
                   width={32}
                   height={32}
-                  className={theme === 'dark' ? 'invert' : ''}
+                  className="invert"
                 />
               </div>
               <div className="text-left">
@@ -462,10 +454,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        className={`flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8 ${
-          theme === 'dark' ? '' : 'bg-asgardex-gray-200'
-        }`}>
+      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
         <div className="max-w-[900px] text-center py-16">
           <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold mb-8">
             Asgardex vs. CEXs
@@ -641,10 +630,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        className={`flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8 ${
-          theme === 'dark' ? '' : 'bg-asgardex-gray-200'
-        }`}>
+      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
         <div className="max-w-[1085px] text-center py-28">
           <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold mb-8">
             Join Our Vibrant Community
