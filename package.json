@@ -1,6 +1,6 @@
 {
-  "name": "template-nextjs",
-  "version": "0.1.0",
+  "name": "asgardex-landing",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@nextui-org/react": "^2.2.10",
-    "framer-motion": "10.16.4",
+    "framer-motion": "12.0.3",
     "next": "14.0.3",
     "next-themes": "^0.3.0",
     "react": "18",
@@ -25,7 +25,7 @@
     "@typescript-eslint/eslint-plugin": "6.4.0",
     "@typescript-eslint/parser": "6.21.0",
     "autoprefixer": "10.0.1",
-    "clsx": "2.0.0",
+    "clsx": "^2.1.1",
     "eslint": "8.54.0",
     "eslint-config-next": "14.0.3",
     "eslint-config-standard-with-typescript": "42.0.0",
