@@ -8,7 +8,7 @@ import { Card } from './ui/Card'
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center lg:gap-y-20">
-      <section className="relative flex flex-col max-w-7xl w-full h-[calc(100vh-64px)] items-center justify-between pt-8 pb-24">
+      <section className="relative flex flex-col max-w-7xl w-full h-[calc(100vh-64px)] items-center justify-between pt-8 pb-24 px-4">
         <div />
         <div className="flex flex-col items-center text-center">
           <h1 className="text-3xl md:text-5xl lg:text-[80px] font-extrabold mb-4">
@@ -34,7 +34,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <div className="flex items-center justify-end w-full">
+        <div className="flex items-center justify-center sm:justify-end w-full">
           <div className="flex items-center justify-center gap-4 px-4 py-2 rounded-2xl bg-white/10 border border-solid border-asgardex-gray-800">
             <Link href="https://twitter.com/asgardex" target="_blank">
               <Image
