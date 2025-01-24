@@ -307,7 +307,7 @@ export default function Home() {
             <div className="bg-white/10 p-2 rounded-xl border border-solid border-white/20">
               <Image
                 className="rounded-xl border border-solid border-white/20"
-                src="/pools-home-dark.avif"
+                src="/savers-home.png"
                 alt=""
                 width={500}
                 height={500}
