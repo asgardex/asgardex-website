@@ -12,8 +12,8 @@ export default function Footer() {
       <Divider className="w-full mb-5" />
       <nav className="w-full flex flex-col md:flex-row items-start lg:items-center justify-between">
         <div className="w-full mb-5 md:w-1/2">
-          <Link href={'/'}>
-            <div className={'flex items-center mb-4 '}>
+          <Link href="/">
+            <div className="flex items-center mb-4 ">
               <Image
                 src={'/asgardex-logo.avif'}
                 alt={'Asgardex logotipe'}

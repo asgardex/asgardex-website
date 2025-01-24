@@ -163,7 +163,7 @@ export default function Home() {
               <Card>
                 <div className="w-10 md:w-[70px] h-10 md:h-[70px]">
                   <Image
-                    src={'/censorship-logo.avif'}
+                    src="/censorship-logo.avif"
                     alt=""
                     width={70}
                     height={70}
@@ -180,7 +180,7 @@ export default function Home() {
               <Card>
                 <div className="w-10 md:w-[70px] h-10 md:h-[70px]">
                   <Image
-                    src={'/security-logo.avif'}
+                    src="/security-logo.avif"
                     alt=""
                     width={70}
                     height={70}
@@ -277,12 +277,15 @@ export default function Home() {
             </p>
           </div>
           <div className="w-full flex items-center justify-center">
-            <Image
-              src="/earn-interest-home-dark.avif"
-              alt=""
-              width={420}
-              height={420}
-            />
+            <div className="bg-white/10 p-2 rounded-xl border border-solid border-white/20">
+              <Image
+                className="rounded-xl border border-solid border-white/20"
+                src="/earn-interest-home-dark.avif"
+                alt=""
+                width={420}
+                height={420}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -301,12 +304,15 @@ export default function Home() {
             </p>
           </div>
           <div className="w-full flex items-center justify-center">
-            <Image
-              src="/pools-home-dark.avif"
-              alt=""
-              width={500}
-              height={500}
-            />
+            <div className="bg-white/10 p-2 rounded-xl border border-solid border-white/20">
+              <Image
+                className="rounded-xl border border-solid border-white/20"
+                src="/pools-home-dark.avif"
+                alt=""
+                width={500}
+                height={500}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -323,9 +329,9 @@ export default function Home() {
               interface.
             </p>
           </div>
-          <div className="aspect-video w-full">
+          <div className="aspect-video w-full p-2 rounded-xl border border-solid border-white/20">
             <iframe
-              className="w-full h-full"
+              className="w-full h-full rounded-xl border border-solid border-white/20"
               src="https://www.youtube.com/embed/hlox7PCZLKo?si=rRybl_qr466XKUCS"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen></iframe>
@@ -347,7 +353,7 @@ export default function Home() {
             <div className="flex flex-row items-start">
               <div className="mr-4">
                 <Image
-                  src={'/loans-logo.avif'}
+                  src="/loans-logo.avif"
                   alt=""
                   width={32}
                   height={32}
@@ -364,7 +370,7 @@ export default function Home() {
             <div className="flex flex-row items-start">
               <div className="mr-4">
                 <Image
-                  src={'/order-books-logo.avif'}
+                  src="/order-books-logo.avif"
                   alt=""
                   width={32}
                   height={32}
@@ -381,7 +387,7 @@ export default function Home() {
             <div className="flex flex-row items-start">
               <div className="mr-4">
                 <Image
-                  src={'/base-trading-logo.avif'}
+                  src="/base-trading-logo.avif"
                   alt=""
                   width={32}
                   height={32}
@@ -398,7 +404,7 @@ export default function Home() {
             <div className="flex flex-row items-start">
               <div className="mr-4">
                 <Image
-                  src={'/leverage-future-logo.avif'}
+                  src="/leverage-future-logo.avif"
                   alt=""
                   width={32}
                   height={32}
@@ -417,7 +423,7 @@ export default function Home() {
             <div className="flex flex-row items-start">
               <div className="mr-4">
                 <Image
-                  src={'/trading-futures-logo.avif'}
+                  src="/trading-futures-logo.avif"
                   alt=""
                   width={32}
                   height={32}
@@ -434,7 +440,7 @@ export default function Home() {
             <div className="flex flex-row items-start">
               <div className="mr-4">
                 <Image
-                  src={'/future-implementations-logo.avif'}
+                  src="/future-implementations-logo.avif"
                   alt=""
                   width={32}
                   height={32}
@@ -535,7 +541,7 @@ export default function Home() {
                 'flex flex-col items-center border-solid border-2 border-asgardex-gray-300 hover:bg-asgardex-gray-100/10 rounded-2xl p-2'
               }>
               <Image
-                src={'/savers-logo.avif'}
+                src="/savers-logo.avif"
                 alt="Savers logo"
                 width={75}
                 height={75}
@@ -553,7 +559,7 @@ export default function Home() {
                 'flex flex-col items-center border-solid border-2 border-asgardex-gray-300 hover:bg-asgardex-gray-100/10 rounded-2xl p-2'
               }>
               <Image
-                src={'/liquidity-logo.avif'}
+                src="/liquidity-logo.avif"
                 alt="Savers logo"
                 width={75}
                 height={75}
@@ -571,7 +577,7 @@ export default function Home() {
                 'flex flex-col items-center border-solid border-2 border-asgardex-gray-300 hover:bg-asgardex-gray-100/10 rounded-2xl p-2'
               }>
               <Image
-                src={'/swaps-logo.avif'}
+                src="/swaps-logo.avif"
                 alt="Savers logo"
                 width={75}
                 height={75}
@@ -589,7 +595,7 @@ export default function Home() {
                 'flex flex-col items-center border-solid border-2 border-asgardex-gray-300 hover:bg-asgardex-gray-100/10 rounded-2xl p-2'
               }>
               <Image
-                src={'/synthetic-assets-logo.avif'}
+                src="/synthetic-assets-logo.avif"
                 alt="Savers logo"
                 width={75}
                 height={75}
@@ -624,7 +630,7 @@ export default function Home() {
               Start Learning
             </Button>
           </div>
-          <h4 className="w-full font-extrabold text-9xl md:text-[150px] text-asgardex-primary-800">
+          <h4 className="w-full font-extrabold text-9xl md:text-[150px] text-asgardex-primary-500">
             0.3%
           </h4>
         </div>
@@ -643,7 +649,7 @@ export default function Home() {
             <div className="flex flex-col items-center justify-center">
               <div className="w-[100px] md:w-[150px] h-[100px] md:h-[150px]">
                 <Image
-                  src={'/discord-big-logo.avif'}
+                  src="/discord-big-logo.avif"
                   alt=""
                   layout="responsive"
                   width={150}
@@ -658,7 +664,7 @@ export default function Home() {
               </p>
               <Link
                 className="w-full"
-                href={'https://discord.gg/AZDtabWFJF'}
+                href="https://discord.gg/AZDtabWFJF"
                 target="_blank">
                 <Button className="bg-asgardex-secondary-500 font-bold rounded-lg w-full mt-8 text-white text-lg">
                   Join
@@ -668,7 +674,7 @@ export default function Home() {
             <div className="flex flex-col items-center justify-center">
               <div className="w-[100px] md:w-[150px] h-[100px] md:h-[150px]">
                 <Image
-                  src={'/x-big-logo.avif'}
+                  src="/x-big-logo.avif"
                   alt=""
                   layout="responsive"
                   width={150}
@@ -681,7 +687,7 @@ export default function Home() {
               </p>
               <Link
                 className="w-full"
-                href={'https://twitter.com/asgardex'}
+                href="https://twitter.com/asgardex"
                 target="_blank">
                 <Button className="bg-asgardex-secondary-500 font-bold rounded-lg w-full mt-8 text-white text-lg">
                   Join
@@ -691,7 +697,7 @@ export default function Home() {
             <div className="flex flex-col items-center justify-center">
               <div className="w-[100px] md:w-[150px] h-[100px] md:h-[150px]">
                 <Image
-                  src={'/github-big-logo.avif'}
+                  src="/github-big-logo.avif"
                   alt=""
                   layout="responsive"
                   width={150}
@@ -706,7 +712,7 @@ export default function Home() {
               </p>
               <Link
                 className="w-full"
-                href={'https://github.com/asgardex/asgardex-desktop/releases'}
+                href="https://github.com/asgardex/asgardex-desktop/releases"
                 target="_blank">
                 <Button className="bg-asgardex-secondary-500 font-bold rounded-lg w-full mt-8 text-white text-lg">
                   Join
@@ -716,7 +722,7 @@ export default function Home() {
             <div className="flex flex-col items-center justify-center">
               <div className="w-[100px] md:w-[150px] h-[100px] md:h-[150px]">
                 <Image
-                  src={'/xchain-big-logo.avif'}
+                  src="/xchain-big-logo.avif"
                   alt=""
                   layout="responsive"
                   width={150}
@@ -731,7 +737,7 @@ export default function Home() {
               </p>
               <Link
                 className="w-full"
-                href={'https://github.com/xchainjs/xchainjs-lib'}
+                href="https://github.com/xchainjs/xchainjs-lib"
                 target="_blank">
                 <Button className="bg-asgardex-secondary-500 font-bold rounded-lg w-full mt-8 text-white text-lg">
                   Join
