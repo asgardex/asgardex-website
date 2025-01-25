@@ -254,7 +254,9 @@ export default function Home() {
               </h5>
             </div>
             <div className="text-left">
-              <h4 className="font-bold text-sm lg:text-lg">Node manage</h4>
+              <h4 className="font-bold text-sm lg:text-lg">
+                Node & Bond Management
+              </h4>
               <h5 className="font-medium text-sm lg:text-lg">
                 Monitor validators behaviour.
               </h5>
@@ -263,7 +265,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
+      {/* <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
         <div className="max-w-[1085px] flex flex-col lg:flex-row text-center items-center justify-around py-16 gap-x-20">
           <div className="w-full m-auto">
             <h2 className="text-2xl md:text-5xl lg:text-5xl font-bold mb-8">
@@ -288,7 +290,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
         <div className="max-w-[1085px] flex flex-col lg:flex-row-reverse text-center items-center justify-around py-16 gap-x-20">
