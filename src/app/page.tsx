@@ -24,7 +24,7 @@ export default function Home() {
             <Button
               as={Link}
               href="/installer"
-              className="bg-asgardex-primary-500 p-8 text-lg text-asgardex-dark-1000 border-outline-none rounded-full">
+              className="bg-asgardex-primary-500 p-8 text-lg font-bold text-asgardex-dark-1000 border-outline-none rounded-full">
               Download Now
             </Button>
             <Link href="https://discord.gg/AZDtabWFJF" target="_blank">
