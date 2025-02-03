@@ -138,7 +138,7 @@ export default async function InstallerPage() {
               target="_blank">
               <Button className="bg-asgardex-primary-500 cursor-pointer p-4 hover:bg-asgardex-primary-300 outline-none text-asgardex-dark-1000">
                 <p className="text-base md:text-lg">
-                  Found an bug? report it here
+                  Found an issue? Report it here
                 </p>
                 <Image
                   src={'/github-black-logo.avif'}
