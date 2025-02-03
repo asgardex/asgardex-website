@@ -102,8 +102,9 @@ export default async function InstallerPage() {
             </h2>
             <div className="flex text-sm justify-center mt-12">
               <ul className="list-disc list-inside text-left text-sm md:text-base">
-                <li>BASEChain swapping & Lping</li>
-                <li>Secured Asset Previewing, no swapping yet</li>
+                <li>Choose Protocol routes</li>
+                <li>Preview & swap fixed</li>
+                <li>Dust check added</li>
                 <li>See GH for full release notes</li>
                 <li>
                   Mac still experiencing issues when opening, enter settings -
