@@ -102,9 +102,9 @@ export default async function InstallerPage() {
             </h2>
             <div className="flex text-sm justify-center mt-12">
               <ul className="list-disc list-inside text-left text-sm md:text-base">
-                <li>Choose Protocol routes</li>
-                <li>Preview & swap fixed</li>
-                <li>Dust check added</li>
+                <li>Added more bonding tools</li>
+                <li>UI updates</li>
+                <li>New language support</li>
                 <li>See GH for full release notes</li>
                 <li>
                   Mac still experiencing issues when opening, enter settings -
