@@ -102,8 +102,9 @@ export default async function InstallerPage() {
             </h2>
             <div className="flex text-sm justify-center mt-12">
               <ul className="list-disc list-inside text-left text-sm md:text-base">
-                <li>Updated Maya midgard endpoint</li>
-                <li>UI updates</li>
+                <li>Performance improvements & stability efforts</li>
+                <li>Supports secured assets swapping</li>
+                <li>UI improvments</li>
                 <li>See GH for full release notes</li>
                 <li>
                   Mac still experiencing issues when opening, enter settings -
