@@ -8,14 +8,16 @@ export interface Release {
   assets: any[]
   linux: any
   windows: any
-  mac: any
+  macSon: any
+  macVent: any
 
 }
 
 const buildReleaseItem = (releaseItem: Release) => {
   const title = releaseItem.tag_name
   const linuxAsset = releaseItem.assets.find((asset: any) => { return asset.browser_download_url.endsWith('.AppImage') })
-  const macAsset = releaseItem.assets.find((asset: any) => { return asset.browser_download_url.endsWith('.dmg') })
+  const macAssetSon = releaseItem.assets.find((asset: any) => { return asset.browser_download_url.endsWith('Sonoma.dmg') })
+  const macAssetVent = releaseItem.assets.find((asset: any) => { return asset.browser_download_url.endsWith('Ventura.dmg') })
   const windowsAsset = releaseItem.assets.find((asset: any) => { return asset.browser_download_url.endsWith('.exe') })
 
   return {
@@ -25,9 +27,13 @@ const buildReleaseItem = (releaseItem: Release) => {
       title,
       url: linuxAsset.browser_download_url
     },
-    mac: {
+    macSon: {
       title,
-      url: macAsset.browser_download_url
+      url: macAssetSon.browser_download_url
+    },
+    macVent: {
+      title,
+      url: macAssetVent.browser_download_url
     },
     windows: {
       title,
@@ -48,7 +54,8 @@ export async function getAsgardexReleases () {
       previous:
       {
         linux: previous.map((prev: Release) => prev.linux) as ItemConfig[],
-        mac: previous.map((prev: Release) => prev.mac) as ItemConfig[],
+        macSon: previous.map((prev: Release) => prev.macSon) as ItemConfig[],
+        macVent: previous.map((prev: Release) => prev.macVent) as ItemConfig[],
         windows: previous.map((prev: Release) => prev.windows) as ItemConfig[]
       }
     }

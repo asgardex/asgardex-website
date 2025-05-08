@@ -56,12 +56,35 @@ export default async function InstallerPage() {
               </p>
               <Button
                 as={Link}
-                href={latest.tag_name ? latest.mac.url : latest.html_url}
+                href={latest.tag_name ? latest.macVent.url : latest.html_url}
                 className="mt-4 mb-2 w-full bg-asgardex-secondary-500">
                 <p>Download</p>
               </Button>
               {previous && (
-                <Selector label="Previous Versions" items={previous.mac} />
+                <Selector label="Previous Versions" items={previous.macVent} />
+              )}
+            </div>
+            <div className="flex flex-col items-center w-full rounded-2xl p-4 bg-asgardex-gray-100 bg-opacity-10 backdrop-blur-md">
+              <div className="flex items-center justify-center w-full h-20 mt-2">
+                <Image
+                  className="rounded-none invert"
+                  src="/apple-black-logo.png"
+                  alt=""
+                  width={64}
+                  height={64}
+                />
+              </div>
+              <p className="my-2 text-sm font-semibold">
+                Mac{latest ? ` - ${latest?.tag_name}` : ''}
+              </p>
+              <Button
+                as={Link}
+                href={latest.tag_name ? latest.macSon.url : latest.html_url}
+                className="mt-4 mb-2 w-full bg-asgardex-secondary-500">
+                <p>Download</p>
+              </Button>
+              {previous && (
+                <Selector label="Previous Versions" items={previous.macSon} />
               )}
             </div>
             <div className="flex flex-col items-center w-full rounded-2xl p-4 bg-asgardex-gray-100 bg-opacity-10 backdrop-blur-md">
@@ -103,9 +126,10 @@ export default async function InstallerPage() {
             <div className="flex text-sm justify-center mt-12">
               <ul className="list-disc list-inside text-left text-sm md:text-base">
                 <li>Performance improvements & stability efforts</li>
-                <li>Supports secured assets swapping</li>
-                <li>UI improvments</li>
+                <li>Fix secured assets swapping</li>
+                <li>Supporting TCY & ruji assets on THOR</li>
                 <li>See GH for full release notes</li>
+                <li>Supporting Mac OS Ventura and Sonoma See GH for you OS</li>
                 <li>
                   Mac still experiencing issues when opening, enter settings -
                   privacy & security - scroll down - open anyway
