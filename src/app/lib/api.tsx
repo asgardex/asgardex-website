@@ -14,29 +14,39 @@ export interface Release {
 }
 
 const buildReleaseItem = (releaseItem: Release) => {
-  const title = releaseItem.tag_name
-  const linuxAsset = releaseItem.assets.find((asset: any) => { return asset.browser_download_url.endsWith('.AppImage') })
-  const macAssetSon = releaseItem.assets.find((asset: any) => { return asset.browser_download_url.endsWith('Sonoma.dmg') })
-  const macAssetVent = releaseItem.assets.find((asset: any) => { return asset.browser_download_url.endsWith('Ventura.dmg') })
-  const windowsAsset = releaseItem.assets.find((asset: any) => { return asset.browser_download_url.endsWith('.exe') })
+  const baseTitle = releaseItem.tag_name
+  const linuxAsset = releaseItem.assets.find((asset) =>
+    asset.browser_download_url.endsWith('.AppImage')
+  ) || { browser_download_url: '' }
+  const macAssetSon = releaseItem.assets.find((asset) =>
+    asset.browser_download_url.includes('Sonoma') &&
+    asset.browser_download_url.endsWith('.dmg')
+  ) || { browser_download_url: '' }
+  const macAssetVent = releaseItem.assets.find((asset) =>
+    asset.browser_download_url.includes('Ventura') &&
+    asset.browser_download_url.endsWith('.dmg')
+  ) || { browser_download_url: '' }
+  const windowsAsset = releaseItem.assets.find((asset) =>
+    asset.browser_download_url.endsWith('.exe')
+  ) || { browser_download_url: '' }
 
   return {
-    tag_name: title,
+    tag_name: baseTitle,
     html_url: releaseItem.html_url,
     linux: {
-      title,
+      title: baseTitle,
       url: linuxAsset.browser_download_url
     },
     macSon: {
-      title,
+      title: `${baseTitle} Sonoma`, // Append "Sonoma" to title
       url: macAssetSon.browser_download_url
     },
     macVent: {
-      title,
+      title: `${baseTitle} Ventura`, // Append "Ventura" to title
       url: macAssetVent.browser_download_url
     },
     windows: {
-      title,
+      title: baseTitle,
       url: windowsAsset.browser_download_url
     }
   }
@@ -48,6 +58,7 @@ export async function getAsgardexReleases () {
     const res = await fetch(`https://api.github.com/repos/asgardex/asgardex-desktop/releases?nocache=${cacheBuster}`)
     const releases = await res.json()
     const latest = buildReleaseItem(releases.shift() as Release)
+
     const previous = releases.map((item: Release) => buildReleaseItem(item))
     return {
       latest,
