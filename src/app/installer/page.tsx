@@ -3,6 +3,17 @@ import Selector from '../ui/Selector'
 import Link from 'next/link'
 import { getAsgardexReleases } from '../lib/api'
 
+interface ReleaseItem {
+  tag_name: string
+  html_url: string
+  linux: { title: string, url: string }
+  macSon: { title: string, url: string }
+  macVent: { title: string, url: string }
+  macSequ: { title: string, url: string }
+  windows: { title: string, url: string }
+  [key: string]: { title: string, url: string } | string
+}
+
 export default async function InstallerPage() {
   const { latest, previous } = await getAsgardexReleases()
   return (
@@ -42,50 +53,40 @@ export default async function InstallerPage() {
               )}
             </div>
             <div className="flex flex-col items-center w-full rounded-2xl p-4 bg-asgardex-gray-100 bg-opacity-10 backdrop-blur-md">
-              <div className="flex items-center justify-center w-full h-20 mt-2">
-                <Image
-                  className="rounded-none invert"
-                  src="/apple-black-logo.png"
-                  alt=""
-                  width={64}
-                  height={64}
-                />
-              </div>
-              <p className="my-2 text-sm font-semibold">
-                Mac{latest ? ` - ${latest?.tag_name}` : ''}
-              </p>
-              <Button
-                as={Link}
-                href={latest.tag_name ? latest.macVent.url : latest.html_url}
-                className="mt-4 mb-2 w-full bg-asgardex-secondary-500">
-                <p>Download</p>
-              </Button>
-              {previous && (
-                <Selector label="Previous Versions" items={previous.macVent} />
-              )}
-            </div>
-            <div className="flex flex-col items-center w-full rounded-2xl p-4 bg-asgardex-gray-100 bg-opacity-10 backdrop-blur-md">
-              <div className="flex items-center justify-center w-full h-20 mt-2">
-                <Image
-                  className="rounded-none invert"
-                  src="/apple-black-logo.png"
-                  alt=""
-                  width={64}
-                  height={64}
-                />
-              </div>
-              <p className="my-2 text-sm font-semibold">
-                Mac{latest ? ` - ${latest?.tag_name}` : ''}
-              </p>
-              <Button
-                as={Link}
-                href={latest.tag_name ? latest.macSon.url : latest.html_url}
-                className="mt-4 mb-2 w-full bg-asgardex-secondary-500">
-                <p>Download</p>
-              </Button>
-              {previous && (
-                <Selector label="Previous Versions" items={previous.macSon} />
-              )}
+              {latest && Object.entries({
+                macVent: 'Ventura',
+                macSon: 'Sonoma',
+                macSequ: 'Sequoia'
+              }).map(([key, version]) => {
+                const asset = (latest as ReleaseItem)[key]
+                return (typeof asset === 'object' && asset?.url) && (
+                  <div key={`mac-${key}`} className="flex flex-col items-center w-full mb-4">
+                    <div className="flex items-center justify-center w-full h-20 mt-2">
+                      <Image
+                        className="rounded-none invert"
+                        src="/apple-black-logo.png"
+                        alt="Apple logo"
+                        width={64}
+                        height={64}
+                      />
+                    </div>
+                    <p className="my-2 text-sm font-semibold">
+                      Mac-{version}{latest.tag_name ? ` - ${latest.tag_name}` : ''}
+                    </p>
+                    <Button
+                      as={Link}
+                      href={asset.url || latest.html_url || '#'}
+                      className="mt-4 mb-2 w-full bg-asgardex-secondary-500"
+                      disabled={!asset.url}
+                    >
+                      <p>Download</p>
+                    </Button>
+                    {previous && (
+                      <Selector label="Previous Versions" items={previous.macVent} />
+                    )}
+                  </div>
+                )
+              })}
             </div>
             <div className="flex flex-col items-center w-full rounded-2xl p-4 bg-asgardex-gray-100 bg-opacity-10 backdrop-blur-md">
               <div className="flex items-center justify-center w-full h-20 mt-2">
@@ -126,10 +127,10 @@ export default async function InstallerPage() {
             <div className="flex text-sm justify-center mt-12">
               <ul className="list-disc list-inside text-left text-sm md:text-base">
                 <li>Performance improvements & stability efforts</li>
-                <li>Fix secured assets swapping</li>
-                <li>Supporting TCY & ruji assets on THOR</li>
+                <li>Fix swapping errors</li>
+                <li>Add protocol Select for swapping</li>
                 <li>See GH for full release notes</li>
-                <li>Supporting Mac OS Ventura and Sonoma See GH for you OS</li>
+                <li>Supporting Mac OS Ventura, Sonoma & Sequoia See GH for your OS</li>
                 <li>
                   Mac still experiencing issues when opening, enter settings -
                   privacy & security - scroll down - open anyway
