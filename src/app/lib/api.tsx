@@ -5,30 +5,31 @@ export interface Release {
   html_url: string
   tag_name: string
   created_at: string
-  assets: any[]
-  linux: any
-  windows: any
-  macSon: any
-  macVent: any
-
+  assets: Array<{ browser_download_url: string }>
 }
 
 const buildReleaseItem = (releaseItem: Release) => {
-  const baseTitle = releaseItem.tag_name
+  const baseTitle = releaseItem.tag_name || 'Unknown'
+  const defaultAsset = { browser_download_url: releaseItem.html_url, title: baseTitle }
+
   const linuxAsset = releaseItem.assets.find((asset) =>
     asset.browser_download_url.endsWith('.AppImage')
-  ) || { browser_download_url: '' }
+  ) || defaultAsset
   const macAssetSon = releaseItem.assets.find((asset) =>
     asset.browser_download_url.includes('Sonoma') &&
     asset.browser_download_url.endsWith('.dmg')
-  ) || { browser_download_url: '' }
+  ) || defaultAsset
   const macAssetVent = releaseItem.assets.find((asset) =>
     asset.browser_download_url.includes('Ventura') &&
     asset.browser_download_url.endsWith('.dmg')
-  ) || { browser_download_url: '' }
+  ) || defaultAsset
+  const macAssetSequ = releaseItem.assets.find((asset) =>
+    asset.browser_download_url.includes('Sequoia') &&
+    asset.browser_download_url.endsWith('.dmg')
+  ) || defaultAsset
   const windowsAsset = releaseItem.assets.find((asset) =>
     asset.browser_download_url.endsWith('.exe')
-  ) || { browser_download_url: '' }
+  ) || defaultAsset
 
   return {
     tag_name: baseTitle,
@@ -38,12 +39,16 @@ const buildReleaseItem = (releaseItem: Release) => {
       url: linuxAsset.browser_download_url
     },
     macSon: {
-      title: `${baseTitle} Sonoma`, // Append "Sonoma" to title
+      title: `Sonoma - ${baseTitle}`,
       url: macAssetSon.browser_download_url
     },
     macVent: {
-      title: `${baseTitle} Ventura`, // Append "Ventura" to title
+      title: `Ventura - ${baseTitle}`,
       url: macAssetVent.browser_download_url
+    },
+    macSequ: {
+      title: `Sequoia - ${baseTitle}`,
+      url: macAssetSequ.browser_download_url
     },
     windows: {
       title: baseTitle,
@@ -52,25 +57,41 @@ const buildReleaseItem = (releaseItem: Release) => {
   }
 }
 
-export async function getAsgardexReleases () {
+export async function getAsgardexReleases() {
   try {
     const cacheBuster = new Date().getTime()
-    const res = await fetch(`https://api.github.com/repos/asgardex/asgardex-desktop/releases?nocache=${cacheBuster}`)
+    const res = await fetch(
+      `https://api.github.com/repos/asgardex/asgardex-desktop/releases?nocache=${cacheBuster}`
+    )
+    if (!res.ok) throw new Error('Failed to fetch releases')
     const releases = await res.json()
-    const latest = buildReleaseItem(releases.shift() as Release)
+    if (!releases.length) throw new Error('No releases found')
 
+    const latest = buildReleaseItem(releases.shift() as Release)
     const previous = releases.map((item: Release) => buildReleaseItem(item))
+
     return {
       latest,
-      previous:
-      {
-        linux: previous.map((prev: Release) => prev.linux) as ItemConfig[],
-        macSon: previous.map((prev: Release) => prev.macSon) as ItemConfig[],
-        macVent: previous.map((prev: Release) => prev.macVent) as ItemConfig[],
-        windows: previous.map((prev: Release) => prev.windows) as ItemConfig[]
+      previous: {
+        linux: previous.map((prev: any) => prev.linux) as ItemConfig[],
+        macSon: previous.map((prev: any) => prev.macSon) as ItemConfig[],
+        macVent: previous.map((prev: any) => prev.macVent) as ItemConfig[],
+        macSequ: previous.map((prev: any) => prev.macSequ) as ItemConfig[],
+        windows: previous.map((prev: any) => prev.windows) as ItemConfig[]
       }
     }
   } catch {
-    return { latest: { tag_name: null, html_url: 'https://github.com/asgardex/asgardex-desktop/releases/latest' }, previous: null }
+    return {
+      latest: {
+        tag_name: '',
+        html_url: 'https://github.com/asgardex/asgardex-desktop/releases/latest',
+        linux: { title: '', url: '' },
+        macSon: { title: '', url: '' },
+        macVent: { title: '', url: '' },
+        macSequ: { title: '', url: '' },
+        windows: { title: '', url: '' }
+      },
+      previous: null
+    }
   }
 }
