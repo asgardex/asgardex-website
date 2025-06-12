@@ -127,8 +127,6 @@ export default async function InstallerPage() {
             <div className="flex text-sm justify-center mt-12">
               <ul className="list-disc list-inside text-left text-sm md:text-base">
                 <li>Performance improvements & stability efforts</li>
-                <li>Fix swapping errors</li>
-                <li>Add protocol Select for swapping</li>
                 <li>See GH for full release notes</li>
                 <li>Supporting Mac OS Ventura, Sonoma & Sequoia See GH for your OS</li>
                 <li>
