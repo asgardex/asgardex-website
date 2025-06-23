@@ -15,7 +15,7 @@ interface ReleaseItem {
 }
 
 export default async function InstallerPage() {
-  const { latest, previous } = await getAsgardexReleases()
+  const { latest, previous } = getAsgardexReleases()
   return (
     <main className="flex flex-col items-center pt-20">
       <section className="flex flex-col w-full items-center justify-center px-20 lg:px-0">

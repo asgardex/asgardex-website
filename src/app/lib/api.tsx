@@ -1,6 +1,7 @@
+import releases from '../../releases.json'
 import type { ItemConfig } from '../ui/Selector'
 
-export interface Release {
+interface Release {
   id: number
   html_url: string
   tag_name: string
@@ -57,18 +58,12 @@ const buildReleaseItem = (releaseItem: Release) => {
   }
 }
 
-export async function getAsgardexReleases() {
+export function getAsgardexReleases() {
   try {
-    const cacheBuster = new Date().getTime()
-    const res = await fetch(
-      `https://api.github.com/repos/asgardex/asgardex-desktop/releases?nocache=${cacheBuster}`
-    )
-    if (!res.ok) throw new Error('Failed to fetch releases')
-    const releases = await res.json()
     if (!releases.length) throw new Error('No releases found')
 
-    const latest = buildReleaseItem(releases.shift() as Release)
-    const previous = releases.map((item: Release) => buildReleaseItem(item))
+    const latest = buildReleaseItem(releases[0] as Release)
+    const previous = releases.slice(1).map((item: Release) => buildReleaseItem(item))
 
     return {
       latest,
