@@ -28,83 +28,81 @@ export default async function InstallerPage() {
             Mac, or Linux, downloading the latest version of Asgardex is just a
             click away. Keep track of updates.
           </p>
-          <div className="max-w-[800px] grid grid-cols-1 md:grid-cols-3 gap-y-8 gap-x-14 m-auto">
-            <div className="flex flex-col items-center w-full rounded-2xl p-4 bg-asgardex-gray-100 bg-opacity-10 backdrop-blur-md">
+          <div className="max-w-[1200px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-y-8 gap-x-6 m-auto">
+            <div className="flex flex-col items-center w-full rounded-2xl p-6 bg-default-100/50 backdrop-blur-md border border-default-200">
               <div className="flex items-center justify-center w-full h-20 mt-2">
                 <Image
-                  className="rounded-none invert"
+                  className="rounded-none dark:invert"
                   src="/windows-black-logo.avif"
-                  alt=""
+                  alt="Windows operating system logo"
                   width={64}
                   height={64}
                 />
               </div>
-              <p className="my-2 text-sm font-semibold">
+              <p className="my-2 text-sm font-semibold text-foreground">
                 Windows{latest ? ` - ${latest?.tag_name}` : ''}
               </p>
               <Button
                 as={Link}
                 href={latest.tag_name ? latest.windows.url : latest.html_url}
-                className="mt-4 mb-2 w-full bg-asgardex-secondary-500">
+                className="mt-4 mb-2 w-full bg-primary text-primary-foreground hover:bg-primary/90">
                 <p>Download</p>
               </Button>
               {previous && (
                 <Selector label="Previous Versions" items={previous.windows} />
               )}
             </div>
-            <div className="flex flex-col items-center w-full rounded-2xl p-4 bg-asgardex-gray-100 bg-opacity-10 backdrop-blur-md">
-              {latest && Object.entries({
-                macVent: 'Ventura',
-                macSon: 'Sonoma',
-                macSequ: 'Sequoia'
-              }).map(([key, version]) => {
-                const asset = (latest as ReleaseItem)[key]
-                return (typeof asset === 'object' && asset?.url) && (
-                  <div key={`mac-${key}`} className="flex flex-col items-center w-full mb-4">
-                    <div className="flex items-center justify-center w-full h-20 mt-2">
-                      <Image
-                        className="rounded-none invert"
-                        src="/apple-black-logo.png"
-                        alt="Apple logo"
-                        width={64}
-                        height={64}
-                      />
-                    </div>
-                    <p className="my-2 text-sm font-semibold">
-                      Mac-{version}{latest.tag_name ? ` - ${latest.tag_name}` : ''}
-                    </p>
-                    <Button
-                      as={Link}
-                      href={asset.url || latest.html_url || '#'}
-                      className="mt-4 mb-2 w-full bg-asgardex-secondary-500"
-                      disabled={!asset.url}
-                    >
-                      <p>Download</p>
-                    </Button>
-                    {previous && (
-                      <Selector label="Previous Versions" items={previous.macVent} />
-                    )}
+            {latest && Object.entries({
+              macVent: 'Ventura',
+              macSon: 'Sonoma',
+              macSequ: 'Sequoia'
+            }).map(([key, version]) => {
+              const asset = (latest as ReleaseItem)[key]
+              return (typeof asset === 'object' && asset?.url) && (
+                <div key={`mac-${key}`} className="flex flex-col items-center w-full rounded-2xl p-6 bg-default-100/50 backdrop-blur-md border border-default-200">
+                  <div className="flex items-center justify-center w-full h-20 mt-2">
+                    <Image
+                      className="rounded-none dark:invert"
+                      src="/apple-black-logo.png"
+                      alt="Apple logo"
+                      width={64}
+                      height={64}
+                    />
                   </div>
-                )
-              })}
-            </div>
-            <div className="flex flex-col items-center w-full rounded-2xl p-4 bg-asgardex-gray-100 bg-opacity-10 backdrop-blur-md">
+                  <p className="my-2 text-sm font-semibold text-foreground text-center">
+                    Mac {version}{latest.tag_name ? ` - ${latest.tag_name}` : ''}
+                  </p>
+                  <Button
+                    as={Link}
+                    href={asset.url || latest.html_url || '#'}
+                    className="mt-4 mb-2 w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                    disabled={!asset.url}
+                  >
+                    <p>Download</p>
+                  </Button>
+                  {previous && (
+                    <Selector label="Previous Versions" items={previous[key as keyof typeof previous]} />
+                  )}
+                </div>
+              )
+            })}
+            <div className="flex flex-col items-center w-full rounded-2xl p-6 bg-default-100/50 backdrop-blur-md border border-default-200">
               <div className="flex items-center justify-center w-full h-20 mt-2">
                 <Image
-                  className="rounded-none invert"
+                  className="rounded-none dark:invert"
                   src={'/linux-black-logo.avif'}
-                  alt=""
+                  alt="Linux operating system logo"
                   width={64}
                   height={64}
                 />
               </div>
-              <p className="my-2 text-sm font-semibold">
+              <p className="my-2 text-sm font-semibold text-foreground">
                 Linux{latest ? ` - ${latest?.tag_name}` : ''}
               </p>
               <Button
                 as={Link}
                 href={latest.tag_name ? latest.linux.url : latest.html_url}
-                className="mt-4 mb-2 w-full bg-asgardex-secondary-500">
+                className="mt-4 mb-2 w-full bg-primary text-primary-foreground hover:bg-primary/90">
                 <p>Download</p>
               </Button>
               {previous && (
@@ -116,10 +114,10 @@ export default async function InstallerPage() {
       </section>
       <section className="flex flex-col max-w-[1085px] w-full items-center justify-center px-6 md:px-16 lg:px-8">
         <div className="text-center py-16">
-          <h3 className="text-2xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-dark-gray">
+          <h3 className="text-2xl md:text-4xl lg:text-5xl font-extrabold mb-4 text-foreground">
             Release notes and signed binaries
           </h3>
-          <div className="text-m md:text-lg font-normal mb-8 text-dark-gray">
+          <div className="text-m md:text-lg font-normal mb-8 text-foreground">
             <h2>
               Visit our GitHub for the detailed release notes and signed
               binaries
@@ -143,8 +141,9 @@ export default async function InstallerPage() {
           <div className="flex flex-col items-center justify-center md:flex-row md:items-center gap-4 py-8">
             <Link
               href={'https://github.com/asgardex/asgardex-desktop/releases'}
-              target="_blank">
-              <Button className="bg-asgardex-primary-500 cursor-pointer p-4 hover:bg-asgardex-primary-300 outline-none text-asgardex-dark-1000">
+              target="_blank"
+              rel="noopener noreferrer">
+              <Button className="bg-secondary cursor-pointer p-4 hover:bg-secondary/90 outline-none text-primary-foreground">
                 <p className="text-base md:text-lg">
                   Check out the latest releases on GitHub
                 </p>
@@ -158,8 +157,9 @@ export default async function InstallerPage() {
             </Link>
             <Link
               href={'https://github.com/asgardex/asgardex-desktop/issues'}
-              target="_blank">
-              <Button className="bg-asgardex-primary-500 cursor-pointer p-4 hover:bg-asgardex-primary-300 outline-none text-asgardex-dark-1000">
+              target="_blank"
+              rel="noopener noreferrer">
+              <Button className="bg-secondary cursor-pointer p-4 hover:bg-secondary/90 outline-none text-primary-foreground">
                 <p className="text-base md:text-lg">
                   Found an issue? Report it here
                 </p>

@@ -11,24 +11,24 @@ export default function Home() {
       <section className="relative flex flex-col max-w-7xl w-full h-[calc(100vh-64px)] items-center justify-between pt-8 pb-24 px-4">
         <div />
         <div className="flex flex-col items-center text-center">
-          <h1 className="text-3xl md:text-5xl lg:text-[80px] font-extrabold mb-4">
+          <h1 className="text-3xl md:text-5xl lg:text-[80px] font-extrabold mb-4 text-foreground">
             Welcome to{' '}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-midgard-turquoise to-bifrost-blue bg-clip-text text-transparent">
               Asgardex
             </span>
           </h1>
-          <p className="text-xl font-bold mb-8">
+          <p className="text-xl font-bold mb-8 text-foreground">
             A Seamless Multi-Chain L1 Exchange at Your Fingertips
           </p>
           <div className="flex items-center justify-center space-x-4">
             <Button
               as={Link}
               href="/installer"
-              className="bg-asgardex-primary-500 p-8 text-lg font-bold text-asgardex-dark-1000 border-outline-none rounded-full">
+              className="bg-primary text-primary-foreground p-8 text-lg font-bold border-outline-none rounded-full hover:bg-primary/90">
               Download Now
             </Button>
-            <Link href="https://discord.gg/AZDtabWFJF" target="_blank">
-              <Button className="border border-solid border-asgardex-primary-500 bg-transparent rounded-full p-8 font-bold w-full text-white text-lg">
+            <Link href="https://discord.gg/AZDtabWFJF" target="_blank" rel="noopener noreferrer">
+              <Button className="border border-solid border-primary bg-transparent rounded-full p-8 font-bold w-full text-foreground text-lg hover:bg-primary/10">
                 Join Discord
               </Button>
             </Link>
@@ -36,49 +36,50 @@ export default function Home() {
         </div>
         <div className="flex items-center justify-center sm:justify-end w-full">
           <div className="flex items-center justify-center gap-4 px-4 py-2 rounded-2xl bg-white/10 border border-solid border-asgardex-gray-800">
-            <Link href="https://twitter.com/asgardex" target="_blank">
+            <Link href="https://twitter.com/asgardex" target="_blank" rel="noopener noreferrer">
               <Image
-                className="invert"
+                className="dark:invert"
                 src="/x-black-logo.avif"
-                alt="Asgardex X"
+                alt="Follow Asgardex on X (Twitter)"
                 width={20}
                 height={20}
               />
             </Link>
-            <Link href="https://discord.gg/AZDtabWFJF" target="_blank">
+            <Link href="https://discord.gg/AZDtabWFJF" target="_blank" rel="noopener noreferrer">
               <Image
-                className="invert"
+                className="dark:invert"
                 src="/discord-black-logo.avif"
-                alt="Asgardex Discord"
+                alt="Join Asgardex Discord community"
                 width={24}
                 height={24}
               />
             </Link>
             <Link
               href="https://github.com/asgardex/asgardex-desktop/releases"
-              target="_blank">
+              target="_blank"
+              rel="noopener noreferrer">
               <Image
-                className="invert"
+                className="dark:invert"
                 src="/github-black-logo.avif"
-                alt="Asgardex Discord"
+                alt="View Asgardex source code on GitHub"
                 width={24}
                 height={24}
               />
             </Link>
-            <Link href="https://thorchain.org/" target="_blank">
+            <Link href="https://thorchain.org/" target="_blank" rel="noopener noreferrer">
               <Image
-                className="invert"
+                className="dark:invert"
                 src="/thorchain-black-logo.avif"
-                alt="Thorchain logotipe"
+                alt="Learn more about THORChain protocol"
                 width={20}
                 height={20}
               />
             </Link>
-            <Link href="https://www.mayaprotocol.com/" target="_blank">
+            <Link href="https://www.mayaprotocol.com/" target="_blank" rel="noopener noreferrer">
               <Image
-                className="invert"
+                className="dark:invert"
                 src="/maya-black-logo.avif"
-                alt="Maya Protocol logotipe"
+                alt="Learn more about Maya Protocol"
                 width={32}
                 height={32}
               />
@@ -88,7 +89,7 @@ export default function Home() {
       </section>
       <section className="flex flex-col w-full max-w-7xl items-center justify-center text-center px-6 md:px-16 lg:px-8 gap-8">
         <div className="max-w-5xl">
-          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold">
+          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-foreground">
             Dive into the world of decentralized finance with Asgardex
           </h2>
         </div>
@@ -108,27 +109,16 @@ export default function Home() {
           <Image
             className="rounded-xl border border-solid border-white/20"
             src="/pools-home.png"
-            alt=""
+            alt="Asgardex application interface showing liquidity pools management"
             width={1024}
             height={554}
           />
         </div>
 
-        {/* <div className="max-w-3xl">
-          <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">
-            Exchange many assets across various chains including BTC, ETH, SOL,
-            BASE, AVAX, BCH, BSC, CACAO, COSMOS, DASH, DOGE, and RUNE, all in
-            one intuitive interface. Swapping BTC to ETH ? Asgardex has you
-            covered.
-          </p>
-          <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">
-            Supported languages: French, German, Hindi, Russian & Spanish
-          </p>
-        </div> */}
       </section>
       <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
         <div className="max-w-[1000px] text-center py-16">
-          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold mb-8">
+          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8">
             Our Core Values: Decentralization, Censorship Resistance, and
             Security
           </h2>
@@ -146,16 +136,16 @@ export default function Home() {
                 <div className="w-10 md:w-[70px] h-10 md:h-[70px]">
                   <Image
                     src="/decentralization-logo.avif"
-                    alt=""
+                    alt="Decentralization icon"
                     layout="responsive"
                     width={70}
                     height={70}
                   />
                 </div>
-                <h4 className="mt-4 text-md md:text-2xl font-bold text-asgardex-dark-1000">
+                <h4 className="mt-4 text-md md:text-2xl font-bold text-foreground">
                   Decentralization
                 </h4>
-                <p className="mt-3 text-xs md:text-base font-normal text-asgardex-dark-1000">
+                <p className="mt-3 text-xs md:text-base font-normal text-foreground">
                   Avoids web apps, uses public servers, and is open-source to
                   prevent service interruption even by the app’s team.
                 </p>
@@ -164,15 +154,15 @@ export default function Home() {
                 <div className="w-10 md:w-[70px] h-10 md:h-[70px]">
                   <Image
                     src="/censorship-logo.avif"
-                    alt=""
+                    alt="Censorship resistance icon"
                     width={70}
                     height={70}
                   />
                 </div>
-                <h4 className="mt-4 text-md md:text-2xl font-bold text-asgardex-dark-1000">
+                <h4 className="mt-4 text-md md:text-2xl font-bold text-foreground">
                   Censorship Resistance
                 </h4>
-                <p className="mt-3 text-xs md:text-base font-normal text-asgardex-dark-1000">
+                <p className="mt-3 text-xs md:text-base font-normal text-foreground">
                   The installer can be easily distributed and used without
                   domains or a centralized responsible party.
                 </p>
@@ -181,15 +171,15 @@ export default function Home() {
                 <div className="w-10 md:w-[70px] h-10 md:h-[70px]">
                   <Image
                     src="/security-logo.avif"
-                    alt=""
+                    alt="Security icon"
                     width={70}
                     height={70}
                   />
                 </div>
-                <h4 className="mt-4 text-md md:text-2xl font-bold text-asgardex-dark-1000">
+                <h4 className="mt-4 text-md md:text-2xl font-bold text-foreground">
                   Security
                 </h4>
-                <p className="mt-3 text-xs md:text-base font-normal text-asgardex-dark-1000">
+                <p className="mt-3 text-xs md:text-base font-normal text-foreground">
                   Developed and maintained by the community, reducing the risk
                   of errors and fund loss.
                 </p>
@@ -202,7 +192,7 @@ export default function Home() {
       <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
         <div className="max-w-[1000px] text-center flex flex-col items-center py-16">
           <div className="max-w-[800px] m-auto">
-            <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold mb-8">
+            <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8">
               Empowering You with Wallet Flexibility
             </h2>
             <p className="text-sm md:text-lg lg:text-xl font-normal">
@@ -217,103 +207,49 @@ export default function Home() {
             <Image
               className="rounded-xl border border-solid border-white/20"
               src="/wallets-management-home.png"
-              alt=""
+              alt="Asgardex wallet management interface showing multiple wallet options"
               width={1000}
               height={200}
             />
           </div>
           <div className="pt-5 grid grid-cols-2 lg:grid-cols-3 gap-10">
             <div className="text-left">
-              <h4 className="font-bold text-sm lg:text-lg">Local Wallets</h4>
-              <h5 className="font-medium text-sm lg:text-lg">
+              <h4 className="font-bold text-sm lg:text-lg text-foreground">Local Wallets</h4>
+              <h5 className="font-medium text-sm lg:text-lg text-foreground">
                 Create and manage locally.
               </h5>
             </div>
             <div className="text-left">
-              <h4 className="font-bold text-sm lg:text-lg">Secret Phrase</h4>
-              <h5 className="font-medium text-sm lg:text-lg">
+              <h4 className="font-bold text-sm lg:text-lg text-foreground">Secret Phrase</h4>
+              <h5 className="font-medium text-sm lg:text-lg text-foreground">
                 Load wallet with a phrase.
               </h5>
             </div>
             <div className="text-left">
-              <h4 className="font-bold text-sm lg:text-lg">Ledger Support</h4>
-              <h5 className="font-medium text-sm lg:text-lg">
+              <h4 className="font-bold text-sm lg:text-lg text-foreground">Ledger Support</h4>
+              <h5 className="font-medium text-sm lg:text-lg text-foreground">
                 Integrated with Ledger devices.
               </h5>
             </div>
             <div className="text-left">
-              <h4 className="font-bold text-sm lg:text-lg">User-Friendly</h4>
-              <h5 className="font-medium text-sm lg:text-lg">
+              <h4 className="font-bold text-sm lg:text-lg text-foreground">User-Friendly</h4>
+              <h5 className="font-medium text-sm lg:text-lg text-foreground">
                 Effortless navigation and usage.
               </h5>
             </div>
             <div className="text-left">
-              <h4 className="font-bold text-sm lg:text-lg">Earn interest</h4>
-              <h5 className="font-medium text-sm lg:text-lg">
+              <h4 className="font-bold text-sm lg:text-lg text-foreground">Earn interest</h4>
+              <h5 className="font-medium text-sm lg:text-lg text-foreground">
                 Also in native assets like BTC, DOGE, BCH...
               </h5>
             </div>
             <div className="text-left">
-              <h4 className="font-bold text-sm lg:text-lg">
+              <h4 className="font-bold text-sm lg:text-lg text-foreground">
                 Node & Bond Management
               </h4>
-              <h5 className="font-medium text-sm lg:text-lg">
+              <h5 className="font-medium text-sm lg:text-lg text-foreground">
                 Monitor validators behaviour.
               </h5>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
-        <div className="max-w-[1085px] flex flex-col lg:flex-row text-center items-center justify-around py-16 gap-x-20">
-          <div className="w-full m-auto">
-            <h2 className="text-2xl md:text-5xl lg:text-5xl font-bold mb-8">
-              Earn Interest with Peace of Mind
-            </h2>
-            <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">
-              Secure your financial future with Asgardex`s unique Savers
-              product. Enjoy earning interest on native assets like BTC, ETH,
-              USDC, and many more without the worry of impermanent loss. Your
-              investments are safe, earning each second.
-            </p>
-          </div>
-          <div className="w-full flex items-center justify-center">
-            <div className="bg-white/10 p-2 rounded-xl border border-solid border-white/20">
-              <Image
-                className="rounded-xl border border-solid border-white/20"
-                src="/earn-interest-home-dark.avif"
-                alt=""
-                width={420}
-                height={420}
-              />
-            </div>
-          </div>
-        </div>
-      </section> */}
-
-      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
-        <div className="max-w-[1085px] flex flex-col lg:flex-row-reverse text-center items-center justify-around py-16 gap-x-20">
-          <div className="w-full m-auto">
-            <h2 className="text-2xl md:text-5xl lg:text-5xl font-bold mb-8">
-              Dual-Liquidity Provision: Double the Opportunity
-            </h2>
-            <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">
-              Elevate your earning potential by providing dual-asset liquidity.
-              Pair your assets with 50% RUNE and another asset of your choice,
-              reaping higher interest rates compared to Savers. Embrace the
-              opportunity while managing the risk of impermanent loss.
-            </p>
-          </div>
-          <div className="w-full flex items-center justify-center">
-            <div className="bg-white/10 p-2 rounded-xl border border-solid border-white/20">
-              <Image
-                className="rounded-xl border border-solid border-white/20"
-                src="/savers-home.png"
-                alt=""
-                width={500}
-                height={500}
-              />
             </div>
           </div>
         </div>
@@ -322,7 +258,7 @@ export default function Home() {
       <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
         <div className="max-w-[1000px] flex flex-col items-center text-center">
           <div className="flex flex-col items-center">
-            <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold mb-8">
+            <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8">
               Experience Asgardex in Action
             </h2>
             <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">
@@ -343,40 +279,23 @@ export default function Home() {
 
       <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
         <div className="max-w-[1085px] text-center flex flex-col items-center py-16">
-          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold mb-8">
+          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8">
             Stay Informed and Ahead
           </h2>
           <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">
             Explore the future with us. Our roadmap teases exciting developments
-            like loan services, order book trading, and leveraged futures. Stay
+like order book trading, and leveraged futures. Stay
             tuned for what is coming next in Asgardex&apos;s journey.
           </p>
           <div className="pt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             <div className="flex flex-row items-start">
               <div className="mr-4">
                 <Image
-                  src="/loans-logo.avif"
-                  alt=""
-                  width={32}
-                  height={32}
-                  className="invert"
-                />
-              </div>
-              <div className="text-left">
-                <h4 className="text-lg font-bold mb-2">Loans Feature</h4>
-                <h5 className="text-sm font-medium">
-                  Innovative loan options for all
-                </h5>
-              </div>
-            </div>
-            <div className="flex flex-row items-start">
-              <div className="mr-4">
-                <Image
                   src="/order-books-logo.avif"
-                  alt=""
+                  alt="Order books trading icon"
                   width={32}
                   height={32}
-                  className="invert"
+                  className="dark:invert"
                 />
               </div>
               <div className="text-left">
@@ -390,10 +309,10 @@ export default function Home() {
               <div className="mr-4">
                 <Image
                   src="/base-trading-logo.avif"
-                  alt=""
+                  alt="Base trading feature icon"
                   width={32}
                   height={32}
-                  className="invert"
+                  className="dark:invert"
                 />
               </div>
               <div className="text-left">
@@ -407,10 +326,10 @@ export default function Home() {
               <div className="mr-4">
                 <Image
                   src="/leverage-future-logo.avif"
-                  alt=""
+                  alt="Leveraged futures trading icon"
                   width={32}
                   height={32}
-                  className="invert"
+                  className="dark:invert"
                 />
               </div>
               <div className="text-left">
@@ -426,10 +345,10 @@ export default function Home() {
               <div className="mr-4">
                 <Image
                   src="/trading-futures-logo.avif"
-                  alt=""
+                  alt="Trading futures feature icon"
                   width={32}
                   height={32}
-                  className="invert"
+                  className="dark:invert"
                 />
               </div>
               <div className="text-left">
@@ -443,10 +362,10 @@ export default function Home() {
               <div className="mr-4">
                 <Image
                   src="/future-implementations-logo.avif"
-                  alt=""
+                  alt="Future implementations roadmap icon"
                   width={32}
                   height={32}
-                  className="invert"
+                  className="dark:invert"
                 />
               </div>
               <div className="text-left">
@@ -464,7 +383,7 @@ export default function Home() {
 
       <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
         <div className="max-w-[900px] text-center py-16">
-          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold mb-8">
+          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8">
             Asgardex vs. CEXs
           </h2>
           <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">
@@ -508,7 +427,7 @@ export default function Home() {
             </div>
             <Divider />
           </div>
-          <Button className="bg-asgardex-primary-500 font-medium text-lg rounded-lg px-16 py-6 mt-8 text-asgardex-dark-1000">
+          <Button className="bg-asgardex-primary-500 font-medium text-lg rounded-lg px-16 py-6 mt-8 text-primary-foreground">
             Start Comparing
           </Button>
         </div>
@@ -529,44 +448,28 @@ export default function Home() {
               as={Link}
               href="https://crypto-university.medium.com/"
               target="_blank"
-              className="bg-asgardex-primary-500 font-medium text-lg rounded-lg px-16 py-6 my-10 text-asgardex-dark-1000">
+              rel="noopener noreferrer"
+              className="bg-asgardex-primary-500 font-medium text-lg rounded-lg px-16 py-6 my-10 text-primary-foreground">
               Start Learning
             </Button>
           </div>
           <div className="grid grid-cols-2 gap-8 w-full">
             <Link
               href={
-                'https://crypto-university.medium.com/under-the-hood-single-sided-yield-protocol-owned-liquidity-a5ef725a5d7a'
-              }
-              target="_blank"
-              className={
-                'flex flex-col items-center border-solid border-2 border-asgardex-gray-300 hover:bg-asgardex-gray-100/10 rounded-2xl p-2'
-              }>
-              <Image
-                src="/savers-logo.avif"
-                alt="Savers logo"
-                width={75}
-                height={75}
-              />
-              <p className="font-bold text-asgardex-dark-800 text-lg mt-4">
-                Savers
-              </p>
-            </Link>
-            <Link
-              href={
                 'https://crypto-university.medium.com/under-the-hood-liquidity-pool-apr-3e5e662e6675'
               }
               target="_blank"
+              rel="noopener noreferrer"
               className={
                 'flex flex-col items-center border-solid border-2 border-asgardex-gray-300 hover:bg-asgardex-gray-100/10 rounded-2xl p-2'
               }>
               <Image
                 src="/liquidity-logo.avif"
-                alt="Savers logo"
+                alt="Liquidity logo"
                 width={75}
                 height={75}
               />
-              <p className="font-bold text-asgardex-dark-800 text-lg mt-4">
+              <p className="font-bold text-primary-foreground text-lg mt-4">
                 Liquidity
               </p>
             </Link>
@@ -575,16 +478,17 @@ export default function Home() {
                 'https://crypto-university.medium.com/under-the-hood-streaming-swaps-660708ab9dc0'
               }
               target="_blank"
+              rel="noopener noreferrer"
               className={
                 'flex flex-col items-center border-solid border-2 border-asgardex-gray-300 hover:bg-asgardex-gray-100/10 rounded-2xl p-2'
               }>
               <Image
                 src="/swaps-logo.avif"
-                alt="Savers logo"
+                alt="Swaps logo"
                 width={75}
                 height={75}
               />
-              <p className="font-bold text-asgardex-dark-800 text-lg mt-4">
+              <p className="font-bold text-primary-foreground text-lg mt-4">
                 Swaps
               </p>
             </Link>
@@ -593,16 +497,17 @@ export default function Home() {
                 'https://crypto-university.medium.com/synthetic-assets-79df3e3af113'
               }
               target="_blank"
+              rel="noopener noreferrer"
               className={
                 'flex flex-col items-center border-solid border-2 border-asgardex-gray-300 hover:bg-asgardex-gray-100/10 rounded-2xl p-2'
               }>
               <Image
                 src="/synthetic-assets-logo.avif"
-                alt="Savers logo"
+                alt="Synthetic assets logo"
                 width={75}
                 height={75}
               />
-              <p className="font-bold text-asgardex-dark-800 text-lg mt-4">
+              <p className="font-bold text-primary-foreground text-lg mt-4">
                 Synthetic Assets
               </p>
             </Link>
@@ -628,7 +533,8 @@ export default function Home() {
               as={Link}
               href="https://crypto-university.medium.com/"
               target="_blank"
-              className="bg-asgardex-primary-500 font-medium text-lg rounded-lg px-16 py-6 mt-8 text-asgardex-dark-1000">
+              rel="noopener noreferrer"
+              className="bg-asgardex-primary-500 font-medium text-lg rounded-lg px-16 py-6 mt-8 text-primary-foreground">
               Start Learning
             </Button>
           </div>
@@ -640,7 +546,7 @@ export default function Home() {
 
       <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
         <div className="max-w-[1085px] text-center py-28">
-          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold mb-8">
+          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8">
             Join Our Vibrant Community
           </h2>
           <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">
@@ -652,7 +558,7 @@ export default function Home() {
               <div className="w-[100px] md:w-[150px] h-[100px] md:h-[150px]">
                 <Image
                   src="/discord-big-logo.avif"
-                  alt=""
+                  alt="Discord community logo"
                   layout="responsive"
                   width={150}
                   height={150}
@@ -667,8 +573,9 @@ export default function Home() {
               <Link
                 className="w-full"
                 href="https://discord.gg/AZDtabWFJF"
-                target="_blank">
-                <Button className="bg-asgardex-secondary-500 font-bold rounded-lg w-full mt-8 text-white text-lg">
+                target="_blank"
+                rel="noopener noreferrer">
+                <Button className="bg-secondary font-bold rounded-lg w-full mt-8 text-secondary-foreground text-lg hover:bg-secondary/90">
                   Join
                 </Button>
               </Link>
@@ -677,7 +584,7 @@ export default function Home() {
               <div className="w-[100px] md:w-[150px] h-[100px] md:h-[150px]">
                 <Image
                   src="/x-big-logo.avif"
-                  alt=""
+                  alt="X (Twitter) community logo"
                   layout="responsive"
                   width={150}
                   height={150}
@@ -690,8 +597,9 @@ export default function Home() {
               <Link
                 className="w-full"
                 href="https://twitter.com/asgardex"
-                target="_blank">
-                <Button className="bg-asgardex-secondary-500 font-bold rounded-lg w-full mt-8 text-white text-lg">
+                target="_blank"
+                rel="noopener noreferrer">
+                <Button className="bg-secondary font-bold rounded-lg w-full mt-8 text-secondary-foreground text-lg hover:bg-secondary/90">
                   Join
                 </Button>
               </Link>
@@ -700,7 +608,7 @@ export default function Home() {
               <div className="w-[100px] md:w-[150px] h-[100px] md:h-[150px]">
                 <Image
                   src="/github-big-logo.avif"
-                  alt=""
+                  alt="GitHub community logo"
                   layout="responsive"
                   width={150}
                   height={150}
@@ -715,8 +623,9 @@ export default function Home() {
               <Link
                 className="w-full"
                 href="https://github.com/asgardex/asgardex-desktop/releases"
-                target="_blank">
-                <Button className="bg-asgardex-secondary-500 font-bold rounded-lg w-full mt-8 text-white text-lg">
+                target="_blank"
+                rel="noopener noreferrer">
+                <Button className="bg-secondary font-bold rounded-lg w-full mt-8 text-secondary-foreground text-lg hover:bg-secondary/90">
                   Join
                 </Button>
               </Link>
@@ -725,7 +634,7 @@ export default function Home() {
               <div className="w-[100px] md:w-[150px] h-[100px] md:h-[150px]">
                 <Image
                   src="/xchain-big-logo.avif"
-                  alt=""
+                  alt="XChainJS library logo"
                   layout="responsive"
                   width={150}
                   height={150}
@@ -740,8 +649,9 @@ export default function Home() {
               <Link
                 className="w-full"
                 href="https://github.com/xchainjs/xchainjs-lib"
-                target="_blank">
-                <Button className="bg-asgardex-secondary-500 font-bold rounded-lg w-full mt-8 text-white text-lg">
+                target="_blank"
+                rel="noopener noreferrer">
+                <Button className="bg-secondary font-bold rounded-lg w-full mt-8 text-secondary-foreground text-lg hover:bg-secondary/90">
                   Join
                 </Button>
               </Link>

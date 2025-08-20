@@ -8,65 +8,101 @@ const config: Config = {
     './components/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   darkMode: 'class',
-  plugins: [nextui()],
+  plugins: [nextui({
+    themes: {
+      dark: {
+        colors: {
+          background: '#111315',
+          foreground: '#ffffff',
+          primary: '#23DCC8',
+          secondary: '#00CCFF',
+          success: '#23DCC8',
+          warning: '#F3BA2F',
+          danger: '#FF4954',
+        }
+      },
+      light: {
+        colors: {
+          background: '#ffffff',
+          foreground: '#303942',
+          primary: '#23DCC8',
+          secondary: '#00CCFF',
+          success: '#23DCC8',
+          warning: '#F3BA2F',
+          danger: '#FF4954',
+        }
+      }
+    }
+  })],
   theme: {
-    colors: {
-      'asgardex-primary': {
-        100: '#e4ffee',
-        200: '#BEFFD5',
-        300: '#8BFFB9',
-        400: '#33FF98',
-        500: '#00FB7D',
-        600: '#00F568',
-        700: '#00E35C',
-        800: '#00CE4E',
-        900: '#00BC42',
-        1000: '#00992C'
+    extend: {
+      colors: {
+        // Official Asgardex theme colors from the package
+        'asgardex-primary': {
+          100: '#e4ffee',
+          200: '#beffd5',
+          300: '#8bffb9',
+          400: '#33ff99',
+          500: '#00fb7d',
+          600: '#00f568',
+          700: '#00e35c',
+          800: '#00ce4e',
+          900: '#00bc42',
+          950: '#00992c'
+        },
+        'asgardex-secondary': {
+          100: '#dff7ff',
+          200: '#ace9fe',
+          300: '#70dbfe',
+          400: '#00ccff',
+          500: '#00c0ff',
+          600: '#00b4ff',
+          700: '#00a6f4',
+          800: '#0093e1',
+          900: '#0081cd',
+          950: '#0061ac'
+        },
+        'asgardex-gray': {
+          100: '#f7f7f7',
+          200: '#eeeeee',
+          300: '#e2e2e2',
+          400: '#d0d0d0',
+          500: '#ababab',
+          600: '#8a8a8a',
+          700: '#636363',
+          800: '#505050',
+          900: '#323232',
+          950: '#121212'
+        },
+        'asgardex-dark': {
+          100: '#F3F4F4',
+          200: '#d1d5da',
+          300: '#b4b9c2',
+          400: '#969dab',
+          500: '#a9b3be',
+          600: '#89939d',
+          700: '#616b75',
+          800: '#4e5761',
+          900: '#303942',
+          950: '#101921'
+        },
+        // Theme-specific colors
+        'midgard-turquoise': '#23DCC8',
+        'bifrost-blue': '#00CCFF',
+        'yggdrasil-green': '#33ff99',
+        'flash-orange': '#F3BA2F',
+        'surtr-red': '#FF4954',
+        'asgardex-bg-light': '#ffffff',
+        'asgardex-bg-dark': '#111315',
+        'asgardex-hyperlink': '#0070E0',
+        white: '#ffffff',
+        transparent: 'transparent'
       },
-      'asgardex-secondary': {
-        100: '#DFF7FF',
-        200: '#ACE9FF',
-        300: '#70DBFE',
-        400: '#00CCFF',
-        500: '#00C0FF',
-        600: '#00B4FF',
-        700: '#00A6F4',
-        800: '#0093E1',
-        900: '#0180CB',
-        1000: '#0061AC'
-      },
-      'asgardex-gray': {
-        100: '#F7F7F7',
-        200: '#EEEEEE',
-        300: '#E2E2E2',
-        400: '#D0D0D0',
-        500: '#ABABAB',
-        600: '#8A8A8A',
-        700: '#636363',
-        800: '#505050',
-        900: '#323232',
-        1000: '#121212'
-      },
-      'asgardex-dark': {
-        100: '#F3F4F4',
-        200: '#D1D5DA',
-        300: '#B4B9C1',
-        400: '#969DAB',
-        500: '#A9B3BE',
-        600: '#89939D',
-        700: '#616B75',
-        800: '#4E5761',
-        900: '#303941',
-        1000: '#101921'
-      },
-      'asgardex-hyperlink': '#0070E0',
-      white: '#ffffff',
-      transparent: 'transparent'
-
-    },
-    backgroundImage: () => ({
-      'gradient-primary': 'linear-gradient(to right, #33FF99 , #00B4FF)'
-    })
+      backgroundImage: {
+        'gradient-primary': 'linear-gradient(9.34deg, #23DCC8 19.28%, #00CCFF 106.03%)',
+        'gradient-primary-dark': 'linear-gradient(9.34deg, #1bb2a3 19.28%, #00a3cc 106.03%)',
+      }
+    }
   }
 }
 export default config

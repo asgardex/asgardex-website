@@ -2,6 +2,8 @@
 import clsx from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
 import {
   Navbar,
   NavbarBrand,
@@ -13,6 +15,13 @@ import {
 import { play } from './fonts'
 
 export default function Header() {
+  const [mounted, setMounted] = useState(false)
+  const { theme, setTheme } = useTheme()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   return (
     <Navbar maxWidth="xl">
       <NavbarContent>
@@ -28,7 +37,7 @@ export default function Header() {
               <h1
                 className={clsx(
                   play.className,
-                  'font-bold invert text-asgardex-dark-1000 text-2xl uppercase ml-3'
+                  'font-bold text-foreground text-2xl uppercase ml-3'
                 )}>
                 Asgardex
               </h1>
@@ -39,8 +48,24 @@ export default function Header() {
 
       <NavbarContent className="flex" justify="end">
         <NavbarItem>
+          {mounted && (
+            <Button
+              isIconOnly
+              variant="bordered"
+              onClick={() => {
+                setTheme(theme === 'dark' ? 'light' : 'dark')
+              }}
+              className="mr-2 border-default-300 hover:bg-default-100"
+              aria-label="Toggle theme">
+              <span className="text-lg">
+                {theme === 'dark' ? '☀️' : '🌙'}
+              </span>
+            </Button>
+          )}
+        </NavbarItem>
+        <NavbarItem>
           <Link href={'/installer'}>
-            <Button className="bg-asgardex-primary-500 px-8 rounded-full text-lg text-asgardex-dark-1000 h-10">
+            <Button className="bg-primary text-primary-foreground px-8 rounded-full text-lg h-10 hover:bg-primary/90">
               Download
             </Button>
           </Link>

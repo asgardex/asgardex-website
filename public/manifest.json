@@ -1,0 +1,24 @@
+{
+  "name": "Asgardex",
+  "short_name": "Asgardex",
+  "description": "A Seamless Multi-Chain L1 Exchange at Your Fingertips",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#101921",
+  "theme_color": "#00FB7D",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/asgardex-logo.avif",
+      "sizes": "512x512",
+      "type": "image/avif",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["finance", "utilities"],
+  "lang": "en-US"
+}
