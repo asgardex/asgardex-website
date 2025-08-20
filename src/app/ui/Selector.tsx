@@ -12,7 +12,7 @@ export default function Selector ({ label, items }: { label: string, items: Item
     <DropdownTrigger>
       <Button
         variant="bordered"
-        className='text-white w-full'
+        className='text-foreground w-full'
       >
         {label}
       </Button>

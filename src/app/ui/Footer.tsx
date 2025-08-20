@@ -23,7 +23,7 @@ export default function Footer() {
               <h1
                 className={clsx(
                   play.className,
-                  'font-bold text-asgardex-dark-1000 text-2xl uppercase ml-3 invert'
+                  'font-bold text-foreground text-2xl uppercase ml-3'
                 )}>
                 Asgardex
               </h1>
@@ -36,6 +36,7 @@ export default function Footer() {
             <Link
               href="https://twitter.com/THORChain"
               target="_blank"
+              rel="noopener noreferrer"
               className="text-asgardex-hyperlink">
               THORChain X
             </Link>{' '}
@@ -43,6 +44,7 @@ export default function Footer() {
             <Link
               href="https://www.mayaprotocol.com/"
               target="_blank"
+              rel="noopener noreferrer"
               className="text-asgardex-hyperlink">
               MayaProtocol
             </Link>
@@ -54,6 +56,7 @@ export default function Footer() {
             <Link
               href="https://github.com/asgardex/asgardex-website"
               target="_blank"
+              rel="noopener noreferrer"
               className="text-asgardex-hyperlink">
               asgardex-website
             </Link>
@@ -62,51 +65,52 @@ export default function Footer() {
         </div>
         <div className="w-56 flex flex-col items-center justify-between">
           <div className="flex flex-row w-full items-center justify-between mb-4">
-            <Link href={'https://twitter.com/asgardex'} target="_blank">
+            <Link href={'https://twitter.com/asgardex'} target="_blank" rel="noopener noreferrer">
               <Image
                 src={'/x-black-logo.avif'}
                 alt={'Asgardex X'}
                 width={24}
                 height={24}
-                className="invert"
+                className="dark:invert"
               />
             </Link>
-            <Link href={'https://discord.gg/AZDtabWFJF'} target="_blank">
+            <Link href={'https://discord.gg/AZDtabWFJF'} target="_blank" rel="noopener noreferrer">
               <Image
                 src={'/discord-black-logo.avif'}
                 alt={'Asgardex Discord'}
                 width={24}
                 height={24}
-                className="invert"
+                className="dark:invert"
               />
             </Link>
             <Link
               href={'https://github.com/asgardex/asgardex-desktop/releases'}
-              target="_blank">
+              target="_blank"
+              rel="noopener noreferrer">
               <Image
                 src={'/github-black-logo.avif'}
                 alt={'Asgardex Discord'}
                 width={24}
                 height={24}
-                className="invert"
+                className="dark:invert"
               />
             </Link>
-            <Link href={'https://thorchain.org/'} target="_blank">
+            <Link href={'https://thorchain.org/'} target="_blank" rel="noopener noreferrer">
               <Image
                 src={'/thorchain-black-logo.avif'}
                 alt={'Thorchain logotipe'}
                 width={24}
                 height={24}
-                className="invert"
+                className="dark:invert"
               />
             </Link>
-            <Link href={'https://www.mayaprotocol.com/'} target="_blank">
+            <Link href={'https://www.mayaprotocol.com/'} target="_blank" rel="noopener noreferrer">
               <Image
                 src={'/maya-black-logo.avif'}
                 alt={'Maya Protocol logotipe'}
                 width={24}
                 height={24}
-                className="invert"
+                className="dark:invert"
               />
             </Link>
           </div>

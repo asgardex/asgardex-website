@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-const ASGARDEX_URL = 'https://asgardex-landing.vercel.app' // Update with the final URL
+const ASGARDEX_URL = 'https://asgardex.com'
 
 export default function sitemap (): MetadataRoute.Sitemap {
   return [
