@@ -131,10 +131,6 @@ export default async function InstallerPage() {
                   Mac still experiencing issues when opening, enter settings -
                   privacy & security - scroll down - open anyway
                 </li>
-                <li>
-                  A work around for this issue is to download the asset directly
-                  from Github
-                </li>
               </ul>
             </div>
           </div>
