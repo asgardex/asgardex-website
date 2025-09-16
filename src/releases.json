@@ -68,7 +68,7 @@
         "state": "uploaded",
         "size": 224364828,
         "digest": "sha256:ac687a3663e37fb91221b96e5dfa68829b28665907848d2ee62f3ccf8c36f0ea",
-        "download_count": 1,
+        "download_count": 3,
         "created_at": "2025-09-16T00:42:36Z",
         "updated_at": "2025-09-16T00:42:43Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.40.9/ASGARDEX-1.40.9-linux.AppImage"
@@ -104,7 +104,7 @@
         "state": "uploaded",
         "size": 116484388,
         "digest": "sha256:4b877e7c7dc4de86583b476be1d7565d62bbc295ff06f670d71c237d638d3740",
-        "download_count": 1,
+        "download_count": 3,
         "created_at": "2025-09-16T00:44:48Z",
         "updated_at": "2025-09-16T00:44:52Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.40.9/ASGARDEX-1.40.9-linux.deb"
@@ -140,7 +140,7 @@
         "state": "uploaded",
         "size": 219724957,
         "digest": "sha256:e65bf62d091d31245e08c96a2125d46e1f3aa587f3420eed4b3d9237ed875ed8",
-        "download_count": 1,
+        "download_count": 3,
         "created_at": "2025-09-16T00:48:51Z",
         "updated_at": "2025-09-16T00:49:02Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.40.9/ASGARDEX-1.40.9-mac-13-Ventura.dmg"
@@ -176,7 +176,7 @@
         "state": "uploaded",
         "size": 231601,
         "digest": "sha256:d543f759b2caa9c770d28566c1f68ff846ce071ac6d08314ddd29b4f7b85820b",
-        "download_count": 0,
+        "download_count": 2,
         "created_at": "2025-09-16T00:48:51Z",
         "updated_at": "2025-09-16T00:48:51Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.40.9/ASGARDEX-1.40.9-mac-13-Ventura.dmg.blockmap"
@@ -212,7 +212,7 @@
         "state": "uploaded",
         "size": 213825723,
         "digest": "sha256:1ec7a433a15b7678cd8001511892316992290a475b5daf90320755a66e5bfc2a",
-        "download_count": 1,
+        "download_count": 3,
         "created_at": "2025-09-16T00:47:44Z",
         "updated_at": "2025-09-16T00:47:54Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.40.9/ASGARDEX-1.40.9-mac-14-Sonoma.dmg"
@@ -248,7 +248,7 @@
         "state": "uploaded",
         "size": 224250,
         "digest": "sha256:985b646f2a134fc5ce77ffbdeb8d7f197a1a59f669181a3016a8f76704b1811e",
-        "download_count": 0,
+        "download_count": 2,
         "created_at": "2025-09-16T00:47:44Z",
         "updated_at": "2025-09-16T00:47:44Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.40.9/ASGARDEX-1.40.9-mac-14-Sonoma.dmg.blockmap"
@@ -284,7 +284,7 @@
         "state": "uploaded",
         "size": 213856227,
         "digest": "sha256:5c04a80bdb4a8cbbd85e7daad985f09ccb91039758ee68e99726b54dfde4a2d7",
-        "download_count": 0,
+        "download_count": 3,
         "created_at": "2025-09-16T00:50:50Z",
         "updated_at": "2025-09-16T00:51:00Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.40.9/ASGARDEX-1.40.9-mac-15-Sequoia.dmg"
@@ -320,7 +320,7 @@
         "state": "uploaded",
         "size": 223926,
         "digest": "sha256:0c30afd55b2e1ca09d75868e3b6d22d70a7897c73b8996e830cef5e0d2a2214a",
-        "download_count": 0,
+        "download_count": 2,
         "created_at": "2025-09-16T00:50:50Z",
         "updated_at": "2025-09-16T00:50:50Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.40.9/ASGARDEX-1.40.9-mac-15-Sequoia.dmg.blockmap"
@@ -356,7 +356,7 @@
         "state": "uploaded",
         "size": 152110727,
         "digest": "sha256:3d9336e2455a0eec59daaec80906dd9279be67f8283a0eb416ed4491025b5004",
-        "download_count": 0,
+        "download_count": 6,
         "created_at": "2025-09-16T00:47:11Z",
         "updated_at": "2025-09-16T00:47:15Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.40.9/ASGARDEX-1.40.9-win.exe"
@@ -392,7 +392,7 @@
         "state": "uploaded",
         "size": 161187,
         "digest": "sha256:e2756fc4e64e4cc4562c040ad00bcd338f56ccb26825a1bbef7f5450cf9001ed",
-        "download_count": 0,
+        "download_count": 2,
         "created_at": "2025-09-16T00:47:11Z",
         "updated_at": "2025-09-16T00:47:11Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.40.9/ASGARDEX-1.40.9-win.exe.blockmap"
@@ -428,7 +428,7 @@
         "state": "uploaded",
         "size": 539,
         "digest": "sha256:bcddba62799a6243659593d7fd53acccca78e62236c3f1bd81b9c466d94bbf24",
-        "download_count": 0,
+        "download_count": 2,
         "created_at": "2025-09-16T00:44:52Z",
         "updated_at": "2025-09-16T00:44:53Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.40.9/latest-linux.yml"
@@ -464,7 +464,7 @@
         "state": "uploaded",
         "size": 366,
         "digest": "sha256:e9b7a70c83a2bf69292b1521f704b53daa685a1339fe7ddce5ce8d70d96be99a",
-        "download_count": 0,
+        "download_count": 2,
         "created_at": "2025-09-16T00:51:02Z",
         "updated_at": "2025-09-16T00:51:02Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.40.9/latest-mac.yml"
@@ -500,7 +500,7 @@
         "state": "uploaded",
         "size": 344,
         "digest": "sha256:a446ea899bfc434798c6c47521df1e43e35afe97d548dff6c7969c9f8865a398",
-        "download_count": 0,
+        "download_count": 5,
         "created_at": "2025-09-16T00:47:16Z",
         "updated_at": "2025-09-16T00:47:16Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.40.9/latest.yml"
@@ -536,7 +536,7 @@
         "state": "uploaded",
         "size": 1627,
         "digest": "sha256:6104610f0afe3cd4ad494cc26ae44f696d59e14a27f9421324688489af96408f",
-        "download_count": 0,
+        "download_count": 2,
         "created_at": "2025-09-16T01:14:58Z",
         "updated_at": "2025-09-16T01:15:00Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.40.9/msg1409.asc"
@@ -1464,7 +1464,7 @@
         "state": "uploaded",
         "size": 161200945,
         "digest": "sha256:6afdae01609e0e3d61f87ec964139c114b075455a207fec7da807a88266e7315",
-        "download_count": 188,
+        "download_count": 189,
         "created_at": "2025-08-16T00:52:04Z",
         "updated_at": "2025-08-16T00:52:08Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.40.7/ASGARDEX-1.40.7-win.exe"
@@ -2560,7 +2560,7 @@
         "state": "uploaded",
         "size": 163157033,
         "digest": "sha256:68e012ac549b1648f630315d8b56f0eb6e1b799c598a0bf679d082399a2bf0d0",
-        "download_count": 310,
+        "download_count": 311,
         "created_at": "2025-07-18T03:43:40Z",
         "updated_at": "2025-07-18T03:43:45Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.40.5/ASGARDEX-1.40.5-win.exe"
@@ -3120,7 +3120,7 @@
         "state": "uploaded",
         "size": 162714364,
         "digest": "sha256:f379992b45b48709d6328c16e7f4e014ca3f7e302225bc760fb366e6c7fefd2e",
-        "download_count": 355,
+        "download_count": 356,
         "created_at": "2025-07-03T03:04:43Z",
         "updated_at": "2025-07-03T03:04:49Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.40.4/ASGARDEX-1.40.4-win.exe"
@@ -3680,7 +3680,7 @@
         "state": "uploaded",
         "size": 162710549,
         "digest": "sha256:ad709736614ad83f352d0d026b9e7b1e91c6e5b3cacab1a8d16d318de142111f",
-        "download_count": 232,
+        "download_count": 233,
         "created_at": "2025-07-01T11:58:06Z",
         "updated_at": "2025-07-01T11:58:10Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.40.3/ASGARDEX-1.40.3-win.exe"
@@ -4228,7 +4228,7 @@
         "state": "uploaded",
         "size": 208782990,
         "digest": "sha256:b5627c630f4bfbabd57d7419c673fec1353867f31ea782b17eb7f1285bbb1852",
-        "download_count": 343,
+        "download_count": 344,
         "created_at": "2025-06-20T00:00:10Z",
         "updated_at": "2025-06-20T00:00:15Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.40.2/ASGARDEX-1.40.2-win.exe"
@@ -4788,7 +4788,7 @@
         "state": "uploaded",
         "size": 207293756,
         "digest": "sha256:35ac0404e44626be0d1579159f59d8e97c329eb11c429de19f9a7cc216ba1052",
-        "download_count": 384,
+        "download_count": 385,
         "created_at": "2025-06-12T03:20:44Z",
         "updated_at": "2025-06-12T03:20:50Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.40.1/ASGARDEX-1.40.1-win.exe"
@@ -5348,7 +5348,7 @@
         "state": "uploaded",
         "size": 201395711,
         "digest": "sha256:1f93664f2a9f7a2d299c3c10419fbc37da165f707256bf64b44bba181b8cd817",
-        "download_count": 436,
+        "download_count": 437,
         "created_at": "2025-06-02T00:36:06Z",
         "updated_at": "2025-06-02T00:36:13Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.40.0/ASGARDEX-1.40.0-win.exe"
@@ -5836,7 +5836,7 @@
         "state": "uploaded",
         "size": 211041413,
         "digest": null,
-        "download_count": 689,
+        "download_count": 690,
         "created_at": "2025-05-08T06:27:36Z",
         "updated_at": "2025-05-08T06:27:41Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.30.6/ASGARDEX-1.30.6-win.exe"
@@ -6252,7 +6252,7 @@
         "state": "uploaded",
         "size": 211042255,
         "digest": null,
-        "download_count": 570,
+        "download_count": 571,
         "created_at": "2025-05-02T00:47:45Z",
         "updated_at": "2025-05-02T00:47:49Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.30.5/ASGARDEX-1.30.5-win.exe"
@@ -6668,7 +6668,7 @@
         "state": "uploaded",
         "size": 261119749,
         "digest": null,
-        "download_count": 644,
+        "download_count": 645,
         "created_at": "2025-04-16T04:45:58Z",
         "updated_at": "2025-04-16T04:46:08Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.30.4/ASGARDEX-1.30.4-win.exe"
@@ -7084,7 +7084,7 @@
         "state": "uploaded",
         "size": 261119632,
         "digest": null,
-        "download_count": 654,
+        "download_count": 655,
         "created_at": "2025-04-01T01:24:07Z",
         "updated_at": "2025-04-01T01:24:14Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.30.3/ASGARDEX-1.30.3-win.exe"
@@ -7488,7 +7488,7 @@
         "state": "uploaded",
         "size": 252428109,
         "digest": null,
-        "download_count": 1110,
+        "download_count": 1111,
         "created_at": "2025-02-03T03:25:05Z",
         "updated_at": "2025-02-03T03:25:13Z",
         "browser_download_url": "https://github.com/asgardex/asgardex-desktop/releases/download/v1.30.2/ASGARDEX-1.30.2-win.exe"
