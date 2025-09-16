@@ -7,6 +7,9 @@ const config: Config = {
     './src/**/*.{js,ts,jsx,tsx,mdx}'
   ],
   darkMode: 'class',
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   plugins: [nextui({
     themes: {
       dark: {

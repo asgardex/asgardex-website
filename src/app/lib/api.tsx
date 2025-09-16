@@ -1,4 +1,3 @@
-import releases from '../../releases.json'
 import type { ItemConfig } from '../ui/Selector'
 
 interface Release {
@@ -7,6 +6,17 @@ interface Release {
   tag_name: string
   created_at: string
   assets: Array<{ browser_download_url: string }>
+}
+
+// Dynamically import releases to reduce initial bundle size
+async function loadReleases(): Promise<Release[]> {
+  try {
+    const releasesModule = await import('../../releases.json')
+    return releasesModule.default as Release[]
+  } catch (error) {
+    console.error('Failed to load releases:', error)
+    return []
+  }
 }
 
 const buildReleaseItem = (releaseItem: Release) => {
@@ -58,12 +68,13 @@ const buildReleaseItem = (releaseItem: Release) => {
   }
 }
 
-export function getAsgardexReleases() {
+export async function getAsgardexReleases() {
   try {
+    const releases = await loadReleases()
     if (!releases.length) throw new Error('No releases found')
 
-    const latest = buildReleaseItem(releases[0] as Release)
-    const previous = releases.slice(1).map((item: Release) => buildReleaseItem(item))
+    const latest = buildReleaseItem(releases[0])
+    const previous = releases.slice(1, 11).map((item) => buildReleaseItem(item)) // Limit to 10 previous releases
 
     return {
       latest,

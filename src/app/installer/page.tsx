@@ -2,6 +2,7 @@ import { Button, Image } from '@nextui-org/react'
 import Selector from '../ui/Selector'
 import Link from 'next/link'
 import { getAsgardexReleases } from '../lib/api'
+import DownloadChart from '../ui/DownloadChart'
 
 interface ReleaseItem {
   tag_name: string
@@ -15,7 +16,7 @@ interface ReleaseItem {
 }
 
 export default async function InstallerPage() {
-  const { latest, previous } = getAsgardexReleases()
+  const { latest, previous } = await getAsgardexReleases()
   return (
     <main className="flex flex-col items-center pt-20">
       <section className="flex flex-col w-full items-center justify-center px-20 lg:px-0">
@@ -168,6 +169,20 @@ export default async function InstallerPage() {
               </Button>
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8 py-16">
+        <div className="max-w-[1200px] w-full">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+              Download Analytics
+            </h2>
+            <p className="text-base md:text-lg text-foreground/80">
+              Track Asgardex adoption across different operating systems over time
+            </p>
+          </div>
+          <DownloadChart variant="area" height={400} showStats={true} />
         </div>
       </section>
     </main>

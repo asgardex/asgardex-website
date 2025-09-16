@@ -43,6 +43,8 @@ export default function Home() {
                 alt="Follow Asgardex on X (Twitter)"
                 width={24}
                 height={24}
+                loading="lazy"
+                quality={90}
               />
             </Link>
             <Link href="https://discord.gg/AZDtabWFJF" target="_blank" rel="noopener noreferrer">
@@ -52,6 +54,8 @@ export default function Home() {
                 alt="Join Asgardex Discord community"
                 width={28}
                 height={28}
+                loading="lazy"
+                quality={90}
               />
             </Link>
             <Link
@@ -64,6 +68,8 @@ export default function Home() {
                 alt="View Asgardex source code on GitHub"
                 width={28}
                 height={28}
+                loading="lazy"
+                quality={90}
               />
             </Link>
             <Link href="https://thorchain.org/" target="_blank" rel="noopener noreferrer">
@@ -73,6 +79,8 @@ export default function Home() {
                 alt="Learn more about THORChain protocol"
                 width={24}
                 height={24}
+                loading="lazy"
+                quality={90}
               />
             </Link>
             <Link href="https://www.mayaprotocol.com/" target="_blank" rel="noopener noreferrer">
@@ -82,6 +90,8 @@ export default function Home() {
                 alt="Learn more about Maya Protocol"
                 width={36}
                 height={36}
+                loading="lazy"
+                quality={90}
               />
             </Link>
           </div>
@@ -112,6 +122,10 @@ export default function Home() {
             alt="Asgardex application interface showing liquidity pools management"
             width={1024}
             height={554}
+            priority
+            quality={85}
+            placeholder="blur"
+            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
           />
         </div>
 
@@ -210,6 +224,10 @@ export default function Home() {
               alt="Asgardex wallet management interface showing multiple wallet options"
               width={1000}
               height={200}
+              loading="lazy"
+              quality={85}
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
             />
           </div>
           <div className="pt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
