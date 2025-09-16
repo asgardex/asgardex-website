@@ -29,7 +29,7 @@ export default async function InstallerPage() {
             click away. Keep track of updates.
           </p>
           <div className="max-w-[1200px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-y-8 gap-x-6 m-auto">
-            <div className="flex flex-col items-center w-full rounded-2xl p-6 bg-default-100/50 backdrop-blur-md border border-default-200">
+            <div className="flex flex-col items-center w-full rounded-2xl p-6 bg-default-100/50 backdrop-blur-md border border-default-200 hover:shadow-lg hover:scale-105 transition-all duration-300 hover:bg-default-100/70">
               <div className="flex items-center justify-center w-full h-20 mt-2">
                 <Image
                   className="rounded-none dark:invert"
@@ -45,7 +45,7 @@ export default async function InstallerPage() {
               <Button
                 as={Link}
                 href={latest.tag_name ? latest.windows.url : latest.html_url}
-                className="mt-4 mb-2 w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                className="mt-4 mb-2 w-full bg-gradient-primary text-primary-foreground hover:shadow-glow transition-all duration-300">
                 <p>Download</p>
               </Button>
               {previous && (
@@ -59,7 +59,7 @@ export default async function InstallerPage() {
             }).map(([key, version]) => {
               const asset = (latest as ReleaseItem)[key]
               return (typeof asset === 'object' && asset?.url) && (
-                <div key={`mac-${key}`} className="flex flex-col items-center w-full rounded-2xl p-6 bg-default-100/50 backdrop-blur-md border border-default-200">
+                <div key={`mac-${key}`} className="flex flex-col items-center w-full rounded-2xl p-6 bg-default-100/50 backdrop-blur-md border border-default-200 hover:shadow-lg hover:scale-105 transition-all duration-300 hover:bg-default-100/70">
                   <div className="flex items-center justify-center w-full h-20 mt-2">
                     <Image
                       className="rounded-none dark:invert"
@@ -75,7 +75,7 @@ export default async function InstallerPage() {
                   <Button
                     as={Link}
                     href={asset.url || latest.html_url || '#'}
-                    className="mt-4 mb-2 w-full bg-primary text-primary-foreground hover:bg-primary/90"
+                    className="mt-4 mb-2 w-full bg-gradient-primary text-primary-foreground hover:shadow-glow transition-all duration-300"
                     disabled={!asset.url}
                   >
                     <p>Download</p>
@@ -86,7 +86,7 @@ export default async function InstallerPage() {
                 </div>
               )
             })}
-            <div className="flex flex-col items-center w-full rounded-2xl p-6 bg-default-100/50 backdrop-blur-md border border-default-200">
+            <div className="flex flex-col items-center w-full rounded-2xl p-6 bg-default-100/50 backdrop-blur-md border border-default-200 hover:shadow-lg hover:scale-105 transition-all duration-300 hover:bg-default-100/70">
               <div className="flex items-center justify-center w-full h-20 mt-2">
                 <Image
                   className="rounded-none dark:invert"
@@ -102,7 +102,7 @@ export default async function InstallerPage() {
               <Button
                 as={Link}
                 href={latest.tag_name ? latest.linux.url : latest.html_url}
-                className="mt-4 mb-2 w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                className="mt-4 mb-2 w-full bg-gradient-primary text-primary-foreground hover:shadow-glow transition-all duration-300">
                 <p>Download</p>
               </Button>
               {previous && (

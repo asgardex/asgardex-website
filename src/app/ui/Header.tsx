@@ -55,7 +55,7 @@ export default function Header() {
               onClick={() => {
                 setTheme(theme === 'dark' ? 'light' : 'dark')
               }}
-              className="mr-2 border-default-300 hover:bg-default-100"
+              className="mr-2 border-default-300 hover:bg-default-100 hover:scale-110 transition-all duration-200 ease-in-out"
               aria-label="Toggle theme">
               <span className="text-lg">
                 {theme === 'dark' ? '☀️' : '🌙'}
@@ -65,7 +65,7 @@ export default function Header() {
         </NavbarItem>
         <NavbarItem>
           <Link href={'/installer'}>
-            <Button className="bg-primary text-primary-foreground px-8 rounded-full text-lg h-10 hover:bg-primary/90">
+            <Button className="bg-gradient-primary text-primary-foreground px-8 rounded-full text-lg h-10 hover:shadow-glow hover:scale-105 transition-all duration-300 ease-in-out">
               Download
             </Button>
           </Link>
