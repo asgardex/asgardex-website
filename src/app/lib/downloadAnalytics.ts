@@ -5,6 +5,7 @@ export interface DownloadData {
   linux: number
   total: number
   version: string
+  created_at: string
 }
 
 interface GitHubRelease {
@@ -63,14 +64,15 @@ export async function generateDownloadData(): Promise<DownloadData[]> {
           macOS,
           linux,
           total,
-          version: release.tag_name
+          version: release.tag_name,
+          created_at: release.created_at
         })
       }
     })
 
-    // Sort by date and return latest releases
+    // Sort by created_at timestamp and return latest releases
     return data
-      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+      .sort((a, b) => new Date(a.created_at).getTime() - new Date(b.created_at).getTime())
       .slice(-12) // Return last 12 releases
   } catch (error) {
     console.error('Failed to load GitHub releases data:', error)
