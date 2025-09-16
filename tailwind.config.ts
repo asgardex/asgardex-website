@@ -100,6 +100,14 @@ const config: Config = {
       backgroundImage: {
         'gradient-primary': 'linear-gradient(9.34deg, #23DCC8 19.28%, #00CCFF 106.03%)',
         'gradient-primary-dark': 'linear-gradient(9.34deg, #1bb2a3 19.28%, #00a3cc 106.03%)',
+        'gradient-secondary': 'linear-gradient(135deg, #00CCFF 0%, #23DCC8 100%)',
+        'gradient-accent': 'linear-gradient(45deg, #33ff99 0%, #00CCFF 50%, #23DCC8 100%)',
+        'gradient-subtle': 'linear-gradient(180deg, rgba(35, 220, 200, 0.1) 0%, rgba(0, 204, 255, 0.05) 100%)',
+      },
+      boxShadow: {
+        'glow': '0 0 20px rgba(35, 220, 200, 0.3)',
+        'glow-blue': '0 0 20px rgba(0, 204, 255, 0.3)',
+        'inner-glow': 'inset 0 2px 4px 0 rgba(35, 220, 200, 0.1)',
       }
     }
   }

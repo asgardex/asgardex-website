@@ -8,50 +8,50 @@ import { Card } from './ui/Card'
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center lg:gap-y-20">
-      <section className="relative flex flex-col max-w-7xl w-full h-[calc(100vh-64px)] items-center justify-between pt-8 pb-24 px-4">
+      <section className="relative flex flex-col max-w-7xl w-full h-[calc(100vh-64px)] items-center justify-between pt-12 pb-32 px-4 lg:px-8">
         <div />
         <div className="flex flex-col items-center text-center">
-          <h1 className="text-3xl md:text-5xl lg:text-[80px] font-extrabold mb-4 text-foreground">
+          <h1 className="text-3xl md:text-5xl lg:text-[80px] font-extrabold mb-6 text-foreground leading-tight">
             Welcome to{' '}
-            <span className="bg-gradient-to-r from-midgard-turquoise to-bifrost-blue bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-midgard-turquoise to-bifrost-blue bg-clip-text text-transparent drop-shadow-sm">
               Asgardex
             </span>
           </h1>
-          <p className="text-xl font-bold mb-8 text-foreground">
+          <p className="text-xl md:text-2xl font-semibold mb-10 text-foreground/90 max-w-4xl leading-relaxed">
             A Seamless Multi-Chain L1 Exchange at Your Fingertips
           </p>
           <div className="flex items-center justify-center space-x-4">
             <Button
               as={Link}
               href="/installer"
-              className="bg-primary text-primary-foreground p-8 text-lg font-bold border-outline-none rounded-full hover:bg-primary/90">
+              className="bg-gradient-primary text-primary-foreground p-8 text-lg font-bold border-outline-none rounded-full hover:shadow-glow hover:scale-105 transition-all duration-300 ease-in-out">
               Download Now
             </Button>
             <Link href="https://discord.gg/AZDtabWFJF" target="_blank" rel="noopener noreferrer">
-              <Button className="border border-solid border-primary bg-transparent rounded-full p-8 font-bold w-full text-foreground text-lg hover:bg-primary/10">
+              <Button className="border-2 border-primary bg-transparent rounded-full p-8 font-bold w-full text-foreground text-lg hover:bg-primary/10 hover:border-primary/80 hover:shadow-glow-blue transition-all duration-300 ease-in-out">
                 Join Discord
               </Button>
             </Link>
           </div>
         </div>
         <div className="flex items-center justify-center sm:justify-end w-full">
-          <div className="flex items-center justify-center gap-4 px-4 py-2 rounded-2xl bg-white/10 border border-solid border-asgardex-gray-800">
+          <div className="flex items-center justify-center gap-6 px-8 py-4 rounded-2xl bg-white/10 backdrop-blur-sm border border-solid border-asgardex-gray-800 hover:bg-white/15 transition-all duration-300 shadow-lg">
             <Link href="https://twitter.com/asgardex" target="_blank" rel="noopener noreferrer">
               <Image
-                className="dark:invert"
+                className="dark:invert hover:scale-125 transition-transform duration-200"
                 src="/x-black-logo.avif"
                 alt="Follow Asgardex on X (Twitter)"
-                width={20}
-                height={20}
+                width={24}
+                height={24}
               />
             </Link>
             <Link href="https://discord.gg/AZDtabWFJF" target="_blank" rel="noopener noreferrer">
               <Image
-                className="dark:invert"
+                className="dark:invert hover:scale-125 transition-transform duration-200"
                 src="/discord-black-logo.avif"
                 alt="Join Asgardex Discord community"
-                width={24}
-                height={24}
+                width={28}
+                height={28}
               />
             </Link>
             <Link
@@ -59,53 +59,53 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer">
               <Image
-                className="dark:invert"
+                className="dark:invert hover:scale-125 transition-transform duration-200"
                 src="/github-black-logo.avif"
                 alt="View Asgardex source code on GitHub"
-                width={24}
-                height={24}
+                width={28}
+                height={28}
               />
             </Link>
             <Link href="https://thorchain.org/" target="_blank" rel="noopener noreferrer">
               <Image
-                className="dark:invert"
+                className="dark:invert hover:scale-125 transition-transform duration-200"
                 src="/thorchain-black-logo.avif"
                 alt="Learn more about THORChain protocol"
-                width={20}
-                height={20}
+                width={24}
+                height={24}
               />
             </Link>
             <Link href="https://www.mayaprotocol.com/" target="_blank" rel="noopener noreferrer">
               <Image
-                className="dark:invert"
+                className="dark:invert hover:scale-125 transition-transform duration-200"
                 src="/maya-black-logo.avif"
                 alt="Learn more about Maya Protocol"
-                width={32}
-                height={32}
+                width={36}
+                height={36}
               />
             </Link>
           </div>
         </div>
       </section>
-      <section className="flex flex-col w-full max-w-7xl items-center justify-center text-center px-6 md:px-16 lg:px-8 gap-8">
+      <section className="flex flex-col w-full max-w-7xl items-center justify-center text-center px-6 md:px-16 lg:px-8 gap-12 py-16">
         <div className="max-w-5xl">
-          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-foreground">
-            Dive into the world of decentralized finance with Asgardex
+          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-8">
+            Dive into the world of <span className="bg-gradient-secondary bg-clip-text text-transparent">decentralized finance</span> with Asgardex
           </h2>
         </div>
-        <div className="max-w-4xl">
-          <p className="text-sm md:text-lg lg:text-xl font-normal mt-8">
+        <div className="max-w-4xl space-y-6">
+          <p className="text-base md:text-xl lg:text-2xl font-medium mt-8 text-foreground/90 leading-relaxed">
             The open-source desktop application designed exclusively for
             THORChain and Maya Protocol.
           </p>
-          <p className="text-sm md:text-lg lg:text-xl font-normal mt-2">
+          <p className="text-base md:text-xl lg:text-2xl font-medium text-foreground/80 leading-relaxed">
             Get started in seconds with a simple and secure download process. We
             ensure a smooth and hassle-free experience, allowing you to focus on
             what matters most.
           </p>
         </div>
 
-        <div className="bg-white/10 p-2 rounded-xl border border-solid border-white/20">
+        <div className="bg-white/10 p-3 rounded-2xl border border-solid border-white/20 shadow-2xl hover:shadow-glow transition-all duration-500 hover:scale-[1.02]">
           <Image
             className="rounded-xl border border-solid border-white/20"
             src="/pools-home.png"
@@ -116,13 +116,13 @@ export default function Home() {
         </div>
 
       </section>
-      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
-        <div className="max-w-[1000px] text-center py-16">
-          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8">
-            Our Core Values: Decentralization, Censorship Resistance, and
+      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8 py-16 bg-gradient-subtle">
+        <div className="max-w-[1000px] text-center py-20">
+          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-foreground mb-10 leading-tight">
+            Our Core Values: <span className="bg-gradient-accent bg-clip-text text-transparent">Decentralization</span>, Censorship Resistance, and
             Security
           </h2>
-          <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">
+          <p className="text-base md:text-xl lg:text-2xl font-medium mb-12 text-foreground/90 leading-relaxed max-w-4xl mx-auto">
             Asgardex is more than an app – it&apos;s a commitment to financial
             freedom. Operated by the community, for the community, it stands as
             a bastion against censorship and centralization, ensuring your
@@ -189,13 +189,13 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
-        <div className="max-w-[1000px] text-center flex flex-col items-center py-16">
-          <div className="max-w-[800px] m-auto">
-            <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8">
-              Empowering You with Wallet Flexibility
+      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8 py-20">
+        <div className="max-w-[1000px] text-center flex flex-col items-center py-20">
+          <div className="max-w-[900px] m-auto">
+            <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-foreground mb-10 leading-tight">
+              Empowering You with <span className="bg-gradient-primary bg-clip-text text-transparent">Wallet Flexibility</span>
             </h2>
-            <p className="text-sm md:text-lg lg:text-xl font-normal">
+            <p className="text-base md:text-xl lg:text-2xl font-medium text-foreground/90 leading-relaxed">
               Your assets, your control. Create a new wallet stored locally for
               enhanced security, or load an existing wallet using your secret
               phrase. Plus, enjoy seamless integration with Ledger hardware for
@@ -203,7 +203,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="my-14 bg-white/10 p-2 rounded-xl border border-solid border-white/20">
+          <div className="my-16 bg-white/10 p-4 rounded-2xl border border-solid border-white/20 shadow-2xl hover:shadow-glow transition-all duration-500 hover:scale-[1.02]">
             <Image
               className="rounded-xl border border-solid border-white/20"
               src="/wallets-management-home.png"
@@ -212,42 +212,42 @@ export default function Home() {
               height={200}
             />
           </div>
-          <div className="pt-5 grid grid-cols-2 lg:grid-cols-3 gap-10">
-            <div className="text-left">
-              <h4 className="font-bold text-sm lg:text-lg text-foreground">Local Wallets</h4>
-              <h5 className="font-medium text-sm lg:text-lg text-foreground">
+          <div className="pt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+            <div className="text-left p-4 rounded-xl bg-default-50/50 hover:bg-default-100/70 transition-all duration-300 border border-default-200/50">
+              <h4 className="font-bold text-base lg:text-xl text-foreground mb-2">Local Wallets</h4>
+              <h5 className="font-medium text-sm lg:text-base text-foreground/80">
                 Create and manage locally.
               </h5>
             </div>
-            <div className="text-left">
-              <h4 className="font-bold text-sm lg:text-lg text-foreground">Secret Phrase</h4>
-              <h5 className="font-medium text-sm lg:text-lg text-foreground">
+            <div className="text-left p-4 rounded-xl bg-default-50/50 hover:bg-default-100/70 transition-all duration-300 border border-default-200/50">
+              <h4 className="font-bold text-base lg:text-xl text-foreground mb-2">Secret Phrase</h4>
+              <h5 className="font-medium text-sm lg:text-base text-foreground/80">
                 Load wallet with a phrase.
               </h5>
             </div>
-            <div className="text-left">
-              <h4 className="font-bold text-sm lg:text-lg text-foreground">Ledger Support</h4>
-              <h5 className="font-medium text-sm lg:text-lg text-foreground">
+            <div className="text-left p-4 rounded-xl bg-default-50/50 hover:bg-default-100/70 transition-all duration-300 border border-default-200/50">
+              <h4 className="font-bold text-base lg:text-xl text-foreground mb-2">Ledger Support</h4>
+              <h5 className="font-medium text-sm lg:text-base text-foreground/80">
                 Integrated with Ledger devices.
               </h5>
             </div>
-            <div className="text-left">
-              <h4 className="font-bold text-sm lg:text-lg text-foreground">User-Friendly</h4>
-              <h5 className="font-medium text-sm lg:text-lg text-foreground">
+            <div className="text-left p-4 rounded-xl bg-default-50/50 hover:bg-default-100/70 transition-all duration-300 border border-default-200/50">
+              <h4 className="font-bold text-base lg:text-xl text-foreground mb-2">User-Friendly</h4>
+              <h5 className="font-medium text-sm lg:text-base text-foreground/80">
                 Effortless navigation and usage.
               </h5>
             </div>
-            <div className="text-left">
-              <h4 className="font-bold text-sm lg:text-lg text-foreground">Earn interest</h4>
-              <h5 className="font-medium text-sm lg:text-lg text-foreground">
+            <div className="text-left p-4 rounded-xl bg-default-50/50 hover:bg-default-100/70 transition-all duration-300 border border-default-200/50">
+              <h4 className="font-bold text-base lg:text-xl text-foreground mb-2">Earn interest</h4>
+              <h5 className="font-medium text-sm lg:text-base text-foreground/80">
                 Also in native assets like BTC, DOGE, BCH...
               </h5>
             </div>
-            <div className="text-left">
-              <h4 className="font-bold text-sm lg:text-lg text-foreground">
+            <div className="text-left p-4 rounded-xl bg-default-50/50 hover:bg-default-100/70 transition-all duration-300 border border-default-200/50">
+              <h4 className="font-bold text-base lg:text-xl text-foreground mb-2">
                 Node & Bond Management
               </h4>
-              <h5 className="font-medium text-sm lg:text-lg text-foreground">
+              <h5 className="font-medium text-sm lg:text-base text-foreground/80">
                 Monitor validators behaviour.
               </h5>
             </div>
@@ -427,7 +427,7 @@ like order book trading, and leveraged futures. Stay
             </div>
             <Divider />
           </div>
-          <Button className="bg-asgardex-primary-500 font-medium text-lg rounded-lg px-16 py-6 mt-8 text-primary-foreground">
+          <Button className="bg-gradient-accent font-semibold text-lg rounded-2xl px-20 py-8 mt-12 text-primary-foreground hover:shadow-glow hover:scale-105 transition-all duration-300">
             Start Comparing
           </Button>
         </div>
@@ -449,7 +449,7 @@ like order book trading, and leveraged futures. Stay
               href="https://crypto-university.medium.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-asgardex-primary-500 font-medium text-lg rounded-lg px-16 py-6 my-10 text-primary-foreground">
+              className="bg-gradient-primary font-semibold text-lg rounded-2xl px-20 py-8 my-12 text-primary-foreground hover:shadow-glow hover:scale-105 transition-all duration-300">
               Start Learning
             </Button>
           </div>
@@ -534,7 +534,7 @@ like order book trading, and leveraged futures. Stay
               href="https://crypto-university.medium.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-asgardex-primary-500 font-medium text-lg rounded-lg px-16 py-6 mt-8 text-primary-foreground">
+              className="bg-gradient-primary font-semibold text-lg rounded-2xl px-20 py-8 mt-12 text-primary-foreground hover:shadow-glow hover:scale-105 transition-all duration-300">
               Start Learning
             </Button>
           </div>
@@ -553,21 +553,21 @@ like order book trading, and leveraged futures. Stay
             Connect, learn, and grow with us on Discord, Twitter, and GitHub. Be
             a part of the movement shaping the future of decentralized finance.
           </p>
-          <div className="pt-5 grid grid-cols-2 lg:grid-cols-4 gap-10">
-            <div className="flex flex-col items-center justify-center">
-              <div className="w-[100px] md:w-[150px] h-[100px] md:h-[150px]">
+          <div className="pt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="flex flex-col items-center justify-center p-6 rounded-2xl bg-default-50/30 hover:bg-default-100/50 transition-all duration-300 border border-default-200/30 hover:shadow-lg hover:scale-105">
+              <div className="w-[100px] md:w-[120px] h-[100px] md:h-[120px] mb-6">
                 <Image
                   src="/discord-big-logo.avif"
                   alt="Discord community logo"
                   layout="responsive"
-                  width={150}
-                  height={150}
+                  width={120}
+                  height={120}
                 />
               </div>
-              <h5 className="text-sm md:text-xl font-bold mt-8">
+              <h5 className="text-base md:text-xl font-bold mb-3">
                 Discord Community
               </h5>
-              <p className="text-xs md:text-sm mt-2">
+              <p className="text-sm md:text-base mb-6 text-center text-foreground/80">
                 Find and share Discord links easily.
               </p>
               <Link
@@ -575,7 +575,7 @@ like order book trading, and leveraged futures. Stay
                 href="https://discord.gg/AZDtabWFJF"
                 target="_blank"
                 rel="noopener noreferrer">
-                <Button className="bg-secondary font-bold rounded-lg w-full mt-8 text-secondary-foreground text-lg hover:bg-secondary/90">
+                <Button className="bg-gradient-secondary font-bold rounded-lg w-full text-secondary-foreground text-lg hover:shadow-glow-blue transition-all duration-300">
                   Join
                 </Button>
               </Link>
