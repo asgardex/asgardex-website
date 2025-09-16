@@ -1,682 +1,605 @@
 'use client'
-import { Button, Divider } from '@nextui-org/react'
+import { Button } from '@nextui-org/react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { IconTrendingUp, IconShield, IconServer, IconWallet, IconBrandGithub, IconExternalLink } from '@tabler/icons-react'
 
 import { Card } from './ui/Card'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center lg:gap-y-20">
-      <section className="relative flex flex-col max-w-7xl w-full h-[calc(100vh-64px)] items-center justify-between pt-12 pb-32 px-4 lg:px-8">
-        <div />
-        <div className="flex flex-col items-center text-center">
-          <h1 className="text-3xl md:text-5xl lg:text-[80px] font-extrabold mb-6 text-foreground leading-tight">
-            Welcome to{' '}
-            <span className="bg-gradient-to-r from-midgard-turquoise to-bifrost-blue bg-clip-text text-transparent drop-shadow-sm">
-              Asgardex
-            </span>
+    <main className="flex min-h-screen flex-col items-center">
+      {/* Hero Section */}
+      <section className="relative flex flex-col max-w-7xl w-full h-[calc(100vh-64px)] items-center justify-center pt-12 pb-32 px-4 lg:px-8">
+        <div className="flex flex-col items-center text-center max-w-6xl">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 to-secondary/20 backdrop-blur-sm border border-primary/30 rounded-full px-6 py-2 mb-8">
+            <IconTrendingUp size={20} className="text-primary" />
+            <span className="text-sm font-medium text-foreground/90">Premier Desktop DEX</span>
+          </div>
+
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-8 text-foreground leading-tight">
+            Professional{' '}
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              Multi-Chain Trading
+            </span>{' '}
+            Platform
           </h1>
-          <p className="text-xl md:text-2xl font-semibold mb-10 text-foreground/90 max-w-4xl leading-relaxed">
-            A Seamless Multi-Chain L1 Exchange at Your Fingertips
+          <p className="text-xl md:text-2xl font-medium mb-10 text-foreground/80 max-w-4xl leading-relaxed">
+            The only desktop application providing native access to THORChain, MayaChain, and Chainflip ecosystems with enterprise-grade security and complete user sovereignty.
           </p>
-          <div className="flex items-center justify-center space-x-4">
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <Button
               as={Link}
               href="/installer"
-              className="bg-gradient-primary text-primary-foreground p-8 text-lg font-bold border-outline-none rounded-full hover:shadow-glow hover:scale-105 transition-all duration-300 ease-in-out">
-              Download Now
+              className="bg-gradient-primary text-primary-foreground px-8 py-4 text-lg font-bold rounded-full hover:shadow-glow hover:scale-105 transition-all duration-300 ease-in-out min-w-[200px]">
+              <IconExternalLink size={20} className="mr-2" />
+              Download AsgardEX
             </Button>
-            <Link href="https://discord.gg/AZDtabWFJF" target="_blank" rel="noopener noreferrer">
-              <Button className="border-2 border-primary bg-transparent rounded-full p-8 font-bold w-full text-foreground text-lg hover:bg-primary/10 hover:border-primary/80 hover:shadow-glow-blue transition-all duration-300 ease-in-out">
-                Join Discord
-              </Button>
-            </Link>
-          </div>
-        </div>
-        <div className="flex items-center justify-center sm:justify-end w-full">
-          <div className="flex items-center justify-center gap-6 px-8 py-4 rounded-2xl bg-white/10 backdrop-blur-sm border border-solid border-asgardex-gray-800 hover:bg-white/15 transition-all duration-300 shadow-lg">
-            <Link href="https://twitter.com/asgardex" target="_blank" rel="noopener noreferrer">
-              <Image
-                className="dark:invert hover:scale-125 transition-transform duration-200"
-                src="/x-black-logo.avif"
-                alt="Follow Asgardex on X (Twitter)"
-                width={24}
-                height={24}
-                loading="lazy"
-                quality={90}
-              />
-            </Link>
-            <Link href="https://discord.gg/AZDtabWFJF" target="_blank" rel="noopener noreferrer">
-              <Image
-                className="dark:invert hover:scale-125 transition-transform duration-200"
-                src="/discord-black-logo.avif"
-                alt="Join Asgardex Discord community"
-                width={28}
-                height={28}
-                loading="lazy"
-                quality={90}
-              />
-            </Link>
-            <Link
-              href="https://github.com/asgardex/asgardex-desktop/releases"
+            <Button
+              as={Link}
+              href="https://github.com/asgardex/asgardex-desktop"
               target="_blank"
-              rel="noopener noreferrer">
-              <Image
-                className="dark:invert hover:scale-125 transition-transform duration-200"
-                src="/github-black-logo.avif"
-                alt="View Asgardex source code on GitHub"
-                width={28}
-                height={28}
-                loading="lazy"
-                quality={90}
-              />
-            </Link>
-            <Link href="https://thorchain.org/" target="_blank" rel="noopener noreferrer">
-              <Image
-                className="dark:invert hover:scale-125 transition-transform duration-200"
-                src="/thorchain-black-logo.avif"
-                alt="Learn more about THORChain protocol"
-                width={24}
-                height={24}
-                loading="lazy"
-                quality={90}
-              />
-            </Link>
-            <Link href="https://www.mayaprotocol.com/" target="_blank" rel="noopener noreferrer">
-              <Image
-                className="dark:invert hover:scale-125 transition-transform duration-200"
-                src="/maya-black-logo.avif"
-                alt="Learn more about Maya Protocol"
-                width={36}
-                height={36}
-                loading="lazy"
-                quality={90}
-              />
-            </Link>
+              rel="noopener noreferrer"
+              className="border-2 border-primary bg-transparent rounded-full px-8 py-4 font-bold text-foreground text-lg hover:bg-primary/10 hover:border-primary/80 hover:shadow-glow-blue transition-all duration-300 ease-in-out min-w-[200px]">
+              <IconBrandGithub size={20} className="mr-2" />
+              View Source
+            </Button>
           </div>
-        </div>
-      </section>
-      <section className="flex flex-col w-full max-w-7xl items-center justify-center text-center px-6 md:px-16 lg:px-8 gap-12 py-16">
-        <div className="max-w-5xl">
-          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-8">
-            Dive into the world of <span className="bg-gradient-secondary bg-clip-text text-transparent">decentralized finance</span> with Asgardex
-          </h2>
-        </div>
-        <div className="max-w-4xl space-y-6">
-          <p className="text-base md:text-xl lg:text-2xl font-medium mt-8 text-foreground/90 leading-relaxed">
-            The open-source desktop application designed exclusively for
-            THORChain and Maya Protocol.
-          </p>
-          <p className="text-base md:text-xl lg:text-2xl font-medium text-foreground/80 leading-relaxed">
-            Get started in seconds with a simple and secure download process. We
-            ensure a smooth and hassle-free experience, allowing you to focus on
-            what matters most.
-          </p>
-        </div>
 
-        <div className="bg-white/10 p-3 rounded-2xl border border-solid border-white/20 shadow-2xl hover:shadow-glow transition-all duration-500 hover:scale-[1.02]">
-          <Image
-            className="rounded-xl border border-solid border-white/20"
-            src="/pools-home.png"
-            alt="Asgardex application interface showing liquidity pools management"
-            width={1024}
-            height={554}
-            priority
-            quality={85}
-            placeholder="blur"
-            blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-          />
-        </div>
-
-      </section>
-      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8 py-16 bg-gradient-subtle">
-        <div className="max-w-[1000px] text-center py-20">
-          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-foreground mb-10 leading-tight">
-            Our Core Values: <span className="bg-gradient-accent bg-clip-text text-transparent">Decentralization</span>, Censorship Resistance, and
-            Security
-          </h2>
-          <p className="text-base md:text-xl lg:text-2xl font-medium mb-12 text-foreground/90 leading-relaxed max-w-4xl mx-auto">
-            Asgardex is more than an app – it&apos;s a commitment to financial
-            freedom. Operated by the community, for the community, it stands as
-            a bastion against censorship and centralization, ensuring your
-            assets remain yours alone.
-          </p>
-        </div>
-        <div className="w-full">
-          <div className="max-w-[1085px] text-center py-8 m-auto">
-            <div className="pt-5 grid grid-cols-1 lg:grid-cols-3 gap-10">
-              <Card>
-                <div className="w-10 md:w-[70px] h-10 md:h-[70px]">
-                  <Image
-                    src="/decentralization-logo.avif"
-                    alt="Decentralization icon"
-                    layout="responsive"
-                    width={70}
-                    height={70}
-                  />
-                </div>
-                <h4 className="mt-4 text-md md:text-2xl font-bold text-foreground">
-                  Decentralization
-                </h4>
-                <p className="mt-3 text-xs md:text-base font-normal text-foreground">
-                  Avoids web apps, uses public servers, and is open-source to
-                  prevent service interruption even by the app’s team.
-                </p>
-              </Card>
-              <Card>
-                <div className="w-10 md:w-[70px] h-10 md:h-[70px]">
-                  <Image
-                    src="/censorship-logo.avif"
-                    alt="Censorship resistance icon"
-                    width={70}
-                    height={70}
-                  />
-                </div>
-                <h4 className="mt-4 text-md md:text-2xl font-bold text-foreground">
-                  Censorship Resistance
-                </h4>
-                <p className="mt-3 text-xs md:text-base font-normal text-foreground">
-                  The installer can be easily distributed and used without
-                  domains or a centralized responsible party.
-                </p>
-              </Card>
-              <Card>
-                <div className="w-10 md:w-[70px] h-10 md:h-[70px]">
-                  <Image
-                    src="/security-logo.avif"
-                    alt="Security icon"
-                    width={70}
-                    height={70}
-                  />
-                </div>
-                <h4 className="mt-4 text-md md:text-2xl font-bold text-foreground">
-                  Security
-                </h4>
-                <p className="mt-3 text-xs md:text-base font-normal text-foreground">
-                  Developed and maintained by the community, reducing the risk
-                  of errors and fund loss.
-                </p>
-              </Card>
+          {/* Key Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold text-primary mb-1">12+</div>
+              <div className="text-sm text-foreground/70">Blockchains</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold text-secondary mb-1">100%</div>
+              <div className="text-sm text-foreground/70">Open Source</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold text-primary mb-1">0.3%</div>
+              <div className="text-sm text-foreground/70">Max Fee</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold text-secondary mb-1">No KYC</div>
+              <div className="text-sm text-foreground/70">Required</div>
             </div>
           </div>
         </div>
       </section>
+      {/* Feature Grid Section */}
+      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8 py-20 bg-gradient-subtle">
+        <div className="max-w-7xl w-full">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
+              Powerful Features for{' '}
+              <span className="bg-gradient-secondary bg-clip-text text-transparent">
+                Professional Traders
+              </span>
+            </h2>
+            <p className="text-xl md:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed">
+              Everything you need for advanced cross-chain DeFi operations in a single desktop application
+            </p>
+          </div>
 
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <Card className="p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <div className="flex items-center mb-6">
+                <div className="p-3 rounded-xl bg-primary/20 mr-4">
+                  <IconTrendingUp size={32} className="text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground">Multi-Chain Trading</h3>
+              </div>
+              <p className="text-foreground/80 mb-4">Cross-chain swaps across 12+ blockchains including BTC, ETH, AVAX, BSC, COSMOS, and more with real-time price discovery.</p>
+              <ul className="space-y-2 text-sm text-foreground/70">
+                <li>• Advanced trading features with synths</li>
+                <li>• Liquidity provision with symmetrical deposits</li>
+                <li>• Real-time transaction monitoring</li>
+              </ul>
+            </Card>
+
+            <Card className="p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <div className="flex items-center mb-6">
+                <div className="p-3 rounded-xl bg-secondary/20 mr-4">
+                  <IconWallet size={32} className="text-secondary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground">Professional Wallet</h3>
+              </div>
+              <p className="text-foreground/80 mb-4">Complete wallet management with hardware integration, multi-asset support, and enterprise-grade security features.</p>
+              <ul className="space-y-2 text-sm text-foreground/70">
+                <li>• Ledger hardware wallet support</li>
+                <li>• Advanced derivation paths for UTXO chains</li>
+                <li>• Encrypted local keystore management</li>
+              </ul>
+            </Card>
+
+            <Card className="p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <div className="flex items-center mb-6">
+                <div className="p-3 rounded-xl bg-primary/20 mr-4">
+                  <IconServer size={32} className="text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground">Node Operations</h3>
+              </div>
+              <p className="text-foreground/80 mb-4">Complete node management interface for THORChain and MayaChain operators with professional monitoring tools.</p>
+              <ul className="space-y-2 text-sm text-foreground/70">
+                <li>• Bond/unbond functionality</li>
+                <li>• Node status monitoring and alerts</li>
+                <li>• THORName and MAYAName registration</li>
+              </ul>
+            </Card>
+
+            <Card className="p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <div className="flex items-center mb-6">
+                <div className="p-3 rounded-xl bg-secondary/20 mr-4">
+                  <IconShield size={32} className="text-secondary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground">Enterprise Security</h3>
+              </div>
+              <p className="text-foreground/80 mb-4">100% open-source with local execution ensuring your data never leaves your device. No KYC requirements.</p>
+              <ul className="space-y-2 text-sm text-foreground/70">
+                <li>• MIT licensed for transparency</li>
+                <li>• Follows Electron security best practices</li>
+                <li>• Community-audited codebase</li>
+              </ul>
+            </Card>
+
+            <Card className="p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <div className="flex items-center mb-6">
+                <div className="p-3 rounded-xl bg-primary/20 mr-4">
+                  <IconBrandGithub size={32} className="text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground">Developer Friendly</h3>
+              </div>
+              <p className="text-foreground/80 mb-4">Built with modern tech stack and comprehensive API integrations. Extensive documentation and testing suite.</p>
+              <ul className="space-y-2 text-sm text-foreground/70">
+                <li>• React, TypeScript, Electron stack</li>
+                <li>• Multi-language support (7 languages)</li>
+                <li>• Storybook component library</li>
+              </ul>
+            </Card>
+
+            <Card className="p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <div className="flex items-center mb-6">
+                <div className="p-3 rounded-xl bg-secondary/20 mr-4">
+                  <IconTrendingUp size={32} className="text-secondary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground">Advanced Analytics</h3>
+              </div>
+              <p className="text-foreground/80 mb-4">Comprehensive pool analytics, transaction history tracking, and detailed performance metrics for professional users.</p>
+              <ul className="space-y-2 text-sm text-foreground/70">
+                <li>• Pool overview and detailed analytics</li>
+                <li>• Transaction history with filters</li>
+                <li>• Real-time portfolio tracking</li>
+              </ul>
+            </Card>
+          </div>
+
+          {/* App Preview */}
+          <div className="text-center">
+            <div className="bg-white/10 p-4 rounded-2xl border border-solid border-white/20 shadow-2xl hover:shadow-glow transition-all duration-500 hover:scale-[1.02] inline-block">
+              <Image
+                className="rounded-xl border border-solid border-white/20"
+                src="/pools-home.png"
+                alt="AsgardEX desktop application interface showing advanced trading features"
+                width={1024}
+                height={554}
+                priority
+                quality={85}
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Supported Chains Section */}
       <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8 py-20">
-        <div className="max-w-[1000px] text-center flex flex-col items-center py-20">
-          <div className="max-w-[900px] m-auto">
-            <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-foreground mb-10 leading-tight">
-              Empowering You with <span className="bg-gradient-primary bg-clip-text text-transparent">Wallet Flexibility</span>
+        <div className="max-w-7xl w-full">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
+              Trade Across{' '}
+              <span className="bg-gradient-primary bg-clip-text text-transparent">
+                12+ Blockchains
+              </span>
             </h2>
-            <p className="text-base md:text-xl lg:text-2xl font-medium text-foreground/90 leading-relaxed">
-              Your assets, your control. Create a new wallet stored locally for
-              enhanced security, or load an existing wallet using your secret
-              phrase. Plus, enjoy seamless integration with Ledger hardware for
-              ultimate peace of mind.
+            <p className="text-xl md:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed">
+              Native cross-chain support for major blockchains with deep liquidity and competitive rates
             </p>
           </div>
 
-          <div className="my-16 bg-white/10 p-4 rounded-2xl border border-solid border-white/20 shadow-2xl hover:shadow-glow transition-all duration-500 hover:scale-[1.02]">
-            <Image
-              className="rounded-xl border border-solid border-white/20"
-              src="/wallets-management-home.png"
-              alt="Asgardex wallet management interface showing multiple wallet options"
-              width={1000}
-              height={200}
-              loading="lazy"
-              quality={85}
-              placeholder="blur"
-              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-            />
+          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-16">
+            {[
+              { name: 'Bitcoin', symbol: 'BTC', color: 'text-orange-400' },
+              { name: 'Ethereum', symbol: 'ETH', color: 'text-blue-400' },
+              { name: 'Avalanche', symbol: 'AVAX', color: 'text-red-400' },
+              { name: 'BSC', symbol: 'BNB', color: 'text-yellow-400' },
+              { name: 'Cosmos', symbol: 'ATOM', color: 'text-purple-400' },
+              { name: 'Dogecoin', symbol: 'DOGE', color: 'text-yellow-500' },
+              { name: 'Litecoin', symbol: 'LTC', color: 'text-gray-400' },
+              { name: 'Bitcoin Cash', symbol: 'BCH', color: 'text-green-400' },
+              { name: 'Dash', symbol: 'DASH', color: 'text-blue-500' },
+              { name: 'Kuji', symbol: 'KUJI', color: 'text-pink-400' },
+              { name: 'Arbitrum', symbol: 'ARB', color: 'text-blue-300' },
+              { name: 'Maya', symbol: 'MAYA', color: 'text-teal-400' }
+            ].map((chain, index) => (
+              <div key={index} className="flex flex-col items-center p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300 group">
+                <div className={`text-3xl font-bold ${chain.color} mb-2 group-hover:scale-110 transition-transform duration-300`}>
+                  {chain.symbol}
+                </div>
+                <div className="text-sm text-foreground/70">{chain.name}</div>
+              </div>
+            ))}
           </div>
-          <div className="pt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-            <div className="text-left p-4 rounded-xl bg-default-50/50 hover:bg-default-100/70 transition-all duration-300 border border-default-200/50">
-              <h4 className="font-bold text-base lg:text-xl text-foreground mb-2">Local Wallets</h4>
-              <h5 className="font-medium text-sm lg:text-base text-foreground/80">
-                Create and manage locally.
-              </h5>
-            </div>
-            <div className="text-left p-4 rounded-xl bg-default-50/50 hover:bg-default-100/70 transition-all duration-300 border border-default-200/50">
-              <h4 className="font-bold text-base lg:text-xl text-foreground mb-2">Secret Phrase</h4>
-              <h5 className="font-medium text-sm lg:text-base text-foreground/80">
-                Load wallet with a phrase.
-              </h5>
-            </div>
-            <div className="text-left p-4 rounded-xl bg-default-50/50 hover:bg-default-100/70 transition-all duration-300 border border-default-200/50">
-              <h4 className="font-bold text-base lg:text-xl text-foreground mb-2">Ledger Support</h4>
-              <h5 className="font-medium text-sm lg:text-base text-foreground/80">
-                Integrated with Ledger devices.
-              </h5>
-            </div>
-            <div className="text-left p-4 rounded-xl bg-default-50/50 hover:bg-default-100/70 transition-all duration-300 border border-default-200/50">
-              <h4 className="font-bold text-base lg:text-xl text-foreground mb-2">User-Friendly</h4>
-              <h5 className="font-medium text-sm lg:text-base text-foreground/80">
-                Effortless navigation and usage.
-              </h5>
-            </div>
-            <div className="text-left p-4 rounded-xl bg-default-50/50 hover:bg-default-100/70 transition-all duration-300 border border-default-200/50">
-              <h4 className="font-bold text-base lg:text-xl text-foreground mb-2">Earn interest</h4>
-              <h5 className="font-medium text-sm lg:text-base text-foreground/80">
-                Also in native assets like BTC, DOGE, BCH...
-              </h5>
-            </div>
-            <div className="text-left p-4 rounded-xl bg-default-50/50 hover:bg-default-100/70 transition-all duration-300 border border-default-200/50">
-              <h4 className="font-bold text-base lg:text-xl text-foreground mb-2">
-                Node & Bond Management
-              </h4>
-              <h5 className="font-medium text-sm lg:text-base text-foreground/80">
-                Monitor validators behaviour.
-              </h5>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
-        <div className="max-w-[1000px] flex flex-col items-center text-center">
-          <div className="flex flex-col items-center">
-            <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8">
-              Experience Asgardex in Action
-            </h2>
-            <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">
-              Not sure what Asgardex can do for you? Watch our informative
-              videos, showcasing the applications features and user-friendly
-              interface.
+          <div className="text-center">
+            <p className="text-lg text-foreground/80 mb-8">
+              All major assets supported with hardware wallet integration and advanced derivation paths
             </p>
           </div>
-          <div className="aspect-video w-full p-2 rounded-xl border border-solid border-white/20">
-            <iframe
-              className="w-full h-full rounded-xl border border-solid border-white/20"
-              src="https://www.youtube.com/embed/hlox7PCZLKo?si=rRybl_qr466XKUCS"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen></iframe>
-          </div>
         </div>
       </section>
 
-      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
-        <div className="max-w-[1085px] text-center flex flex-col items-center py-16">
-          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8">
-            Stay Informed and Ahead
-          </h2>
-          <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">
-            Explore the future with us. Our roadmap teases exciting developments
-like order book trading, and leveraged futures. Stay
-            tuned for what is coming next in Asgardex&apos;s journey.
-          </p>
-          <div className="pt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <div className="flex flex-row items-start">
-              <div className="mr-4">
-                <Image
-                  src="/order-books-logo.avif"
-                  alt="Order books trading icon"
-                  width={32}
-                  height={32}
-                  className="dark:invert"
-                />
-              </div>
-              <div className="text-left">
-                <h4 className="text-lg font-bold mb-2">Order Books</h4>
-                <h5 className="text-sm font-medium">
-                  Efficient order book trading methods
-                </h5>
-              </div>
-            </div>
-            <div className="flex flex-row items-start">
-              <div className="mr-4">
-                <Image
-                  src="/base-trading-logo.avif"
-                  alt="Base trading feature icon"
-                  width={32}
-                  height={32}
-                  className="dark:invert"
-                />
-              </div>
-              <div className="text-left">
-                <h4 className="text-lg font-bold mb-2">Based Trading</h4>
-                <h5 className="text-sm font-medium">
-                  Leveraged futures trading simplified
-                </h5>
-              </div>
-            </div>
-            <div className="flex flex-row items-start">
-              <div className="mr-4">
-                <Image
-                  src="/leverage-future-logo.avif"
-                  alt="Leveraged futures trading icon"
-                  width={32}
-                  height={32}
-                  className="dark:invert"
-                />
-              </div>
-              <div className="text-left">
-                <h4 className="text-lg font-bold mb-2">
-                  Leveraged Future Trading
-                </h4>
-                <h5 className="text-sm font-medium">
-                  Stay ahead with our features
-                </h5>
-              </div>
-            </div>
-            <div className="flex flex-row items-start">
-              <div className="mr-4">
-                <Image
-                  src="/trading-futures-logo.avif"
-                  alt="Trading futures feature icon"
-                  width={32}
-                  height={32}
-                  className="dark:invert"
-                />
-              </div>
-              <div className="text-left">
-                <h4 className="text-lg font-bold mb-2">Trading Features</h4>
-                <h5 className="text-sm font-medium">
-                  Trade efficiently with Roadmap
-                </h5>
-              </div>
-            </div>
-            <div className="flex flex-row items-start">
-              <div className="mr-4">
-                <Image
-                  src="/future-implementations-logo.avif"
-                  alt="Future implementations roadmap icon"
-                  width={32}
-                  height={32}
-                  className="dark:invert"
-                />
-              </div>
-              <div className="text-left">
-                <h4 className="text-lg font-bold mb-2">
-                  Future Implementations
-                </h4>
-                <h5 className="text-sm font-medium">
-                  Exciting features coming soon
-                </h5>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
-        <div className="max-w-[900px] text-center py-16">
-          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8">
-            Asgardex vs. CEXs
-          </h2>
-          <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">
-            Discover how Asgardex stands out with superior price efficiency for
-            large transactions and native cross-chain exchanges, outperforming
-            Centralized Exchanges (CEXs) in many aspects.
-          </p>
-          <div className="w-full">
-            <div className="flex flex-row items-start w-full justify-between py-6">
-              <h4 className="text-left text-8xl font-bold w-1/3">1</h4>
-              <div className="text-left w-2/3">
-                <h4 className="text-lg font-bold mb-2">Aspect One</h4>
-                <h5 className="text-sm md:text-xl font-normal">
-                  Sign up and explore the Asgardex platform.
-                </h5>
-              </div>
-            </div>
-            <Divider />
-          </div>
-          <div className="w-full">
-            <div className="flex flex-row items-start w-full justify-between py-6">
-              <h4 className="text-left text-8xl font-bold w-1/3">2</h4>
-              <div className="text-left w-2/3">
-                <h4 className="text-lg font-bold mb-2">Aspect Two</h4>
-                <h5 className="text-sm md:text-xl font-normal">
-                  Start comparing transaction costs with CEX.
-                </h5>
-              </div>
-            </div>
-            <Divider />
-          </div>
-          <div className="w-full">
-            <div className="flex flex-row items-start w-full justify-between py-6">
-              <h4 className="text-left text-8xl font-bold w-1/3">3</h4>
-              <div className="text-left w-2/3">
-                <h4 className="text-lg font-bold mb-2">Aspect Three</h4>
-                <h5 className="text-sm md:text-xl font-normal">
-                  Experience lower slippage and start trading.
-                </h5>
-              </div>
-            </div>
-            <Divider />
-          </div>
-          <Button className="bg-gradient-accent font-semibold text-lg rounded-2xl px-20 py-8 mt-12 text-primary-foreground hover:shadow-glow hover:scale-105 transition-all duration-300">
-            Start Comparing
-          </Button>
-        </div>
-      </section>
-
-      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
-        <div className="max-w-[1085px] flex flex-col lg:flex-row text-center items-center justify-around py-16 gap-x-20">
-          <div className="w-full">
-            <h2 className="text-2xl md:text-5xl lg:text-5xl font-bold mb-8">
-              Learn and Grow with THORChain University (DYOR)
+      {/* Security & Open Source Section */}
+      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8 py-20 bg-gradient-subtle">
+        <div className="max-w-7xl w-full">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
+              Enterprise-Grade{' '}
+              <span className="bg-gradient-accent bg-clip-text text-transparent">
+                Security & Privacy
+              </span>
             </h2>
-            <p className="text-sm md:text-lg font-normal">
-              Go deeper into the mechanics of THORChain with our curated
-              articles and resources. Expand your knowledge and make informed
-              decisions.
+            <p className="text-xl md:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed">
+              100% open-source with local execution ensuring your data never leaves your device
             </p>
-            <Button
-              as={Link}
-              href="https://crypto-university.medium.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gradient-primary font-semibold text-lg rounded-2xl px-20 py-8 my-12 text-primary-foreground hover:shadow-glow hover:scale-105 transition-all duration-300">
-              Start Learning
-            </Button>
           </div>
-          <div className="grid grid-cols-2 gap-8 w-full">
-            <Link
-              href={
-                'https://crypto-university.medium.com/under-the-hood-liquidity-pool-apr-3e5e662e6675'
-              }
-              target="_blank"
-              rel="noopener noreferrer"
-              className={
-                'flex flex-col items-center border-solid border-2 border-asgardex-gray-300 hover:bg-asgardex-gray-100/10 rounded-2xl p-2'
-              }>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <Card className="p-6 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <div className="p-3 rounded-xl bg-primary/20 mx-auto mb-4 w-fit">
+                <IconShield size={32} className="text-primary" />
+              </div>
+              <h3 className="text-lg font-bold text-foreground mb-2">Open Source</h3>
+              <p className="text-foreground/80 text-sm">MIT licensed for complete transparency and community auditing</p>
+            </Card>
+
+            <Card className="p-6 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <div className="p-3 rounded-xl bg-secondary/20 mx-auto mb-4 w-fit">
+                <IconWallet size={32} className="text-secondary" />
+              </div>
+              <h3 className="text-lg font-bold text-foreground mb-2">Hardware Wallet</h3>
+              <p className="text-foreground/80 text-sm">Ledger integration for ultimate security across all chains</p>
+            </Card>
+
+            <Card className="p-6 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <div className="p-3 rounded-xl bg-primary/20 mx-auto mb-4 w-fit">
+                <IconServer size={32} className="text-primary" />
+              </div>
+              <h3 className="text-lg font-bold text-foreground mb-2">Local Execution</h3>
+              <p className="text-foreground/80 text-sm">All operations run locally - no data ever leaves your device</p>
+            </Card>
+
+            <Card className="p-6 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <div className="p-3 rounded-xl bg-secondary/20 mx-auto mb-4 w-fit">
+                <IconBrandGithub size={32} className="text-secondary" />
+              </div>
+              <h3 className="text-lg font-bold text-foreground mb-2">No KYC</h3>
+              <p className="text-foreground/80 text-sm">Complete privacy with no identity verification required</p>
+            </Card>
+          </div>
+
+          {/* App Preview */}
+          <div className="text-center">
+            <div className="bg-white/10 p-4 rounded-2xl border border-solid border-white/20 shadow-2xl hover:shadow-glow transition-all duration-500 hover:scale-[1.02] inline-block">
               <Image
-                src="/liquidity-logo.avif"
-                alt="Liquidity logo"
-                width={75}
-                height={75}
+                className="rounded-xl border border-solid border-white/20"
+                src="/wallets-management-home.png"
+                alt="AsgardEX wallet management showing hardware wallet integration"
+                width={1000}
+                height={200}
+                loading="lazy"
+                quality={85}
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
               />
-              <p className="font-bold text-primary-foreground text-lg mt-4">
-                Liquidity
-              </p>
-            </Link>
-            <Link
-              href={
-                'https://crypto-university.medium.com/under-the-hood-streaming-swaps-660708ab9dc0'
-              }
-              target="_blank"
-              rel="noopener noreferrer"
-              className={
-                'flex flex-col items-center border-solid border-2 border-asgardex-gray-300 hover:bg-asgardex-gray-100/10 rounded-2xl p-2'
-              }>
-              <Image
-                src="/swaps-logo.avif"
-                alt="Swaps logo"
-                width={75}
-                height={75}
-              />
-              <p className="font-bold text-primary-foreground text-lg mt-4">
-                Swaps
-              </p>
-            </Link>
-            <Link
-              href={
-                'https://crypto-university.medium.com/synthetic-assets-79df3e3af113'
-              }
-              target="_blank"
-              rel="noopener noreferrer"
-              className={
-                'flex flex-col items-center border-solid border-2 border-asgardex-gray-300 hover:bg-asgardex-gray-100/10 rounded-2xl p-2'
-              }>
-              <Image
-                src="/synthetic-assets-logo.avif"
-                alt="Synthetic assets logo"
-                width={75}
-                height={75}
-              />
-              <p className="font-bold text-primary-foreground text-lg mt-4">
-                Synthetic Assets
-              </p>
-            </Link>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
-        <div className="max-w-[1085px] flex flex-col lg:flex-row-reverse text-center items-center justify-around py-16 gap-x-20">
-          <div className="mb-10 lg:mb-0 w-full">
-            <h2 className="text-2xl md:text-5xl lg:text-5xl font-bold mb-8">
-              Transparent Fee Policy
+      {/* Node Operations Section */}
+      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8 py-20">
+        <div className="max-w-7xl w-full">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
+              Professional{' '}
+              <span className="bg-gradient-secondary bg-clip-text text-transparent">
+                Node Operations
+              </span>
             </h2>
-            <p className="text-sm md:text-lg font-normal mb-2">
-              Clear and fair - a standard 0.3% commission on all swaps above
-              1001 dollars, swaps below are affiliate free. No hidden fees, no
-              surprises.
+            <p className="text-xl md:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed">
+              Complete THORChain and MayaChain node management with professional monitoring and control
             </p>
-            <p className="text-sm md:text-lg font-normal">
-              Learn and Grow with THORChain University (DYOR).
-            </p>
-            <Button
-              as={Link}
-              href="https://crypto-university.medium.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gradient-primary font-semibold text-lg rounded-2xl px-20 py-8 mt-12 text-primary-foreground hover:shadow-glow hover:scale-105 transition-all duration-300">
-              Start Learning
-            </Button>
           </div>
-          <h4 className="w-full font-extrabold text-9xl md:text-[150px] text-asgardex-primary-500">
-            0.3%
-          </h4>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <Card className="p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <div className="flex items-center mb-6">
+                <div className="p-3 rounded-xl bg-primary/20 mr-4">
+                  <IconServer size={32} className="text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground">Bond Management</h3>
+              </div>
+              <p className="text-foreground/80 mb-4">Complete bond/unbond functionality with real-time monitoring and automated alerts for node operators.</p>
+              <ul className="space-y-2 text-sm text-foreground/70">
+                <li>• Automated bond calculations</li>
+                <li>• Real-time status monitoring</li>
+                <li>• Leave request management</li>
+              </ul>
+            </Card>
+
+            <Card className="p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <div className="flex items-center mb-6">
+                <div className="p-3 rounded-xl bg-secondary/20 mr-4">
+                  <IconTrendingUp size={32} className="text-secondary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground">Node Analytics</h3>
+              </div>
+              <p className="text-foreground/80 mb-4">Advanced analytics dashboard showing performance metrics, rewards tracking, and health monitoring.</p>
+              <ul className="space-y-2 text-sm text-foreground/70">
+                <li>• Performance metrics tracking</li>
+                <li>• Reward calculations</li>
+                <li>• Health status alerts</li>
+              </ul>
+            </Card>
+
+            <Card className="p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <div className="flex items-center mb-6">
+                <div className="p-3 rounded-xl bg-primary/20 mr-4">
+                  <IconWallet size={32} className="text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground">Name Services</h3>
+              </div>
+              <p className="text-foreground/80 mb-4">THORName and MAYAName registration and management directly from the desktop application.</p>
+              <ul className="space-y-2 text-sm text-foreground/70">
+                <li>• THORName registration</li>
+                <li>• MAYAName management</li>
+                <li>• Address aliasing</li>
+              </ul>
+            </Card>
+          </div>
         </div>
       </section>
 
-      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8">
-        <div className="max-w-[1085px] text-center py-28">
-          <h2 className="text-2xl md:text-5xl lg:text-6xl font-bold text-foreground mb-8">
-            Join Our Vibrant Community
-          </h2>
-          <p className="text-sm md:text-lg lg:text-xl font-normal mb-8">
-            Connect, learn, and grow with us on Discord, Twitter, and GitHub. Be
-            a part of the movement shaping the future of decentralized finance.
-          </p>
-          <div className="pt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="flex flex-col items-center justify-center p-6 rounded-2xl bg-default-50/30 hover:bg-default-100/50 transition-all duration-300 border border-default-200/30 hover:shadow-lg hover:scale-105">
-              <div className="w-[100px] md:w-[120px] h-[100px] md:h-[120px] mb-6">
-                <Image
-                  src="/discord-big-logo.avif"
-                  alt="Discord community logo"
-                  layout="responsive"
-                  width={120}
-                  height={120}
-                />
+      {/* Community & Development Section */}
+      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8 py-20 bg-gradient-subtle">
+        <div className="max-w-7xl w-full">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
+              Open Source{' '}
+              <span className="bg-gradient-primary bg-clip-text text-transparent">
+                Community Driven
+              </span>
+            </h2>
+            <p className="text-xl md:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed">
+              Built by the community, for the community with active development and continuous innovation
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <div className="text-center p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300">
+              <div className="text-4xl font-bold text-primary mb-2">1000+</div>
+              <div className="text-lg font-semibold text-foreground mb-1">GitHub Stars</div>
+              <div className="text-sm text-foreground/70">Active contributors</div>
+            </div>
+            <div className="text-center p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300">
+              <div className="text-4xl font-bold text-secondary mb-2">50+</div>
+              <div className="text-lg font-semibold text-foreground mb-1">Contributors</div>
+              <div className="text-sm text-foreground/70">Global developers</div>
+            </div>
+            <div className="text-center p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300">
+              <div className="text-4xl font-bold text-primary mb-2">7</div>
+              <div className="text-lg font-semibold text-foreground mb-1">Languages</div>
+              <div className="text-sm text-foreground/70">Multi-language support</div>
+            </div>
+            <div className="text-center p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300">
+              <div className="text-4xl font-bold text-secondary mb-2">24/7</div>
+              <div className="text-lg font-semibold text-foreground mb-1">Community</div>
+              <div className="text-sm text-foreground/70">Discord support</div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <div className="p-3 rounded-xl bg-primary/20 mx-auto mb-4 w-fit">
+                <IconBrandGithub size={32} className="text-primary" />
               </div>
-              <h5 className="text-base md:text-xl font-bold mb-3">
-                Discord Community
-              </h5>
-              <p className="text-sm md:text-base mb-6 text-center text-foreground/80">
-                Find and share Discord links easily.
-              </p>
-              <Link
-                className="w-full"
+              <h3 className="text-xl font-bold text-foreground mb-4">Open Development</h3>
+              <p className="text-foreground/80 mb-6">All development happens in the open with community input and code reviews.</p>
+              <Button
+                as={Link}
+                href="https://github.com/asgardex/asgardex-desktop"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-gradient-primary text-primary-foreground px-6 py-2 text-sm font-bold rounded-lg hover:shadow-glow hover:scale-105 transition-all duration-300">
+                View Repository
+              </Button>
+            </Card>
+
+            <Card className="p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <div className="p-3 rounded-xl bg-secondary/20 mx-auto mb-4 w-fit">
+                <IconServer size={32} className="text-secondary" />
+              </div>
+              <h3 className="text-xl font-bold text-foreground mb-4">Active Community</h3>
+              <p className="text-foreground/80 mb-6">Join thousands of users and developers building the future of DeFi.</p>
+              <Button
+                as={Link}
                 href="https://discord.gg/AZDtabWFJF"
                 target="_blank"
-                rel="noopener noreferrer">
-                <Button className="bg-gradient-secondary font-bold rounded-lg w-full text-secondary-foreground text-lg hover:shadow-glow-blue transition-all duration-300">
-                  Join
-                </Button>
-              </Link>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-              <div className="w-[100px] md:w-[150px] h-[100px] md:h-[150px]">
-                <Image
-                  src="/x-big-logo.avif"
-                  alt="X (Twitter) community logo"
-                  layout="responsive"
-                  width={150}
-                  height={150}
-                />
+                rel="noopener noreferrer"
+                className="bg-gradient-secondary text-secondary-foreground px-6 py-2 text-sm font-bold rounded-lg hover:shadow-glow-blue hover:scale-105 transition-all duration-300">
+                Join Discord
+              </Button>
+            </Card>
+
+            <Card className="p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <div className="p-3 rounded-xl bg-primary/20 mx-auto mb-4 w-fit">
+                <IconTrendingUp size={32} className="text-primary" />
               </div>
-              <h5 className="text-sm md:text-xl font-bold mt-8">X Community</h5>
-              <p className="text-xs md:text-sm mt-2">
-                Discover and distribute X links.
-              </p>
-              <Link
-                className="w-full"
-                href="https://twitter.com/asgardex"
-                target="_blank"
-                rel="noopener noreferrer">
-                <Button className="bg-secondary font-bold rounded-lg w-full mt-8 text-secondary-foreground text-lg hover:bg-secondary/90">
-                  Join
-                </Button>
-              </Link>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-              <div className="w-[100px] md:w-[150px] h-[100px] md:h-[150px]">
-                <Image
-                  src="/github-big-logo.avif"
-                  alt="GitHub community logo"
-                  layout="responsive"
-                  width={150}
-                  height={150}
-                />
-              </div>
-              <h5 className="text-sm md:text-xl font-bold mt-8">
-                GitHub Community
-              </h5>
-              <p className="text-xs md:text-sm mt-2">
-                Manage and multiply GitHub links.
-              </p>
-              <Link
-                className="w-full"
+              <h3 className="text-xl font-bold text-foreground mb-4">Continuous Innovation</h3>
+              <p className="text-foreground/80 mb-6">Regular updates with new features, security improvements, and protocol integrations.</p>
+              <Button
+                as={Link}
                 href="https://github.com/asgardex/asgardex-desktop/releases"
                 target="_blank"
-                rel="noopener noreferrer">
-                <Button className="bg-secondary font-bold rounded-lg w-full mt-8 text-secondary-foreground text-lg hover:bg-secondary/90">
-                  Join
+                rel="noopener noreferrer"
+                className="bg-gradient-accent text-primary-foreground px-6 py-2 text-sm font-bold rounded-lg hover:shadow-glow hover:scale-105 transition-all duration-300">
+                View Releases
+              </Button>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Enhanced Download Section */}
+      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8 py-20">
+        <div className="max-w-7xl w-full">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
+              Download{' '}
+              <span className="bg-gradient-primary bg-clip-text text-transparent">
+                AsgardEX Desktop
+              </span>
+            </h2>
+            <p className="text-xl md:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed mb-12">
+              Get started with professional cross-chain trading in minutes. Available for all major operating systems.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              <div className="p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300 text-center">
+                <div className="text-6xl mb-4">🪟</div>
+                <h3 className="text-xl font-bold text-foreground mb-2">Windows</h3>
+                <p className="text-foreground/70 mb-6">Windows 10 or later</p>
+                <Button
+                  as={Link}
+                  href="/installer"
+                  className="bg-gradient-primary text-primary-foreground px-6 py-3 text-sm font-bold rounded-lg hover:shadow-glow hover:scale-105 transition-all duration-300 w-full">
+                  Download for Windows
                 </Button>
-              </Link>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-              <div className="w-[100px] md:w-[150px] h-[100px] md:h-[150px]">
-                <Image
-                  src="/xchain-big-logo.avif"
-                  alt="XChainJS library logo"
-                  layout="responsive"
-                  width={150}
-                  height={150}
-                />
               </div>
-              <h5 className="text-sm md:text-xl font-bold mt-8">
-                XChainJS Community
-              </h5>
-              <p className="text-xs md:text-sm mt-2">
-                Manage and multiply GitHub links.
-              </p>
-              <Link
-                className="w-full"
-                href="https://github.com/xchainjs/xchainjs-lib"
-                target="_blank"
-                rel="noopener noreferrer">
-                <Button className="bg-secondary font-bold rounded-lg w-full mt-8 text-secondary-foreground text-lg hover:bg-secondary/90">
-                  Join
+
+              <div className="p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300 text-center">
+                <div className="text-6xl mb-4">🍎</div>
+                <h3 className="text-xl font-bold text-foreground mb-2">macOS</h3>
+                <p className="text-foreground/70 mb-6">macOS 10.15 or later</p>
+                <Button
+                  as={Link}
+                  href="/installer"
+                  className="bg-gradient-primary text-primary-foreground px-6 py-3 text-sm font-bold rounded-lg hover:shadow-glow hover:scale-105 transition-all duration-300 w-full">
+                  Download for Mac
                 </Button>
-              </Link>
+              </div>
+
+              <div className="p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300 text-center">
+                <div className="text-6xl mb-4">🐧</div>
+                <h3 className="text-xl font-bold text-foreground mb-2">Linux</h3>
+                <p className="text-foreground/70 mb-6">Ubuntu 18.04 or later</p>
+                <Button
+                  as={Link}
+                  href="/installer"
+                  className="bg-gradient-primary text-primary-foreground px-6 py-3 text-sm font-bold rounded-lg hover:shadow-glow hover:scale-105 transition-all duration-300 w-full">
+                  Download for Linux
+                </Button>
+              </div>
+            </div>
+
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+              <h3 className="text-xl font-bold text-foreground mb-4">Why Choose AsgardEX Desktop?</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+                <div className="flex items-start gap-3">
+                  <div className="p-1 rounded-full bg-primary/20 mt-1">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground">True Decentralization</h4>
+                    <p className="text-sm text-foreground/70">No web dependencies, runs entirely on your machine</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="p-1 rounded-full bg-primary/20 mt-1">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground">Professional Features</h4>
+                    <p className="text-sm text-foreground/70">Advanced trading tools and node management</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="p-1 rounded-full bg-secondary/20 mt-1">
+                    <div className="w-2 h-2 bg-secondary rounded-full"></div>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground">Enterprise Security</h4>
+                    <p className="text-sm text-foreground/70">Hardware wallet support and local key storage</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="p-1 rounded-full bg-secondary/20 mt-1">
+                    <div className="w-2 h-2 bg-secondary rounded-full"></div>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-foreground">Transparent Fees</h4>
+                    <p className="text-sm text-foreground/70">Only 0.3% on swaps over $1,001 (30 bps affiliate fee)</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Final CTA Section */}
+      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8 py-20 bg-gradient-subtle">
+        <div className="max-w-4xl w-full text-center">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+            Ready to Experience{' '}
+            <span className="bg-gradient-primary bg-clip-text text-transparent">
+              Professional DeFi?
+            </span>
+          </h2>
+          <p className="text-xl text-foreground/80 mb-8 leading-relaxed">
+            Join thousands of users already trading with the most advanced cross-chain desktop application
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+            <Button
+              as={Link}
+              href="/installer"
+              className="bg-gradient-primary text-primary-foreground px-8 py-4 text-lg font-bold rounded-full hover:shadow-glow hover:scale-105 transition-all duration-300 ease-in-out min-w-[200px]">
+              <IconExternalLink size={20} className="mr-2" />
+              Download Now
+            </Button>
+            <Button
+              as={Link}
+              href="https://thorchain.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="border-2 border-primary bg-transparent rounded-full px-8 py-4 font-bold text-foreground text-lg hover:bg-primary/10 hover:border-primary/80 hover:shadow-glow-blue transition-all duration-300 ease-in-out min-w-[200px]">
+              Learn More
+            </Button>
+          </div>
+
+          <div className="text-center text-foreground/70">
+            <p className="text-lg mb-4">
+              <span className="font-bold text-primary">0.3% fee</span> on swaps over $1,001 •
+              <span className="font-bold text-secondary"> No KYC</span> required •
+              <span className="font-bold text-primary"> Open Source</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
     </main>
   )
 }
