@@ -22,76 +22,77 @@ export default async function InstallerPage() {
   return (
     <main className="flex flex-col items-center">
       {/* Hero Section */}
-      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8 py-20">
+      <section className="flex flex-col w-full items-center justify-center px-4 sm:px-6 md:px-16 lg:px-8 py-16 sm:py-20">
         <div className="max-w-6xl w-full text-center">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 to-secondary/20 backdrop-blur-sm border border-primary/30 rounded-full px-6 py-2 mb-8">
-            <IconDownload size={20} className="text-primary" />
-            <span className="text-sm font-medium text-foreground/90">Professional Desktop Application</span>
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 to-secondary/20 backdrop-blur-sm border border-primary/30 rounded-full px-4 py-2 mb-6 sm:mb-8 text-xs sm:text-sm">
+            <IconDownload size={16} className="text-primary sm:w-5 sm:h-5" />
+            <span className="font-medium text-foreground/90">Professional Desktop Application</span>
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold mb-8 text-foreground leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 sm:mb-8 text-foreground leading-tight px-2">
             Download{' '}
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               AsgardEX Desktop
             </span>
           </h1>
 
-          <p className="text-xl md:text-2xl font-medium mb-12 text-foreground/80 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl font-medium mb-8 sm:mb-12 text-foreground/80 max-w-4xl mx-auto leading-relaxed px-4">
             Get the most advanced cross-chain trading platform for Windows, macOS, and Linux.
             Secure, open-source, and built by the community.
           </p>
 
           {/* Latest Version Info */}
           {latest && (
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 mb-12 inline-block">
-              <div className="flex items-center justify-center gap-3 mb-2">
+            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-4 sm:p-6 mb-8 sm:mb-12 inline-block mx-4">
+              <div className="flex items-center justify-center gap-2 sm:gap-3 mb-2">
                 <div className="p-2 rounded-full bg-primary/20">
-                  <IconCheck size={20} className="text-primary" />
+                  <IconCheck size={16} className="text-primary sm:w-5 sm:h-5" />
                 </div>
-                <span className="text-lg font-bold text-foreground">Latest Version: {latest.tag_name}</span>
+                <span className="text-base sm:text-lg font-bold text-foreground">Latest Version: {latest.tag_name}</span>
               </div>
-              <p className="text-foreground/70">Released with enhanced security and performance improvements</p>
+              <p className="text-sm sm:text-base text-foreground/70">Released with enhanced security and performance improvements</p>
             </div>
           )}
         </div>
       </section>
 
       {/* Download Section */}
-      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8 py-20 bg-gradient-subtle">
+      <section className="flex flex-col w-full items-center justify-center px-4 sm:px-6 md:px-16 lg:px-8 py-16 sm:py-20 bg-gradient-subtle">
         <div className="max-w-7xl w-full">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground leading-tight mb-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-foreground leading-tight mb-4 sm:mb-6 px-2">
               Choose Your{' '}
               <span className="bg-gradient-primary bg-clip-text text-transparent">
                 Platform
               </span>
             </h2>
-            <p className="text-xl text-foreground/80 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl text-foreground/80 max-w-4xl mx-auto leading-relaxed px-4">
               Download AsgardEX for your operating system and start trading across 12+ blockchains
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
             {/* Windows */}
-            <Card className="p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
-              <div className="flex items-center justify-center w-16 h-16 mx-auto mb-6 rounded-2xl bg-blue-500/20">
+            <Card className="p-6 sm:p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20 flex flex-col h-full">
+              <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-2xl bg-blue-500/20">
                 <Image
                   className="rounded-none dark:invert"
                   src="/windows-black-logo.avif"
                   alt="Windows"
-                  width={32}
-                  height={32}
+                  width={28}
+                  height={28}
                 />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">Windows</h3>
-              <p className="text-foreground/70 mb-4">Windows 10 or later</p>
+              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">Windows</h3>
+              <p className="text-sm sm:text-base text-foreground/70 mb-3 sm:mb-4">Windows 10 or later</p>
               {latest && (
-                <p className="text-sm text-foreground/60 mb-6">Version {latest.tag_name}</p>
+                <p className="text-xs sm:text-sm text-foreground/60 mb-4 sm:mb-6">Version {latest.tag_name}</p>
               )}
+              <div className="flex-grow"></div>
               <Button
                 as={Link}
                 href={latest?.tag_name ? latest.windows.url : latest?.html_url || '#'}
-                className="w-full mb-4 bg-gradient-primary text-primary-foreground px-6 py-3 font-bold rounded-lg hover:shadow-glow hover:scale-105 transition-all duration-300">
-                <IconDownload size={20} className="mr-2" />
+                className="w-full mb-3 sm:mb-4 bg-gradient-primary text-primary-foreground px-4 sm:px-6 py-3 text-sm sm:text-base font-bold rounded-lg hover:shadow-glow hover:scale-105 transition-all duration-300">
+                <IconDownload size={16} className="mr-2 sm:w-5 sm:h-5" />
                 Download for Windows
               </Button>
               {previous && (
@@ -99,26 +100,27 @@ export default async function InstallerPage() {
               )}
             </Card>
             {/* macOS */}
-            <Card className="p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
-              <div className="flex items-center justify-center w-16 h-16 mx-auto mb-6 rounded-2xl bg-gray-500/20">
+            <Card className="p-6 sm:p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20 flex flex-col h-full">
+              <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-2xl bg-gray-500/20">
                 <Image
                   className="rounded-none dark:invert"
                   src="/apple-black-logo.png"
                   alt="macOS"
-                  width={32}
-                  height={32}
+                  width={28}
+                  height={28}
                 />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">macOS</h3>
-              <p className="text-foreground/70 mb-4">macOS 10.15 or later</p>
+              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">macOS</h3>
+              <p className="text-sm sm:text-base text-foreground/70 mb-3 sm:mb-4">macOS 10.15 or later</p>
               {latest && (
-                <p className="text-sm text-foreground/60 mb-6">Version {latest.tag_name}</p>
+                <p className="text-xs sm:text-sm text-foreground/60 mb-4 sm:mb-6">Version {latest.tag_name}</p>
               )}
+              <div className="flex-grow"></div>
               <Button
                 as={Link}
                 href={latest?.macSequ?.url || latest?.macSon?.url || latest?.macVent?.url || latest?.html_url || '#'}
-                className="w-full mb-4 bg-gradient-primary text-primary-foreground px-6 py-3 font-bold rounded-lg hover:shadow-glow hover:scale-105 transition-all duration-300">
-                <IconDownload size={20} className="mr-2" />
+                className="w-full mb-3 sm:mb-4 bg-gradient-primary text-primary-foreground px-4 sm:px-6 py-3 text-sm sm:text-base font-bold rounded-lg hover:shadow-glow hover:scale-105 transition-all duration-300">
+                <IconDownload size={16} className="mr-2 sm:w-5 sm:h-5" />
                 Download for Mac
               </Button>
               <div className="space-y-2">
@@ -144,26 +146,27 @@ export default async function InstallerPage() {
             </Card>
 
             {/* Linux */}
-            <Card className="p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
-              <div className="flex items-center justify-center w-16 h-16 mx-auto mb-6 rounded-2xl bg-orange-500/20">
+            <Card className="p-6 sm:p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20 flex flex-col h-full">
+              <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-4 sm:mb-6 rounded-2xl bg-orange-500/20">
                 <Image
                   className="rounded-none dark:invert"
                   src="/linux-black-logo.avif"
                   alt="Linux"
-                  width={32}
-                  height={32}
+                  width={28}
+                  height={28}
                 />
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2">Linux</h3>
-              <p className="text-foreground/70 mb-4">Ubuntu 18.04 or later</p>
+              <h3 className="text-lg sm:text-xl font-bold text-foreground mb-2">Linux</h3>
+              <p className="text-sm sm:text-base text-foreground/70 mb-3 sm:mb-4">Ubuntu 18.04 or later</p>
               {latest && (
-                <p className="text-sm text-foreground/60 mb-6">Version {latest.tag_name}</p>
+                <p className="text-xs sm:text-sm text-foreground/60 mb-4 sm:mb-6">Version {latest.tag_name}</p>
               )}
+              <div className="flex-grow"></div>
               <Button
                 as={Link}
                 href={latest?.linux?.url || latest?.html_url || '#'}
-                className="w-full mb-4 bg-gradient-primary text-primary-foreground px-6 py-3 font-bold rounded-lg hover:shadow-glow hover:scale-105 transition-all duration-300">
-                <IconDownload size={20} className="mr-2" />
+                className="w-full mb-3 sm:mb-4 bg-gradient-primary text-primary-foreground px-4 sm:px-6 py-3 text-sm sm:text-base font-bold rounded-lg hover:shadow-glow hover:scale-105 transition-all duration-300">
+                <IconDownload size={16} className="mr-2 sm:w-5 sm:h-5" />
                 Download for Linux
               </Button>
               {previous && (
