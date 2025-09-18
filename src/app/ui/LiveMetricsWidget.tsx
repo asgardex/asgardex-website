@@ -64,7 +64,8 @@ const formatRune = (value: string, decimals = 8): string => {
 const AnimatedCounter = ({ value, formatter }: { value: number | string, formatter?: (val: number) => string }) => {
   const [displayValue, setDisplayValue] = useState(0)
   const targetValue = typeof value === 'string' ? parseFloat(value) : value
-  const animationRef = useRef<NodeJS.Timeout>()
+  const animationRef = useRef<ReturnType<typeof setInterval>>()
+  const currentDisplayRef = useRef(displayValue)
 
   useEffect(() => {
     if (isNaN(targetValue)) return
@@ -76,7 +77,7 @@ const AnimatedCounter = ({ value, formatter }: { value: number | string, formatt
 
     const duration = 2000
     const steps = 60
-    const startValue = displayValue
+    const startValue = currentDisplayRef.current
     const increment = (targetValue - startValue) / steps
     let currentStep = 0
 
@@ -86,8 +87,10 @@ const AnimatedCounter = ({ value, formatter }: { value: number | string, formatt
         const newValue = startValue + (increment * currentStep)
         if (currentStep >= steps) {
           if (animationRef.current) clearInterval(animationRef.current)
+          currentDisplayRef.current = targetValue
           return targetValue
         }
+        currentDisplayRef.current = newValue
         return newValue
       })
     }, duration / steps)
@@ -95,7 +98,7 @@ const AnimatedCounter = ({ value, formatter }: { value: number | string, formatt
     return () => {
       if (animationRef.current) clearInterval(animationRef.current)
     }
-  }, [targetValue, displayValue])
+  }, [targetValue])
 
   return (
     <span className="font-bold">
@@ -510,4 +513,3 @@ export default function LiveMetricsWidget() {
     </div>
   )
 }
-
