@@ -114,13 +114,15 @@ export default function LiveMetricsWidget() {
   const [lastUpdate, setLastUpdate] = useState<Date>(new Date())
   const [error, setError] = useState<string | null>(null)
 
-  // Rate limiting: prevent multiple simultaneous requests
+  // Rate limiting and abort control
   const isRefreshing = useRef(false)
   const lastFetchTime = useRef<number>(0)
+  const abortControllerRef = useRef<AbortController | null>(null)
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
-  const fetchNetworkData = useCallback(async (): Promise<void> => {
+  const fetchNetworkData = useCallback(async (signal: AbortSignal): Promise<void> => {
     try {
-      const response = await fetch('https://midgard.ninerealms.com/v2/network')
+      const response = await fetch('https://midgard.ninerealms.com/v2/network', { signal })
       if (!response.ok) throw new Error(`Network API error: ${response.status}`)
 
       const data = await response.json() as NetworkApiData
@@ -136,17 +138,21 @@ export default function LiveMetricsWidget() {
         poolActivationCountdown: data.poolActivationCountdown
       })
     } catch (error) {
+      if (error instanceof Error && error.name === 'AbortError') {
+        console.log('Network data fetch aborted')
+        return
+      }
       console.error('Failed to fetch network data:', error)
       setError('Failed to fetch network data')
     }
   }, [])
 
-  const fetchPoolData = useCallback(async (): Promise<void> => {
+  const fetchPoolData = useCallback(async (signal: AbortSignal): Promise<void> => {
     try {
       // Use both endpoints for comprehensive data
       const [poolsResponse, statsResponse] = await Promise.all([
-        fetch('https://midgard.ninerealms.com/v2/pools'),
-        fetch('https://midgard.ninerealms.com/v2/stats')
+        fetch('https://midgard.ninerealms.com/v2/pools', { signal }),
+        fetch('https://midgard.ninerealms.com/v2/stats', { signal })
       ])
 
       if (!poolsResponse.ok) throw new Error(`Pools API error: ${poolsResponse.status}`)
@@ -248,6 +254,10 @@ export default function LiveMetricsWidget() {
         runePriceUSD: parseFloat(stats.runePriceUSD)
       })
     } catch (error) {
+      if (error instanceof Error && error.name === 'AbortError') {
+        console.log('Pool data fetch aborted')
+        return
+      }
       console.error('Failed to fetch pool data:', error)
       setError('Failed to fetch pool data')
     }
@@ -260,20 +270,54 @@ export default function LiveMetricsWidget() {
       return
     }
 
+    // Abort any previous request
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort()
+    }
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current)
+    }
+
+    // Create new abort controller for this request
+    const controller = new AbortController()
+    abortControllerRef.current = controller
+
+    // Set timeout to abort request after 8 seconds
+    timeoutRef.current = setTimeout(() => {
+      controller.abort()
+    }, 8000)
+
     isRefreshing.current = true
     lastFetchTime.current = now
     setLoading(true)
     setError(null)
 
     try {
-      await Promise.all([fetchNetworkData(), fetchPoolData()])
+      await Promise.all([fetchNetworkData(controller.signal), fetchPoolData(controller.signal)])
       setLastUpdate(new Date())
+
+      // Clear timeout on success
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+        timeoutRef.current = null
+      }
     } catch (error) {
-      console.error('Failed to fetch data:', error)
-      setError('Failed to fetch data')
+      if (error instanceof Error && error.name === 'AbortError') {
+        console.log('Data fetch aborted due to timeout or cancellation')
+        setError('Request timed out - will retry automatically')
+      } else {
+        console.error('Failed to fetch data:', error)
+        setError('Failed to fetch data')
+      }
     } finally {
       setLoading(false)
       isRefreshing.current = false
+
+      // Clean up timeout if still active
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+        timeoutRef.current = null
+      }
     }
   }, [fetchNetworkData, fetchPoolData])
 
@@ -288,6 +332,13 @@ export default function LiveMetricsWidget() {
 
     return () => {
       clearInterval(interval)
+      // Abort any pending requests and clean up timeouts
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort()
+      }
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
     }
   }, [fetchData])
 

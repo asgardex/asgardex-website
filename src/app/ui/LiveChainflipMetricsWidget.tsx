@@ -87,9 +87,11 @@ export default function LiveChainflipMetricsWidget() {
   const [lastUpdate, setLastUpdate] = useState<Date>(new Date())
   const [error, setError] = useState<string | null>(null)
 
-  // Rate limiting: prevent multiple simultaneous requests
+  // Rate limiting and abort control
   const isRefreshing = useRef(false)
   const lastFetchTime = useRef<number>(0)
+  const abortControllerRef = useRef<AbortController | null>(null)
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const fetchChainflipData = useCallback(async (): Promise<void> => {
     // Rate limiting: prevent overlapping requests
@@ -97,6 +99,23 @@ export default function LiveChainflipMetricsWidget() {
     if (isRefreshing.current || (now - lastFetchTime.current) < 5000) {
       return
     }
+
+    // Abort any previous request
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort()
+    }
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current)
+    }
+
+    // Create new abort controller for this request
+    const controller = new AbortController()
+    abortControllerRef.current = controller
+
+    // Set timeout to abort request after 8 seconds
+    timeoutRef.current = setTimeout(() => {
+      controller.abort()
+    }, 8000)
 
     isRefreshing.current = true
     lastFetchTime.current = now
@@ -142,12 +161,14 @@ export default function LiveChainflipMetricsWidget() {
         fetch('https://reporting-service.chainflip.io/graphql', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(liquidityQuery)
+          body: JSON.stringify(liquidityQuery),
+          signal: controller.signal
         }),
         fetch('https://reporting-service.chainflip.io/graphql', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(volumeQuery)
+          body: JSON.stringify(volumeQuery),
+          signal: controller.signal
         })
       ])
 
@@ -180,12 +201,29 @@ export default function LiveChainflipMetricsWidget() {
       })
 
       setLastUpdate(new Date())
+
+      // Clear timeout on success
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+        timeoutRef.current = null
+      }
     } catch (error) {
-      console.error('Failed to fetch Chainflip data:', error)
-      setError('Failed to fetch Chainflip data')
+      if (error instanceof Error && error.name === 'AbortError') {
+        console.log('Chainflip data fetch aborted due to timeout or cancellation')
+        setError('Request timed out - will retry automatically')
+      } else {
+        console.error('Failed to fetch Chainflip data:', error)
+        setError('Failed to fetch Chainflip data')
+      }
     } finally {
       setLoading(false)
       isRefreshing.current = false
+
+      // Clean up timeout if still active
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+        timeoutRef.current = null
+      }
     }
   }, [])
 
@@ -200,6 +238,13 @@ export default function LiveChainflipMetricsWidget() {
 
     return () => {
       clearInterval(interval)
+      // Abort any pending requests and clean up timeouts
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort()
+      }
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+      }
     }
   }, [fetchChainflipData])
 
