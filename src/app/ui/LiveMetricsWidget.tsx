@@ -48,9 +48,9 @@ interface NetworkApiData {
 
 const formatCurrency = (value: string | number, decimals = 8): string => {
   const num = typeof value === 'string' ? parseInt(value) / Math.pow(10, decimals) : value
-  if (num >= 1e9) return `$${(num / 1e9).toFixed(1)}B`
-  if (num >= 1e6) return `$${(num / 1e6).toFixed(1)}M`
-  if (num >= 1e3) return `$${(num / 1e3).toFixed(1)}K`
+  if (num >= 1e9) return `$${(num / 1e9).toFixed(2)}B`
+  if (num >= 1e6) return `$${(num / 1e6).toFixed(0)}M`
+  if (num >= 1e3) return `$${(num / 1e3).toFixed(0)}K`
   return `$${num.toFixed(0)}`
 }
 
@@ -61,7 +61,7 @@ const formatRune = (value: string, decimals = 8): string => {
   return num.toFixed(0)
 }
 
-const AnimatedCounter = ({ value, formatter }: { value: number | string; formatter?: (val: number) => string }) => {
+const AnimatedCounter = ({ value, formatter }: { value: number | string, formatter?: (val: number) => string }) => {
   const [displayValue, setDisplayValue] = useState(0)
   const targetValue = typeof value === 'string' ? parseFloat(value) : value
   const animationRef = useRef<NodeJS.Timeout>()
@@ -95,7 +95,7 @@ const AnimatedCounter = ({ value, formatter }: { value: number | string; formatt
     return () => {
       if (animationRef.current) clearInterval(animationRef.current)
     }
-  }, [targetValue])
+  }, [targetValue, displayValue])
 
   return (
     <span className="font-bold">
@@ -110,7 +110,7 @@ export default function LiveMetricsWidget() {
   const [loading, setLoading] = useState(true)
   const [lastUpdate, setLastUpdate] = useState<Date>(new Date())
   const [error, setError] = useState<string | null>(null)
-  
+
   // Rate limiting: prevent multiple simultaneous requests
   const isRefreshing = useRef(false)
   const lastFetchTime = useRef<number>(0)
@@ -119,7 +119,7 @@ export default function LiveMetricsWidget() {
     try {
       const response = await fetch('https://midgard.ninerealms.com/v2/network')
       if (!response.ok) throw new Error(`Network API error: ${response.status}`)
-      
+
       const data = await response.json() as NetworkApiData
 
       setNetworkData({
@@ -148,7 +148,7 @@ export default function LiveMetricsWidget() {
 
       if (!poolsResponse.ok) throw new Error(`Pools API error: ${poolsResponse.status}`)
       if (!statsResponse.ok) throw new Error(`Stats API error: ${statsResponse.status}`)
-      
+
       const pools = await poolsResponse.json() as PoolData[]
       const stats = await statsResponse.json() as {
         swapVolume: string
@@ -169,16 +169,16 @@ export default function LiveMetricsWidget() {
             // More accurate liquidity calculation
             const assetPriceUSD = parseFloat(pool.assetPriceUSD)
             const nativeDecimal = pool.nativeDecimal ?? 8
-            
+
             // Convert from base units to actual token amounts
             const assetDepth = parseInt(pool.assetDepth) / Math.pow(10, nativeDecimal)
             const runeDepth = parseInt(pool.runeDepth) / Math.pow(10, 8) // RUNE is always 8 decimals
             const runePriceUSD = parseFloat(stats.runePriceUSD)
-            
+
             // Calculate USD value of both sides of the pool
             const assetValueUSD = assetDepth * assetPriceUSD
             const runeValueUSD = runeDepth * runePriceUSD
-            
+
             // Debug logging for first few pools
             if (totalLiquidityUSD < 1000000) { // Only log first few calculations
               console.log(`Pool ${pool.asset}:`, {
@@ -191,8 +191,8 @@ export default function LiveMetricsWidget() {
                 totalPoolValue: (assetValueUSD + runeValueUSD).toFixed(2)
               })
             }
-            
-            // Sanity check: individual pool shouldn't exceed $100M 
+
+            // Sanity check: individual pool shouldn't exceed $100M
             const poolTotalValue = assetValueUSD + runeValueUSD
             if (poolTotalValue > 0 && poolTotalValue < 100000000) {
               totalLiquidityUSD += poolTotalValue
@@ -219,7 +219,7 @@ export default function LiveMetricsWidget() {
             const volume24hRune = parseInt(pool.volume24h) / Math.pow(10, 8)
             const runePriceUSD = parseFloat(stats.runePriceUSD)
             const poolVolume = volume24hRune * runePriceUSD
-            
+
             // Sanity check for volume (individual pool shouldn't exceed $50M daily volume)
             if (poolVolume > 0 && poolVolume < 50000000) {
               totalVolume24hUSD += poolVolume
@@ -304,8 +304,8 @@ export default function LiveMetricsWidget() {
       <Card className="bg-gradient-subtle border-default-200">
         <CardBody className="flex items-center justify-center p-8">
           <p className="text-danger">{error}</p>
-          <button 
-            onClick={() => void fetchData()} 
+          <button
+            onClick={() => { void fetchData() }}
             className="mt-4 px-4 py-2 bg-primary text-white rounded"
           >
             Retry
@@ -342,14 +342,16 @@ export default function LiveMetricsWidget() {
             </div>
             <p className="text-xs text-foreground/60 mb-1">Total Liquidity</p>
             <p className="text-lg sm:text-xl text-foreground">
-              {poolSummary != null ? (
+              {poolSummary != null
+                ? (
                 <AnimatedCounter
                   value={poolSummary.totalLiquidity}
                   formatter={(val) => formatCurrency(val, 0)}
                 />
-              ) : (
-                '...'
-              )}
+                  )
+                : (
+                    '...'
+                  )}
             </p>
           </CardBody>
         </Card>
@@ -362,14 +364,16 @@ export default function LiveMetricsWidget() {
             </div>
             <p className="text-xs text-foreground/60 mb-1">24h Volume</p>
             <p className="text-lg sm:text-xl text-foreground">
-              {poolSummary != null ? (
+              {poolSummary != null
+                ? (
                 <AnimatedCounter
                   value={poolSummary.totalVolume24h}
                   formatter={(val) => formatCurrency(val, 0)}
                 />
-              ) : (
-                '...'
-              )}
+                  )
+                : (
+                    '...'
+                  )}
             </p>
           </CardBody>
         </Card>
@@ -382,14 +386,16 @@ export default function LiveMetricsWidget() {
             </div>
             <p className="text-xs text-foreground/60 mb-1">Active Nodes</p>
             <p className="text-lg sm:text-xl text-foreground">
-              {networkData != null ? (
+              {networkData != null
+                ? (
                 <AnimatedCounter
                   value={networkData.activeNodeCount}
                   formatter={(val) => Math.round(val).toString()}
                 />
-              ) : (
-                '...'
-              )}
+                  )
+                : (
+                    '...'
+                  )}
             </p>
           </CardBody>
         </Card>
@@ -402,14 +408,16 @@ export default function LiveMetricsWidget() {
             </div>
             <p className="text-xs text-foreground/60 mb-1">Avg Pool APY</p>
             <p className="text-lg sm:text-xl text-foreground">
-              {poolSummary != null ? (
+              {poolSummary != null
+                ? (
                 <AnimatedCounter
                   value={poolSummary.averageAPY}
                   formatter={(val) => `${val.toFixed(1)}%`}
                 />
-              ) : (
-                '...'
-              )}
+                  )
+                : (
+                    '...'
+                  )}
             </p>
           </CardBody>
         </Card>
@@ -422,14 +430,16 @@ export default function LiveMetricsWidget() {
             </div>
             <p className="text-xs text-foreground/60 mb-1">RUNE Price</p>
             <p className="text-lg sm:text-xl text-foreground">
-              {poolSummary != null ? (
+              {poolSummary != null
+                ? (
                 <AnimatedCounter
                   value={poolSummary.runePriceUSD}
                   formatter={(val) => `$${val.toFixed(3)}`}
                 />
-              ) : (
-                '...'
-              )}
+                  )
+                : (
+                    '...'
+                  )}
             </p>
           </CardBody>
         </Card>
@@ -500,3 +510,4 @@ export default function LiveMetricsWidget() {
     </div>
   )
 }
+

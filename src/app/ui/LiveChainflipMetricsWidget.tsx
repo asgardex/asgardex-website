@@ -11,15 +11,31 @@ interface ChainflipData {
   stablecoinLiquidity: number
 }
 
+interface LiquidityNode {
+  totalLiquidityValueUsd: string
+  totalBoostLiquidityValueUsd: string
+  totalStablecoinLiquidityValueUsd: string
+  timestamp: string
+}
+
+interface VolumeAggregates {
+  sum: {
+    ingressValueUsd: string
+  }
+  distinctCount: {
+    id: string
+  }
+}
+
 const formatCurrency = (value: string | number, decimals = 0): string => {
   const num = typeof value === 'string' ? parseFloat(value) : value
-  if (num >= 1e9) return `$${(num / 1e9).toFixed(1)}B`
-  if (num >= 1e6) return `$${(num / 1e6).toFixed(1)}M`
-  if (num >= 1e3) return `$${(num / 1e3).toFixed(1)}K`
+  if (num >= 1e9) return `$${(num / 1e9).toFixed(2)}B`
+  if (num >= 1e6) return `$${(num / 1e6).toFixed(0)}M`
+  if (num >= 1e3) return `$${(num / 1e3).toFixed(0)}K`
   return `$${num.toFixed(decimals)}`
 }
 
-const AnimatedCounter = ({ value, formatter }: { value: number | string; formatter?: (val: number) => string }) => {
+const AnimatedCounter = ({ value, formatter }: { value: number | string, formatter?: (val: number) => string }) => {
   const [displayValue, setDisplayValue] = useState(0)
   const targetValue = typeof value === 'string' ? parseFloat(value) : value
   const animationRef = useRef<NodeJS.Timeout>()
@@ -67,7 +83,7 @@ export default function LiveChainflipMetricsWidget() {
   const [loading, setLoading] = useState(true)
   const [lastUpdate, setLastUpdate] = useState<Date>(new Date())
   const [error, setError] = useState<string | null>(null)
-  
+
   // Rate limiting: prevent multiple simultaneous requests
   const isRefreshing = useRef(false)
   const lastFetchTime = useRef<number>(0)
@@ -146,8 +162,8 @@ export default function LiveChainflipMetricsWidget() {
         throw new Error(`Chainflip Volume GraphQL error: ${volumeData.errors[0].message}`)
       }
 
-      const liquidity = liquidityData.data.allLiquidityInfos.nodes[0]
-      const volume = volumeData.data.allSwapRequests.aggregates
+      const liquidity = liquidityData.data.allLiquidityInfos.nodes[0] as LiquidityNode
+      const volume = volumeData.data.allSwapRequests.aggregates as VolumeAggregates
 
       console.log('Chainflip Liquidity Data:', liquidity)
       console.log('Chainflip Volume Data:', volume)
@@ -155,7 +171,7 @@ export default function LiveChainflipMetricsWidget() {
       setChainflipData({
         totalLiquidity: parseFloat(liquidity.totalLiquidityValueUsd || '0'),
         totalVolume24h: parseFloat(volume.sum.ingressValueUsd || '0'),
-        swapCount24h: parseInt(volume.distinctCount.id || '0'),
+        swapCount24h: parseInt(volume.distinctCount.id || '0', 10),
         boostLiquidity: parseFloat(liquidity.totalBoostLiquidityValueUsd || '0'),
         stablecoinLiquidity: parseFloat(liquidity.totalStablecoinLiquidityValueUsd || '0')
       })
@@ -200,8 +216,8 @@ export default function LiveChainflipMetricsWidget() {
       <Card className="bg-gradient-subtle border-default-200">
         <CardBody className="flex items-center justify-center p-8">
           <p className="text-danger">{error}</p>
-          <button 
-            onClick={() => void fetchChainflipData()} 
+          <button
+            onClick={() => { void fetchChainflipData() }}
             className="mt-4 px-4 py-2 bg-warning text-white rounded"
           >
             Retry
@@ -238,14 +254,16 @@ export default function LiveChainflipMetricsWidget() {
             </div>
             <p className="text-xs text-foreground/60 mb-1">Total Liquidity</p>
             <p className="text-lg sm:text-xl text-foreground">
-              {chainflipData != null ? (
+              {chainflipData != null
+                ? (
                 <AnimatedCounter
                   value={chainflipData.totalLiquidity}
                   formatter={(val) => formatCurrency(val, 0)}
                 />
-              ) : (
-                '...'
-              )}
+                  )
+                : (
+                    '...'
+                  )}
             </p>
           </CardBody>
         </Card>
@@ -258,14 +276,16 @@ export default function LiveChainflipMetricsWidget() {
             </div>
             <p className="text-xs text-foreground/60 mb-1">24h Volume</p>
             <p className="text-lg sm:text-xl text-foreground">
-              {chainflipData != null ? (
+              {chainflipData != null
+                ? (
                 <AnimatedCounter
                   value={chainflipData.totalVolume24h}
                   formatter={(val) => formatCurrency(val, 0)}
                 />
-              ) : (
-                '...'
-              )}
+                  )
+                : (
+                    '...'
+                  )}
             </p>
           </CardBody>
         </Card>
@@ -278,14 +298,16 @@ export default function LiveChainflipMetricsWidget() {
             </div>
             <p className="text-xs text-foreground/60 mb-1">24h Swaps</p>
             <p className="text-lg sm:text-xl text-foreground">
-              {chainflipData != null ? (
+              {chainflipData != null
+                ? (
                 <AnimatedCounter
                   value={chainflipData.swapCount24h}
                   formatter={(val) => Math.round(val).toLocaleString()}
                 />
-              ) : (
-                '...'
-              )}
+                  )
+                : (
+                    '...'
+                  )}
             </p>
           </CardBody>
         </Card>
@@ -298,14 +320,16 @@ export default function LiveChainflipMetricsWidget() {
             </div>
             <p className="text-xs text-foreground/60 mb-1">Boost Liquidity</p>
             <p className="text-lg sm:text-xl text-foreground">
-              {chainflipData != null ? (
+              {chainflipData != null
+                ? (
                 <AnimatedCounter
                   value={chainflipData.boostLiquidity}
                   formatter={(val) => formatCurrency(val, 0)}
                 />
-              ) : (
-                '...'
-              )}
+                  )
+                : (
+                    '...'
+                  )}
             </p>
           </CardBody>
         </Card>
@@ -366,7 +390,7 @@ export default function LiveChainflipMetricsWidget() {
               <div className="flex justify-between items-center">
                 <span className="text-sm text-foreground/70">Avg Swap Size</span>
                 <span className="text-sm font-semibold text-yellow-500">
-                  {chainflipData != null && chainflipData.swapCount24h > 0 
+                  {chainflipData != null && chainflipData.swapCount24h > 0
                     ? formatCurrency(chainflipData.totalVolume24h / chainflipData.swapCount24h)
                     : '...'
                   }
@@ -379,3 +403,4 @@ export default function LiveChainflipMetricsWidget() {
     </div>
   )
 }
+
