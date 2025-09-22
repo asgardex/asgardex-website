@@ -1,10 +1,9 @@
 'use client'
-import { Button } from '@nextui-org/react'
+import { Button, Card, CardBody } from '@nextui-org/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { IconTrendingUp, IconShield, IconServer, IconWallet, IconBrandGithub, IconExternalLink } from '@tabler/icons-react'
 
-import { Card } from './ui/Card'
 import LiveMetricsWidget from './ui/LiveMetricsWidget'
 import LiveMayaMetricsWidget from './ui/LiveMayaMetricsWidget'
 import LiveChainflipMetricsWidget from './ui/LiveChainflipMetricsWidget'
@@ -13,7 +12,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center">
       {/* Hero Section */}
-      <section className="relative flex flex-col max-w-7xl w-full h-[calc(100vh-64px)] items-center justify-center pt-12 pb-32 px-4 lg:px-8">
+      <section className="relative flex flex-col max-w-7xl w-full h-[calc(100vh-64px)] items-center justify-center pt-12 pb-32 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16">
         <div className="flex flex-col items-center text-center max-w-6xl">
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/20 to-secondary/20 backdrop-blur-sm border border-primary/30 rounded-full px-6 py-2 mb-8">
             <IconTrendingUp size={20} className="text-primary" />
@@ -53,7 +52,7 @@ export default function Home() {
           {/* Key Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-primary mb-1">12+</div>
+              <div className="text-2xl md:text-3xl font-bold text-primary mb-1">18+</div>
               <div className="text-sm text-foreground/70">Blockchains</div>
             </div>
             <div className="text-center">
@@ -73,7 +72,7 @@ export default function Home() {
       </section>
 
       {/* Live Protocol Metrics Section */}
-      <section className="flex flex-col w-full items-center justify-center px-4 sm:px-6 md:px-16 lg:px-8 py-12 sm:py-16">
+      <section className="flex flex-col w-full items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20">
         <div className="max-w-7xl w-full">
           {/* Section Header */}
           <div className="text-center mb-8 sm:mb-12">
@@ -109,109 +108,121 @@ export default function Home() {
       </section>
 
       {/* Feature Grid Section */}
-      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8 py-20 bg-gradient-subtle">
+      <section className="flex flex-col w-full items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20 bg-gradient-subtle">
         <div className="max-w-7xl w-full">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-4 sm:mb-6">
               Powerful Features for{' '}
               <span className="bg-gradient-secondary bg-clip-text text-transparent">
                 Professional Traders
               </span>
             </h2>
-            <p className="text-xl md:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed px-2">
               Everything you need for advanced cross-chain DeFi operations in a single desktop application
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            <Card className="p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
-              <div className="flex items-center mb-6">
-                <div className="p-3 rounded-xl bg-primary/20 mr-4">
-                  <IconTrendingUp size={32} className="text-primary" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
+            <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <CardBody className="p-4">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-xl bg-primary/20 mr-4">
+                    <IconTrendingUp size={24} className="text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">Multi-Chain Trading</h3>
                 </div>
-                <h3 className="text-xl font-bold text-foreground">Multi-Chain Trading</h3>
-              </div>
-              <p className="text-foreground/80 mb-4">Cross-chain swaps across 12+ blockchains including BTC, ETH, AVAX, BSC, COSMOS, and more with real-time price discovery.</p>
-              <ul className="space-y-2 text-sm text-foreground/70">
-                <li>• Advanced trading features with trade assets</li>
-                <li>• Liquidity provision with symmetrical deposits</li>
-                <li>• Real-time transaction monitoring</li>
-              </ul>
+                <p className="text-foreground/80 mb-4">Cross-chain swaps across 18+ blockchains including BTC, ETH, AVAX, BSC, COSMOS, and more with real-time price discovery.</p>
+                <ul className="space-y-2 text-sm text-foreground/70">
+                  <li>• Advanced trading features with trade assets</li>
+                  <li>• Liquidity provision with symmetrical deposits</li>
+                  <li>• Real-time transaction monitoring</li>
+                </ul>
+              </CardBody>
             </Card>
 
-            <Card className="p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
-              <div className="flex items-center mb-6">
-                <div className="p-3 rounded-xl bg-secondary/20 mr-4">
-                  <IconWallet size={32} className="text-secondary" />
+            <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <CardBody className="p-4">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-xl bg-secondary/20 mr-4">
+                    <IconWallet size={24} className="text-secondary" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">Professional Wallet</h3>
                 </div>
-                <h3 className="text-xl font-bold text-foreground">Professional Wallet</h3>
-              </div>
-              <p className="text-foreground/80 mb-4">Complete wallet management with hardware integration, multi-asset support, and enterprise-grade security features.</p>
-              <ul className="space-y-2 text-sm text-foreground/70">
-                <li>• Ledger hardware wallet support</li>
-                <li>• Advanced derivation paths for UTXO chains</li>
-                <li>• Encrypted local keystore management</li>
-              </ul>
+                <p className="text-foreground/80 mb-4">Complete wallet management with hardware integration, multi-asset support, and enterprise-grade security features.</p>
+                <ul className="space-y-2 text-sm text-foreground/70">
+                  <li>• Ledger hardware wallet support</li>
+                  <li>• Advanced derivation paths for UTXO chains</li>
+                  <li>• Encrypted local keystore management</li>
+                </ul>
+              </CardBody>
             </Card>
 
-            <Card className="p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
-              <div className="flex items-center mb-6">
-                <div className="p-3 rounded-xl bg-primary/20 mr-4">
-                  <IconServer size={32} className="text-primary" />
+            <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <CardBody className="p-4">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-xl bg-primary/20 mr-4">
+                    <IconServer size={24} className="text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">Node Operations</h3>
                 </div>
-                <h3 className="text-xl font-bold text-foreground">Node Operations</h3>
-              </div>
-              <p className="text-foreground/80 mb-4">Complete node management interface for THORChain and MayaChain operators with professional monitoring tools.</p>
-              <ul className="space-y-2 text-sm text-foreground/70">
+                <p className="text-foreground/80 mb-4">Complete node management interface for THORChain and MayaChain operators with professional monitoring tools.</p>
+                <ul className="space-y-2 text-sm text-foreground/70">
                 <li>• Bond/unbond functionality</li>
                 <li>• Node status monitoring and alerts</li>
                 <li>• THORName and MAYAName registration</li>
               </ul>
+              </CardBody>
             </Card>
 
-            <Card className="p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
-              <div className="flex items-center mb-6">
-                <div className="p-3 rounded-xl bg-secondary/20 mr-4">
-                  <IconShield size={32} className="text-secondary" />
+            <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <CardBody className="p-4">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-xl bg-secondary/20 mr-4">
+                    <IconShield size={24} className="text-secondary" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">Enterprise Security</h3>
                 </div>
-                <h3 className="text-xl font-bold text-foreground">Enterprise Security</h3>
-              </div>
-              <p className="text-foreground/80 mb-4">100% open-source with local execution ensuring your data never leaves your device. No KYC requirements.</p>
-              <ul className="space-y-2 text-sm text-foreground/70">
-                <li>• MIT licensed for transparency</li>
-                <li>• Follows Electron security best practices</li>
-                <li>• Community-audited codebase</li>
-              </ul>
+                <p className="text-foreground/80 mb-4">100% open-source with local execution ensuring your data never leaves your device. No KYC requirements.</p>
+                <ul className="space-y-2 text-sm text-foreground/70">
+                  <li>• MIT licensed for transparency</li>
+                  <li>• Follows Electron security best practices</li>
+                  <li>• Community-audited codebase</li>
+                </ul>
+              </CardBody>
             </Card>
 
-            <Card className="p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
-              <div className="flex items-center mb-6">
-                <div className="p-3 rounded-xl bg-primary/20 mr-4">
-                  <IconBrandGithub size={32} className="text-primary" />
+            <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <CardBody className="p-4">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-xl bg-primary/20 mr-4">
+                    <IconBrandGithub size={24} className="text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">Developer Friendly</h3>
                 </div>
-                <h3 className="text-xl font-bold text-foreground">Developer Friendly</h3>
-              </div>
-              <p className="text-foreground/80 mb-4">Built with modern tech stack and comprehensive API integrations. Extensive documentation and testing suite.</p>
-              <ul className="space-y-2 text-sm text-foreground/70">
-                <li>• React, TypeScript, Electron stack</li>
-                <li>• Multi-language support (7 languages)</li>
-                <li>• Storybook component library</li>
-              </ul>
+                <p className="text-foreground/80 mb-4">Built with modern tech stack and comprehensive API integrations. Extensive documentation and testing suite.</p>
+                <ul className="space-y-2 text-sm text-foreground/70">
+                  <li>• React, TypeScript, Electron stack</li>
+                  <li>• Multi-language support (7 languages)</li>
+                  <li>• Storybook component library</li>
+                </ul>
+              </CardBody>
             </Card>
 
-            <Card className="p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
-              <div className="flex items-center mb-6">
-                <div className="p-3 rounded-xl bg-secondary/20 mr-4">
-                  <IconTrendingUp size={32} className="text-secondary" />
+            <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <CardBody className="p-4">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-xl bg-secondary/20 mr-4">
+                    <IconTrendingUp size={24} className="text-secondary" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">Advanced Analytics</h3>
                 </div>
-                <h3 className="text-xl font-bold text-foreground">Advanced Analytics</h3>
-              </div>
-              <p className="text-foreground/80 mb-4">Comprehensive pool analytics, transaction history tracking, and detailed performance metrics for professional users.</p>
-              <ul className="space-y-2 text-sm text-foreground/70">
-                <li>• Pool overview and detailed analytics</li>
-                <li>• Transaction history with filters</li>
-                <li>• Real-time portfolio tracking</li>
-              </ul>
+                <p className="text-foreground/80 mb-4">Comprehensive pool analytics, transaction history tracking, and detailed performance metrics for professional users.</p>
+                <ul className="space-y-2 text-sm text-foreground/70">
+                  <li>• Pool overview and detailed analytics</li>
+                  <li>• Transaction history with filters</li>
+                  <li>• Real-time portfolio tracking</li>
+                </ul>
+              </CardBody>
             </Card>
           </div>
 
@@ -234,21 +245,21 @@ export default function Home() {
         </div>
       </section>
       {/* Supported Chains Section */}
-      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8 py-20">
+      <section className="flex flex-col w-full items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20">
         <div className="max-w-7xl w-full">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-4 sm:mb-6">
               Trade Across{' '}
               <span className="bg-gradient-primary bg-clip-text text-transparent">
                 18+ Blockchains
               </span>
             </h2>
-            <p className="text-xl md:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed px-2">
               Native cross-chain support for major blockchains with deep liquidity and competitive rates
             </p>
           </div>
 
-          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-16">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
             {[
               { name: 'Bitcoin', symbol: 'BTC', color: 'text-orange-400' },
               { name: 'Ethereum', symbol: 'ETH', color: 'text-blue-400' },
@@ -269,11 +280,11 @@ export default function Home() {
               { name: 'Base', symbol: 'BASE', color: 'text-blue-400' },
               { name: 'Radix', symbol: 'XRD', color: 'text-green-500' }
             ].map((chain, index) => (
-              <div key={index} className="flex flex-col items-center p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300 group">
-                <div className={`text-3xl font-bold ${chain.color} mb-2 group-hover:scale-110 transition-transform duration-300`}>
+              <div key={index} className="flex flex-col items-center p-3 sm:p-4 md:p-6 rounded-xl sm:rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300 group">
+                <div className={`text-xl sm:text-2xl md:text-3xl font-bold ${chain.color} mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300`}>
                   {chain.symbol}
                 </div>
-                <div className="text-sm text-foreground/70">{chain.name}</div>
+                <div className="text-xs sm:text-sm text-foreground/70">{chain.name}</div>
               </div>
             ))}
           </div>
@@ -287,16 +298,16 @@ export default function Home() {
       </section>
 
       {/* Security & Open Source Section */}
-      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8 py-20 bg-gradient-subtle">
+      <section className="flex flex-col w-full items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20 bg-gradient-subtle">
         <div className="max-w-7xl w-full">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-4 sm:mb-6">
               Enterprise-Grade{' '}
               <span className="bg-gradient-accent bg-clip-text text-transparent">
                 Security & Privacy
               </span>
             </h2>
-            <p className="text-xl md:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed px-2">
               100% open-source with local execution ensuring your data never leaves your device
             </p>
           </div>
@@ -355,80 +366,86 @@ export default function Home() {
       </section>
 
       {/* Node Operations Section */}
-      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8 py-20">
+      <section className="flex flex-col w-full items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20">
         <div className="max-w-7xl w-full">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-4 sm:mb-6">
               Professional{' '}
               <span className="bg-gradient-secondary bg-clip-text text-transparent">
                 Node Operations
               </span>
             </h2>
-            <p className="text-xl md:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed px-2">
               Complete THORChain and MayaChain node management with professional monitoring and control
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            <Card className="p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
-              <div className="flex items-center mb-6">
-                <div className="p-3 rounded-xl bg-primary/20 mr-4">
-                  <IconServer size={32} className="text-primary" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
+            <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <CardBody className="p-4">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-xl bg-primary/20 mr-4">
+                    <IconServer size={24} className="text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">Bond Management</h3>
                 </div>
-                <h3 className="text-xl font-bold text-foreground">Bond Management</h3>
-              </div>
-              <p className="text-foreground/80 mb-4">Complete bond/unbond functionality with real-time monitoring and automated alerts for node operators.</p>
-              <ul className="space-y-2 text-sm text-foreground/70">
-                <li>• Automated bond calculations</li>
-                <li>• Real-time status monitoring</li>
-                <li>• Leave request management</li>
-              </ul>
+                <p className="text-foreground/80 mb-4">Complete bond/unbond functionality with real-time monitoring and automated alerts for node operators.</p>
+                <ul className="space-y-2 text-sm text-foreground/70">
+                  <li>• Automated bond calculations</li>
+                  <li>• Real-time status monitoring</li>
+                  <li>• Leave request management</li>
+                </ul>
+              </CardBody>
             </Card>
 
-            <Card className="p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
-              <div className="flex items-center mb-6">
-                <div className="p-3 rounded-xl bg-secondary/20 mr-4">
+            <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <CardBody className="p-4">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-xl bg-secondary/20 mr-4">
                   <IconTrendingUp size={32} className="text-secondary" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground">Node Analytics</h3>
+                  <h3 className="text-xl font-bold text-foreground">Node Analytics</h3>
               </div>
-              <p className="text-foreground/80 mb-4">Advanced analytics dashboard showing performance metrics, rewards tracking, and health monitoring.</p>
-              <ul className="space-y-2 text-sm text-foreground/70">
+                <p className="text-foreground/80 mb-4">Advanced analytics dashboard showing performance metrics, rewards tracking, and health monitoring.</p>
+                <ul className="space-y-2 text-sm text-foreground/70">
                 <li>• Performance metrics tracking</li>
                 <li>• Reward calculations</li>
                 <li>• Health status alerts</li>
               </ul>
+              </CardBody>
             </Card>
 
-            <Card className="p-8 hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
-              <div className="flex items-center mb-6">
-                <div className="p-3 rounded-xl bg-primary/20 mr-4">
+            <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <CardBody className="p-4">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-xl bg-primary/20 mr-4">
                   <IconWallet size={32} className="text-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground">Name Services</h3>
+                  <h3 className="text-xl font-bold text-foreground">Name Services</h3>
               </div>
-              <p className="text-foreground/80 mb-4">THORName and MAYAName registration and management directly from the desktop application.</p>
-              <ul className="space-y-2 text-sm text-foreground/70">
+                <p className="text-foreground/80 mb-4">THORName and MAYAName registration and management directly from the desktop application.</p>
+                <ul className="space-y-2 text-sm text-foreground/70">
                 <li>• THORName registration</li>
                 <li>• MAYAName management</li>
                 <li>• Address aliasing</li>
               </ul>
+              </CardBody>
             </Card>
           </div>
         </div>
       </section>
 
       {/* Community & Development Section */}
-      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8 py-20 bg-gradient-subtle">
+      <section className="flex flex-col w-full items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20 bg-gradient-subtle">
         <div className="max-w-7xl w-full">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-4 sm:mb-6">
               Open Source{' '}
               <span className="bg-gradient-primary bg-clip-text text-transparent">
                 Community Driven
               </span>
             </h2>
-            <p className="text-xl md:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed px-2">
               Built by the community, for the community with active development and continuous innovation
             </p>
           </div>
@@ -509,10 +526,10 @@ export default function Home() {
       </section>
 
       {/* Enhanced Download Section */}
-      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8 py-20">
+      <section className="flex flex-col w-full items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20">
         <div className="max-w-7xl w-full">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-4 sm:mb-6">
               Download{' '}
               <span className="bg-gradient-primary bg-clip-text text-transparent">
                 AsgardEX Desktop
@@ -606,7 +623,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="flex flex-col w-full items-center justify-center px-6 md:px-16 lg:px-8 py-20 bg-gradient-subtle">
+      <section className="flex flex-col w-full items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20 bg-gradient-subtle">
         <div className="max-w-4xl w-full text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
             Ready to Experience{' '}

@@ -8,10 +8,10 @@ import { play } from './fonts'
 
 export default function Footer() {
   return (
-    <footer className="p-10 max-w-[1300px] m-auto flex flex-col items-center justify-center mt-10">
+    <footer className="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-8 sm:py-10 md:py-12 max-w-7xl mx-auto flex flex-col items-center justify-center mt-8 sm:mt-10 md:mt-12">
       <Divider className="w-full mb-5" />
-      <nav className="w-full flex flex-col md:flex-row items-start lg:items-center justify-between">
-        <div className="w-full mb-5 md:w-1/2">
+      <nav className="w-full flex flex-col md:flex-row items-start md:items-center justify-between gap-6 md:gap-8">
+        <div className="w-full md:w-1/2 md:pr-8">
           <Link href="/">
             <div className="flex items-center mb-4 ">
               <Image
@@ -29,7 +29,7 @@ export default function Footer() {
               </h1>
             </div>
           </Link>
-          <p>
+          <p className="text-sm sm:text-base leading-relaxed mb-4">
             Stay updated with the latest from Asgardex. Follow us on X, join the
             conversation on Discord, and explore our code on GitHub. For
             detailed insights and updates, don’t forget to check out also{' '}
@@ -50,7 +50,7 @@ export default function Footer() {
             </Link>
             .
           </p>
-          <p>
+          <p className="text-sm sm:text-base leading-relaxed">
             The Asgardex Team oversees the operation of this website. Our
             repository is maintained on Github under{' '}
             <Link
@@ -63,8 +63,8 @@ export default function Footer() {
             , where all code is openly available.
           </p>
         </div>
-        <div className="w-56 flex flex-col items-center justify-between">
-          <div className="flex flex-row w-full items-center justify-between mb-4">
+        <div className="w-full md:w-auto flex flex-col items-center md:items-end justify-between">
+          <div className="flex flex-row items-center justify-center md:justify-end gap-4 mb-4 w-full md:w-auto">
             <Link href={'https://twitter.com/asgardex'} target="_blank" rel="noopener noreferrer">
               <Image
                 src={'/x-black-logo.avif'}
