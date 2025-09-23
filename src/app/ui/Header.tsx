@@ -48,6 +48,13 @@ export default function Header() {
       </NavbarContent>
 
       <NavbarContent className="flex gap-1 sm:gap-2" justify="end">
+        <NavbarItem className="hidden sm:flex">
+          <Link href={'/getting-started'}>
+            <Button variant="light" className="text-foreground hover:bg-default-100 px-2 sm:px-4 text-sm sm:text-base h-8 sm:h-9">
+              Guide
+            </Button>
+          </Link>
+        </NavbarItem>
         <NavbarItem>
           {mounted && (
             <Button

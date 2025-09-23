@@ -30,7 +30,7 @@ export default function Home() {
             The only desktop application providing native access to THORChain, MayaChain, and Chainflip ecosystems with enterprise-grade security and complete user sovereignty.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
             <Button
               as={Link}
               href="/installer"
@@ -40,12 +40,23 @@ export default function Home() {
             </Button>
             <Button
               as={Link}
+              href="/getting-started"
+              className="border-2 border-secondary bg-transparent rounded-full px-8 py-4 font-bold text-foreground text-lg hover:bg-secondary/10 hover:border-secondary/80 hover:shadow-glow-blue transition-all duration-300 ease-in-out min-w-[200px]">
+              <IconExternalLink size={20} className="mr-2" />
+              Getting Started
+            </Button>
+          </div>
+
+          <div className="flex justify-center mb-12">
+            <Button
+              as={Link}
               href="https://github.com/asgardex/asgardex-desktop"
               target="_blank"
               rel="noopener noreferrer"
-              className="border-2 border-primary bg-transparent rounded-full px-8 py-4 font-bold text-foreground text-lg hover:bg-primary/10 hover:border-primary/80 hover:shadow-glow-blue transition-all duration-300 ease-in-out min-w-[200px]">
-              <IconBrandGithub size={20} className="mr-2" />
-              View Source
+              variant="light"
+              className="text-foreground/70 hover:text-foreground">
+              <IconBrandGithub size={16} className="mr-2" />
+              View Source Code
             </Button>
           </div>
 
