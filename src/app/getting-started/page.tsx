@@ -2,70 +2,70 @@
 import { Button, Card, CardBody, Chip } from '@nextui-org/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { IconDownload, IconArrowRight, IconCheck, IconExternalLink, IconShield, IconWallet } from '@tabler/icons-react'
+import { IconDownload, IconArrowRight, IconCheck, IconShield, IconWallet } from '@tabler/icons-react'
 
 const steps = [
   {
     id: 1,
-    title: "Download AsgardEX",
-    description: "Get the latest version for your operating system",
-    content: "Download the AsgardEX desktop application from our secure servers. Choose the version that matches your operating system (Windows, macOS, or Linux).",
-    screenshot: "/getting-started/download-page.png",
+    title: 'Download AsgardEX',
+    description: 'Get the latest version for your operating system',
+    content: 'Download the AsgardEX desktop application from our secure servers. Choose the version that matches your operating system (Windows, macOS, or Linux).',
+    screenshot: '/getting-started/download-page.png',
     action: {
-      text: "Download Now",
-      href: "/installer"
+      text: 'Download Now',
+      href: '/installer'
     }
   },
   {
     id: 2,
-    title: "Install & Launch",
-    description: "Follow the installation wizard",
+    title: 'Install & Launch',
+    description: 'Follow the installation wizard',
     content: "Run the downloaded installer file to begin the installation process. The installation wizard will guide you through the setup. On macOS, you may need to allow the app in System Preferences > Security & Privacy. On Windows, Windows Defender might show a warning - click 'Run anyway' as the app is digitally signed.",
-    screenshot: "/getting-started/installation-wizard.png",
+    screenshot: '/getting-started/installation-wizard.png',
     tips: [
       "On macOS: Right-click and select 'Open' if blocked by Gatekeeper",
       "On Windows: Click 'More info' then 'Run anyway' if Windows Defender blocks it",
-      "Make sure you have administrator privileges for installation",
-      "Verify the digital signature for security"
+      'Make sure you have administrator privileges for installation',
+      'Verify the digital signature for security'
     ]
   },
   {
     id: 3,
-    title: "Create or Import Wallet",
-    description: "Set up your wallet securely",
-    content: "Choose to create a new wallet or import an existing one. AsgardEX supports multiple wallet types including mnemonic phrases, keystore files, and hardware wallets like Ledger.",
-    screenshot: "/getting-started/wallet-setup.png",
+    title: 'Create or Import Wallet',
+    description: 'Set up your wallet securely',
+    content: 'Choose to create a new wallet or import an existing one. AsgardEX supports multiple wallet types including mnemonic phrases, keystore files, and hardware wallets like Ledger.',
+    screenshot: '/getting-started/wallet-setup.png',
     tips: [
-      "Write down your mnemonic phrase and store it safely",
-      "Never share your private keys with anyone",
-      "Consider using a hardware wallet for maximum security"
+      'Write down your mnemonic phrase and store it safely',
+      'Never share your private keys with anyone',
+      'Consider using a hardware wallet for maximum security'
     ]
   },
   {
     id: 4,
-    title: "Connect to Networks",
-    description: "Access multi-chain protocols",
-    content: "AsgardEX automatically connects to THORChain, MayaChain, and Chainflip networks. You can view network status and switch between different protocols in the network selector.",
-    screenshot: "/getting-started/network-selection.png",
+    title: 'Connect to Networks',
+    description: 'Access multi-chain protocols',
+    content: 'AsgardEX automatically connects to THORChain, MayaChain, and Chainflip networks. You can view network status and switch between different protocols in the network selector.',
+    screenshot: '/getting-started/network-selection.png'
   },
   {
     id: 5,
-    title: "Make Your First Swap",
-    description: "Start trading across chains",
-    content: "Navigate to the Swap section to exchange assets across different blockchains. Select your source and destination assets, enter the amount, and confirm the transaction.",
-    screenshot: "/getting-started/first-swap.png",
+    title: 'Make Your First Swap',
+    description: 'Start trading across chains',
+    content: 'Navigate to the Swap section to exchange assets across different blockchains. Select your source and destination assets, enter the amount, and confirm the transaction.',
+    screenshot: '/getting-started/first-swap.png',
     tips: [
-      "Start with small amounts to test the process",
-      "Check network fees before confirming",
-      "Allow time for cross-chain transactions to complete"
+      'Start with small amounts to test the process',
+      'Check network fees before confirming',
+      'Allow time for cross-chain transactions to complete'
     ]
   },
   {
     id: 6,
-    title: "Explore Advanced Features",
-    description: "Discover liquidity pools and node operations",
-    content: "Once comfortable with basic swaps, explore liquidity provision, savings vaults, and node management features for earning yield on your assets.",
-    screenshot: "/getting-started/advanced-features.png",
+    title: 'Explore Advanced Features',
+    description: 'Discover liquidity pools and node operations',
+    content: 'Once comfortable with basic swaps, explore liquidity provision, savings vaults, and node management features for earning yield on your assets.',
+    screenshot: '/getting-started/advanced-features.png'
   }
 ]
 
@@ -86,9 +86,9 @@ export default function GettingStartedPage() {
               AsgardEX
             </span>
           </h1>
-          
+
           <p className="text-lg sm:text-xl md:text-2xl text-foreground/80 max-w-3xl mx-auto leading-relaxed mb-8">
-            Learn how to set up and use AsgardEX for secure cross-chain trading. 
+            Learn how to set up and use AsgardEX for secure cross-chain trading.
             Follow our comprehensive guide to get started in minutes.
           </p>
 
@@ -138,7 +138,7 @@ export default function GettingStartedPage() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-8 text-center">
             Before You Start
           </h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
               <CardBody className="p-6">
@@ -163,7 +163,7 @@ export default function GettingStartedPage() {
                   <div className="p-3 rounded-xl bg-secondary/20 mr-4">
                     <IconWallet size={24} className="text-secondary" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground">What You'll Need</h3>
+                  <h3 className="text-xl font-bold text-foreground">What You&apos;ll Need</h3>
                 </div>
                 <ul className="space-y-2 text-foreground/80">
                   <li className="flex items-center"><IconCheck size={16} className="text-secondary mr-2 flex-shrink-0" />Crypto assets to trade (optional)</li>
@@ -193,9 +193,9 @@ export default function GettingStartedPage() {
                 {/* Content */}
                 <div className="flex-1 space-y-6">
                   <div className="flex items-center gap-4">
-                    <Chip 
-                      color="primary" 
-                      variant="flat" 
+                    <Chip
+                      color="primary"
+                      variant="flat"
                       size="lg"
                       className="text-lg font-bold px-3 py-2"
                     >
@@ -203,10 +203,10 @@ export default function GettingStartedPage() {
                     </Chip>
                     <h3 className="text-2xl sm:text-3xl font-bold text-foreground">{step.title}</h3>
                   </div>
-                  
+
                   <p className="text-lg text-primary/80 font-medium">{step.description}</p>
                   <p className="text-foreground/80 leading-relaxed">{step.content}</p>
-                  
+
                   {step.tips && (
                     <div className="bg-primary/10 border border-primary/20 rounded-lg p-4">
                       <h4 className="font-semibold text-foreground mb-2">💡 Pro Tips:</h4>
@@ -220,7 +220,7 @@ export default function GettingStartedPage() {
                       </ul>
                     </div>
                   )}
-                  
+
                   {step.action && (
                     <Button
                       as={Link}
@@ -264,7 +264,7 @@ export default function GettingStartedPage() {
           <p className="text-lg text-foreground/80 mb-8">
             Our community and support team are here to help you succeed
           </p>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
               <CardBody className="p-6 text-center">
