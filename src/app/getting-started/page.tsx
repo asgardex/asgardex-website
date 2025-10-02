@@ -125,7 +125,7 @@ export default function GettingStartedPage() {
               <div className="text-sm text-foreground/70">Time to Complete</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-primary mb-1">18+ Chains</div>
+              <div className="text-2xl font-bold text-primary mb-1">19+ Chains</div>
               <div className="text-sm text-foreground/70">Supported</div>
             </div>
           </div>
