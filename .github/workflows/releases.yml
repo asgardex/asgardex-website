@@ -15,7 +15,7 @@ jobs:
 
       - name: Update releases data
         run: |
-          curl -s https://api.github.com/repos/asgardex/asgardex-desktop/releases > src/releases.json
+          curl -s https://api.github.com/repos/asgardex/asgardex-desktop/releases | jq '.[0:10]' > src/releases.json
           
       - name: Commit and push changes
         run: |
