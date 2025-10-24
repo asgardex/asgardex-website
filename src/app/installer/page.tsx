@@ -8,6 +8,8 @@ import { IconDownload, IconShield, IconBrandGithub, IconCheck, IconInfoCircle, I
 interface ReleaseItem {
   tag_name: string
   html_url: string
+  body: string
+  summary: string
   linux: { title: string, url: string }
   macSon: { title: string, url: string }
   macVent: { title: string, url: string }
@@ -49,7 +51,7 @@ export default async function InstallerPage() {
                 </div>
                 <span className="text-sm sm:text-base md:text-lg font-bold text-foreground">Latest Version: {latest.tag_name}</span>
               </div>
-              <p className="text-xs sm:text-sm md:text-base text-foreground/70">Released with enhanced security and performance improvements</p>
+              <p className="text-xs sm:text-sm md:text-base text-foreground/70">{latest.summary}</p>
             </div>
           )}
         </div>
