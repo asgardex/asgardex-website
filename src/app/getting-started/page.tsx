@@ -43,13 +43,26 @@ const steps = [
   },
   {
     id: 4,
+    title: 'Use Ledger-Only Mode',
+    description: 'Maximum security without keystore files',
+    content: 'For the highest security, AsgardEX can be used entirely with your Ledger hardware wallet without creating any keystore files. This mode ensures your private keys never touch your computer, providing enterprise-grade security for all transactions.',
+    screenshot: '/getting-started/use-ledger-only.png',
+    tips: [
+      'Connect your Ledger device before starting',
+      'Ensure Ledger firmware is up to date',
+      'Install the required apps for each blockchain you want to use',
+      'Your private keys remain secure on the Ledger device at all times'
+    ]
+  },
+  {
+    id: 5,
     title: 'Connect to Networks',
     description: 'Access multi-chain protocols',
     content: 'AsgardEX automatically connects to THORChain, MayaChain, and Chainflip networks. You can view network status and switch between different protocols in the network selector.',
     screenshot: '/getting-started/network-selection.png'
   },
   {
-    id: 5,
+    id: 6,
     title: 'Make Your First Swap',
     description: 'Start trading across chains',
     content: 'Navigate to the Swap section to exchange assets across different blockchains. Select your source and destination assets, enter the amount, and confirm the transaction.',
@@ -61,7 +74,7 @@ const steps = [
     ]
   },
   {
-    id: 6,
+    id: 7,
     title: 'Explore Advanced Features',
     description: 'Discover liquidity pools and node operations',
     content: 'Once comfortable with basic swaps, explore liquidity provision, savings vaults, and node management features for earning yield on your assets.',
@@ -117,7 +130,7 @@ export default function GettingStartedPage() {
         <div className="max-w-4xl w-full">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
             <div className="text-center">
-              <div className="text-2xl font-bold text-primary mb-1">6 Steps</div>
+              <div className="text-2xl font-bold text-primary mb-1">7 Steps</div>
               <div className="text-sm text-foreground/70">Complete Setup</div>
             </div>
             <div className="text-center">

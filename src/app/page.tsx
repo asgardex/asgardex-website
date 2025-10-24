@@ -118,6 +118,149 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Trading Assets Section */}
+      <section className="flex flex-col w-full items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20">
+        <div className="max-w-7xl w-full">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-4 sm:mb-6">
+              Professional{' '}
+              <span className="bg-gradient-primary bg-clip-text text-transparent">
+                Trading Assets
+              </span>
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed px-2">
+              Advanced multi-protocol trading with institutional-grade features across THORChain, MayaChain, and Chainflip ecosystems
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
+            <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <CardBody className="p-4">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-xl bg-primary/20 mr-4">
+                    <IconTrendingUp size={24} className="text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">Multi-Protocol Trading</h3>
+                </div>
+                <p className="text-foreground/80 mb-4">Execute swaps across 20+ blockchain networks with advanced streaming swaps and MEV protection through multiple DEX protocols.</p>
+                <ul className="space-y-2 text-sm text-foreground/70">
+                  <li>• THORChain, MayaChain & Chainflip integration</li>
+                  <li>• Streaming swaps for larger trades</li>
+                  <li>• Built-in MEV protection</li>
+                </ul>
+              </CardBody>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <CardBody className="p-4">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-xl bg-secondary/20 mr-4">
+                    <IconWallet size={24} className="text-secondary" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">Trade Account Management</h3>
+                </div>
+                <p className="text-foreground/80 mb-4">Dedicated trading accounts with real-time portfolio tracking, asset balancing, and comprehensive transaction monitoring.</p>
+                <ul className="space-y-2 text-sm text-foreground/70">
+                  <li>• Dedicated trading account balances</li>
+                  <li>• Real-time portfolio valuation</li>
+                  <li>• Multi-chain asset consolidation</li>
+                </ul>
+              </CardBody>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <CardBody className="p-4">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-xl bg-primary/20 mr-4">
+                    <IconShield size={24} className="text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">Advanced Trading Controls</h3>
+                </div>
+                <p className="text-foreground/80 mb-4">Professional trading features including configurable slippage control, custom recipients, and synthetic asset trading capabilities.</p>
+                <ul className="space-y-2 text-sm text-foreground/70">
+                  <li>• Configurable slippage tolerance (default 5%)</li>
+                  <li>• Custom destination addresses</li>
+                  <li>• Synthetic & secured asset trading</li>
+                </ul>
+              </CardBody>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <CardBody className="p-4">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-xl bg-secondary/20 mr-4">
+                    <IconServer size={24} className="text-secondary" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">Transaction Tracking</h3>
+                </div>
+                <p className="text-foreground/80 mb-4">Comprehensive swap tracking with real-time status monitoring across all supported protocols and blockchains.</p>
+                <ul className="space-y-2 text-sm text-foreground/70">
+                  <li>• Real-time transaction monitoring</li>
+                  <li>• Cross-protocol swap tracking</li>
+                  <li>• Detailed transaction history</li>
+                </ul>
+              </CardBody>
+            </Card>
+          </div>
+
+          {/* Trading Statistics */}
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 mb-8 sm:mb-12 md:mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-6">
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold text-primary mb-1">20+</div>
+                <div className="text-sm text-foreground/70">Blockchain Networks</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold text-secondary mb-1">2x</div>
+                <div className="text-sm text-foreground/70">Trade Efficiency</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold text-primary mb-1">1:1</div>
+                <div className="text-sm text-foreground/70">Asset Ratio</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold text-secondary mb-1">L1</div>
+                <div className="text-sm text-foreground/70">Swap Fees</div>
+              </div>
+            </div>
+            <div className="text-center pt-4 border-t border-white/10">
+              <p className="text-sm text-foreground/80 mb-3">
+                Professional trade accounts provide twice the efficiency compared to synthetics with 1:1 asset ratios.
+              </p>
+              <Button
+                as={Link}
+                href="https://dev.thorchain.org/concepts/trade-accounts.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                variant="light"
+                className="text-primary hover:text-primary/80 text-sm">
+                Learn more about Trade Accounts →
+              </Button>
+            </div>
+          </div>
+
+          {/* App Preview */}
+          <div className="text-center">
+            <div className="bg-white/10 p-4 rounded-2xl border border-solid border-white/20 shadow-2xl hover:shadow-glow transition-all duration-500 hover:scale-[1.02] inline-block">
+              <Image
+                className="rounded-xl border border-solid border-white/20"
+                src="/trade-swap.png"
+                alt="AsgardEX trading interface showing advanced multi-protocol asset trading capabilities"
+                width={1024}
+                height={554}
+                loading="lazy"
+                quality={85}
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+              />
+            </div>
+            <p className="text-lg text-foreground/80 mt-6 max-w-4xl mx-auto">
+              Professional trading interface with real-time price data, advanced order types, and comprehensive portfolio analytics across all supported protocols
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Feature Grid Section */}
       <section className="flex flex-col w-full items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20 bg-gradient-subtle">
         <div className="max-w-7xl w-full">

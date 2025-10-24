@@ -5,7 +5,100 @@ interface Release {
   html_url: string
   tag_name: string
   created_at: string
+  body: string
   assets: Array<{ browser_download_url: string }>
+}
+
+/*
+RELEASE NOTES STANDARD:
+- First line: # ASGARDEX v{version} 🚀
+- Second section: Brief description paragraph (this is what we extract)
+- Third section: ## What's Changed (bullet points)
+- Footer: Full changelog link and signatures
+
+Expected format:
+# ASGARDEX v1.41.0 🚀
+
+Brief description of the main features/improvements in this release.
+
+## What's Changed
+* feature 1
+* feature 2
+*/
+function cleanDescription(text: string): string {
+  return text
+    .replace(/\*\*/g, '') // Remove bold
+    .replace(/\*/g, '') // Remove italics
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // Links to text
+    .replace(/<[^>]*>/g, '') // Remove HTML
+    .replace(/🚀/g, '') // Remove emojis
+    .replace(/\s+/g, ' ') // Normalize whitespace
+    .trim()
+}
+
+function extractReleaseSummary(body: string): string {
+  const fallback = 'Latest release with new features and improvements'
+
+  if (!body || body.length < 50) return fallback
+
+  try {
+    // Method 1: Regex-based extraction (more reliable)
+    const contentMatch = body.match(/^#\s*ASGARDEX[^\n]*\n\s*(.*?)\s*(?=##?\s*What's Changed|$)/i)
+
+    if (contentMatch?.[1]) {
+      const cleaned = cleanDescription(contentMatch[1].trim())
+      if (cleaned.length > 20 && cleaned.length < 300) {
+        return cleaned
+      }
+    }
+
+    // Method 2: Section-based fallback
+    const sections = body.split(/^##?\s+/m)
+    const introSection = sections.find(section =>
+      !section.match(/^(What's Changed|New Contributors|Full Changelog)/i) &&
+      section.length > 50
+    )
+
+    if (introSection) {
+      const paragraphs = introSection
+        .replace(/^#\s*ASGARDEX[^\n]*\n?/i, '')
+        .split(/\n\s*\n/)
+        .map(p => p.trim())
+        .filter(p => p && p.length > 20)
+
+      if (paragraphs[0]) {
+        const cleaned = cleanDescription(paragraphs[0])
+        if (cleaned.length > 20 && cleaned.length < 300) {
+          return cleaned
+        }
+      }
+    }
+
+    // Method 3: Line-by-line fallback (original approach as backup)
+    const lines = body.split(/\r?\n/).map(line => line.trim()).filter(line => line)
+    let descriptionStart = -1
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i]
+      if (line.match(/^#\s*ASGARDEX/i)) continue
+      if (!line || line.startsWith('<img') || line.startsWith('![')) continue
+      if (line.match(/^#{1,6}\s*(What's Changed|New Contributors|Full Changelog)/i)) break
+
+      if (line.length > 20) {
+        descriptionStart = i
+        break
+      }
+    }
+
+    if (descriptionStart >= 0) {
+      return cleanDescription(lines[descriptionStart])
+    }
+
+    return fallback
+  } catch (error) {
+    console.warn('Failed to extract release summary:', error)
+    return fallback
+  }
 }
 
 // Dynamically import releases to reduce initial bundle size
@@ -45,6 +138,8 @@ const buildReleaseItem = (releaseItem: Release) => {
   return {
     tag_name: baseTitle,
     html_url: releaseItem.html_url,
+    body: releaseItem.body,
+    summary: extractReleaseSummary(releaseItem.body),
     linux: {
       title: baseTitle,
       url: linuxAsset.browser_download_url
@@ -91,6 +186,8 @@ export async function getAsgardexReleases() {
       latest: {
         tag_name: '',
         html_url: 'https://github.com/asgardex/asgardex-desktop/releases/latest',
+        body: '',
+        summary: 'Latest features and improvements',
         linux: { title: '', url: '' },
         macSon: { title: '', url: '' },
         macVent: { title: '', url: '' },
