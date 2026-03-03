@@ -17,7 +17,7 @@ export default function Selector ({ label, items }: { label: string, items: Item
         {label}
       </Button>
     </DropdownTrigger>
-    <DropdownMenu aria-label="Example with disabled actions" items={items}>
+    <DropdownMenu aria-label={label} items={items}>
       {(item) => (
         <DropdownItem key={item.title} href={item.url} description={item.description}>{item.title}</DropdownItem>
       )}

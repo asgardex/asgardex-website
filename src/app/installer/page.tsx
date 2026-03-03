@@ -68,7 +68,7 @@ export default async function InstallerPage() {
               </span>
             </h2>
             <p className="text-sm sm:text-lg md:text-xl text-foreground/80 max-w-4xl mx-auto leading-relaxed px-2 sm:px-4">
-              Download AsgardEX for your operating system and start trading across 12+ blockchains
+              Download AsgardEX for your operating system and start trading across 20+ blockchains
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">

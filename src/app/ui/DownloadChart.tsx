@@ -147,7 +147,7 @@ export default function DownloadChart({
           </div>
         </CardHeader>
         <CardBody className="pt-0">
-          <div className="w-full overflow-hidden h-64 sm:h-80 lg:h-96" style={{ height }}>
+          <div className="w-full overflow-hidden" style={{ height }}>
             <ResponsiveContainer>
               <ChartComponent data={data} margin={{ top: 5, right: 15, left: 10, bottom: 5 }}>
                 <defs>
