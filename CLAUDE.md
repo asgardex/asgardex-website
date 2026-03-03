@@ -4,54 +4,61 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Development Commands
 
-- **Install dependencies**: `yarn install`
-- **Development server**: `yarn dev` (runs on http://localhost:3000)
-- **Production build**: `yarn build`
-- **Production server**: `yarn start`
-- **Linting**: `yarn lint`
-- **Fix lint issues**: `yarn lint --fix`
+- `yarn dev` - Development server on http://localhost:3000
+- `yarn build` - Production build
+- `yarn start` - Serve production build
+- `yarn lint` - Run ESLint
+- `yarn lint --fix` - Auto-fix lint issues
+- `yarn analyze` or `yarn build:analyze` - Production build with bundle analyzer (`ANALYZE=true`)
+- `yarn perf` - Run performance checks (`scripts/performance-check.js`)
 
-## Tech Stack & Architecture
+## Architecture
 
-This is a Next.js 14 website for the Asgardex landing page using the App Router architecture.
+Next.js 14 App Router site for the Asgardex desktop application landing page. TypeScript, Tailwind CSS, NextUI components.
 
-### Key Technologies
-- **Framework**: Next.js 14 with App Router
-- **Language**: TypeScript 5.3.3
-- **Styling**: Tailwind CSS with NextUI components
-- **Theme**: next-themes for dark/light mode (defaults to dark)
-- **Icons**: Tabler icons and React Icons
-- **Animation**: Framer Motion
+### Pages
 
-### Project Structure
-- `src/app/` - Next.js App Router pages and layouts
-  - `layout.tsx` - Root layout with Header/Footer and background image
-  - `page.tsx` - Home page
-  - `providers.tsx` - NextUI and theme providers
-  - `installer/page.tsx` - Installation page
-  - `ui/` - Reusable UI components (Header, Footer, Card, Selector)
-  - `lib/api.tsx` - API utilities
-- `src/releases.json` - Large JSON file containing GitHub release data for download links
-- `public/` - Static assets (logos, backgrounds, favicons)
+- `/` (`src/app/page.tsx`) - Home page with hero, features, and three live metrics widgets (client components fetching from external APIs)
+- `/installer` (`src/app/installer/page.tsx`) - Download page (server component). Reads release data via `src/app/lib/api.tsx` which dynamically imports `src/releases.json`
+- `/getting-started` (`src/app/getting-started/page.tsx`) - Step-by-step setup guide (client component)
 
-### Styling System
-- Custom Tailwind theme with Asgardex brand colors:
-  - Primary: Green gradient (#33FF99 to #00BC42)
-  - Secondary: Blue gradient (#00CCFF to #0061AC)
-  - Gray and dark color palettes
-- NextUI component library integration
-- Dark mode as default theme
+### Data Flow for Releases
 
-### Key Patterns
-- All components use TypeScript with strict type checking
-- ESLint configured with TypeScript Standard style
-- Custom path aliases: `@/*` for `./src/*`
-- Server and client components follow Next.js 14 App Router patterns
-- Theme switching handled via next-themes provider
+`src/releases.json` (GitHub API release data) -> `src/app/lib/api.tsx` (`getAsgardexReleases()`) -> `/installer` page. The API module parses release assets by platform (Windows `.exe`, macOS `.dmg` with Sequoia/Sonoma/Ventura variants, Linux `.AppImage`) and extracts release summaries from markdown bodies.
 
-### Environment Requirements
-- Node.js environment with Yarn package manager
-- Requires `PRIVATE_REPO_TOKEN` environment variable for Kairos organization packages (contact administrators if needed)
+### Live Metrics Widgets
 
-### Release Data
-The `src/releases.json` file contains GitHub API data for Asgardex desktop application releases, used to populate download links and version information on the installer page.
+Three client-side widgets on the home page fetch from external APIs with 30-second polling intervals:
+- `LiveMetricsWidget.tsx` - THORChain via `midgard.ninerealms.com/v2/`
+- `LiveMayaMetricsWidget.tsx` - MayaChain via `midgard.mayachain.info/v2/`
+- `LiveChainflipMetricsWidget.tsx` - Chainflip via `chainflip-broker.io/`
+
+All use `AnimatedCounter` for smooth number transitions and include rate limiting, abort controllers, and request timeouts.
+
+### Download Analytics
+
+`src/app/lib/downloadAnalytics.ts` processes `releases.json` to extract per-OS download counts. Rendered by `DownloadChart.tsx` (Recharts) on the installer page.
+
+### Component Library
+
+UI components in `src/app/ui/`: Header, Footer, Card, Selector (dropdown for previous release versions), AnimatedBackground, DownloadChart, fonts.
+
+### Providers
+
+`src/app/providers.tsx` wraps the app with NextUI + next-themes (dark mode default, class-based switching).
+
+## Styling
+
+Two color systems coexist in `tailwind.config.ts`:
+- **NextUI theme colors** (used via `text-primary`, `bg-secondary`, etc.): primary `#23DCC8`, secondary `#00CCFF`, danger `#FF4954`, warning `#F3BA2F`
+- **Extended Tailwind colors** (`asgardex-primary-*`, `asgardex-secondary-*`, etc.): full shade palettes for fine-grained use
+
+Custom gradients: `bg-gradient-primary`, `bg-gradient-secondary`, `bg-gradient-accent`, `bg-gradient-subtle`. Custom shadows: `shadow-glow`, `shadow-glow-blue`.
+
+## ESLint
+
+Configured in `.eslintrc.json`. Extends `standard-with-typescript` + `plugin:react` + `next/recommended`. Notable disabled rules: `explicit-function-return-type`, `no-floating-promises`, `strict-boolean-expressions`, `prefer-nullish-coalescing`. Path alias: `@/*` maps to `./src/*`.
+
+## Environment
+
+Requires `PRIVATE_REPO_TOKEN` env var for Kairos organization packages (`.npmrc`).

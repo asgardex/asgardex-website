@@ -1,7 +1,10 @@
 'use client'
-import { useEffect, useState, useCallback, useRef } from 'react'
+import { useCallback } from 'react'
 import { Card, CardBody, Spinner } from '@nextui-org/react'
 import { IconTrendingUp, IconCoins, IconServer, IconBolt } from '@tabler/icons-react'
+import { AnimatedCounter } from './AnimatedCounter'
+import { formatCurrency, formatRune } from '../lib/formatters'
+import { useLiveData } from '../hooks/useLiveData'
 
 interface NetworkData {
   totalPooledRune: string
@@ -20,6 +23,11 @@ interface PoolSummary {
   averageAPY: number
   poolCount: number
   runePriceUSD: number
+}
+
+interface ThorchainMetrics {
+  networkData: NetworkData
+  poolSummary: PoolSummary
 }
 
 interface PoolData {
@@ -46,303 +54,100 @@ interface NetworkApiData {
   poolActivationCountdown: number
 }
 
-const formatCurrency = (value: string | number, decimals = 8): string => {
-  const num = typeof value === 'string' ? parseInt(value) / Math.pow(10, decimals) : value
-  if (num >= 1e9) return `$${(num / 1e9).toFixed(2)}B`
-  if (num >= 1e6) return `$${(num / 1e6).toFixed(0)}M`
-  if (num >= 1e3) return `$${(num / 1e3).toFixed(0)}K`
-  return `$${num.toFixed(0)}`
-}
-
-const formatRune = (value: string, decimals = 8): string => {
-  const num = parseInt(value) / Math.pow(10, decimals)
-  if (num >= 1e6) return `${(num / 1e6).toFixed(1)}M`
-  if (num >= 1e3) return `${(num / 1e3).toFixed(1)}K`
-  return num.toFixed(0)
-}
-
-const AnimatedCounter = ({ value, formatter }: { value: number | string, formatter?: (val: number) => string }) => {
-  const [displayValue, setDisplayValue] = useState(0)
-  const targetValue = typeof value === 'string' ? parseFloat(value) : value
-  const animationRef = useRef<ReturnType<typeof setInterval>>()
-  const currentDisplayRef = useRef(displayValue)
-
-  useEffect(() => {
-    if (isNaN(targetValue)) return
-
-    // Clear any existing animation
-    if (animationRef.current) {
-      clearInterval(animationRef.current)
-    }
-
-    const duration = 2000
-    const steps = 60
-    const startValue = currentDisplayRef.current
-    const increment = (targetValue - startValue) / steps
-    let currentStep = 0
-
-    animationRef.current = setInterval(() => {
-      currentStep++
-      setDisplayValue((prev) => {
-        const newValue = startValue + (increment * currentStep)
-        if (currentStep >= steps) {
-          if (animationRef.current) clearInterval(animationRef.current)
-          currentDisplayRef.current = targetValue
-          return targetValue
-        }
-        currentDisplayRef.current = newValue
-        return newValue
-      })
-    }, duration / steps)
-
-    return () => {
-      if (animationRef.current) clearInterval(animationRef.current)
-    }
-  }, [targetValue])
-
-  return (
-    <span className="font-bold">
-      {formatter != null ? formatter(displayValue) : displayValue.toFixed(2)}
-    </span>
-  )
-}
-
 export default function LiveMetricsWidget() {
-  const [networkData, setNetworkData] = useState<NetworkData | null>(null)
-  const [poolSummary, setPoolSummary] = useState<PoolSummary | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [lastUpdate, setLastUpdate] = useState<Date>(new Date())
-  const [error, setError] = useState<string | null>(null)
+  const fetchMetrics = useCallback(async (signal: AbortSignal): Promise<ThorchainMetrics> => {
+    const [networkResponse, poolsResponse, statsResponse] = await Promise.all([
+      fetch('https://midgard.ninerealms.com/v2/network', { signal }),
+      fetch('https://midgard.ninerealms.com/v2/pools', { signal }),
+      fetch('https://midgard.ninerealms.com/v2/stats', { signal })
+    ])
 
-  // Rate limiting and abort control
-  const isRefreshing = useRef(false)
-  const lastFetchTime = useRef<number>(0)
-  const abortControllerRef = useRef<AbortController | null>(null)
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+    if (!networkResponse.ok) throw new Error(`Network API error: ${networkResponse.status}`)
+    if (!poolsResponse.ok) throw new Error(`Pools API error: ${poolsResponse.status}`)
+    if (!statsResponse.ok) throw new Error(`Stats API error: ${statsResponse.status}`)
 
-  const fetchNetworkData = useCallback(async (signal: AbortSignal): Promise<void> => {
-    try {
-      const response = await fetch('https://midgard.ninerealms.com/v2/network', { signal })
-      if (!response.ok) throw new Error(`Network API error: ${response.status}`)
-
-      const data = await response.json() as NetworkApiData
-
-      setNetworkData({
-        totalPooledRune: data.totalPooledRune,
-        activeBonds: data.bondMetrics.totalActiveBond,
-        bondingAPY: parseFloat(data.bondingAPY) * 100,
-        liquidityAPY: parseFloat(data.liquidityAPY) * 100,
-        activeNodeCount: data.activeNodeCount,
-        nextChurnHeight: data.nextChurnHeight,
-        totalReserve: data.totalReserve,
-        poolActivationCountdown: data.poolActivationCountdown
-      })
-    } catch (error) {
-      if (error instanceof Error && error.name === 'AbortError') {
-        console.log('Network data fetch aborted')
-        return
-      }
-      console.error('Failed to fetch network data:', error)
-      setError('Failed to fetch network data')
+    const networkApiData = await networkResponse.json() as NetworkApiData
+    const pools = await poolsResponse.json() as PoolData[]
+    const stats = await statsResponse.json() as {
+      swapVolume: string
+      runePriceUSD: string
+      runeDepth: string
+      swapCount24h: string
+      swapCount30d: string
     }
+
+    const networkData: NetworkData = {
+      totalPooledRune: networkApiData.totalPooledRune,
+      activeBonds: networkApiData.bondMetrics.totalActiveBond,
+      bondingAPY: parseFloat(networkApiData.bondingAPY) * 100,
+      liquidityAPY: parseFloat(networkApiData.liquidityAPY) * 100,
+      activeNodeCount: networkApiData.activeNodeCount,
+      nextChurnHeight: networkApiData.nextChurnHeight,
+      totalReserve: networkApiData.totalReserve,
+      poolActivationCountdown: networkApiData.poolActivationCountdown
+    }
+
+    let totalLiquidityUSD = 0
+    let totalAPY = 0
+    let validPools = 0
+
+    pools.forEach((pool) => {
+      if (pool.status === 'available') {
+        try {
+          const assetPriceUSD = parseFloat(pool.assetPriceUSD)
+          const nativeDecimal = pool.nativeDecimal ?? 8
+          const assetDepth = parseInt(pool.assetDepth) / Math.pow(10, nativeDecimal)
+          const runeDepth = parseInt(pool.runeDepth) / Math.pow(10, 8)
+          const runePriceUSD = parseFloat(stats.runePriceUSD)
+          const assetValueUSD = assetDepth * assetPriceUSD
+          const runeValueUSD = runeDepth * runePriceUSD
+          const poolTotalValue = assetValueUSD + runeValueUSD
+          if (poolTotalValue > 0 && poolTotalValue < 100000000) {
+            totalLiquidityUSD += poolTotalValue
+          }
+          if (pool.poolAPY != null && parseFloat(pool.poolAPY) > 0) {
+            totalAPY += parseFloat(pool.poolAPY) * 100
+            validPools++
+          }
+        } catch (error) {
+          console.warn(`Error calculating liquidity for pool ${pool.asset}:`, error)
+        }
+      }
+    })
+
+    let totalVolume24hUSD = 0
+    pools.forEach((pool) => {
+      if (pool.status === 'available' && pool.volume24h) {
+        try {
+          const volume24hRune = parseInt(pool.volume24h) / Math.pow(10, 8)
+          const runePriceUSD = parseFloat(stats.runePriceUSD)
+          const poolVolume = volume24hRune * runePriceUSD
+          if (poolVolume > 0 && poolVolume < 50000000) {
+            totalVolume24hUSD += poolVolume
+          }
+        } catch (error) {
+          console.warn(`Error calculating volume for pool ${pool.asset}:`, error)
+        }
+      }
+    })
+
+    const isValidLiquidity = totalLiquidityUSD > 0 && totalLiquidityUSD < 10000000000
+    const isValidVolume = totalVolume24hUSD > 0 && totalVolume24hUSD < 1000000000
+
+    const poolSummary: PoolSummary = {
+      totalLiquidity: isValidLiquidity ? totalLiquidityUSD : 0,
+      totalVolume24h: isValidVolume ? totalVolume24hUSD : 0,
+      averageAPY: validPools > 0 ? totalAPY / validPools : 0,
+      poolCount: pools.filter((p) => p.status === 'available').length,
+      runePriceUSD: parseFloat(stats.runePriceUSD)
+    }
+
+    return { networkData, poolSummary }
   }, [])
 
-  const fetchPoolData = useCallback(async (signal: AbortSignal): Promise<void> => {
-    try {
-      // Use both endpoints for comprehensive data
-      const [poolsResponse, statsResponse] = await Promise.all([
-        fetch('https://midgard.ninerealms.com/v2/pools', { signal }),
-        fetch('https://midgard.ninerealms.com/v2/stats', { signal })
-      ])
+  const { data, loading, error, lastUpdate, retry } = useLiveData(fetchMetrics)
 
-      if (!poolsResponse.ok) throw new Error(`Pools API error: ${poolsResponse.status}`)
-      if (!statsResponse.ok) throw new Error(`Stats API error: ${statsResponse.status}`)
-
-      const pools = await poolsResponse.json() as PoolData[]
-      const stats = await statsResponse.json() as {
-        swapVolume: string
-        runePriceUSD: string
-        runeDepth: string
-        swapCount24h: string
-        swapCount30d: string
-      }
-
-      let totalLiquidityUSD = 0
-      let totalAPY = 0
-      let validPools = 0
-
-      // Calculate total liquidity from pools
-      pools.forEach((pool) => {
-        if (pool.status === 'available') {
-          try {
-            // More accurate liquidity calculation
-            const assetPriceUSD = parseFloat(pool.assetPriceUSD)
-            const nativeDecimal = pool.nativeDecimal ?? 8
-
-            // Convert from base units to actual token amounts
-            const assetDepth = parseInt(pool.assetDepth) / Math.pow(10, nativeDecimal)
-            const runeDepth = parseInt(pool.runeDepth) / Math.pow(10, 8) // RUNE is always 8 decimals
-            const runePriceUSD = parseFloat(stats.runePriceUSD)
-
-            // Calculate USD value of both sides of the pool
-            const assetValueUSD = assetDepth * assetPriceUSD
-            const runeValueUSD = runeDepth * runePriceUSD
-
-            // Debug logging for first few pools
-            if (totalLiquidityUSD < 1000000) { // Only log first few calculations
-              console.log(`Pool ${pool.asset}:`, {
-                assetDepth: assetDepth.toFixed(2),
-                assetPrice: assetPriceUSD,
-                assetValueUSD: assetValueUSD.toFixed(2),
-                runeDepth: runeDepth.toFixed(2),
-                runePrice: runePriceUSD,
-                runeValueUSD: runeValueUSD.toFixed(2),
-                totalPoolValue: (assetValueUSD + runeValueUSD).toFixed(2)
-              })
-            }
-
-            // Sanity check: individual pool shouldn't exceed $100M
-            const poolTotalValue = assetValueUSD + runeValueUSD
-            if (poolTotalValue > 0 && poolTotalValue < 100000000) {
-              totalLiquidityUSD += poolTotalValue
-            } else if (poolTotalValue >= 100000000) {
-              console.warn(`Suspiciously high pool value for ${pool.asset}: $${poolTotalValue.toFixed(2)}`)
-            }
-
-            if (pool.poolAPY != null && parseFloat(pool.poolAPY) > 0) {
-              totalAPY += parseFloat(pool.poolAPY) * 100
-              validPools++
-            }
-          } catch (error) {
-            console.warn(`Error calculating liquidity for pool ${pool.asset}:`, error)
-          }
-        }
-      })
-
-      // Calculate 24h volume from individual pool volumes
-      let totalVolume24hUSD = 0
-      pools.forEach((pool) => {
-        if (pool.status === 'available' && pool.volume24h) {
-          try {
-            // Volume24h appears to be in RUNE units, convert to USD
-            const volume24hRune = parseInt(pool.volume24h) / Math.pow(10, 8)
-            const runePriceUSD = parseFloat(stats.runePriceUSD)
-            const poolVolume = volume24hRune * runePriceUSD
-
-            // Sanity check for volume (individual pool shouldn't exceed $50M daily volume)
-            if (poolVolume > 0 && poolVolume < 50000000) {
-              totalVolume24hUSD += poolVolume
-            }
-          } catch (error) {
-            console.warn(`Error calculating volume for pool ${pool.asset}:`, error)
-          }
-        }
-      })
-
-      // Final sanity checks
-      const isValidLiquidity = totalLiquidityUSD > 0 && totalLiquidityUSD < 10000000000 // Less than $10B
-      const isValidVolume = totalVolume24hUSD > 0 && totalVolume24hUSD < 1000000000 // Less than $1B daily
-
-      console.log(`Total Liquidity: $${totalLiquidityUSD.toFixed(2)}, Valid: ${isValidLiquidity}`)
-      console.log(`Total Volume 24h: $${totalVolume24hUSD.toFixed(2)}, Valid: ${isValidVolume}`)
-
-      setPoolSummary({
-        totalLiquidity: isValidLiquidity ? totalLiquidityUSD : 0,
-        totalVolume24h: isValidVolume ? totalVolume24hUSD : 0,
-        averageAPY: validPools > 0 ? totalAPY / validPools : 0,
-        poolCount: pools.filter((p) => p.status === 'available').length,
-        runePriceUSD: parseFloat(stats.runePriceUSD)
-      })
-    } catch (error) {
-      if (error instanceof Error && error.name === 'AbortError') {
-        console.log('Pool data fetch aborted')
-        return
-      }
-      console.error('Failed to fetch pool data:', error)
-      setError('Failed to fetch pool data')
-    }
-  }, [])
-
-  const fetchData = useCallback(async (): Promise<void> => {
-    // Rate limiting: prevent overlapping requests
-    const now = Date.now()
-    if (isRefreshing.current || (now - lastFetchTime.current) < 5000) {
-      return
-    }
-
-    // Abort any previous request
-    if (abortControllerRef.current) {
-      abortControllerRef.current.abort()
-    }
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current)
-    }
-
-    // Create new abort controller for this request
-    const controller = new AbortController()
-    abortControllerRef.current = controller
-
-    // Set timeout to abort request after 8 seconds
-    timeoutRef.current = setTimeout(() => {
-      controller.abort()
-    }, 8000)
-
-    isRefreshing.current = true
-    lastFetchTime.current = now
-    setLoading(true)
-    setError(null)
-
-    try {
-      await Promise.all([fetchNetworkData(controller.signal), fetchPoolData(controller.signal)])
-      setLastUpdate(new Date())
-
-      // Clear timeout on success
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current)
-        timeoutRef.current = null
-      }
-    } catch (error) {
-      if (error instanceof Error && error.name === 'AbortError') {
-        console.log('Data fetch aborted due to timeout or cancellation')
-        setError('Request timed out - will retry automatically')
-      } else {
-        console.error('Failed to fetch data:', error)
-        setError('Failed to fetch data')
-      }
-    } finally {
-      setLoading(false)
-      isRefreshing.current = false
-
-      // Clean up timeout if still active
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current)
-        timeoutRef.current = null
-      }
-    }
-  }, [fetchNetworkData, fetchPoolData])
-
-  useEffect(() => {
-    // Initial fetch
-    void fetchData()
-
-    // Set up interval for regular updates (every 30 seconds)
-    const interval = setInterval(() => {
-      void fetchData()
-    }, 30000)
-
-    return () => {
-      clearInterval(interval)
-      // Abort any pending requests and clean up timeouts
-      if (abortControllerRef.current) {
-        abortControllerRef.current.abort()
-      }
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current)
-      }
-    }
-  }, [fetchData])
-
-  if (loading && !networkData && !poolSummary) {
+  if (loading && !data) {
     return (
       <Card className="bg-gradient-subtle border-default-200">
         <CardBody className="flex items-center justify-center p-8">
@@ -353,13 +158,13 @@ export default function LiveMetricsWidget() {
     )
   }
 
-  if (error && !networkData && !poolSummary) {
+  if (error && !data) {
     return (
       <Card className="bg-gradient-subtle border-default-200">
         <CardBody className="flex items-center justify-center p-8">
           <p className="text-danger">{error}</p>
           <button
-            onClick={() => { void fetchData() }}
+            onClick={retry}
             className="mt-4 px-4 py-2 bg-primary text-white rounded"
           >
             Retry
@@ -368,6 +173,9 @@ export default function LiveMetricsWidget() {
       </Card>
     )
   }
+
+  const networkData = data?.networkData ?? null
+  const poolSummary = data?.poolSummary ?? null
 
   return (
     <div className="space-y-6">

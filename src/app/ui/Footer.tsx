@@ -89,7 +89,7 @@ export default function Footer() {
               rel="noopener noreferrer">
               <Image
                 src={'/github-black-logo.avif'}
-                alt={'Asgardex Discord'}
+                alt={'Asgardex GitHub'}
                 width={24}
                 height={24}
                 className="dark:invert"
@@ -115,7 +115,7 @@ export default function Footer() {
             </Link>
           </div>
           <p className="text-xs font-normal text-asgardex-dark-600">
-            Asgardex © 2023. All rights reserved.
+            Asgardex © {new Date().getFullYear()}. All rights reserved.
           </p>
         </div>
       </nav>

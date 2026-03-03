@@ -63,7 +63,7 @@ export default function Home() {
           {/* Key Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-primary mb-1">19+</div>
+              <div className="text-2xl md:text-3xl font-bold text-primary mb-1">20+</div>
               <div className="text-sm text-foreground/70">Blockchains</div>
             </div>
             <div className="text-center">
@@ -285,7 +285,7 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl font-bold text-foreground">Multi-Chain Trading</h3>
                 </div>
-                <p className="text-foreground/80 mb-4">Cross-chain swaps across 19+ blockchains including BTC, ETH, AVAX, BSC, COSMOS, TRON, and more with real-time price discovery.</p>
+                <p className="text-foreground/80 mb-4">Cross-chain swaps across 20+ blockchains including BTC, ETH, AVAX, BSC, COSMOS, TRON, and more with real-time price discovery.</p>
                 <ul className="space-y-2 text-sm text-foreground/70">
                   <li>• Advanced trading features with trade assets</li>
                   <li>• Liquidity provision with symmetrical deposits</li>
@@ -405,7 +405,7 @@ export default function Home() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-4 sm:mb-6">
               Trade Across{' '}
               <span className="bg-gradient-primary bg-clip-text text-transparent">
-                19+ Blockchains
+                20+ Blockchains
               </span>
             </h2>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed px-2">
