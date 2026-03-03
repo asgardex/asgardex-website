@@ -1,7 +1,10 @@
 'use client'
-import { useEffect, useState, useCallback, useRef } from 'react'
+import { useCallback } from 'react'
 import { Card, CardBody, Spinner } from '@nextui-org/react'
 import { IconTrendingUp, IconCoins, IconArrowsLeftRight, IconBolt } from '@tabler/icons-react'
+import { AnimatedCounter } from './AnimatedCounter'
+import { formatCurrency } from '../lib/formatters'
+import { useLiveData } from '../hooks/useLiveData'
 
 interface ChainflipData {
   totalLiquidity: number
@@ -27,226 +30,80 @@ interface VolumeAggregates {
   }
 }
 
-const formatCurrency = (value: string | number, decimals = 0): string => {
-  const num = typeof value === 'string' ? parseFloat(value) : value
-  if (num >= 1e9) return `$${(num / 1e9).toFixed(2)}B`
-  if (num >= 1e6) return `$${(num / 1e6).toFixed(0)}M`
-  if (num >= 1e3) return `$${(num / 1e3).toFixed(0)}K`
-  return `$${num.toFixed(decimals)}`
-}
-
-const AnimatedCounter = ({ value, formatter }: { value: number | string, formatter?: (val: number) => string }) => {
-  const [displayValue, setDisplayValue] = useState(0)
-  const targetValue = typeof value === 'string' ? parseFloat(value) : value
-  const animationRef = useRef<ReturnType<typeof setInterval>>()
-  const currentDisplayRef = useRef(displayValue)
-
-  useEffect(() => {
-    if (isNaN(targetValue)) return
-
-    // Clear any existing animation
-    if (animationRef.current) {
-      clearInterval(animationRef.current)
-    }
-
-    const duration = 2000
-    const steps = 60
-    const startValue = currentDisplayRef.current
-    const increment = (targetValue - startValue) / steps
-    let currentStep = 0
-
-    animationRef.current = setInterval(() => {
-      currentStep++
-      setDisplayValue((prev) => {
-        const newValue = startValue + (increment * currentStep)
-        if (currentStep >= steps) {
-          if (animationRef.current) clearInterval(animationRef.current)
-          currentDisplayRef.current = targetValue
-          return targetValue
-        }
-        currentDisplayRef.current = newValue
-        return newValue
-      })
-    }, duration / steps)
-
-    return () => {
-      if (animationRef.current) clearInterval(animationRef.current)
-    }
-  }, [targetValue])
-
-  return (
-    <span className="font-bold">
-      {formatter != null ? formatter(displayValue) : displayValue.toFixed(2)}
-    </span>
-  )
-}
-
 export default function LiveChainflipMetricsWidget() {
-  const [chainflipData, setChainflipData] = useState<ChainflipData | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [lastUpdate, setLastUpdate] = useState<Date>(new Date())
-  const [error, setError] = useState<string | null>(null)
+  const fetchMetrics = useCallback(async (signal: AbortSignal): Promise<ChainflipData> => {
+    const yesterday = new Date()
+    yesterday.setHours(yesterday.getHours() - 24)
+    const yesterdayISO = yesterday.toISOString()
 
-  // Rate limiting and abort control
-  const isRefreshing = useRef(false)
-  const lastFetchTime = useRef<number>(0)
-  const abortControllerRef = useRef<AbortController | null>(null)
-  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
-
-  const fetchChainflipData = useCallback(async (): Promise<void> => {
-    // Rate limiting: prevent overlapping requests
-    const now = Date.now()
-    if (isRefreshing.current || (now - lastFetchTime.current) < 5000) {
-      return
+    const liquidityQuery = {
+      query: `query {
+        allLiquidityInfos(first: 1, orderBy: TIMESTAMP_DESC) {
+          nodes {
+            totalLiquidityValueUsd
+            totalBoostLiquidityValueUsd
+            totalStablecoinLiquidityValueUsd
+            timestamp
+          }
+        }
+      }`
     }
 
-    // Abort any previous request
-    if (abortControllerRef.current) {
-      abortControllerRef.current.abort()
+    const volumeQuery = {
+      query: `query {
+        allSwapRequests(
+          condition: {isInProgress: false},
+          filter: {completedBlockTimestamp: {greaterThan: "${yesterdayISO}"}}
+        ) {
+          aggregates {
+            sum { ingressValueUsd }
+            distinctCount { id }
+          }
+        }
+      }`
     }
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current)
-    }
 
-    // Create new abort controller for this request
-    const controller = new AbortController()
-    abortControllerRef.current = controller
-
-    // Set timeout to abort request after 8 seconds
-    timeoutRef.current = setTimeout(() => {
-      controller.abort()
-    }, 8000)
-
-    isRefreshing.current = true
-    lastFetchTime.current = now
-    setLoading(true)
-    setError(null)
-
-    try {
-      // Get 24 hours ago timestamp
-      const yesterday = new Date()
-      yesterday.setHours(yesterday.getHours() - 24)
-      const yesterdayISO = yesterday.toISOString()
-
-      // Fetch liquidity data
-      const liquidityQuery = {
-        query: `query { 
-          allLiquidityInfos(first: 1, orderBy: TIMESTAMP_DESC) { 
-            nodes { 
-              totalLiquidityValueUsd 
-              totalBoostLiquidityValueUsd 
-              totalStablecoinLiquidityValueUsd 
-              timestamp 
-            } 
-          } 
-        }`
-      }
-
-      // Fetch 24h volume and swap count
-      const volumeQuery = {
-        query: `query { 
-          allSwapRequests(
-            condition: {isInProgress: false}, 
-            filter: {completedBlockTimestamp: {greaterThan: "${yesterdayISO}"}}
-          ) { 
-            aggregates { 
-              sum { ingressValueUsd } 
-              distinctCount { id } 
-            } 
-          } 
-        }`
-      }
-
-      const [liquidityResponse, volumeResponse] = await Promise.all([
-        fetch('https://reporting-service.chainflip.io/graphql', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(liquidityQuery),
-          signal: controller.signal
-        }),
-        fetch('https://reporting-service.chainflip.io/graphql', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(volumeQuery),
-          signal: controller.signal
-        })
-      ])
-
-      if (!liquidityResponse.ok) throw new Error(`Chainflip Liquidity API error: ${liquidityResponse.status}`)
-      if (!volumeResponse.ok) throw new Error(`Chainflip Volume API error: ${volumeResponse.status}`)
-
-      const liquidityData = await liquidityResponse.json()
-      const volumeData = await volumeResponse.json()
-
-      // Check for GraphQL errors
-      if (liquidityData.errors) {
-        throw new Error(`Chainflip Liquidity GraphQL error: ${liquidityData.errors[0].message}`)
-      }
-      if (volumeData.errors) {
-        throw new Error(`Chainflip Volume GraphQL error: ${volumeData.errors[0].message}`)
-      }
-
-      const liquidity = liquidityData.data.allLiquidityInfos.nodes[0] as LiquidityNode
-      const volume = volumeData.data.allSwapRequests.aggregates as VolumeAggregates
-
-      console.log('Chainflip Liquidity Data:', liquidity)
-      console.log('Chainflip Volume Data:', volume)
-
-      setChainflipData({
-        totalLiquidity: parseFloat(liquidity.totalLiquidityValueUsd || '0'),
-        totalVolume24h: parseFloat(volume.sum.ingressValueUsd || '0'),
-        swapCount24h: parseInt(volume.distinctCount.id || '0', 10),
-        boostLiquidity: parseFloat(liquidity.totalBoostLiquidityValueUsd || '0'),
-        stablecoinLiquidity: parseFloat(liquidity.totalStablecoinLiquidityValueUsd || '0')
+    const [liquidityResponse, volumeResponse] = await Promise.all([
+      fetch('https://reporting-service.chainflip.io/graphql', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(liquidityQuery),
+        signal
+      }),
+      fetch('https://reporting-service.chainflip.io/graphql', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(volumeQuery),
+        signal
       })
+    ])
 
-      setLastUpdate(new Date())
+    if (!liquidityResponse.ok) throw new Error(`Chainflip Liquidity API error: ${liquidityResponse.status}`)
+    if (!volumeResponse.ok) throw new Error(`Chainflip Volume API error: ${volumeResponse.status}`)
 
-      // Clear timeout on success
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current)
-        timeoutRef.current = null
-      }
-    } catch (error) {
-      if (error instanceof Error && error.name === 'AbortError') {
-        console.log('Chainflip data fetch aborted due to timeout or cancellation')
-        setError('Request timed out - will retry automatically')
-      } else {
-        console.error('Failed to fetch Chainflip data:', error)
-        setError('Failed to fetch Chainflip data')
-      }
-    } finally {
-      setLoading(false)
-      isRefreshing.current = false
+    const liquidityData = await liquidityResponse.json()
+    const volumeData = await volumeResponse.json()
 
-      // Clean up timeout if still active
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current)
-        timeoutRef.current = null
-      }
+    if (liquidityData.errors) {
+      throw new Error(`Chainflip Liquidity GraphQL error: ${liquidityData.errors[0].message}`)
+    }
+    if (volumeData.errors) {
+      throw new Error(`Chainflip Volume GraphQL error: ${volumeData.errors[0].message}`)
+    }
+
+    const liquidity = liquidityData.data.allLiquidityInfos.nodes[0] as LiquidityNode
+    const volume = volumeData.data.allSwapRequests.aggregates as VolumeAggregates
+
+    return {
+      totalLiquidity: parseFloat(liquidity.totalLiquidityValueUsd || '0'),
+      totalVolume24h: parseFloat(volume.sum.ingressValueUsd || '0'),
+      swapCount24h: parseInt(volume.distinctCount.id || '0', 10),
+      boostLiquidity: parseFloat(liquidity.totalBoostLiquidityValueUsd || '0'),
+      stablecoinLiquidity: parseFloat(liquidity.totalStablecoinLiquidityValueUsd || '0')
     }
   }, [])
 
-  useEffect(() => {
-    // Initial fetch
-    void fetchChainflipData()
-
-    // Set up interval for regular updates (every 30 seconds)
-    const interval = setInterval(() => {
-      void fetchChainflipData()
-    }, 30000)
-
-    return () => {
-      clearInterval(interval)
-      // Abort any pending requests and clean up timeouts
-      if (abortControllerRef.current) {
-        abortControllerRef.current.abort()
-      }
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current)
-      }
-    }
-  }, [fetchChainflipData])
+  const { data: chainflipData, loading, error, lastUpdate, retry } = useLiveData(fetchMetrics)
 
   if (loading && !chainflipData) {
     return (
@@ -265,7 +122,7 @@ export default function LiveChainflipMetricsWidget() {
         <CardBody className="flex items-center justify-center p-8">
           <p className="text-danger">{error}</p>
           <button
-            onClick={() => { void fetchChainflipData() }}
+            onClick={retry}
             className="mt-4 px-4 py-2 bg-warning text-white rounded"
           >
             Retry
