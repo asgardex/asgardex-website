@@ -57,9 +57,9 @@ interface NetworkApiData {
 export default function LiveMetricsWidget() {
   const fetchMetrics = useCallback(async (signal: AbortSignal): Promise<ThorchainMetrics> => {
     const [networkResponse, poolsResponse, statsResponse] = await Promise.all([
-      fetch('https://midgard.ninerealms.com/v2/network', { signal }),
-      fetch('https://midgard.ninerealms.com/v2/pools', { signal }),
-      fetch('https://midgard.ninerealms.com/v2/stats', { signal })
+      fetch('https://gateway.liquify.com/chain/thorchain_midgard/v2/network', { signal }),
+      fetch('https://gateway.liquify.com/chain/thorchain_midgard/v2/pools', { signal }),
+      fetch('https://gateway.liquify.com/chain/thorchain_midgard/v2/stats', { signal })
     ])
 
     if (!networkResponse.ok) throw new Error(`Network API error: ${networkResponse.status}`)

@@ -29,7 +29,7 @@ Next.js 14 App Router site for the Asgardex desktop application landing page. Ty
 ### Live Metrics Widgets
 
 Three client-side widgets on the home page fetch from external APIs with 30-second polling intervals:
-- `LiveMetricsWidget.tsx` - THORChain via `midgard.ninerealms.com/v2/`
+- `LiveMetricsWidget.tsx` - THORChain via `gateway.liquify.com/chain/thorchain_midgard/v2/`
 - `LiveMayaMetricsWidget.tsx` - MayaChain via `midgard.mayachain.info/v2/`
 - `LiveChainflipMetricsWidget.tsx` - Chainflip via `chainflip-broker.io/`
 

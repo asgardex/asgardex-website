@@ -101,6 +101,20 @@ function extractReleaseSummary(body: string): string {
   }
 }
 
+// Only URLs under this prefix are safe to render as downloads. Anything else
+// — a `javascript:` URL, an unexpected host, or a protocol-relative value —
+// is replaced with the static releases page so a tampered releases.json
+// cannot point users at an attacker-controlled binary.
+const TRUSTED_DOWNLOAD_PREFIX = 'https://github.com/asgardex/'
+const RELEASES_FALLBACK_URL = 'https://github.com/asgardex/asgardex-desktop/releases'
+
+function safeDownloadUrl(url: string | undefined | null): string {
+  if (typeof url === 'string' && url.startsWith(TRUSTED_DOWNLOAD_PREFIX)) {
+    return url
+  }
+  return RELEASES_FALLBACK_URL
+}
+
 // Dynamically import releases to reduce initial bundle size
 async function loadReleases(): Promise<Release[]> {
   try {
@@ -114,7 +128,8 @@ async function loadReleases(): Promise<Release[]> {
 
 const buildReleaseItem = (releaseItem: Release) => {
   const baseTitle = releaseItem.tag_name || 'Unknown'
-  const defaultAsset = { browser_download_url: releaseItem.html_url, title: baseTitle }
+  const htmlUrl = safeDownloadUrl(releaseItem.html_url)
+  const defaultAsset = { browser_download_url: htmlUrl, title: baseTitle }
 
   const linuxAsset = releaseItem.assets.find((asset) =>
     asset.browser_download_url.endsWith('.AppImage')
@@ -137,28 +152,28 @@ const buildReleaseItem = (releaseItem: Release) => {
 
   return {
     tag_name: baseTitle,
-    html_url: releaseItem.html_url,
+    html_url: htmlUrl,
     body: releaseItem.body,
     summary: extractReleaseSummary(releaseItem.body),
     linux: {
       title: baseTitle,
-      url: linuxAsset.browser_download_url
+      url: safeDownloadUrl(linuxAsset.browser_download_url)
     },
     macSon: {
       title: `Sonoma - ${baseTitle}`,
-      url: macAssetSon.browser_download_url
+      url: safeDownloadUrl(macAssetSon.browser_download_url)
     },
     macVent: {
       title: `Ventura - ${baseTitle}`,
-      url: macAssetVent.browser_download_url
+      url: safeDownloadUrl(macAssetVent.browser_download_url)
     },
     macSequ: {
       title: `Sequoia - ${baseTitle}`,
-      url: macAssetSequ.browser_download_url
+      url: safeDownloadUrl(macAssetSequ.browser_download_url)
     },
     windows: {
       title: baseTitle,
-      url: windowsAsset.browser_download_url
+      url: safeDownloadUrl(windowsAsset.browser_download_url)
     }
   }
 }
