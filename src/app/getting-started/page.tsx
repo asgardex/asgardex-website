@@ -33,12 +33,13 @@ const steps = [
     id: 3,
     title: 'Create or Import Wallet',
     description: 'Set up your wallet securely',
-    content: 'Choose to create a new wallet or import an existing one. AsgardEX supports multiple wallet types including mnemonic phrases, keystore files, and hardware wallets like Ledger.',
+    content: 'Choose to create a new wallet or import an existing one. AsgardEX supports multiple wallet types including mnemonic phrases, keystore files, Ledger hardware wallets, and Vultisig MPC vaults (seedless, signed by QR across distributed vault shares).',
     screenshot: '/getting-started/wallet-setup.png',
     tips: [
       'Write down your mnemonic phrase and store it safely',
       'Never share your private keys with anyone',
-      'Consider using a hardware wallet for maximum security'
+      'Consider using a hardware wallet for maximum security',
+      'Vultisig offers a seedless, MPC-based alternative if you prefer not to manage a seed phrase'
     ]
   },
   {
@@ -180,7 +181,7 @@ export default function GettingStartedPage() {
                 </div>
                 <ul className="space-y-2 text-foreground/80">
                   <li className="flex items-center"><IconCheck size={16} className="text-secondary mr-2 flex-shrink-0" />Crypto assets to trade (optional)</li>
-                  <li className="flex items-center"><IconCheck size={16} className="text-secondary mr-2 flex-shrink-0" />Hardware wallet (recommended)</li>
+                  <li className="flex items-center"><IconCheck size={16} className="text-secondary mr-2 flex-shrink-0" />Hardware wallet or Vultisig vault (recommended)</li>
                   <li className="flex items-center"><IconCheck size={16} className="text-secondary mr-2 flex-shrink-0" />Basic knowledge of DeFi</li>
                   <li className="flex items-center"><IconCheck size={16} className="text-secondary mr-2 flex-shrink-0" />Backup storage for seed phrases</li>
                 </ul>

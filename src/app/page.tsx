@@ -285,7 +285,7 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl font-bold text-foreground">Multi-Chain Trading</h3>
                 </div>
-                <p className="text-foreground/80 mb-4">Cross-chain swaps across 20+ blockchains including BTC, ETH, AVAX, BSC, COSMOS, TRON, and more with real-time price discovery.</p>
+                <p className="text-foreground/80 mb-4">Cross-chain swaps across 20+ blockchains including BTC, ETH, SOL, SUI, ADA, XRP, AVAX, BSC, COSMOS, TRON, ZEC, XRD, and more with real-time price discovery.</p>
                 <ul className="space-y-2 text-sm text-foreground/70">
                   <li>• Advanced trading features with trade assets</li>
                   <li>• Liquidity provision with symmetrical deposits</li>
@@ -302,10 +302,10 @@ export default function Home() {
                   </div>
                   <h3 className="text-xl font-bold text-foreground">Professional Wallet</h3>
                 </div>
-                <p className="text-foreground/80 mb-4">Complete wallet management with hardware integration, multi-asset support, and enterprise-grade security features.</p>
+                <p className="text-foreground/80 mb-4">Three wallet modes — encrypted keystore, Ledger hardware, and Vultisig MPC — with multi-asset support and enterprise-grade security.</p>
                 <ul className="space-y-2 text-sm text-foreground/70">
                   <li>• Ledger hardware wallet support</li>
-                  <li>• Advanced derivation paths for UTXO chains</li>
+                  <li>• Vultisig MPC: seedless, QR-signed vault shares</li>
                   <li>• Encrypted local keystore management</li>
                 </ul>
               </CardBody>
@@ -480,8 +480,8 @@ export default function Home() {
               <div className="p-3 rounded-xl bg-secondary/20 mx-auto mb-4 w-fit">
                 <IconWallet size={32} className="text-secondary" />
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-2">Hardware Wallet</h3>
-              <p className="text-foreground/80 text-sm">Ledger integration for ultimate security across all chains</p>
+              <h3 className="text-lg font-bold text-foreground mb-2">Flexible Wallet Modes</h3>
+              <p className="text-foreground/80 text-sm">Keystore, Ledger hardware, or Vultisig MPC — pick the security model that fits you</p>
             </Card>
 
             <Card className="p-6 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">

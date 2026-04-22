@@ -34,7 +34,7 @@ const securityHeaders = [
 
 const nextConfig = {
   experimental: {
-    optimizePackageImports: ['@nextui-org/react', 'framer-motion', 'react-icons'],
+    optimizePackageImports: ['framer-motion', 'react-icons'],
     webVitalsAttribution: ['CLS', 'LCP'],
   },
   images: {
