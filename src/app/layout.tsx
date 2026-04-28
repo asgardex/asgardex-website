@@ -6,7 +6,7 @@ import { Providers } from './providers'
 import { jakarta } from './ui/fonts'
 import Header from './ui/Header'
 import Footer from './ui/Footer'
-import AnimatedBackground from './ui/AnimatedBackground'
+import AmbientBackground from './ui/AmbientBackground'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -24,14 +24,14 @@ export default function RootLayout({
     <html lang="en">
       <body className={clsx(jakarta.className, 'antialiased', 'bg-background text-foreground')}>
         <Image
-          className="w-full h-screen fixed -z-20 opacity-5 dark:opacity-2"
+          className="w-full h-screen fixed -z-20 opacity-10 dark:opacity-5"
           src="/background.avif"
           alt="Abstract background pattern"
           sizes="100vw"
           width={100}
           height={100}
         />
-        <AnimatedBackground />
+        <AmbientBackground />
         <Providers>
           <Header />
           {children}

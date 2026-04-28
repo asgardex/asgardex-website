@@ -2,7 +2,7 @@
 import { Button, Card, CardBody, Chip } from '@nextui-org/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { IconDownload, IconArrowRight, IconCheck, IconShield, IconWallet } from '@tabler/icons-react'
+import { IconDownload, IconArrowRight, IconCheck, IconShield, IconWallet, IconBulb, IconBrandDiscord, IconBook, IconBug } from '@tabler/icons-react'
 
 const steps = [
   {
@@ -33,12 +33,13 @@ const steps = [
     id: 3,
     title: 'Create or Import Wallet',
     description: 'Set up your wallet securely',
-    content: 'Choose to create a new wallet or import an existing one. AsgardEX supports multiple wallet types including mnemonic phrases, keystore files, and hardware wallets like Ledger.',
+    content: 'Choose to create a new wallet or import an existing one. AsgardEX supports multiple wallet types including mnemonic phrases, keystore files, Ledger hardware wallets, and Vultisig MPC vaults.',
     screenshot: '/getting-started/wallet-setup.png',
     tips: [
       'Write down your mnemonic phrase and store it safely',
       'Never share your private keys with anyone',
-      'Consider using a hardware wallet for maximum security'
+      'Consider using a hardware wallet for maximum security',
+      'Vultisig offers a seedless, MPC-based alternative if you prefer not to manage a seed phrase'
     ]
   },
   {
@@ -180,7 +181,7 @@ export default function GettingStartedPage() {
                 </div>
                 <ul className="space-y-2 text-foreground/80">
                   <li className="flex items-center"><IconCheck size={16} className="text-secondary mr-2 flex-shrink-0" />Crypto assets to trade (optional)</li>
-                  <li className="flex items-center"><IconCheck size={16} className="text-secondary mr-2 flex-shrink-0" />Hardware wallet (recommended)</li>
+                  <li className="flex items-center"><IconCheck size={16} className="text-secondary mr-2 flex-shrink-0" />Hardware wallet or Vultisig vault (recommended)</li>
                   <li className="flex items-center"><IconCheck size={16} className="text-secondary mr-2 flex-shrink-0" />Basic knowledge of DeFi</li>
                   <li className="flex items-center"><IconCheck size={16} className="text-secondary mr-2 flex-shrink-0" />Backup storage for seed phrases</li>
                 </ul>
@@ -222,7 +223,7 @@ export default function GettingStartedPage() {
 
                   {step.tips && (
                     <div className="bg-primary/10 border border-primary/20 rounded-lg p-4">
-                      <h4 className="font-semibold text-foreground mb-2">💡 Pro Tips:</h4>
+                      <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2"><IconBulb size={18} className="text-primary" /> Tips</h4>
                       <ul className="space-y-1 text-sm text-foreground/80">
                         {step.tips.map((tip, tipIndex) => (
                           <li key={tipIndex} className="flex items-start">
@@ -281,7 +282,7 @@ export default function GettingStartedPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
               <CardBody className="p-6 text-center">
-                <div className="text-3xl mb-4">💬</div>
+                <div className="flex justify-center mb-4"><IconBrandDiscord size={36} className="text-secondary" /></div>
                 <h3 className="font-bold text-foreground mb-2">Discord Community</h3>
                 <p className="text-sm text-foreground/70 mb-4">Join thousands of users for real-time help</p>
                 <Button
@@ -298,7 +299,7 @@ export default function GettingStartedPage() {
 
             <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
               <CardBody className="p-6 text-center">
-                <div className="text-3xl mb-4">📚</div>
+                <div className="flex justify-center mb-4"><IconBook size={36} className="text-primary" /></div>
                 <h3 className="font-bold text-foreground mb-2">Documentation</h3>
                 <p className="text-sm text-foreground/70 mb-4">Detailed guides and API references</p>
                 <Button
@@ -315,7 +316,7 @@ export default function GettingStartedPage() {
 
             <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20 sm:col-span-2 lg:col-span-1">
               <CardBody className="p-6 text-center">
-                <div className="text-3xl mb-4">🐛</div>
+                <div className="flex justify-center mb-4"><IconBug size={36} className="text-warning" /></div>
                 <h3 className="font-bold text-foreground mb-2">Report Issues</h3>
                 <p className="text-sm text-foreground/70 mb-4">Found a bug? Let us know on GitHub</p>
                 <Button
