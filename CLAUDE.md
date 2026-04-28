@@ -33,15 +33,19 @@ Three client-side widgets on the home page fetch from external APIs with 30-seco
 - `LiveMayaMetricsWidget.tsx` - MayaChain via `midgard.mayachain.info/v2/`
 - `LiveChainflipMetricsWidget.tsx` - Chainflip via `chainflip-broker.io/`
 
-All use `AnimatedCounter` for smooth number transitions and include rate limiting, abort controllers, and request timeouts.
+All three share `src/app/hooks/useLiveData.ts`, which centralises polling, rate limiting (5s floor), abort controllers, request timeouts, and retry. Widgets pass a `fetchFn(signal)` and render via `AnimatedCounter` for smooth transitions. Currency/RUNE formatting lives in `src/app/lib/formatters.ts`.
 
 ### Download Analytics
 
 `src/app/lib/downloadAnalytics.ts` processes `releases.json` to extract per-OS download counts. Rendered by `DownloadChart.tsx` (Recharts) on the installer page.
 
+### Wallet Modes
+
+Marketing copy on `/` highlights three supported wallet modes: encrypted keystore, Ledger hardware, and Vultisig MPC (seedless, QR-signed vault shares). Keep feature lists and copy consistent across `page.tsx` when adding or changing modes.
+
 ### Component Library
 
-UI components in `src/app/ui/`: Header, Footer, Card, Selector (dropdown for previous release versions), AnimatedBackground, DownloadChart, fonts.
+UI components in `src/app/ui/`: Header, Footer, Card, Selector (dropdown for previous release versions), DownloadChart, AnimatedCounter, live metrics widgets, fonts.
 
 ### Providers
 
@@ -58,6 +62,10 @@ Custom gradients: `bg-gradient-primary`, `bg-gradient-secondary`, `bg-gradient-a
 ## ESLint
 
 Configured in `.eslintrc.json`. Extends `standard-with-typescript` + `plugin:react` + `next/recommended`. Notable disabled rules: `explicit-function-return-type`, `no-floating-promises`, `strict-boolean-expressions`, `prefer-nullish-coalescing`. Path alias: `@/*` maps to `./src/*`.
+
+## Security Headers
+
+`next.config.js` sets a strict CSP and other security headers on every route. The CSP `connect-src` is an allowlist — when introducing a new external API (e.g. another chain's indexer), add its origin there or fetches will be blocked in production. `script-src`/`style-src` keep `'unsafe-inline'` because Next.js App Router hydration and NextUI/Framer Motion require it.
 
 ## Environment
 

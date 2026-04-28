@@ -11,6 +11,7 @@ import {
   NavbarItem,
   Button
 } from '@nextui-org/react'
+import { IconSun, IconMoon } from '@tabler/icons-react'
 
 import { play } from './fonts'
 
@@ -64,11 +65,9 @@ export default function Header() {
               onClick={() => {
                 setTheme(theme === 'dark' ? 'light' : 'dark')
               }}
-              className="border-default-300 hover:bg-default-100 hover:scale-110 transition-all duration-200 ease-in-out min-w-8 w-8 h-8 sm:min-w-10 sm:w-10 sm:h-10"
+              className="border-default-300 hover:bg-default-100 transition-colors duration-200 ease-in-out min-w-8 w-8 h-8 sm:min-w-10 sm:w-10 sm:h-10"
               aria-label="Toggle theme">
-              <span className="text-sm sm:text-lg">
-                {theme === 'dark' ? '☀️' : '🌙'}
-              </span>
+              {theme === 'dark' ? <IconSun size={18} /> : <IconMoon size={18} />}
             </Button>
           )}
         </NavbarItem>

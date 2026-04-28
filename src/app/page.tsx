@@ -2,7 +2,7 @@
 import { Button, Card, CardBody } from '@nextui-org/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { IconTrendingUp, IconShield, IconServer, IconWallet, IconBrandGithub, IconExternalLink } from '@tabler/icons-react'
+import { IconTrendingUp, IconShield, IconServer, IconWallet, IconBrandGithub, IconExternalLink, IconLock, IconDeviceUsb } from '@tabler/icons-react'
 
 import LiveMetricsWidget from './ui/LiveMetricsWidget'
 import LiveMayaMetricsWidget from './ui/LiveMayaMetricsWidget'
@@ -27,7 +27,7 @@ export default function Home() {
             Platform
           </h1>
           <p className="text-xl md:text-2xl font-medium mb-10 text-foreground/80 max-w-4xl leading-relaxed">
-            The only desktop application providing native access to THORChain, MayaChain, and Chainflip ecosystems with enterprise-grade security and complete user sovereignty.
+            The only desktop application with native access to THORChain, MayaChain, and Chainflip — and the first to support seedless Vultisig MPC vaults alongside Ledger and encrypted keystores. Enterprise-grade security, full self-custody.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
@@ -61,22 +61,22 @@ export default function Home() {
           </div>
 
           {/* Key Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-5 sm:p-8 [font-variant-numeric:tabular-nums]">
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-primary mb-1">20+</div>
-              <div className="text-sm text-foreground/70">Blockchains</div>
+              <div className="text-3xl md:text-5xl font-bold text-primary mb-1">20+</div>
+              <div className="text-sm text-foreground/80">Blockchains</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-secondary mb-1">100%</div>
-              <div className="text-sm text-foreground/70">Open Source</div>
+              <div className="text-3xl md:text-5xl font-bold text-secondary mb-1">100%</div>
+              <div className="text-sm text-foreground/80">Open Source</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-primary mb-1">0.3%</div>
-              <div className="text-sm text-foreground/70">Max Fee</div>
+              <div className="text-3xl md:text-5xl font-bold text-primary mb-1">0.3%</div>
+              <div className="text-sm text-foreground/80">Max Fee</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-secondary mb-1">No KYC</div>
-              <div className="text-sm text-foreground/70">Required</div>
+              <div className="text-3xl md:text-5xl font-bold text-secondary mb-1">No KYC</div>
+              <div className="text-sm text-foreground/80">Required</div>
             </div>
           </div>
         </div>
@@ -88,10 +88,7 @@ export default function Home() {
           {/* Section Header */}
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4 sm:mb-6 px-2">
-              Live Protocol{' '}
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Metrics
-              </span>
+              Live Protocol Metrics
             </h2>
             <p className="text-lg sm:text-xl md:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed px-4">
               Real-time network statistics from THORChain, MayaChain, and Chainflip protocols
@@ -118,158 +115,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trading Assets Section */}
-      <section className="flex flex-col w-full items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20">
-        <div className="max-w-7xl w-full">
-          <div className="text-center mb-8 sm:mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-4 sm:mb-6">
-              Professional{' '}
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
-                Trading Assets
-              </span>
-            </h2>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed px-2">
-              Advanced multi-protocol trading with institutional-grade features across THORChain, MayaChain, and Chainflip ecosystems
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
-            <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
-              <CardBody className="p-4">
-                <div className="flex items-center mb-4">
-                  <div className="p-3 rounded-xl bg-primary/20 mr-4">
-                    <IconTrendingUp size={24} className="text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground">Multi-Protocol Trading</h3>
-                </div>
-                <p className="text-foreground/80 mb-4">Execute swaps across 20+ blockchain networks with advanced streaming swaps and MEV protection through multiple DEX protocols.</p>
-                <ul className="space-y-2 text-sm text-foreground/70">
-                  <li>• THORChain, MayaChain & Chainflip integration</li>
-                  <li>• Streaming swaps for larger trades</li>
-                  <li>• Built-in MEV protection</li>
-                </ul>
-              </CardBody>
-            </Card>
-
-            <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
-              <CardBody className="p-4">
-                <div className="flex items-center mb-4">
-                  <div className="p-3 rounded-xl bg-secondary/20 mr-4">
-                    <IconWallet size={24} className="text-secondary" />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground">Trade Account Management</h3>
-                </div>
-                <p className="text-foreground/80 mb-4">Dedicated trading accounts with real-time portfolio tracking, asset balancing, and comprehensive transaction monitoring.</p>
-                <ul className="space-y-2 text-sm text-foreground/70">
-                  <li>• Dedicated trading account balances</li>
-                  <li>• Real-time portfolio valuation</li>
-                  <li>• Multi-chain asset consolidation</li>
-                </ul>
-              </CardBody>
-            </Card>
-
-            <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
-              <CardBody className="p-4">
-                <div className="flex items-center mb-4">
-                  <div className="p-3 rounded-xl bg-primary/20 mr-4">
-                    <IconShield size={24} className="text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground">Advanced Trading Controls</h3>
-                </div>
-                <p className="text-foreground/80 mb-4">Professional trading features including configurable slippage control, custom recipients, and synthetic asset trading capabilities.</p>
-                <ul className="space-y-2 text-sm text-foreground/70">
-                  <li>• Configurable slippage tolerance (default 5%)</li>
-                  <li>• Custom destination addresses</li>
-                  <li>• Synthetic & secured asset trading</li>
-                </ul>
-              </CardBody>
-            </Card>
-
-            <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
-              <CardBody className="p-4">
-                <div className="flex items-center mb-4">
-                  <div className="p-3 rounded-xl bg-secondary/20 mr-4">
-                    <IconServer size={24} className="text-secondary" />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground">Transaction Tracking</h3>
-                </div>
-                <p className="text-foreground/80 mb-4">Comprehensive swap tracking with real-time status monitoring across all supported protocols and blockchains.</p>
-                <ul className="space-y-2 text-sm text-foreground/70">
-                  <li>• Real-time transaction monitoring</li>
-                  <li>• Cross-protocol swap tracking</li>
-                  <li>• Detailed transaction history</li>
-                </ul>
-              </CardBody>
-            </Card>
-          </div>
-
-          {/* Trading Statistics */}
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 mb-8 sm:mb-12 md:mb-16">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-6">
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary mb-1">20+</div>
-                <div className="text-sm text-foreground/70">Blockchain Networks</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-secondary mb-1">2x</div>
-                <div className="text-sm text-foreground/70">Trade Efficiency</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-primary mb-1">1:1</div>
-                <div className="text-sm text-foreground/70">Asset Ratio</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-secondary mb-1">L1</div>
-                <div className="text-sm text-foreground/70">Swap Fees</div>
-              </div>
-            </div>
-            <div className="text-center pt-4 border-t border-white/10">
-              <p className="text-sm text-foreground/80 mb-3">
-                Professional trade accounts provide twice the efficiency compared to synthetics with 1:1 asset ratios.
-              </p>
-              <Button
-                as={Link}
-                href="https://dev.thorchain.org/concepts/trade-accounts.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="light"
-                className="text-primary hover:text-primary/80 text-sm">
-                Learn more about Trade Accounts →
-              </Button>
-            </div>
-          </div>
-
-          {/* App Preview */}
-          <div className="text-center">
-            <div className="bg-white/10 p-4 rounded-2xl border border-solid border-white/20 shadow-2xl hover:shadow-glow transition-all duration-500 hover:scale-[1.02] inline-block">
-              <Image
-                className="rounded-xl border border-solid border-white/20"
-                src="/trade-swap.png"
-                alt="AsgardEX trading interface showing advanced multi-protocol asset trading capabilities"
-                width={1024}
-                height={554}
-                loading="lazy"
-                quality={85}
-                placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-              />
-            </div>
-            <p className="text-lg text-foreground/80 mt-6 max-w-4xl mx-auto">
-              Professional trading interface with real-time price data, advanced order types, and comprehensive portfolio analytics across all supported protocols
-            </p>
-          </div>
-        </div>
-      </section>
-
       {/* Feature Grid Section */}
       <section className="flex flex-col w-full items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20 bg-gradient-subtle">
         <div className="max-w-7xl w-full">
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-4 sm:mb-6">
-              Powerful Features for{' '}
-              <span className="bg-gradient-secondary bg-clip-text text-transparent">
-                Professional Traders
-              </span>
+              Built for Power Users
             </h2>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed px-2">
               Everything you need for advanced cross-chain DeFi operations in a single desktop application
@@ -300,7 +151,7 @@ export default function Home() {
                   <div className="p-3 rounded-xl bg-secondary/20 mr-4">
                     <IconWallet size={24} className="text-secondary" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground">Professional Wallet</h3>
+                  <h3 className="text-xl font-bold text-foreground">Self-Custody Wallet</h3>
                 </div>
                 <p className="text-foreground/80 mb-4">Three wallet modes — encrypted keystore, Ledger hardware, and Vultisig MPC — with multi-asset support and enterprise-grade security.</p>
                 <ul className="space-y-2 text-sm text-foreground/70">
@@ -398,15 +249,103 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Wallet Modes Showcase */}
+      <section className="flex flex-col w-full items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20">
+        <div className="max-w-7xl w-full">
+          <div className="text-center mb-8 sm:mb-12 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-4 sm:mb-6">
+              Your Keys,{' '}
+              <span className="bg-gradient-primary bg-clip-text text-transparent">
+                Your Way
+              </span>
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed px-2">
+              Three wallet modes so you can pick the security model that matches how you operate — from encrypted local keystores to seedless MPC vaults.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-stretch">
+            {/* Encrypted Keystore */}
+            <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <CardBody className="p-6">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-xl bg-primary/20 mr-4">
+                    <IconLock size={28} className="text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">Encrypted Keystore</h3>
+                </div>
+                <p className="text-foreground/80 mb-4">Classic local keystore encrypted with your password. Keys stay on your device — no third party involved.</p>
+                <ul className="space-y-2 text-sm text-foreground/70">
+                  <li>• Mnemonic or keystore file import</li>
+                  <li>• Password-encrypted local storage</li>
+                  <li>• Works fully offline</li>
+                </ul>
+              </CardBody>
+            </Card>
+
+            {/* Ledger Hardware */}
+            <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <CardBody className="p-6">
+                <div className="flex items-center mb-4">
+                  <div className="p-3 rounded-xl bg-secondary/20 mr-4">
+                    <IconDeviceUsb size={28} className="text-secondary" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">Ledger Hardware</h3>
+                </div>
+                <p className="text-foreground/80 mb-4">Sign transactions on your Ledger device. Private keys never touch the host machine.</p>
+                <ul className="space-y-2 text-sm text-foreground/70">
+                  <li>• Ledger Nano S Plus and Nano X support</li>
+                  <li>• Custom derivation paths across chains</li>
+                  <li>• On-device approval for every signature</li>
+                </ul>
+              </CardBody>
+            </Card>
+
+            {/* Vultisig MPC — featured */}
+            <Card className="relative bg-gradient-to-br from-[#33E6BF]/10 to-[#0439C7]/25 backdrop-blur-sm border border-[#33E6BF]/40 shadow-glow-blue">
+              <div className="absolute -top-3 right-4 px-3 py-1 rounded-full bg-gradient-to-r from-[#33E6BF] to-[#0439C7] text-xs font-semibold text-white shadow-lg">
+                New
+              </div>
+              <CardBody className="p-6">
+                <div className="flex items-center mb-4">
+                  <div className="p-2 rounded-xl bg-white/10 mr-4 flex items-center justify-center" style={{ width: 52, height: 52 }}>
+                    <Image
+                      src="/vultisig-logo.svg"
+                      alt="Vultisig logo"
+                      width={36}
+                      height={34}
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">Vultisig MPC</h3>
+                </div>
+                <p className="text-foreground/80 mb-4">Seedless multi-party computation vaults. Approve transactions by scanning QR codes across distributed vault shares — no single seed phrase ever exists.</p>
+                <ul className="space-y-2 text-sm text-foreground/70">
+                  <li>• Seedless — no 12/24-word phrase to leak or lose</li>
+                  <li>• MPC signing across distributed vault shares</li>
+                  <li>• QR-based signing keeps shares air-gapped</li>
+                </ul>
+                <Link
+                  href="https://vultisig.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center mt-4 text-sm text-primary hover:text-primary/80 transition-colors"
+                >
+                  Learn more about Vultisig
+                  <IconExternalLink size={14} className="ml-1" />
+                </Link>
+              </CardBody>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Supported Chains Section */}
       <section className="flex flex-col w-full items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20">
         <div className="max-w-7xl w-full">
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-4 sm:mb-6">
-              Trade Across{' '}
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
-                20+ Blockchains
-              </span>
+              Trade Across Major Blockchains
             </h2>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed px-2">
               Native cross-chain support for major blockchains with deep liquidity and competitive rates
@@ -435,11 +374,11 @@ export default function Home() {
               { name: 'Radix', symbol: 'XRD', color: 'text-green-500' },
               { name: 'Tron', symbol: 'TRX', color: 'text-red-500' }
             ].map((chain, index) => (
-              <div key={index} className="flex flex-col items-center p-3 sm:p-4 md:p-6 rounded-xl sm:rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300 group">
-                <div className={`text-xl sm:text-2xl md:text-3xl font-bold ${chain.color} mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300`}>
+              <div key={index} className="flex flex-col items-center p-3 sm:p-4 md:p-6 rounded-xl sm:rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-colors duration-300">
+                <div className={`text-xl sm:text-2xl md:text-3xl font-bold ${chain.color} mb-1 sm:mb-2`}>
                   {chain.symbol}
                 </div>
-                <div className="text-xs sm:text-sm text-foreground/70">{chain.name}</div>
+                <div className="text-xs sm:text-sm text-foreground/80">{chain.name}</div>
               </div>
             ))}
           </div>
@@ -457,10 +396,7 @@ export default function Home() {
         <div className="max-w-7xl w-full">
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-4 sm:mb-6">
-              Enterprise-Grade{' '}
-              <span className="bg-gradient-accent bg-clip-text text-transparent">
-                Security & Privacy
-              </span>
+              Security & Privacy
             </h2>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed px-2">
               100% open-source with local execution ensuring your data never leaves your device
@@ -468,7 +404,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            <Card className="p-6 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+            <Card className="p-6 text-center transition-colors duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/10">
               <div className="p-3 rounded-xl bg-primary/20 mx-auto mb-4 w-fit">
                 <IconShield size={32} className="text-primary" />
               </div>
@@ -476,7 +412,7 @@ export default function Home() {
               <p className="text-foreground/80 text-sm">MIT licensed for complete transparency and community auditing</p>
             </Card>
 
-            <Card className="p-6 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+            <Card className="p-6 text-center transition-colors duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/10">
               <div className="p-3 rounded-xl bg-secondary/20 mx-auto mb-4 w-fit">
                 <IconWallet size={32} className="text-secondary" />
               </div>
@@ -484,7 +420,7 @@ export default function Home() {
               <p className="text-foreground/80 text-sm">Keystore, Ledger hardware, or Vultisig MPC — pick the security model that fits you</p>
             </Card>
 
-            <Card className="p-6 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+            <Card className="p-6 text-center transition-colors duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/10">
               <div className="p-3 rounded-xl bg-primary/20 mx-auto mb-4 w-fit">
                 <IconServer size={32} className="text-primary" />
               </div>
@@ -492,7 +428,7 @@ export default function Home() {
               <p className="text-foreground/80 text-sm">All operations run locally - no data ever leaves your device</p>
             </Card>
 
-            <Card className="p-6 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+            <Card className="p-6 text-center transition-colors duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/10">
               <div className="p-3 rounded-xl bg-secondary/20 mx-auto mb-4 w-fit">
                 <IconBrandGithub size={32} className="text-secondary" />
               </div>
@@ -525,10 +461,7 @@ export default function Home() {
         <div className="max-w-7xl w-full">
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-4 sm:mb-6">
-              Professional{' '}
-              <span className="bg-gradient-secondary bg-clip-text text-transparent">
-                Node Operations
-              </span>
+              Node Operations
             </h2>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed px-2">
               Complete THORChain and MayaChain node management with professional monitoring and control
@@ -595,41 +528,15 @@ export default function Home() {
         <div className="max-w-7xl w-full">
           <div className="text-center mb-8 sm:mb-12 md:mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-4 sm:mb-6">
-              Open Source{' '}
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
-                Community Driven
-              </span>
+              Built in the Open
             </h2>
             <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed px-2">
               Built by the community, for the community with active development and continuous innovation
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            <div className="text-center p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300">
-              <div className="text-4xl font-bold text-primary mb-2">1000+</div>
-              <div className="text-lg font-semibold text-foreground mb-1">GitHub Stars</div>
-              <div className="text-sm text-foreground/70">Active contributors</div>
-            </div>
-            <div className="text-center p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300">
-              <div className="text-4xl font-bold text-secondary mb-2">50+</div>
-              <div className="text-lg font-semibold text-foreground mb-1">Contributors</div>
-              <div className="text-sm text-foreground/70">Global developers</div>
-            </div>
-            <div className="text-center p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300">
-              <div className="text-4xl font-bold text-primary mb-2">7</div>
-              <div className="text-lg font-semibold text-foreground mb-1">Languages</div>
-              <div className="text-sm text-foreground/70">Multi-language support</div>
-            </div>
-            <div className="text-center p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300">
-              <div className="text-4xl font-bold text-secondary mb-2">24/7</div>
-              <div className="text-lg font-semibold text-foreground mb-1">Community</div>
-              <div className="text-sm text-foreground/70">Discord support</div>
-            </div>
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+            <Card className="p-8 text-center hover:shadow-2xl transition-shadow duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/10">
               <div className="p-3 rounded-xl bg-primary/20 mx-auto mb-4 w-fit">
                 <IconBrandGithub size={32} className="text-primary" />
               </div>
@@ -645,7 +552,7 @@ export default function Home() {
               </Button>
             </Card>
 
-            <Card className="p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+            <Card className="p-8 text-center hover:shadow-2xl transition-shadow duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/10">
               <div className="p-3 rounded-xl bg-secondary/20 mx-auto mb-4 w-fit">
                 <IconServer size={32} className="text-secondary" />
               </div>
@@ -661,7 +568,7 @@ export default function Home() {
               </Button>
             </Card>
 
-            <Card className="p-8 text-center hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+            <Card className="p-8 text-center hover:shadow-2xl transition-shadow duration-300 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/10">
               <div className="p-3 rounded-xl bg-primary/20 mx-auto mb-4 w-fit">
                 <IconTrendingUp size={32} className="text-primary" />
               </div>
@@ -680,114 +587,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Enhanced Download Section */}
-      <section className="flex flex-col w-full items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20">
-        <div className="max-w-7xl w-full">
-          <div className="text-center mb-8 sm:mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-4 sm:mb-6">
-              Download{' '}
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
-                AsgardEX Desktop
-              </span>
-            </h2>
-            <p className="text-xl md:text-2xl text-foreground/80 max-w-4xl mx-auto leading-relaxed mb-12">
-              Get started with professional cross-chain trading in minutes. Available for all major operating systems.
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              <div className="p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300 text-center">
-                <div className="text-6xl mb-4">🪟</div>
-                <h3 className="text-xl font-bold text-foreground mb-2">Windows</h3>
-                <p className="text-foreground/70 mb-6">Windows 10 or later</p>
-                <Button
-                  as={Link}
-                  href="/installer"
-                  className="bg-gradient-primary text-primary-foreground px-6 py-3 text-sm font-bold rounded-lg hover:shadow-glow hover:scale-105 transition-all duration-300 w-full">
-                  Download for Windows
-                </Button>
-              </div>
-
-              <div className="p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300 text-center">
-                <div className="text-6xl mb-4">🍎</div>
-                <h3 className="text-xl font-bold text-foreground mb-2">macOS</h3>
-                <p className="text-foreground/70 mb-6">macOS 10.15 or later</p>
-                <Button
-                  as={Link}
-                  href="/installer"
-                  className="bg-gradient-primary text-primary-foreground px-6 py-3 text-sm font-bold rounded-lg hover:shadow-glow hover:scale-105 transition-all duration-300 w-full">
-                  Download for Mac
-                </Button>
-              </div>
-
-              <div className="p-8 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 hover:scale-105 transition-all duration-300 text-center">
-                <div className="text-6xl mb-4">🐧</div>
-                <h3 className="text-xl font-bold text-foreground mb-2">Linux</h3>
-                <p className="text-foreground/70 mb-6">Ubuntu 18.04 or later</p>
-                <Button
-                  as={Link}
-                  href="/installer"
-                  className="bg-gradient-primary text-primary-foreground px-6 py-3 text-sm font-bold rounded-lg hover:shadow-glow hover:scale-105 transition-all duration-300 w-full">
-                  Download for Linux
-                </Button>
-              </div>
-            </div>
-
-            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-              <h3 className="text-xl font-bold text-foreground mb-4">Why Choose AsgardEX Desktop?</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-                <div className="flex items-start gap-3">
-                  <div className="p-1 rounded-full bg-primary/20 mt-1">
-                    <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">True Decentralization</h4>
-                    <p className="text-sm text-foreground/70">No web dependencies, runs entirely on your machine</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="p-1 rounded-full bg-primary/20 mt-1">
-                    <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">Professional Features</h4>
-                    <p className="text-sm text-foreground/70">Advanced trading tools and node management</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="p-1 rounded-full bg-secondary/20 mt-1">
-                    <div className="w-2 h-2 bg-secondary rounded-full"></div>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">Enterprise Security</h4>
-                    <p className="text-sm text-foreground/70">Hardware wallet support and local key storage</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="p-1 rounded-full bg-secondary/20 mt-1">
-                    <div className="w-2 h-2 bg-secondary rounded-full"></div>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-foreground">Transparent Fees</h4>
-                    <p className="text-sm text-foreground/70">Only 0.3% on swaps over $1,001 (30 bps affiliate fee)</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Final CTA Section */}
       <section className="flex flex-col w-full items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-12 sm:py-16 md:py-20 bg-gradient-subtle">
         <div className="max-w-4xl w-full text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-            Ready to Experience{' '}
+            Stop trusting bridges.{' '}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
-              Professional DeFi?
+              Trade on L1.
             </span>
           </h2>
           <p className="text-xl text-foreground/80 mb-8 leading-relaxed">
-            Join thousands of users already trading with the most advanced cross-chain desktop application
+            Native cross-chain swaps from your desktop. Self-custodial, open source, no KYC.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
