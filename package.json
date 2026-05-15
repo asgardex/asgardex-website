@@ -15,7 +15,7 @@
     "@asgardex/asgardex-theme": "^0.1.3",
     "@nextui-org/react": "2.6.11",
     "framer-motion": "12.0.3",
-    "next": "14.0.3",
+    "next": "15.5.16",
     "next-themes": "^0.3.0",
     "react": "18",
     "react-dom": "18",
