@@ -11,6 +11,7 @@ interface ReleaseItem {
   body: string
   summary: string
   linux: { title: string, url: string }
+  linuxFlatpak: { title: string, url: string }
   macSon: { title: string, url: string }
   macVent: { title: string, url: string }
   macSequ: { title: string, url: string }
@@ -175,6 +176,16 @@ export default async function InstallerPage() {
                 <IconDownload size={14} className="mr-1 sm:mr-2 sm:w-4 sm:h-4 md:w-5 md:h-5" />
                 Download for Linux
               </Button>
+              {latest?.linuxFlatpak?.url && (
+                <Button
+                  as={Link}
+                  href={latest.linuxFlatpak.url}
+                  size="sm"
+                  variant="bordered"
+                  className="w-full text-xs mb-2 sm:mb-3 md:mb-4">
+                  Flatpak
+                </Button>
+              )}
               {previous && (
                 <Selector label="Previous Versions" items={previous.linux} />
               )}
@@ -424,6 +435,25 @@ export default async function InstallerPage() {
                   <p className="text-foreground/80 text-xs sm:text-sm leading-relaxed">
                     AsgardEX charges a 0.3% affiliate fee only on swaps over $1,001.
                     Liquidity provision and smaller swaps have no additional fees beyond network costs.
+                  </p>
+                </div>
+              </div>
+              </CardBody>
+            </Card>
+
+            <Card className="bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/20">
+              <CardBody className="p-6">
+              <div className="flex items-start gap-3 sm:gap-4">
+                <div className="p-1.5 sm:p-2 rounded-full bg-primary/20 mt-1 flex-shrink-0">
+                  <IconQuestionMark size={16} className="text-primary sm:w-5 sm:h-5" />
+                </div>
+                <div>
+                  <h3 className="text-base sm:text-lg font-bold text-foreground mb-2 sm:mb-3">How do I run AsgardEX on Linux?</h3>
+                  <p className="text-foreground/80 text-xs sm:text-sm leading-relaxed">
+                    Two builds are available. The AppImage is portable and needs no installation &mdash; make it
+                    executable with <span className="font-mono">chmod +x ASGARDEX-*.AppImage</span> and run it directly.
+                    The Flatpak integrates with your desktop &mdash; install it with <span className="font-mono">flatpak
+                    install --user ASGARDEX-*.flatpak</span> (requires Flatpak) and launch it from your applications menu.
                   </p>
                 </div>
               </div>

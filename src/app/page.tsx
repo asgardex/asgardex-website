@@ -370,6 +370,7 @@ export default function Home() {
               { name: 'Cardano', symbol: 'ADA', color: 'text-blue-600' },
               { name: 'Ripple', symbol: 'XRP', color: 'text-blue-500' },
               { name: 'Solana', symbol: 'SOL', color: 'text-purple-500' },
+              { name: 'Sui', symbol: 'SUI', color: 'text-sky-400' },
               { name: 'Base', symbol: 'BASE', color: 'text-blue-400' },
               { name: 'Radix', symbol: 'XRD', color: 'text-green-500' },
               { name: 'Tron', symbol: 'TRX', color: 'text-red-500' }

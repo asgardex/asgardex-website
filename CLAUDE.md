@@ -31,7 +31,7 @@ Next.js 14 App Router site for the Asgardex desktop application landing page. Ty
 Three client-side widgets on the home page fetch from external APIs with 30-second polling intervals:
 - `LiveMetricsWidget.tsx` - THORChain via `gateway.liquify.com/chain/thorchain_midgard/v2/`
 - `LiveMayaMetricsWidget.tsx` - MayaChain via `midgard.mayachain.info/v2/`
-- `LiveChainflipMetricsWidget.tsx` - Chainflip via `chainflip-broker.io/`
+- `LiveChainflipMetricsWidget.tsx` - Chainflip via `reporting-service.chainflip.io/graphql`
 
 All three share `src/app/hooks/useLiveData.ts`, which centralises polling, rate limiting (5s floor), abort controllers, request timeouts, and retry. Widgets pass a `fetchFn(signal)` and render via `AnimatedCounter` for smooth transitions. Currency/RUNE formatting lives in `src/app/lib/formatters.ts`.
 

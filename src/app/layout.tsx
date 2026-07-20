@@ -9,10 +9,34 @@ import Footer from './ui/Footer'
 import AmbientBackground from './ui/AmbientBackground'
 import './globals.css'
 
+const siteName = 'AsgardEX'
+const description = 'A Seamless Multi-Chain L1 Exchange at Your Fingertips'
+const ogImage = {
+  url: '/pools-home.png',
+  width: 1024,
+  height: 554,
+  alt: 'AsgardEX desktop application interface'
+}
+
 export const metadata: Metadata = {
+  metadataBase: new URL('https://asgardex.com'),
   title: 'Asgardex',
-  description: 'A Seamless Multi-Chain L1 Exchange at Your Fingertips',
-  manifest: '/manifest.json'
+  description,
+  manifest: '/manifest.json',
+  openGraph: {
+    type: 'website',
+    siteName,
+    title: 'AsgardEX — Multi-Chain L1 Trading Desktop App',
+    description,
+    url: '/',
+    images: [ogImage]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AsgardEX — Multi-Chain L1 Trading Desktop App',
+    description,
+    images: [ogImage.url]
+  }
 }
 
 export default function RootLayout({
