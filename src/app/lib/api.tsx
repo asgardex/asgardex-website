@@ -134,18 +134,24 @@ const buildReleaseItem = (releaseItem: Release) => {
   const linuxAsset = releaseItem.assets.find((asset) =>
     asset.browser_download_url.endsWith('.AppImage')
   ) || defaultAsset
+  const linuxFlatpakAsset = releaseItem.assets.find((asset) =>
+    asset.browser_download_url.endsWith('.flatpak')
+  )
+  // macOS variants are left empty when a given build is absent (e.g. v1.45.0
+  // dropped the Ventura DMG) so the download page hides that button rather than
+  // falling back to the release listing page.
   const macAssetSon = releaseItem.assets.find((asset) =>
     asset.browser_download_url.includes('Sonoma') &&
     asset.browser_download_url.endsWith('.dmg')
-  ) || defaultAsset
+  )
   const macAssetVent = releaseItem.assets.find((asset) =>
     asset.browser_download_url.includes('Ventura') &&
     asset.browser_download_url.endsWith('.dmg')
-  ) || defaultAsset
+  )
   const macAssetSequ = releaseItem.assets.find((asset) =>
     asset.browser_download_url.includes('Sequoia') &&
     asset.browser_download_url.endsWith('.dmg')
-  ) || defaultAsset
+  )
   const windowsAsset = releaseItem.assets.find((asset) =>
     asset.browser_download_url.endsWith('.exe')
   ) || defaultAsset
@@ -159,17 +165,24 @@ const buildReleaseItem = (releaseItem: Release) => {
       title: baseTitle,
       url: safeDownloadUrl(linuxAsset.browser_download_url)
     },
+    // Flatpak is only present from v1.45.0 onward; older releases leave this
+    // empty so the download page can hide the option rather than link to a
+    // non-existent asset.
+    linuxFlatpak: {
+      title: baseTitle,
+      url: linuxFlatpakAsset ? safeDownloadUrl(linuxFlatpakAsset.browser_download_url) : ''
+    },
     macSon: {
       title: `Sonoma - ${baseTitle}`,
-      url: safeDownloadUrl(macAssetSon.browser_download_url)
+      url: macAssetSon ? safeDownloadUrl(macAssetSon.browser_download_url) : ''
     },
     macVent: {
       title: `Ventura - ${baseTitle}`,
-      url: safeDownloadUrl(macAssetVent.browser_download_url)
+      url: macAssetVent ? safeDownloadUrl(macAssetVent.browser_download_url) : ''
     },
     macSequ: {
       title: `Sequoia - ${baseTitle}`,
-      url: safeDownloadUrl(macAssetSequ.browser_download_url)
+      url: macAssetSequ ? safeDownloadUrl(macAssetSequ.browser_download_url) : ''
     },
     windows: {
       title: baseTitle,
@@ -204,6 +217,7 @@ export async function getAsgardexReleases() {
         body: '',
         summary: 'Latest features and improvements',
         linux: { title: '', url: '' },
+        linuxFlatpak: { title: '', url: '' },
         macSon: { title: '', url: '' },
         macVent: { title: '', url: '' },
         macSequ: { title: '', url: '' },

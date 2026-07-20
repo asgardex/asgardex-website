@@ -19,14 +19,15 @@ const steps = [
   {
     id: 2,
     title: 'Install & Launch',
-    description: 'Follow the installation wizard',
-    content: "Run the downloaded installer file to begin the installation process. The installation wizard will guide you through the setup. On macOS, you may need to allow the app in System Preferences > Security & Privacy. On Windows, Windows Defender might show a warning - click 'Run anyway' as the app is digitally signed.",
+    description: 'Follow the installation steps for your platform',
+    content: "Run the downloaded file to install AsgardEX. On Windows, launch the .exe installer; if SmartScreen warns, click 'More info' then 'Run anyway' as the app is digitally signed. On macOS, open the .dmg and drag AsgardEX to Applications; if Gatekeeper blocks it, allow the app under System Settings > Privacy & Security. On Linux, either make the AppImage executable and run it, or install the Flatpak build.",
     screenshot: '/getting-started/installation-wizard.png',
     tips: [
-      "On macOS: Right-click and select 'Open' if blocked by Gatekeeper",
-      "On Windows: Click 'More info' then 'Run anyway' if Windows Defender blocks it",
-      'Make sure you have administrator privileges for installation',
-      'Verify the digital signature for security'
+      "Windows: click 'More info' then 'Run anyway' if SmartScreen blocks the signed installer",
+      "macOS: right-click the app and choose 'Open' if Gatekeeper blocks it the first time",
+      'Linux (AppImage): run chmod +x ASGARDEX-*.AppImage, then launch it with ./ASGARDEX-*.AppImage',
+      'Linux (Flatpak): install with flatpak install --user ASGARDEX-*.flatpak, then start it from your applications menu (requires Flatpak installed)',
+      'Make sure you have the necessary permissions to install applications'
     ]
   },
   {
