@@ -40,10 +40,10 @@
   resolved "https://registry.yarnpkg.com/@alloc/quick-lru/-/quick-lru-5.2.0.tgz#7bf68b20c0a350f936915fcae06f58e32007ce30"
   integrity sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==
 
-"@asgardex/asgardex-theme@^0.1.3":
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/@asgardex/asgardex-theme/-/asgardex-theme-0.1.3.tgz#4c3681e9adeae2620c245a761610adac01f6c038"
-  integrity sha512-BzuqJ7XFRIwXMoZ15kp7+vd2sPtFgVSZr8YKM4arbxz3LBot/HG55WX6qNbDV9vPnKZaK8mnp7cLGn/OXupQVA==
+"@asgardex/asgardex-theme@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@asgardex/asgardex-theme/-/asgardex-theme-0.2.0.tgz#20c989112c0fd03fa017350c04bddd1829bfd8fd"
+  integrity sha512-ZslPASYg65myhg3E4TtAO2VpU6niH53otZhU1xTQ0h3D0NRawgIXEKZXKJEnewYuVWonojAiGu7HwcMqI6A78w==
   dependencies:
     polished "^3.6.3"
 
