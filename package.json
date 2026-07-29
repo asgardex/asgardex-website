@@ -12,7 +12,7 @@
     "perf": "node scripts/performance-check.js"
   },
   "dependencies": {
-    "@asgardex/asgardex-theme": "^0.1.3",
+    "@asgardex/asgardex-theme": "^0.2.0",
     "@nextui-org/react": "2.6.11",
     "framer-motion": "12.0.3",
     "next": "15.5.21",
