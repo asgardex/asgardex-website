@@ -83,7 +83,7 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
             <Link href="/installer" className={primaryCtaClass}>
               <IconDownload size={20} className="mr-2" />
-              Download AsgardEX
+              Download Asgardex
             </Link>
             <Link href="/getting-started" className={secondaryCtaClass}>
               <IconBook size={20} className="mr-2" />
@@ -279,7 +279,7 @@ export default function Home() {
               <Image
                 className="rounded-xl border border-solid border-white/20"
                 src="/pools-home.png"
-                alt="AsgardEX desktop application interface showing advanced trading features"
+                alt="Asgardex desktop application interface showing advanced trading features"
                 width={1024}
                 height={554}
                 priority
@@ -482,7 +482,7 @@ export default function Home() {
               <Image
                 className="rounded-xl border border-solid border-white/20"
                 src="/wallets-management-home.png"
-                alt="AsgardEX wallet management showing hardware wallet integration"
+                alt="Asgardex wallet management showing hardware wallet integration"
                 width={1000}
                 height={200}
                 loading="lazy"
