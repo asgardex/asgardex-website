@@ -16,7 +16,7 @@ export default function Footer() {
             <div className="flex items-center mb-4 ">
               <Image
                 src={'/asgardex-logo.avif'}
-                alt="AsgardEX logo"
+                alt="Asgardex logo"
                 width={40}
                 height={40}
               />
@@ -25,12 +25,12 @@ export default function Footer() {
                   play.className,
                   'font-bold text-foreground text-2xl uppercase ml-3'
                 )}>
-                AsgardEX
+                Asgardex
               </h1>
             </div>
           </Link>
           <p className="text-sm sm:text-base leading-relaxed mb-4">
-            Stay updated with the latest from AsgardEX. Follow us on X, join the
+            Stay updated with the latest from Asgardex. Follow us on X, join the
             conversation on Discord, and explore our code on GitHub. For
             detailed insights and updates, don’t forget to check out also{' '}
             <Link
@@ -51,7 +51,7 @@ export default function Footer() {
             .
           </p>
           <p className="text-sm sm:text-base leading-relaxed">
-            The AsgardEX Team oversees the operation of this website. Our
+            The Asgardex Team oversees the operation of this website. Our
             repository is maintained on GitHub under{' '}
             <Link
               href="https://github.com/asgardex/asgardex-website"
@@ -68,7 +68,7 @@ export default function Footer() {
             <Link href={'https://twitter.com/asgardex'} target="_blank" rel="noopener noreferrer">
               <Image
                 src={'/x-black-logo.avif'}
-                alt="AsgardEX on X"
+                alt="Asgardex on X"
                 width={24}
                 height={24}
                 className="dark:invert"
@@ -77,7 +77,7 @@ export default function Footer() {
             <Link href={'https://discord.gg/AZDtabWFJF'} target="_blank" rel="noopener noreferrer">
               <Image
                 src={'/discord-black-logo.avif'}
-                alt="AsgardEX Discord"
+                alt="Asgardex Discord"
                 width={24}
                 height={24}
                 className="dark:invert"
@@ -89,7 +89,7 @@ export default function Footer() {
               rel="noopener noreferrer">
               <Image
                 src={'/github-black-logo.avif'}
-                alt="AsgardEX GitHub"
+                alt="Asgardex GitHub"
                 width={24}
                 height={24}
                 className="dark:invert"
@@ -115,7 +115,7 @@ export default function Footer() {
             </Link>
           </div>
           <p className="text-xs font-normal text-asgardex-dark-600">
-            AsgardEX © {new Date().getFullYear()}. All rights reserved.
+            Asgardex © {new Date().getFullYear()}. All rights reserved.
           </p>
         </div>
       </nav>

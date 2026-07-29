@@ -20,7 +20,7 @@ const ogImage = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://asgardex.com'),
-  title: 'AsgardEX',
+  title: 'Asgardex',
   description,
   manifest: '/manifest.json',
   openGraph: {

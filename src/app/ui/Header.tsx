@@ -31,7 +31,7 @@ export default function Header() {
             <div className="flex items-center">
               <Image
                 src={'/asgardex-logo.avif'}
-                alt="AsgardEX logo"
+                alt="Asgardex logo"
                 width={32}
                 height={32}
                 className="sm:w-10 sm:h-10"
@@ -41,7 +41,7 @@ export default function Header() {
                   play.className,
                   'font-bold text-foreground text-lg sm:text-2xl uppercase ml-2 sm:ml-3'
                 )}>
-                AsgardEX
+                Asgardex
               </h1>
             </div>
           </Link>
