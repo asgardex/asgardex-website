@@ -1,3 +1,5 @@
+const path = require('path')
+
 /** @type {import('next').NextConfig} */
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -33,12 +35,18 @@ const securityHeaders = [
 ]
 
 const nextConfig = {
+  // Pin tracing root to this package so a parent-directory lockfile
+  // (e.g. ~/yarn.lock) is not treated as the monorepo root.
+  outputFileTracingRoot: path.join(__dirname),
   experimental: {
-    optimizePackageImports: ['framer-motion', 'react-icons'],
+    optimizePackageImports: ['framer-motion', 'react-icons', '@tabler/icons-react'],
     webVitalsAttribution: ['CLS', 'LCP'],
   },
   images: {
     formats: ['image/webp', 'image/avif'],
+    // Allow default 75 plus 85 used by home page screenshots (Next.js 16 requires
+    // every quality= prop value to be listed here).
+    qualities: [75, 85],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 60,

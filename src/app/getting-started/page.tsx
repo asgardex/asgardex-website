@@ -9,7 +9,7 @@ const steps = [
     id: 1,
     title: 'Download AsgardEX',
     description: 'Get the latest version for your operating system',
-    content: 'Download the AsgardEX desktop application from our secure servers. Choose the version that matches your operating system (Windows, macOS, or Linux).',
+    content: 'Download the AsgardEX desktop application from GitHub Releases. Choose the version that matches your operating system (Windows, macOS, or Linux).',
     screenshot: '/getting-started/download-page.png',
     action: {
       text: 'Download Now',
