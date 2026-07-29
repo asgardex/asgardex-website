@@ -134,6 +134,9 @@ const buildReleaseItem = (releaseItem: Release) => {
   const linuxAsset = releaseItem.assets.find((asset) =>
     asset.browser_download_url.endsWith('.AppImage')
   ) || defaultAsset
+  const linuxDebAsset = releaseItem.assets.find((asset) =>
+    asset.browser_download_url.endsWith('.deb')
+  )
   const linuxFlatpakAsset = releaseItem.assets.find((asset) =>
     asset.browser_download_url.endsWith('.flatpak')
   )
@@ -161,9 +164,15 @@ const buildReleaseItem = (releaseItem: Release) => {
     html_url: htmlUrl,
     body: releaseItem.body,
     summary: extractReleaseSummary(releaseItem.body),
+    // Primary Linux download is the portable AppImage (works across distros).
     linux: {
       title: baseTitle,
       url: safeDownloadUrl(linuxAsset.browser_download_url)
+    },
+    // .deb is published for Debian/Ubuntu-family installs; hide when missing.
+    linuxDeb: {
+      title: baseTitle,
+      url: linuxDebAsset ? safeDownloadUrl(linuxDebAsset.browser_download_url) : ''
     },
     // Flatpak is only present from v1.45.0 onward; older releases leave this
     // empty so the download page can hide the option rather than link to a
@@ -217,6 +226,7 @@ export async function getAsgardexReleases() {
         body: '',
         summary: 'Latest features and improvements',
         linux: { title: '', url: '' },
+        linuxDeb: { title: '', url: '' },
         linuxFlatpak: { title: '', url: '' },
         macSon: { title: '', url: '' },
         macVent: { title: '', url: '' },
