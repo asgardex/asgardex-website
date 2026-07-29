@@ -16,7 +16,7 @@ export default function Footer() {
             <div className="flex items-center mb-4 ">
               <Image
                 src={'/asgardex-logo.avif'}
-                alt={'Asgardex logotipe'}
+                alt="Asgardex logo"
                 width={40}
                 height={40}
               />
@@ -52,7 +52,7 @@ export default function Footer() {
           </p>
           <p className="text-sm sm:text-base leading-relaxed">
             The Asgardex Team oversees the operation of this website. Our
-            repository is maintained on Github under{' '}
+            repository is maintained on GitHub under{' '}
             <Link
               href="https://github.com/asgardex/asgardex-website"
               target="_blank"
@@ -68,7 +68,7 @@ export default function Footer() {
             <Link href={'https://twitter.com/asgardex'} target="_blank" rel="noopener noreferrer">
               <Image
                 src={'/x-black-logo.avif'}
-                alt={'Asgardex X'}
+                alt="Asgardex on X"
                 width={24}
                 height={24}
                 className="dark:invert"
@@ -77,7 +77,7 @@ export default function Footer() {
             <Link href={'https://discord.gg/AZDtabWFJF'} target="_blank" rel="noopener noreferrer">
               <Image
                 src={'/discord-black-logo.avif'}
-                alt={'Asgardex Discord'}
+                alt="Asgardex Discord"
                 width={24}
                 height={24}
                 className="dark:invert"
@@ -89,7 +89,7 @@ export default function Footer() {
               rel="noopener noreferrer">
               <Image
                 src={'/github-black-logo.avif'}
-                alt={'Asgardex GitHub'}
+                alt="Asgardex GitHub"
                 width={24}
                 height={24}
                 className="dark:invert"
@@ -98,7 +98,7 @@ export default function Footer() {
             <Link href={'https://thorchain.org/'} target="_blank" rel="noopener noreferrer">
               <Image
                 src={'/thorchain-black-logo.avif'}
-                alt={'Thorchain logotipe'}
+                alt="THORChain logo"
                 width={24}
                 height={24}
                 className="dark:invert"
@@ -107,7 +107,7 @@ export default function Footer() {
             <Link href={'https://www.mayaprotocol.com/'} target="_blank" rel="noopener noreferrer">
               <Image
                 src={'/maya-black-logo.avif'}
-                alt={'Maya Protocol logotipe'}
+                alt="Maya Protocol logo"
                 width={24}
                 height={24}
                 className="dark:invert"

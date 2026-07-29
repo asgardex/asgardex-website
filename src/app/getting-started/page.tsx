@@ -7,9 +7,9 @@ import { IconDownload, IconArrowRight, IconCheck, IconShield, IconWallet, IconBu
 const steps = [
   {
     id: 1,
-    title: 'Download AsgardEX',
+    title: 'Download Asgardex',
     description: 'Get the latest version for your operating system',
-    content: 'Download the AsgardEX desktop application from our secure servers. Choose the version that matches your operating system (Windows, macOS, or Linux).',
+    content: 'Download the Asgardex desktop application from GitHub Releases. Choose the version that matches your operating system (Windows, macOS, or Linux).',
     screenshot: '/getting-started/download-page.png',
     action: {
       text: 'Download Now',
@@ -20,7 +20,7 @@ const steps = [
     id: 2,
     title: 'Install & Launch',
     description: 'Follow the installation steps for your platform',
-    content: "Run the downloaded file to install AsgardEX. On Windows, launch the .exe installer; if SmartScreen warns, click 'More info' then 'Run anyway' as the app is digitally signed. On macOS, open the .dmg and drag AsgardEX to Applications; if Gatekeeper blocks it, allow the app under System Settings > Privacy & Security. On Linux, use the AppImage, Deb, Flatpak, or the community AUR package on Arch.",
+    content: "Run the downloaded file to install Asgardex. On Windows, launch the .exe installer; if SmartScreen warns, click 'More info' then 'Run anyway' as the app is digitally signed. On macOS, open the .dmg and drag Asgardex to Applications; if Gatekeeper blocks it, allow the app under System Settings > Privacy & Security. On Linux, use the AppImage, Deb, Flatpak, or the community AUR package on Arch.",
     screenshot: '/getting-started/installation-wizard.png',
     tips: [
       "Windows: click 'More info' then 'Run anyway' if SmartScreen blocks the signed installer",
@@ -36,7 +36,7 @@ const steps = [
     id: 3,
     title: 'Create or Import Wallet',
     description: 'Set up your wallet securely',
-    content: 'Choose to create a new wallet or import an existing one. AsgardEX supports multiple wallet types including mnemonic phrases, keystore files, Ledger hardware wallets, and Vultisig MPC vaults.',
+    content: 'Choose to create a new wallet or import an existing one. Asgardex supports multiple wallet types including mnemonic phrases, keystore files, Ledger hardware wallets, and Vultisig MPC vaults.',
     screenshot: '/getting-started/wallet-setup.png',
     tips: [
       'Write down your mnemonic phrase and store it safely',
@@ -49,7 +49,7 @@ const steps = [
     id: 4,
     title: 'Use Ledger-Only Mode',
     description: 'Maximum security without keystore files',
-    content: 'For the highest security, AsgardEX can be used entirely with your Ledger hardware wallet without creating any keystore files. This mode ensures your private keys never touch your computer, providing enterprise-grade security for all transactions.',
+    content: 'For the highest security, Asgardex can be used entirely with your Ledger hardware wallet without creating any keystore files. This mode ensures your private keys never touch your computer, providing enterprise-grade security for all transactions.',
     screenshot: '/getting-started/use-ledger-only.png',
     tips: [
       'Connect your Ledger device before starting',
@@ -62,7 +62,7 @@ const steps = [
     id: 5,
     title: 'Connect to Networks',
     description: 'Access multi-chain protocols',
-    content: 'AsgardEX automatically connects to THORChain, MayaChain, and Chainflip networks. You can view network status and switch between different protocols in the network selector.',
+    content: 'Asgardex automatically connects to THORChain, MayaChain, and Chainflip networks. You can view network status and switch between different protocols in the network selector.',
     screenshot: '/getting-started/network-selection.png'
   },
   {
@@ -100,12 +100,12 @@ export default function GettingStartedPage() {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 text-foreground leading-tight">
             Getting Started with{' '}
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              AsgardEX
+              Asgardex
             </span>
           </h1>
 
           <p className="text-lg sm:text-xl md:text-2xl text-foreground/80 max-w-3xl mx-auto leading-relaxed mb-8">
-            Learn how to set up and use AsgardEX for secure cross-chain trading.
+            Learn how to set up and use Asgardex for secure cross-chain trading.
             Follow our comprehensive guide to get started in minutes.
           </p>
 

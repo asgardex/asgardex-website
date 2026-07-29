@@ -31,7 +31,7 @@ export default function Header() {
             <div className="flex items-center">
               <Image
                 src={'/asgardex-logo.avif'}
-                alt="Asgardex logotipe"
+                alt="Asgardex logo"
                 width={32}
                 height={32}
                 className="sm:w-10 sm:h-10"

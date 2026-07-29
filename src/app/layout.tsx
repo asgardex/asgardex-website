@@ -9,13 +9,13 @@ import Footer from './ui/Footer'
 import AmbientBackground from './ui/AmbientBackground'
 import './globals.css'
 
-const siteName = 'AsgardEX'
+const siteName = 'Asgardex'
 const description = 'A Seamless Multi-Chain L1 Exchange at Your Fingertips'
 const ogImage = {
   url: '/pools-home.png',
   width: 1024,
   height: 554,
-  alt: 'AsgardEX desktop application interface'
+  alt: 'Asgardex desktop application interface'
 }
 
 export const metadata: Metadata = {
@@ -26,14 +26,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName,
-    title: 'AsgardEX — Multi-Chain L1 Trading Desktop App',
+    title: 'Asgardex — Multi-Chain L1 Trading Desktop App',
     description,
     url: '/',
     images: [ogImage]
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AsgardEX — Multi-Chain L1 Trading Desktop App',
+    title: 'Asgardex — Multi-Chain L1 Trading Desktop App',
     description,
     images: [ogImage.url]
   }

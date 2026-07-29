@@ -35,7 +35,7 @@ export default async function InstallerPage() {
           <h1 className="text-xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold mb-3 sm:mb-6 md:mb-8 text-foreground leading-tight px-1 sm:px-2">
             Download{' '}
             <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              AsgardEX Desktop
+              Asgardex Desktop
             </span>
           </h1>
 
@@ -70,7 +70,7 @@ export default async function InstallerPage() {
               </span>
             </h2>
             <p className="text-sm sm:text-lg md:text-xl text-foreground/80 max-w-4xl mx-auto leading-relaxed px-2 sm:px-4">
-              Download AsgardEX for your operating system and start trading across 20+ blockchains
+              Download Asgardex for your operating system and start trading across 20+ blockchains
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-12 md:mb-16">
@@ -374,7 +374,7 @@ export default async function InstallerPage() {
               </span>
             </h2>
             <p className="text-sm sm:text-base md:text-lg lg:text-xl text-foreground/80 max-w-4xl mx-auto leading-relaxed px-4">
-              Track AsgardEX adoption across different operating systems and releases over time
+              Track Asgardex adoption across different operating systems and releases over time
             </p>
           </div>
           <DownloadChart variant="area" height={400} showStats={true} />
@@ -404,9 +404,9 @@ export default async function InstallerPage() {
                   <IconQuestionMark size={16} className="text-primary sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base sm:text-lg font-bold text-foreground mb-2 sm:mb-3">Is AsgardEX safe to use?</h3>
+                  <h3 className="text-base sm:text-lg font-bold text-foreground mb-2 sm:mb-3">Is Asgardex safe to use?</h3>
                   <p className="text-foreground/80 text-xs sm:text-sm leading-relaxed">
-                    Yes, AsgardEX is 100% open-source, community-audited, and uses industry-standard security practices.
+                    Yes, Asgardex is 100% open-source, community-audited, and uses industry-standard security practices.
                     Your keys remain local and are never shared with external services.
                   </p>
                 </div>
@@ -440,7 +440,7 @@ export default async function InstallerPage() {
                 <div>
                   <h3 className="text-base sm:text-lg font-bold text-foreground mb-2 sm:mb-3">Do I need to create an account?</h3>
                   <p className="text-foreground/80 text-xs sm:text-sm leading-relaxed">
-                    No! AsgardEX is completely decentralized. You can create or import wallets locally without any registration or KYC requirements.
+                    No! Asgardex is completely decentralized. You can create or import wallets locally without any registration or KYC requirements.
                   </p>
                 </div>
               </div>
@@ -456,7 +456,7 @@ export default async function InstallerPage() {
                 <div>
                   <h3 className="text-base sm:text-lg font-bold text-foreground mb-2 sm:mb-3">What are the fees?</h3>
                   <p className="text-foreground/80 text-xs sm:text-sm leading-relaxed">
-                    AsgardEX charges a 0.3% affiliate fee only on swaps over $1,001.
+                    Asgardex charges a 0.3% affiliate fee only on swaps over $1,001.
                     Liquidity provision and smaller swaps have no additional fees beyond network costs.
                   </p>
                 </div>
@@ -471,7 +471,7 @@ export default async function InstallerPage() {
                   <IconQuestionMark size={16} className="text-primary sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base sm:text-lg font-bold text-foreground mb-2 sm:mb-3">How do I run AsgardEX on Linux?</h3>
+                  <h3 className="text-base sm:text-lg font-bold text-foreground mb-2 sm:mb-3">How do I run Asgardex on Linux?</h3>
                   <p className="text-foreground/80 text-xs sm:text-sm leading-relaxed">
                     Several options are available. The AppImage is portable and needs no installation &mdash; make it
                     executable with <span className="font-mono">chmod +x ASGARDEX-*.AppImage</span> and run it directly.
