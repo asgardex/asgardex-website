@@ -11,6 +11,7 @@ interface ReleaseItem {
   body: string
   summary: string
   linux: { title: string, url: string }
+  linuxDeb: { title: string, url: string }
   linuxFlatpak: { title: string, url: string }
   macSon: { title: string, url: string }
   macVent: { title: string, url: string }
@@ -164,7 +165,7 @@ export default async function InstallerPage() {
                 />
               </div>
               <h3 className="text-base sm:text-lg md:text-xl font-bold text-foreground mb-1 sm:mb-2">Linux</h3>
-              <p className="text-xs sm:text-sm md:text-base text-foreground/70 mb-2 sm:mb-3 md:mb-4">Ubuntu 18.04 or later</p>
+              <p className="text-xs sm:text-sm md:text-base text-foreground/70 mb-2 sm:mb-3 md:mb-4">AppImage, Deb &amp; Flatpak</p>
               {latest && (
                 <p className="text-xs sm:text-sm text-foreground/60 mb-3 sm:mb-4 md:mb-6">Version {latest.tag_name}</p>
               )}
@@ -174,16 +175,26 @@ export default async function InstallerPage() {
                 href={latest?.linux?.url || latest?.html_url || '#'}
                 className="w-full mb-2 sm:mb-3 md:mb-4 bg-gradient-primary text-primary-foreground px-3 sm:px-4 md:px-6 py-2 sm:py-3 text-xs sm:text-sm md:text-base font-bold rounded-lg hover:shadow-glow hover:scale-105 transition-all duration-300">
                 <IconDownload size={14} className="mr-1 sm:mr-2 sm:w-4 sm:h-4 md:w-5 md:h-5" />
-                Download for Linux
+                Download AppImage
               </Button>
-              <div className="flex gap-2 mb-2 sm:mb-3 md:mb-4">
+              <div className="flex flex-wrap gap-2 mb-2 sm:mb-3 md:mb-4">
+                {latest?.linuxDeb?.url && (
+                  <Button
+                    as={Link}
+                    href={latest.linuxDeb.url}
+                    size="sm"
+                    variant="bordered"
+                    className="flex-1 min-w-[4.5rem] text-xs">
+                    Deb
+                  </Button>
+                )}
                 {latest?.linuxFlatpak?.url && (
                   <Button
                     as={Link}
                     href={latest.linuxFlatpak.url}
                     size="sm"
                     variant="bordered"
-                    className="flex-1 text-xs">
+                    className="flex-1 min-w-[4.5rem] text-xs">
                     Flatpak
                   </Button>
                 )}
@@ -192,7 +203,7 @@ export default async function InstallerPage() {
                   href="https://aur.archlinux.org/packages/asgardex-appimage"
                   size="sm"
                   variant="bordered"
-                  className="flex-1 text-xs"
+                  className="flex-1 min-w-[4.5rem] text-xs"
                   target="_blank"
                   rel="noopener noreferrer">
                   Arch (AUR)
@@ -462,8 +473,10 @@ export default async function InstallerPage() {
                 <div>
                   <h3 className="text-base sm:text-lg font-bold text-foreground mb-2 sm:mb-3">How do I run AsgardEX on Linux?</h3>
                   <p className="text-foreground/80 text-xs sm:text-sm leading-relaxed">
-                    Three options are available. The AppImage is portable and needs no installation &mdash; make it
+                    Several options are available. The AppImage is portable and needs no installation &mdash; make it
                     executable with <span className="font-mono">chmod +x ASGARDEX-*.AppImage</span> and run it directly.
+                    Debian/Ubuntu users can install the <span className="font-mono">.deb</span> package with{' '}
+                    <span className="font-mono">sudo dpkg -i ASGARDEX-*.deb</span> (or open it in their package manager).
                     The Flatpak integrates with your desktop &mdash; install it with <span className="font-mono">flatpak
                     install --user ASGARDEX-*.flatpak</span> (requires Flatpak) and launch it from your applications menu.
                     Arch Linux users can install the community-maintained{' '}

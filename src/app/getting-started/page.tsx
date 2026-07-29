@@ -20,12 +20,13 @@ const steps = [
     id: 2,
     title: 'Install & Launch',
     description: 'Follow the installation steps for your platform',
-    content: "Run the downloaded file to install AsgardEX. On Windows, launch the .exe installer; if SmartScreen warns, click 'More info' then 'Run anyway' as the app is digitally signed. On macOS, open the .dmg and drag AsgardEX to Applications; if Gatekeeper blocks it, allow the app under System Settings > Privacy & Security. On Linux, use the AppImage, Flatpak, or the community AUR package on Arch.",
+    content: "Run the downloaded file to install AsgardEX. On Windows, launch the .exe installer; if SmartScreen warns, click 'More info' then 'Run anyway' as the app is digitally signed. On macOS, open the .dmg and drag AsgardEX to Applications; if Gatekeeper blocks it, allow the app under System Settings > Privacy & Security. On Linux, use the AppImage, Deb, Flatpak, or the community AUR package on Arch.",
     screenshot: '/getting-started/installation-wizard.png',
     tips: [
       "Windows: click 'More info' then 'Run anyway' if SmartScreen blocks the signed installer",
       "macOS: right-click the app and choose 'Open' if Gatekeeper blocks it the first time",
       'Linux (AppImage): run chmod +x ASGARDEX-*.AppImage, then launch it with ./ASGARDEX-*.AppImage',
+      'Linux (Deb): install with sudo dpkg -i ASGARDEX-*.deb on Debian/Ubuntu (or open the .deb in your package manager)',
       'Linux (Flatpak): install with flatpak install --user ASGARDEX-*.flatpak, then start it from your applications menu (requires Flatpak installed)',
       'Linux (Arch/AUR): yay -S asgardex-appimage (community-maintained package of the official AppImage)',
       'Make sure you have the necessary permissions to install applications'
