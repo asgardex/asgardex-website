@@ -176,16 +176,28 @@ export default async function InstallerPage() {
                 <IconDownload size={14} className="mr-1 sm:mr-2 sm:w-4 sm:h-4 md:w-5 md:h-5" />
                 Download for Linux
               </Button>
-              {latest?.linuxFlatpak?.url && (
+              <div className="flex gap-2 mb-2 sm:mb-3 md:mb-4">
+                {latest?.linuxFlatpak?.url && (
+                  <Button
+                    as={Link}
+                    href={latest.linuxFlatpak.url}
+                    size="sm"
+                    variant="bordered"
+                    className="flex-1 text-xs">
+                    Flatpak
+                  </Button>
+                )}
                 <Button
                   as={Link}
-                  href={latest.linuxFlatpak.url}
+                  href="https://aur.archlinux.org/packages/asgardex-appimage"
                   size="sm"
                   variant="bordered"
-                  className="w-full text-xs mb-2 sm:mb-3 md:mb-4">
-                  Flatpak
+                  className="flex-1 text-xs"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Arch (AUR)
                 </Button>
-              )}
+              </div>
               {previous && (
                 <Selector label="Previous Versions" items={previous.linux} />
               )}
@@ -450,10 +462,19 @@ export default async function InstallerPage() {
                 <div>
                   <h3 className="text-base sm:text-lg font-bold text-foreground mb-2 sm:mb-3">How do I run AsgardEX on Linux?</h3>
                   <p className="text-foreground/80 text-xs sm:text-sm leading-relaxed">
-                    Two builds are available. The AppImage is portable and needs no installation &mdash; make it
+                    Three options are available. The AppImage is portable and needs no installation &mdash; make it
                     executable with <span className="font-mono">chmod +x ASGARDEX-*.AppImage</span> and run it directly.
                     The Flatpak integrates with your desktop &mdash; install it with <span className="font-mono">flatpak
                     install --user ASGARDEX-*.flatpak</span> (requires Flatpak) and launch it from your applications menu.
+                    Arch Linux users can install the community-maintained{' '}
+                    <Link
+                      href="https://aur.archlinux.org/packages/asgardex-appimage"
+                      className="text-primary underline underline-offset-2 hover:opacity-80"
+                      target="_blank"
+                      rel="noopener noreferrer">
+                      asgardex-appimage
+                    </Link>
+                    {' '}package from the AUR (for example with <span className="font-mono">yay -S asgardex-appimage</span>).
                   </p>
                 </div>
               </div>
