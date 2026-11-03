@@ -40,7 +40,6 @@ const chains: Array<{
   { name: 'Litecoin', symbol: 'LTC', color: 'text-gray-400' },
   { name: 'Bitcoin Cash', symbol: 'BCH', color: 'text-green-400' },
   { name: 'Dash', symbol: 'DASH', color: 'text-blue-500' },
-  { name: 'Kuji', symbol: 'KUJI', color: 'text-pink-400' },
   { name: 'Arbitrum', symbol: 'ARB', color: 'text-blue-300' },
   { name: 'Maya', symbol: 'MAYA', color: 'text-teal-400', logo: '/maya-black-logo.avif' },
   { name: 'Zcash', symbol: 'ZEC', color: 'text-yellow-300' },
@@ -50,7 +49,8 @@ const chains: Array<{
   { name: 'Sui', symbol: 'SUI', color: 'text-sky-400' },
   { name: 'Base', symbol: 'BASE', color: 'text-blue-400' },
   { name: 'Radix', symbol: 'XRD', color: 'text-green-500' },
-  { name: 'Tron', symbol: 'TRX', color: 'text-red-500' }
+  { name: 'Tron', symbol: 'TRX', color: 'text-red-500' },
+  { name: 'NEAR', symbol: 'NEAR', color: 'text-emerald-400' }
 ]
 
 const blurDataURL =
@@ -174,7 +174,7 @@ export default function Home() {
               </div>
               <p className="text-foreground/80 mb-4">
                 Cross-chain swaps across 20+ blockchains including BTC, ETH, SOL, SUI, ADA, XRP, AVAX, BSC,
-                COSMOS, TRON, ZEC, XRD, and more with real-time price discovery.
+                COSMOS, TRON, ZEC, XRD, NEAR, and more with real-time price discovery.
               </p>
               <ul className="space-y-2 text-sm text-foreground/70">
                 <li>• Advanced trading features with trade assets</li>
